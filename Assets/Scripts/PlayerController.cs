@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour
     public float movePower = 1f;
     public float jumpPower = 1f;
 
+    private int maxJump = 1;
+    public int jumpCount = 0;
+
+    Transform tf;
+
     Rigidbody2D rigid;
 
     Vector3 movement;
@@ -17,41 +22,49 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigid = gameObject.GetComponent<Rigidbody2D>();
+        tf = transform;
     }
 
     //Graphic & Input Updates	
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            isJumping = true;
-        }
+        Jump();
+
     }
 
     //Physics engine Updates
     void FixedUpdate()
     {
         Move();
-        Jump();
+        
     }
 
 
     void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
+        Vector2 mousePos = Input.mousePosition;
 
+        Vector3 target = Camera.main.ScreenToWorldPoint(mousePos);
         // 마우스 움직임 따라 고개 움직이게 수정해야함.
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             moveVelocity = Vector3.left;
 
-            transform.localScale = new Vector3(-6, 6, 6);
         }
 
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
             moveVelocity = Vector3.right;
-            transform.localScale = new Vector3(6, 6, 6);
+        }
+
+        if (target.x < tf.position.x)
+        {
+            tf.localScale = new Vector3(-6, 6, 6);
+        }
+        else
+        {
+            tf.localScale = new Vector3(6, 6, 6);
         }
 
         transform.position += moveVelocity * movePower * Time.deltaTime;
@@ -59,20 +72,28 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (!isJumping)
-            return;
+        if (Input.GetButtonDown("Jump")&&isJumping)
+        {
+            //Prevent Velocity amplification.
+            rigid.velocity = Vector2.zero;
 
-        //Prevent Velocity amplification.
-        rigid.velocity = Vector2.zero;
+            Vector2 jumpVelocity = new Vector2(0, jumpPower);
 
-        Vector2 jumpVelocity = new Vector2(0, jumpPower);
-        rigid.AddForce(jumpVelocity, ForceMode2D.Impulse);
-
-        isJumping = false;
+            rigid.AddForce(jumpVelocity, ForceMode2D.Impulse);
+            if (++jumpCount >= maxJump)
+            {
+                isJumping = false;
+            }
+        }
+            
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.layer == 7)
+        {
+            jumpCount = 0;
+            isJumping = true;
+        }
     }
 }
