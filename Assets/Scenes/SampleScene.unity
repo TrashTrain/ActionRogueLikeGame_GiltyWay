@@ -679,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePower: 5
   jumpPower: 60
+  jumpCount: 0
 --- !u!1 &962356564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,7 +4031,6 @@ Transform:
   - {fileID: 1863659282}
   - {fileID: 809358165}
   - {fileID: 1049238873}
-  - {fileID: 275884860}
   - {fileID: 878540112}
   - {fileID: 1236285138}
   m_Father: {fileID: 0}
@@ -4203,6 +4203,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2129915835 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 957715092232003453, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+  m_PrefabInstance: {fileID: 553686888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2134598192
 GameObject:
   m_ObjectHideFlags: 0
@@ -4309,7 +4314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followSpeed: 3
-  player: {fileID: 895402234}
+  player: {fileID: 2129915835}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4318,5 +4323,4 @@ SceneRoots:
   - {fileID: 895402234}
   - {fileID: 972712902}
   - {fileID: 1298808121}
-  - {fileID: 4185401823688397891}
   - {fileID: 553686888}
