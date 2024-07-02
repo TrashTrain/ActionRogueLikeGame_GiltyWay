@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8523396735874830601}
   - component: {fileID: -80933006638994656}
   - component: {fileID: 7841122043851217031}
+  - component: {fileID: 1627776641907042396}
   m_Layer: 8
   m_Name: ShootingRateItem
   m_TagString: Untagged
@@ -144,4 +145,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootingRate: 0
-  character: {fileID: 0}
+--- !u!114 &1627776641907042396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742025454285687382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487db005365094b04b4bf43e4f642a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.1
+  frequency: 4
