@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
 
         Vector3 target = Camera.main.ScreenToWorldPoint(mousePos);
-        // ¸¶¿ì½º ¿òÁ÷ÀÓ µû¶ó °í°³ ¿òÁ÷ÀÌ°Ô ¼öÁ¤ÇØ¾ßÇÔ.
+        // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½.
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             moveVelocity = Vector3.left;
@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += moveVelocity * speed * Time.deltaTime;
+
 
     }
 
