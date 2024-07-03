@@ -60,11 +60,11 @@ public class PlayerController : MonoBehaviour
 
         if (target.x < tf.position.x)
         {
-            tf.localScale = new Vector3(-6, 6, 6);
+            tf.localScale = new Vector3(-0.6f, 0.6f, 0.6f);
         }
         else
         {
-            tf.localScale = new Vector3(6, 6, 6);
+            tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         }
 
         transform.position += moveVelocity * movePower * Time.deltaTime;
