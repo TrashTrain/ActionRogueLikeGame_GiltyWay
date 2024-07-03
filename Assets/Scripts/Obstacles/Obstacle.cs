@@ -1,27 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public abstract class Obstacle : MonoBehaviour
 {
-    protected abstract void takeItem();
     public GameObject player;
+    protected abstract void faceObstacle();
     
     protected void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer == 6)
         {
-            takeItem();
-            Destroy(gameObject);
+            faceObstacle();
         }
     }
 }
-
-
-
-
-
-    
-
-

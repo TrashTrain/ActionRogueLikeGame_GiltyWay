@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9a2b42b42944cc1a7c457e4c241777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4294640866864706599, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
   speed: 0
 --- !u!61 &6385860990547047230
 BoxCollider2D:

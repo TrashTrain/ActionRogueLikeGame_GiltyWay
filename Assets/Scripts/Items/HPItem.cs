@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class HPItem : Item
 {
-    public int energy = 2;
+    public int hp = 2;
     //public PlayerController player;
     
     protected override void takeItem()
     {
         Debug.Log("Get HP Item");
-        player.GetComponent<PlayerController>().hp += energy;
+        player.GetComponent<PlayerController>().hp += hp;
     }
 }
