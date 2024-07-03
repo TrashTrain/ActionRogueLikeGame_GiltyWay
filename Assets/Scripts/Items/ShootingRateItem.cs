@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ShootingRateItem : Item
 {
-    public float ShootingRate;
-    //public PlayerController player;
+    public float shootingRate = 0.2f;
+    public GunController gun; 
     
     protected override void takeItem()
     {
         Debug.Log("Get Shooting Rate Item");
-        //player.GetComponent<PlayerController>().shootingRate += ShootingRate;
+        gun.GetComponent<GunController>().maxRate += shootingRate;
     }
 }

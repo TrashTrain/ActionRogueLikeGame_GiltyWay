@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeedItem : Item
 {
     public float speed = 2f;
-    //public PlayerController player;
+    
     
     protected override void takeItem()
     {

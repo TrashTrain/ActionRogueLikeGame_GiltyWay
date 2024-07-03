@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce8302b0adef492eb16fc4805d07911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CP: 0
+  player: {fileID: 4294640866864706599, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+  CP: 2
 --- !u!61 &6926489977157513556
 BoxCollider2D:
   m_ObjectHideFlags: 0

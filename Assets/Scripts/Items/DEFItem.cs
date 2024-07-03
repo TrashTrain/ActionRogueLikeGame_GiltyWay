@@ -5,7 +5,7 @@ using UnityEngine;
 public class DEFItem : Item
 {
     public int DEF = 2;
-    //public PlayerController player;
+    
     
     protected override void takeItem()
     {
