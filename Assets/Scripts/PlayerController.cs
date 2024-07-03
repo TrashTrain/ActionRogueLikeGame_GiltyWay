@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private int maxhp = 50;
     //player Status
     public int hp = 50;
     public int atk = 10;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public int jumpCount = 0;
 
     Transform tf;
+
+    public Animator ani;
 
     Rigidbody2D rigid;
 
@@ -56,16 +59,21 @@ public class PlayerController : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
 
         Vector3 target = Camera.main.ScreenToWorldPoint(mousePos);
-        // ���콺 ������ ���� �� �����̰� �����ؾ���.
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
+            ani.SetBool("IsRunning", true);
             moveVelocity = Vector3.left;
 
         }
 
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
+            ani.SetBool("IsRunning", true);
             moveVelocity = Vector3.right;
+        }
+        else
+        {
+            ani.SetBool("IsRunning", false);
         }
 
         if (target.x < tf.position.x)
@@ -78,8 +86,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += moveVelocity * speed * Time.deltaTime;
-
-
     }
 
     void Jump()
@@ -107,5 +113,25 @@ public class PlayerController : MonoBehaviour
             jumpCount = 0;
             isJumping = true;
         }
+        if(collision.gameObject.layer == 9)
+        {
+            Vector2 attackedVelocity = Vector2.zero;
+            if (collision.gameObject.transform.position.x > transform.position.x)
+                attackedVelocity = new Vector2(-15f, 20f);
+            else
+                attackedVelocity = new Vector2(15f, 20f);
+            
+            rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
+            if(hp >=0)
+                hp -= 2;
+            else
+            {
+                Debug.Log("GameOver");
+                Destroy(gameObject);
+            }
+            //var atkmove = new Vector2((-(collision.transform.position.x - transform.position.x) * 15f), 10f);
+            //rigid.AddForce(atkmove, ForceMode2D.Impulse);
+        }
     }
+    
 }
