@@ -22,6 +22,8 @@ public class GreenSlimeAI : MonoBehaviour
     
     public float moveSpeed = 2f;
     public float attackSpeed = 3f;
+    public float hp = 10f;
+    
     public float CliffRaycastDistance = 1f; // 발판 끝을 감지하기 위한 레이캐스트 거리
     public float ObstacleRaycastDistance = 1f;
     public LayerMask groundLayer;
@@ -133,6 +135,11 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.layer == 10)
+        {
+            GetHurt(2);
+        }
+        
         if (other.gameObject.layer == 9)
         {
             TurnBack();
@@ -162,8 +169,34 @@ public class GreenSlimeAI : MonoBehaviour
         currentState = SlimeState.Attack;
     }
 
-    public void EndAttack()
+    public void IdleEvent()
     {
         currentState = SlimeState.Idle;
+    }
+
+    public void GetHurt(float damage)
+    {
+        if (damage <= 0) return;
+        
+        animator.SetTrigger("Hurt");
+        currentState = SlimeState.Hurt;
+        
+        this.hp -= damage;
+        
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        currentState = SlimeState.Death;
+        animator.SetTrigger("Death");
+    }
+
+    public void DestoryEvent()
+    {
+        Destroy(this.gameObject);
     }
 }
