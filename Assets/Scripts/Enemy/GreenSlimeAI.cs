@@ -169,7 +169,7 @@ public class GreenSlimeAI : MonoBehaviour
         currentState = SlimeState.Attack;
     }
 
-    public void EndAttack()
+    public void IdleEvent()
     {
         currentState = SlimeState.Idle;
     }
@@ -179,6 +179,8 @@ public class GreenSlimeAI : MonoBehaviour
         if (damage <= 0) return;
         
         animator.SetTrigger("Hurt");
+        currentState = SlimeState.Hurt;
+        
         this.hp -= damage;
         
         if (hp <= 0)
