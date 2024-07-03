@@ -1,24 +1,15 @@
 using UnityEngine;
 
-public enum SlimeState
-{
-    Idle,
-    Attack,
-    Hurt,
-    Death
-}
-
-public class GreenSlimeAI : MonoBehaviour
+public class RedSlimeAI : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
     public Animator animator;
     
-    public float moveSpeed = 2f;
-    public float attackSpeed = 3f;
-    public float hp = 10f;
-
-    private float attackDamage = 1f;
+    public float moveSpeed = 6f;
+    public float attackSpeed = 9f;
+    public float hp = 30f;
+    private float attackDamage = 3f;
     public float AttackDamage => attackDamage;
     
     public float CliffRaycastDistance = 1f; // 발판 끝을 감지하기 위한 레이캐스트 거리
@@ -72,7 +63,7 @@ public class GreenSlimeAI : MonoBehaviour
                 //rb.velocity = new Vector2(0, rb.velocity.y);
             }
             
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            //rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         if (DetectObstacle() == true)
@@ -198,7 +189,7 @@ public class GreenSlimeAI : MonoBehaviour
         animator.SetTrigger("Death");
     }
 
-    public void DestoryEvent()
+    public void DestroyEvent()
     {
         Destroy(this.gameObject);
     }
