@@ -86,7 +86,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.41666666
-    functionName: EndAttack
+    functionName: IdleEvent
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 72f40a30844f940a597536c1fb7a2ad6, type: 3}
     floatParameter: 0
