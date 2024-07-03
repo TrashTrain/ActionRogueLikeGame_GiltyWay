@@ -11,9 +11,10 @@ public abstract class GunController : MonoBehaviour
     protected float angle;
 
     protected Vector2 mousePos;
-
+    
     protected Vector2 target;
-
+    private float shootingRate = 0f;
+    public float maxRate = 0.4f;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public abstract class GunController : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target = mousePos - (Vector2)transform.position;
+        shootingRate += Time.deltaTime;
 
         transform.right = (Vector3)target.normalized;
         if (target.x < 0)
@@ -33,12 +35,12 @@ public abstract class GunController : MonoBehaviour
         {
             transform.Rotate(0f, 0f, 0f);
         }
-        Debug.Log("target" + target);
-        Debug.Log("mousePos" + mousePos);
+        
         //마우스 입력 총알 발사
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && shootingRate > maxRate)
         {
             Fire();
+            shootingRate = 0f;
         }
     }
     public void Init(Transform pos)

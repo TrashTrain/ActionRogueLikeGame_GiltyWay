@@ -43,11 +43,6 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-        
-    }
 
     private IEnumerator EffectDelayedDestroy(ParticleSystem vfx)
     {
