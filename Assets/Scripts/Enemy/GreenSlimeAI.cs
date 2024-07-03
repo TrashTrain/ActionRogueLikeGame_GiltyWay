@@ -135,6 +135,8 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (currentState == SlimeState.Death) return;
+        
         if (other.gameObject.layer == 10)
         {
             GetHurt(2);
@@ -148,6 +150,8 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (currentState == SlimeState.Death) return;
+        
         if (other.CompareTag("Player"))
         {
             playerPos = other.transform.position;
@@ -158,6 +162,8 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (currentState == SlimeState.Death) return;
+        
         if (other.CompareTag("Player"))
         {
             playerPos = Vector2.zero;
