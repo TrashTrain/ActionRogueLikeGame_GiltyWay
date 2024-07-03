@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private int maxhp = 50;
     //player Status
     public int hp = 50;
     public int atk = 10;
@@ -118,9 +119,22 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.gameObject.layer == 9)
         {
-            hp -= 2;
-            var atkmove = new Vector2((-(collision.transform.position.x - transform.position.x) * 15f), 10f);
-            rigid.AddForce(atkmove, ForceMode2D.Impulse);
+            Vector2 attackedVelocity = Vector2.zero;
+            if (collision.gameObject.transform.position.x > transform.position.x)
+                attackedVelocity = new Vector2(-15f, 20f);
+            else
+                attackedVelocity = new Vector2(15f, 20f);
+            
+            rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
+            if(hp >=0)
+                hp -= 2;
+            else
+            {
+                Debug.Log("GameOver");
+                Destroy(gameObject);
+            }
+            //var atkmove = new Vector2((-(collision.transform.position.x - transform.position.x) * 15f), 10f);
+            //rigid.AddForce(atkmove, ForceMode2D.Impulse);
         }
     }
     
