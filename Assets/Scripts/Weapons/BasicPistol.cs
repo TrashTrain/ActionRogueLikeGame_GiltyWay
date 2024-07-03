@@ -6,6 +6,7 @@ public class BasicPistol : GunController
 {
     public GameObject bullet;
     public float bulletSpeed = 0f;
+    
 
     //마우스 입력 총알 발사
     protected override void Fire()

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movePower = 1f;
+    //player Status
+    public int hp = 50;
+    public int atk = 10;
+    public int def = 10;
+    public float speed = 5f;
+
     public float jumpPower = 1f;
 
     private int maxJump = 1;
@@ -29,7 +34,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Jump();
-
+        // fall Charactor
+        if(transform.position.y <= -7)
+        {
+            Destroy(gameObject);
+            Debug.Log("GameOver");
+        }
     }
 
     //Physics engine Updates
@@ -46,7 +56,7 @@ public class PlayerController : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
 
         Vector3 target = Camera.main.ScreenToWorldPoint(mousePos);
-        // ¸¶¿ì½º ¿òÁ÷ÀÓ µû¶ó °í°³ ¿òÁ÷ÀÌ°Ô ¼öÁ¤ÇØ¾ßÇÔ.
+        // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½.
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             moveVelocity = Vector3.left;
@@ -67,7 +77,9 @@ public class PlayerController : MonoBehaviour
             tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         }
 
-        transform.position += moveVelocity * movePower * Time.deltaTime;
+        transform.position += moveVelocity * speed * Time.deltaTime;
+
+
     }
 
     void Jump()
