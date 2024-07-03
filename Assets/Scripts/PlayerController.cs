@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public int hp = 50;
     public int atk = 10;
     public int def = 10;
-    public float speed = 1f;
+    public float speed = 5f;
 
     public float jumpPower = 1f;
 
@@ -34,7 +34,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Jump();
-
+        // fall Charactor
+        if(transform.position.y <= -7)
+        {
+            Destroy(gameObject);
+            Debug.Log("GameOver");
+        }
     }
 
     //Physics engine Updates

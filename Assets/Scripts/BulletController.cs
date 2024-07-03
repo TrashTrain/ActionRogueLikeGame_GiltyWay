@@ -35,9 +35,18 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // 적과 충돌시 충돌판정
+        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 7)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        
     }
 
     private IEnumerator EffectDelayedDestroy(ParticleSystem vfx)
