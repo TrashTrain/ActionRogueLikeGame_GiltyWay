@@ -189,11 +189,12 @@ public class GreenSlimeAI : MonoBehaviour
 
     public void Die()
     {
-        animator.SetTrigger("Die");
+        currentState = SlimeState.Death;
+        animator.SetTrigger("Death");
     }
 
     public void DestoryEvent()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
