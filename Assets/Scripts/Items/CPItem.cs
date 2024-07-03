@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CPItem : Item
 {
-    public float CP;
+    public int CP = 2;
+    //public PlayerController player;
     
     protected override void takeItem()
     {
         Debug.Log("Get CP Item");
+        player.GetComponent<PlayerController>().atk += CP;
     }
 }
