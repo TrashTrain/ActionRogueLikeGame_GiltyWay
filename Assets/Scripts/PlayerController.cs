@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     Transform tf;
 
+    public Animator ani;
+
     Rigidbody2D rigid;
 
     Vector3 movement;
@@ -56,16 +58,24 @@ public class PlayerController : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
 
         Vector3 target = Camera.main.ScreenToWorldPoint(mousePos);
+
+        
         // 마우스 움직임 따라 고개 움직이게 수정해야함.
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
+            ani.SetBool("IsRunning", true);
             moveVelocity = Vector3.left;
 
         }
 
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
+            ani.SetBool("IsRunning", true);
             moveVelocity = Vector3.right;
+        }
+        else
+        {
+            ani.SetBool("IsRunning", false);
         }
 
         if (target.x < tf.position.x)
@@ -78,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += moveVelocity * speed * Time.deltaTime;
-
+        
     }
 
     void Jump()
@@ -106,5 +116,12 @@ public class PlayerController : MonoBehaviour
             jumpCount = 0;
             isJumping = true;
         }
+        if(collision.gameObject.layer == 9)
+        {
+            hp -= 2;
+            var atkmove = new Vector2((-(collision.transform.position.x - transform.position.x) * 15f), 10f);
+            rigid.AddForce(atkmove, ForceMode2D.Impulse);
+        }
     }
+    
 }

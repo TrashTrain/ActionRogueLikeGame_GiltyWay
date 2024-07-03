@@ -9,6 +9,8 @@ public class CameraFollower : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (player == null) return;
+
         Vector3 camPos = new Vector3(player.position.x + 3f, 0f, -10f);
 
         if (player.position.x + 3f < 0f)
