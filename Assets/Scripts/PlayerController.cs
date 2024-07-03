@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movePower = 1f;
+    //player Status
+    public int hp = 50;
+    public int atk = 10;
+    public int def = 10;
+    public float speed = 1f;
+
     public float jumpPower = 1f;
 
     private int maxJump = 1;
@@ -67,7 +72,8 @@ public class PlayerController : MonoBehaviour
             tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         }
 
-        transform.position += moveVelocity * movePower * Time.deltaTime;
+        transform.position += moveVelocity * speed * Time.deltaTime;
+
     }
 
     void Jump()
