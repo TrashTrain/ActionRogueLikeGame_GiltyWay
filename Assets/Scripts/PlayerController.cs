@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int maxhp = 50;
+    private float maxhp = 50;
     //player Status
-    public int hp = 50;
-    public int atk = 10;
-    public int def = 10;
+    public float hp = 50;
+    public float atk = 10;
+    public float def = 10;
     public float speed = 5f;
 
     public float jumpPower = 1f;
@@ -80,14 +80,14 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("IsRunning", false);
         }
 
-        if (target.x < tf.position.x)
-        {
-            tf.localScale = new Vector3(-0.6f, 0.6f, 0.6f);
-        }
-        else
-        {
-            tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-        }
+        //if (target.x < tf.position.x)
+        //{
+        //    tf.localScale = new Vector3(-0.6f, 0.6f, 0.6f);
+        //}
+        //else
+        //{
+        //    tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+        //}
 
         transform.position += moveVelocity * speed * Time.deltaTime;
     }
@@ -110,6 +110,31 @@ public class PlayerController : MonoBehaviour
             
     }
 
+    public void GetDamaged(float dmg, GameObject enemy)
+    {
+        if (!isUnBeatTime)
+        {
+            Vector2 attackedVelocity = Vector2.zero;
+            if (enemy.gameObject.transform.position.x > transform.position.x)
+                attackedVelocity = new Vector2(-15f, 20f);
+            else
+                attackedVelocity = new Vector2(15f, 20f);
+
+            rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
+        }
+        if (hp >= 0)
+        {
+            hp -= dmg;
+            isUnBeatTime = true;
+            StartCoroutine("UnBeatTime");
+        }
+        else
+        {
+            Debug.Log("GameOver");
+            Destroy(gameObject);
+        }
+    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 7)
@@ -117,29 +142,7 @@ public class PlayerController : MonoBehaviour
             jumpCount = 0;
             isJumping = true;
         }
-        if(collision.gameObject.layer == 9 && !isUnBeatTime)
-        {
-            Vector2 attackedVelocity = Vector2.zero;
-            if (collision.gameObject.transform.position.x > transform.position.x)
-                attackedVelocity = new Vector2(-15f, 20f);
-            else
-                attackedVelocity = new Vector2(15f, 20f);
-            
-            rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
-            if(hp >= 0)
-            {
-                hp -= 2;
-                isUnBeatTime = true;
-                StartCoroutine("UnBeatTime");
-            }
-            else
-            {
-                Debug.Log("GameOver");
-                Destroy(gameObject);
-            }
-            //var atkmove = new Vector2((-(collision.transform.position.x - transform.position.x) * 15f), 10f);
-            //rigid.AddForce(atkmove, ForceMode2D.Impulse);
-        }
+        
     }
     
     IEnumerator UnBeatTime()
