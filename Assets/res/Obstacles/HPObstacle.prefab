@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 2
   player: {fileID: 0}
+  bounceForce: 0
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!61 &8210713039365288489
 BoxCollider2D:
   m_ObjectHideFlags: 0

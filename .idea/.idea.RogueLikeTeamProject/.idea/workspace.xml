@@ -6,26 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/CPItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/CPItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/DEFItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/DEFItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/HPItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/HPItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/ShootingRateItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/ShootingRateItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/SpeedItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/SpeedItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/HPObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/HPObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/SpeedObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/SpeedObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/res/Items/CPItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Items/CPItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/res/Items/DEFItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Items/DEFItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/res/Items/HpItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Items/HpItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/res/Items/ShootingRateItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Items/ShootingRateItem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/res/Items/SpeedItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Items/SpeedItem.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/res/Obstacles/HPObstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Obstacles/HPObstacle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/res/Obstacles/SpeedObstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Obstacles/SpeedObstacle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/res/Obstacles/SpeedObstacle.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/res/Obstacles/SpeedObstacle.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +116,7 @@
       <workItem from="1719980306686" duration="7392000" />
       <workItem from="1719991551026" duration="278000" />
       <workItem from="1719991938934" duration="3326000" />
-      <workItem from="1720065909577" duration="5938000" />
+      <workItem from="1720065909577" duration="8292000" />
     </task>
     <servers />
   </component>
