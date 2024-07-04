@@ -21,7 +21,6 @@ public class CPItem : Item
 
     IEnumerator IncreaseCP(PlayerController player)
     {
-
         float playerAtk = player.atk;
         player.atk += CP;
 
