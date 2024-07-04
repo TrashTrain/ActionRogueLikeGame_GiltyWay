@@ -110,8 +110,6 @@ public class RedSlimeAI : MonoBehaviour
     {
         // 이동
         rb.transform.Translate( moveSpeed * Time.deltaTime * moveDirection);
-        
-        
     }
 
     private void JumpAttack()
@@ -128,15 +126,16 @@ public class RedSlimeAI : MonoBehaviour
     {
         if (currentState == SlimeState.Death) return;
         
-        if (other.gameObject.layer == 10)
-        {
-            GetHurt(2);
-        }
+        // if (other.gameObject.layer == 10)
+        // {
+        //     GetHurt(2);
+        // }
         
         if (other.gameObject.layer == 9)
         {
             TurnBack();
         }
+        
     }
 
     public void IdleEvent()
@@ -144,7 +143,7 @@ public class RedSlimeAI : MonoBehaviour
         currentState = SlimeState.Idle;
     }
 
-    public void GetHurt(float damage)
+    public void GetDamaged(float damage)
     {
         if (damage <= 0) return;
         

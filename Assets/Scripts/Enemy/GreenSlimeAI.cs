@@ -136,10 +136,10 @@ public class GreenSlimeAI : MonoBehaviour
     {
         if (currentState == SlimeState.Death) return;
         
-        if (other.gameObject.layer == 10)
-        {
-            GetHurt(2);
-        }
+        // if (other.gameObject.layer == 10)
+        // {
+        //     GetHurt(2);
+        // }
         
         if (other.gameObject.layer == 9)
         {
@@ -152,7 +152,7 @@ public class GreenSlimeAI : MonoBehaviour
         currentState = SlimeState.Idle;
     }
 
-    public void GetHurt(float damage)
+    public void GetDamaged(float damage)
     {
         if (damage <= 0) return;
         

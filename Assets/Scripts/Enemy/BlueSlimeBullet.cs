@@ -36,7 +36,6 @@ public class BlueSlimeBullet : MonoBehaviour
     {
         currentState = SlimeState.Death;
         animator.SetTrigger("Death");
-        
     }
 
     public void DestroyEvent()
