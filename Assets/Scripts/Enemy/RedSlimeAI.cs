@@ -9,14 +9,17 @@ public class RedSlimeAI : MonoBehaviour
     public float moveSpeed = 6f;
     public float attackSpeed = 9f;
     public float hp = 30f;
+    
     private float attackDamage = 3f;
     public float AttackDamage => attackDamage;
     
     public float CliffRaycastDistance = 1f; // 발판 끝을 감지하기 위한 레이캐스트 거리
     public float ObstacleRaycastDistance = 1f;
+    public float recognizeRadius = 6f;
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
     
-    private Vector2 playerPos;
+    private Transform playerTransform;
     
     private SlimeState currentState = SlimeState.Idle;
     private Vector2 moveDirection = Vector2.right; // 초기 이동 방향
@@ -27,8 +30,14 @@ public class RedSlimeAI : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         groundLayer = 1 << 7;
+        playerLayer = 1 << 6;
     }
 
+    private void Start()
+    {
+        Invoke("CheckPlayer", 1f);
+    }
+    
     private void Update()
     {
         switch (currentState)
@@ -56,11 +65,6 @@ public class RedSlimeAI : MonoBehaviour
             if (currentState == SlimeState.Idle)
             {
                 TurnBack();
-            }
-
-            if (currentState == SlimeState.Attack)
-            {
-                //rb.velocity = new Vector2(0, rb.velocity.y);
             }
             
             //rb.velocity = new Vector2(0, rb.velocity.y);
@@ -112,10 +116,9 @@ public class RedSlimeAI : MonoBehaviour
 
     private void JumpAttack()
     {
-        if (playerPos != null && playerPos.magnitude > 0.01f)
+        if (playerTransform.position != null && playerTransform.position.magnitude > 0.01f)
         {
-            animator.SetTrigger("Attack");
-            Vector2 attackDir = new Vector2(playerPos.x - rb.position.x, playerPos.y - rb.position.y).normalized;
+            Vector2 attackDir = new Vector2(playerTransform.position.x - rb.position.x, playerTransform.position.y - rb.position.y).normalized;
             sprite.flipX = (attackDir.x < 0) ? true : false;
             rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
         }
@@ -134,33 +137,6 @@ public class RedSlimeAI : MonoBehaviour
         {
             TurnBack();
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (currentState == SlimeState.Death) return;
-        
-        if (other.CompareTag("Player"))
-        {
-            playerPos = other.transform.position;
-            animator.SetTrigger("Attack");
-            StartAttack();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (currentState == SlimeState.Death) return;
-        
-        if (other.CompareTag("Player"))
-        {
-            playerPos = Vector2.zero;
-        }
-    }
-    
-    public void StartAttack()
-    {
-        currentState = SlimeState.Attack;
     }
 
     public void IdleEvent()
@@ -192,5 +168,25 @@ public class RedSlimeAI : MonoBehaviour
     public void DestroyEvent()
     {
         Destroy(this.gameObject);
+    }
+    
+    public void CheckPlayer()
+    {
+        if (currentState == SlimeState.Death) return;
+        
+        Collider2D collider = Physics2D.OverlapCircle(rb.position, recognizeRadius, playerLayer);
+        if (collider == null && currentState == SlimeState.Attack)
+        {
+            animator.SetBool("Attack", false);
+            currentState = SlimeState.Idle;
+        }
+        else if(collider != null && currentState == SlimeState.Idle)
+        {
+            playerTransform = collider.transform;
+            animator.SetBool("Attack", true);
+            currentState = SlimeState.Attack;
+        }
+        
+        Invoke("CheckPlayer", 1f);
     }
 }

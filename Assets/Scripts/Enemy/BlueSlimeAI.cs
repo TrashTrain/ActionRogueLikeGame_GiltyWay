@@ -1,29 +1,24 @@
+using System;
 using UnityEngine;
 
-public enum SlimeState
+public class BlueSlimeAI : MonoBehaviour
 {
-    Idle,
-    Attack,
-    Hurt,
-    Death
-}
-
-public class GreenSlimeAI : MonoBehaviour
-{
+    public BlueSlimeBullet blueSlimeBullet;
+    
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
     public Animator animator;
     
-    public float moveSpeed = 2f;
-    public float attackSpeed = 3f;
-    public float hp = 10f;
-
-    private float attackDamage = 1f;
+    public float moveSpeed = 6f;
+    public float attackSpeed = 9f;
+    public float hp = 20f;
+    
+    private float attackDamage = 3f;
     public float AttackDamage => attackDamage;
     
     public float CliffRaycastDistance = 1f; // 발판 끝을 감지하기 위한 레이캐스트 거리
     public float ObstacleRaycastDistance = 1f;
-    public float recognizeRadius = 3f;
+    public float recognizeRadius = 8f;
     public LayerMask groundLayer;
     public LayerMask playerLayer;
     
@@ -45,7 +40,7 @@ public class GreenSlimeAI : MonoBehaviour
     {
         Invoke("CheckPlayer", 1f);
     }
-    
+
     private void Update()
     {
         switch (currentState)
@@ -118,17 +113,18 @@ public class GreenSlimeAI : MonoBehaviour
     {
         // 이동
         rb.transform.Translate( moveSpeed * Time.deltaTime * moveDirection);
-        
-        
     }
 
-    private void JumpAttack()
+    private void ShootAttack()
     {
-        if (playerTransform.position != null && (playerTransform.position.magnitude > 0.01f))
+        if (playerTransform.position != null && playerTransform.position.magnitude > 0.01f)
         {
             Vector2 attackDir = new Vector2(playerTransform.position.x - rb.position.x, playerTransform.position.y - rb.position.y).normalized;
             sprite.flipX = (attackDir.x < 0) ? true : false;
-            rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+
+            BlueSlimeBullet bullet = Instantiate(blueSlimeBullet, transform.position+Vector3.up, Quaternion.identity);
+            
+            bullet.gameObject.GetComponent<Rigidbody2D>().AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
         }
     }
 
@@ -146,7 +142,7 @@ public class GreenSlimeAI : MonoBehaviour
             TurnBack();
         }
     }
-
+    
     public void IdleEvent()
     {
         currentState = SlimeState.Idle;
@@ -173,11 +169,11 @@ public class GreenSlimeAI : MonoBehaviour
         animator.SetTrigger("Death");
     }
 
-    public void DestoryEvent()
+    public void DestroyEvent()
     {
         Destroy(this.gameObject);
     }
-    
+
     public void CheckPlayer()
     {
         if (currentState == SlimeState.Death) return;
@@ -185,13 +181,13 @@ public class GreenSlimeAI : MonoBehaviour
         Collider2D collider = Physics2D.OverlapCircle(rb.position, recognizeRadius, playerLayer);
         if (collider == null && currentState == SlimeState.Attack)
         {
-            animator.SetBool("Attack", false);
+            animator.SetTrigger("Idle");
             currentState = SlimeState.Idle;
         }
         else if(collider != null && currentState == SlimeState.Idle)
         {
             playerTransform = collider.transform;
-            animator.SetBool("Attack", true);
+            animator.SetTrigger("Attack");
             currentState = SlimeState.Attack;
         }
         
