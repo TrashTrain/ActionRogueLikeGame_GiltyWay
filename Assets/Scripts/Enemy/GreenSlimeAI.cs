@@ -148,7 +148,7 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
 
         if (other.gameObject.layer == 6)
         {
-            other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, Vector2.zero);
+            other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, Vector2.up * 10);
         }
     }
 
@@ -160,6 +160,7 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
     public void GetDamaged(float damage)
     {
         if (damage <= 0) return;
+        if (currentState == SlimeState.Death) return;
         
         animator.SetTrigger("Hurt");
         currentState = SlimeState.Hurt;
