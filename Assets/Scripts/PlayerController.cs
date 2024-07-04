@@ -80,14 +80,14 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("IsRunning", false);
         }
 
-        //if (target.x < tf.position.x)
-        //{
-        //    tf.localScale = new Vector3(-0.6f, 0.6f, 0.6f);
-        //}
-        //else
-        //{
-        //    tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-        //}
+        if (target.x < tf.position.x)
+        {
+            tf.localScale = new Vector3(-0.6f, 0.6f, 0.6f);
+        }
+        else
+        {
+            tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+        }
 
         transform.position += moveVelocity * speed * Time.deltaTime;
     }
@@ -110,15 +110,15 @@ public class PlayerController : MonoBehaviour
             
     }
 
-    public void GetDamaged(float dmg, GameObject enemy)
+    public void GetDamaged(float dmg, GameObject enemy, Vector2 attackPower)
     {
-        if (!isUnBeatTime)
+        if (!isUnBeatTime && attackPower != null)
         {
             Vector2 attackedVelocity = Vector2.zero;
             if (enemy.gameObject.transform.position.x > transform.position.x)
-                attackedVelocity = new Vector2(-15f, 20f);
+                attackedVelocity = new Vector2(-attackPower.x, attackPower.y);
             else
-                attackedVelocity = new Vector2(15f, 20f);
+                attackedVelocity = new Vector2(attackPower.x, attackPower.y);
 
             rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
         }

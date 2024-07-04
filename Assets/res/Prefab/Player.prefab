@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087f834a4ff86924989d134f0045c06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grappleLength: 3
+  grappleLength: 2
   grappleLayer:
     serializedVersion: 2
     m_Bits: 128

@@ -6,6 +6,7 @@ public class BasicPistol : GunController
 {
     public GameObject bullet;
     public float bulletSpeed = 0f;
+    public float bulletDmg = 2f;
     
 
     //마우스 입력 총알 발사
@@ -20,7 +21,7 @@ public class BasicPistol : GunController
             tempBullet.transform.Rotate(0f, 0f, -180f);
         }
         
-        tempBullet.GetComponent<BulletController>().Init(bulletSpeed, dmg);
+        tempBullet.GetComponent<BulletController>().Init(bulletSpeed, bulletDmg);
     }
     protected override void OnRelease()
     {
