@@ -21,7 +21,7 @@ public class DEFItem : Item
 
     IEnumerator IncreaseDEF(PlayerController player)
     {
-        int playerDEF = player.def;
+        float playerDEF = player.def;
         player.def += DEF;
         
         yield return new WaitForSeconds(plusDEFTime);
