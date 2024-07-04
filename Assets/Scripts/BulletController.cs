@@ -38,9 +38,17 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Àû°ú Ãæµ¹½Ã Ãæµ¹ÆÇÁ¤
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ï¿½ï¿½
         if (collision.gameObject.layer == 9 || collision.gameObject.layer == 7)
         {
+            if (collision.gameObject.layer == 9)
+            {
+                IDamageable enemy = collision.gameObject.GetComponent<IDamageable>();
+                if (enemy != null)
+                {
+                    enemy.GetDamaged(bulletDamage);
+                }
+            }
             Destroy(gameObject);
         }
     }
@@ -48,7 +56,7 @@ public class BulletController : MonoBehaviour
     private IEnumerator EffectDelayedDestroy(ParticleSystem vfx)
     {
         yield return null;
-        // ÃÑ¾Ë Å¸°Ý½Ã ÀÌÆåÆ®
+        // ï¿½Ñ¾ï¿½ Å¸ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     }
 }
 

@@ -8,7 +8,7 @@ public enum SlimeState
     Death
 }
 
-public class GreenSlimeAI : MonoBehaviour
+public class GreenSlimeAI : MonoBehaviour, IDamageable
 {
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
@@ -18,7 +18,7 @@ public class GreenSlimeAI : MonoBehaviour
     public float attackSpeed = 3f;
     public float hp = 10f;
 
-    private float attackDamage = 1f;
+    protected float attackDamage = 1f;
     public float AttackDamage => attackDamage;
     
     public float CliffRaycastDistance = 1f; // 발판 끝을 감지하기 위한 레이캐스트 거리
@@ -144,6 +144,11 @@ public class GreenSlimeAI : MonoBehaviour
         if (other.gameObject.layer == 9)
         {
             TurnBack();
+        }
+
+        if (other.gameObject.layer == 6)
+        {
+            other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, Vector2.zero);
         }
     }
 

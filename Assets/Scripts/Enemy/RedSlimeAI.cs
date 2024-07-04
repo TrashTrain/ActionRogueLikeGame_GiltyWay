@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RedSlimeAI : MonoBehaviour
+public class RedSlimeAI : MonoBehaviour, IDamageable
 {
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
@@ -134,6 +134,11 @@ public class RedSlimeAI : MonoBehaviour
         if (other.gameObject.layer == 9)
         {
             TurnBack();
+        }
+        
+        if (other.gameObject.layer == 6)
+        {
+            other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, Vector2.zero);
         }
         
     }
