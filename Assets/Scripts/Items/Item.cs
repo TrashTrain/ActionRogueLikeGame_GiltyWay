@@ -5,17 +5,10 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    protected abstract void takeItem();
-    public GameObject player;
+    public PlayerController player;
     
-    protected void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.layer == 6)
-        {
-            takeItem();
-            Destroy(gameObject);
-        }
-    }
+    protected abstract void OnTriggerEnter2D(Collider2D other);
+    
 }
 
 

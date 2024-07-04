@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HPObstacle : Obstacle
+public class HPObstacle : MonoBehaviour
 {
     public int dmg;
+    public PlayerController player;
     
-    protected override void faceObstacle()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        player.GetComponent<PlayerController>().hp -= dmg;
+        if (other.gameObject.layer == 6)
+        {
+            player.GetComponent<PlayerController>().hp -= dmg;
+            //Destroy(gameObject);
+        }
     }
 }

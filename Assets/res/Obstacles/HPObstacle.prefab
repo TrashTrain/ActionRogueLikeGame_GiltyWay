@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 331692486745633785}
   - component: {fileID: -2770122450459008868}
   - component: {fileID: 8210713039365288489}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HPObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60623b7ec12747839239657c59bced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4294640866864706599, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+  player: {fileID: 0}
   dmg: 2
 --- !u!61 &8210713039365288489
 BoxCollider2D:
@@ -129,8 +129,8 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -143,5 +143,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
