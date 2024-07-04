@@ -21,12 +21,12 @@ public class CPItem : Item
 
     IEnumerator IncreaseCP(PlayerController player)
     {
-        int playerAtk = player.atk;
-        player.atk += CP;
+        // int playerAtk = player.atk;
+        // player.atk += CP;
         
         yield return new WaitForSeconds(plusCPTime);
 
-        player.atk = playerAtk;
+        // player.atk = playerAtk;
         Destroy(gameObject);
     }
 }

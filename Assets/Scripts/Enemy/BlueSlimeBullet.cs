@@ -29,6 +29,11 @@ public class BlueSlimeBullet : MonoBehaviour
         if (currentState == SlimeState.Death) return;
         if (other.gameObject.layer == 9) return;
         
+        if (other.gameObject.layer == 6)
+        {
+            other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, Vector2.zero);
+        }
+        
         Die();
     }
     

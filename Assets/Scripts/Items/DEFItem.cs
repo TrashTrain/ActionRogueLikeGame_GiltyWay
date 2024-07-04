@@ -21,12 +21,12 @@ public class DEFItem : Item
 
     IEnumerator IncreaseDEF(PlayerController player)
     {
-        int playerDEF = player.def;
-        player.def += DEF;
+        // int playerDEF = player.def;
+        // player.def += DEF;
         
         yield return new WaitForSeconds(plusDEFTime);
 
-        player.def = playerDEF;
+        // player.def = playerDEF;
         Destroy(gameObject);
     }
 }

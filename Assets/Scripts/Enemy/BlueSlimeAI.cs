@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class BlueSlimeAI : MonoBehaviour
+public class BlueSlimeAI : MonoBehaviour, IDamageable
 {
     public BlueSlimeBullet blueSlimeBullet;
     
@@ -140,6 +140,11 @@ public class BlueSlimeAI : MonoBehaviour
         if (other.gameObject.layer == 9)
         {
             TurnBack();
+        }
+        
+        if (other.gameObject.layer == 6)
+        {
+            other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, Vector2.zero);
         }
     }
     
