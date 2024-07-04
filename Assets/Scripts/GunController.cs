@@ -4,10 +4,7 @@ using UnityEngine;
 
 public abstract class GunController : MonoBehaviour
 {
-    public float dmg;
-
     protected Transform muzzle;
-
     protected float angle;
 
     protected Vector2 mousePos;
@@ -26,7 +23,7 @@ public abstract class GunController : MonoBehaviour
         target = mousePos - (Vector2)transform.position;
         shootingRate += Time.deltaTime;
 
-        transform.right = (Vector3)target.normalized;
+        transform.right = (Vector2)target.normalized;
         if (target.x < 0)
         {
             transform.Rotate(0f, 0f, 180f);

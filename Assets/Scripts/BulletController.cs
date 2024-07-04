@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
 
     private float bulletSpeed = 2f;
-    private float bullletDamage;
+    private float bulletDamage;
 
     private bool isInit = false;
 
@@ -17,11 +17,12 @@ public class BulletController : MonoBehaviour
     public void Init(float speed, float dmg)
     {
         bulletSpeed = speed;
-        bullletDamage = dmg;
+        bulletDamage = dmg;
 
     }
     private void Start()
     {
+        
         transform.Rotate(0, 0, -90);
     }
     // Update is called once per frame
