@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public enum SlimeState
 {
@@ -23,6 +17,9 @@ public class GreenSlimeAI : MonoBehaviour
     public float moveSpeed = 2f;
     public float attackSpeed = 3f;
     public float hp = 10f;
+
+    private float attackDamage = 1f;
+    public float AttackDamage => attackDamage;
     
     public float CliffRaycastDistance = 1f; // 발판 끝을 감지하기 위한 레이캐스트 거리
     public float ObstacleRaycastDistance = 1f;
@@ -135,6 +132,8 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (currentState == SlimeState.Death) return;
+        
         if (other.gameObject.layer == 10)
         {
             GetHurt(2);
@@ -148,6 +147,8 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (currentState == SlimeState.Death) return;
+        
         if (other.CompareTag("Player"))
         {
             playerPos = other.transform.position;
@@ -158,6 +159,8 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (currentState == SlimeState.Death) return;
+        
         if (other.CompareTag("Player"))
         {
             playerPos = Vector2.zero;

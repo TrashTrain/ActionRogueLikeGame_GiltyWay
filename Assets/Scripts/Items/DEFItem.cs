@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DEFItem : Item
 {
-    public float DEF;
+    public int DEF = 2;
+    
     
     protected override void takeItem()
     {
-        Debug.Log("Get Defence Item");    
+        Debug.Log("Get Defence Item");
+        player.GetComponent<PlayerController>().def += DEF;
     }
 
 }

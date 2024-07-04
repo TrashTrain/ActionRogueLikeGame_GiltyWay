@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private int maxJump = 1;
     public int jumpCount = 0;
 
+    private SpriteRenderer spriteRenderer;
+
     Transform tf;
 
     public Animator ani;
@@ -24,11 +26,13 @@ public class PlayerController : MonoBehaviour
 
     Vector3 movement;
     bool isJumping = false;
+    bool isUnBeatTime = false;
 
     //---------------------------------------------------[Override Function]
     //Initialization
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
         tf = transform;
     }
@@ -59,9 +63,6 @@ public class PlayerController : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
 
         Vector3 target = Camera.main.ScreenToWorldPoint(mousePos);
-
-        
-        // 마우스 움직임 따라 고개 움직이게 수정해야함.
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             ani.SetBool("IsRunning", true);
@@ -89,7 +90,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += moveVelocity * speed * Time.deltaTime;
-        
     }
 
     void Jump()
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
             jumpCount = 0;
             isJumping = true;
         }
-        if(collision.gameObject.layer == 9)
+        if(collision.gameObject.layer == 9 && !isUnBeatTime)
         {
             Vector2 attackedVelocity = Vector2.zero;
             if (collision.gameObject.transform.position.x > transform.position.x)
@@ -126,8 +126,12 @@ public class PlayerController : MonoBehaviour
                 attackedVelocity = new Vector2(15f, 20f);
             
             rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
-            if(hp >=0)
+            if(hp >= 0)
+            {
                 hp -= 2;
+                isUnBeatTime = true;
+                StartCoroutine("UnBeatTime");
+            }
             else
             {
                 Debug.Log("GameOver");
@@ -138,4 +142,28 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    IEnumerator UnBeatTime()
+    {
+        int countTime = 0;
+        while (countTime < 10)
+        {
+            if (countTime % 2 == 0)
+            {
+                spriteRenderer.color = new Color32(255, 255, 255, 90);
+            }
+            else
+            {
+                spriteRenderer.color = new Color32(255, 255, 255, 180);
+            }
+            yield return new WaitForSeconds(0.2f);
+
+            countTime++;
+        }
+
+        spriteRenderer.color = new Color32(255, 255, 255, 255);
+
+        isUnBeatTime = false;
+
+        yield return null;
+    }
 }

@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798a68db4b56e457c9e681dae188c1e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootingRate: 0
+  player: {fileID: 4294640866864706599, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+  shootingRate: 0.2
+  gun: {fileID: 0}
 --- !u!114 &1627776641907042396
 MonoBehaviour:
   m_ObjectHideFlags: 0

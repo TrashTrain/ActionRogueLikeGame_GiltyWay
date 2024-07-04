@@ -171,7 +171,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &2298894421477182980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +188,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 0}
   moveSpeed: 2
-  attackSpeed: 10
+  attackSpeed: 4
+  hp: 10
   CliffRaycastDistance: 1
   ObstacleRaycastDistance: 1
   groundLayer:
@@ -228,4 +229,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 2.5
