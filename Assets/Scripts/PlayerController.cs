@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
         tf = transform;
+        
+        UIManager.instance.playerInfo.InitPlayerUI(this);
     }
 
     //Graphic & Input Updates	
@@ -125,6 +127,7 @@ public class PlayerController : MonoBehaviour
         if (hp >= 0)
         {
             hp -= dmg;
+            UIManager.instance.playerInfo.SetHp(hp);
             isUnBeatTime = true;
             StartCoroutine("UnBeatTime");
         }
