@@ -41,6 +41,7 @@ public class BlueSlimeBullet : MonoBehaviour
     {
         currentState = SlimeState.Death;
         animator.SetTrigger("Death");
+        SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
     }
 
     public void DestroyEvent()

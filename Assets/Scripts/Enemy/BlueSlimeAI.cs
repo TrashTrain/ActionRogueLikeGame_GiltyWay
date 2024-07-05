@@ -125,6 +125,8 @@ public class BlueSlimeAI : MonoBehaviour, IDamageable
             BlueSlimeBullet bullet = Instantiate(blueSlimeBullet, transform.position+Vector3.up, Quaternion.identity);
             
             bullet.gameObject.GetComponent<Rigidbody2D>().AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+            
+            SoundManager.instance.PlaySound("Slime_Jump", transform.position);
         }
     }
 
@@ -160,6 +162,7 @@ public class BlueSlimeAI : MonoBehaviour, IDamageable
         
         animator.SetTrigger("Hurt");
         currentState = SlimeState.Hurt;
+        SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
         
         this.hp -= damage;
         
@@ -173,6 +176,8 @@ public class BlueSlimeAI : MonoBehaviour, IDamageable
     {
         currentState = SlimeState.Death;
         animator.SetTrigger("Death");
+        
+        SoundManager.instance.PlaySound("Slime_Destroyed", transform.position);
     }
 
     public void DestroyEvent()

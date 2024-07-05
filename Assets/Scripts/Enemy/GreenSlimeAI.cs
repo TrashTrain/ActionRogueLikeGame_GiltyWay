@@ -129,6 +129,8 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
             Vector2 attackDir = new Vector2(playerTransform.position.x - rb.position.x, playerTransform.position.y - rb.position.y).normalized;
             sprite.flipX = (attackDir.x < 0) ? true : false;
             rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+            
+            SoundManager.instance.PlaySound("Slime_Jump", transform.position);
         }
     }
 
@@ -163,6 +165,7 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
         if (currentState == SlimeState.Death) return;
         
         animator.SetTrigger("Hurt");
+        SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
         currentState = SlimeState.Hurt;
         
         this.hp -= damage;
@@ -177,6 +180,7 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
     {
         currentState = SlimeState.Death;
         animator.SetTrigger("Death");
+        SoundManager.instance.PlaySound("Slime_Destroyed", transform.position);
     }
 
     public void DestoryEvent()

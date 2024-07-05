@@ -119,6 +119,8 @@ public class RedSlimeAI : MonoBehaviour, IDamageable
             Vector2 attackDir = new Vector2(playerTransform.position.x - rb.position.x, playerTransform.position.y - rb.position.y).normalized;
             sprite.flipX = (attackDir.x < 0) ? true : false;
             rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+            
+            SoundManager.instance.PlaySound("Slime_Jump", transform.position);
         }
     }
 
@@ -155,6 +157,7 @@ public class RedSlimeAI : MonoBehaviour, IDamageable
         
         animator.SetTrigger("Hurt");
         currentState = SlimeState.Hurt;
+        SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
         
         this.hp -= damage;
         
@@ -168,6 +171,7 @@ public class RedSlimeAI : MonoBehaviour, IDamageable
     {
         currentState = SlimeState.Death;
         animator.SetTrigger("Death");
+        SoundManager.instance.PlaySound("Slime_Destroyed", transform.position);
     }
 
     public void DestroyEvent()
