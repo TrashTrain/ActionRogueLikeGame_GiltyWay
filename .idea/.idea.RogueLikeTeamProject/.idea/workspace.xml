@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/karsiori/TileMap/Tiles/Rectangular Palette.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/karsiori/TileMap/Tiles/Rectangular Palette.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollower.cs" afterDir="false" />
     </list>
@@ -29,26 +28,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hsj__Stage1__Ground",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hsj__Stage1__Ground&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/hankang/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/Users/hankang/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/Users/hankang/Library/Application Support/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/hankang/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/hankang/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/hankang/Library/Application Support/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.34f1/Unity.app/Contents/MacOS/Unity" />
@@ -99,6 +98,7 @@
       <workItem from="1719819843635" duration="4004000" />
       <workItem from="1719895913212" duration="2259000" />
       <workItem from="1719988822651" duration="2604000" />
+      <workItem from="1720162401508" duration="691000" />
     </task>
     <servers />
   </component>
