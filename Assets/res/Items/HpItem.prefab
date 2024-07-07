@@ -116,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.055}
@@ -144,7 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907cf4b9e39c24ad7b8ee4e27810f36d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 0
+  player: {fileID: 0}
+  hp: 2
 --- !u!114 &-2458368833867438999
 MonoBehaviour:
   m_ObjectHideFlags: 0

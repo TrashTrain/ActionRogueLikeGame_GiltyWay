@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
 
     private float bulletSpeed = 2f;
-    private float bullletDamage;
+    private float bulletDamage;
 
     private bool isInit = false;
 
@@ -17,11 +17,12 @@ public class BulletController : MonoBehaviour
     public void Init(float speed, float dmg)
     {
         bulletSpeed = speed;
-        bullletDamage = dmg;
+        bulletDamage = dmg;
 
     }
     private void Start()
     {
+        
         transform.Rotate(0, 0, -90);
     }
     // Update is called once per frame
@@ -35,15 +36,27 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Àû°ú Ãæµ¹½Ã Ãæµ¹ÆÇÁ¤
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ï¿½ï¿½
+        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 7)
+        {
+            if (collision.gameObject.layer == 9)
+            {
+                IDamageable enemy = collision.gameObject.GetComponent<IDamageable>();
+                if (enemy != null)
+                {
+                    enemy.GetDamaged(bulletDamage);
+                }
+            }
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator EffectDelayedDestroy(ParticleSystem vfx)
     {
         yield return null;
-        // ÃÑ¾Ë Å¸°Ý½Ã ÀÌÆåÆ®
+        // ï¿½Ñ¾ï¿½ Å¸ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     }
 }
 

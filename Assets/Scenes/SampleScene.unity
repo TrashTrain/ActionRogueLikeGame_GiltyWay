@@ -1054,6 +1054,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8855994439326467859, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2210,7 +2214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28bb17d15f179442957966f1dfab736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movePower: 5
+  hp: 50
+  atk: 10
+  def: 10
+  speed: 5
   jumpPower: 60
   jumpCount: 0
 --- !u!1 &919624261

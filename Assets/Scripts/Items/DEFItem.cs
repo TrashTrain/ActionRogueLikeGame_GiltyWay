@@ -4,11 +4,30 @@ using UnityEngine;
 
 public class DEFItem : Item
 {
-    public float DEF;
+    public int DEF = 2;
+    public float plusDEFTime = 5f;
     
-    protected override void takeItem()
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Get Defence Item");    
+        if (other.gameObject.layer == 6)
+        {
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            StartCoroutine(IncreaseDEF(player));
+
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+        }
     }
 
+    IEnumerator IncreaseDEF(PlayerController player)
+    {
+        float playerDEF = player.def;
+        player.def += DEF;
+
+        
+        yield return new WaitForSeconds(plusDEFTime);
+
+        // player.def = playerDEF;
+        Destroy(gameObject);
+    }
 }

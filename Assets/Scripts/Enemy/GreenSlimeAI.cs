@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public enum SlimeState
 {
@@ -14,7 +8,7 @@ public enum SlimeState
     Death
 }
 
-public class GreenSlimeAI : MonoBehaviour
+public class GreenSlimeAI : MonoBehaviour, IDamageable
 {
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
@@ -23,12 +17,17 @@ public class GreenSlimeAI : MonoBehaviour
     public float moveSpeed = 2f;
     public float attackSpeed = 3f;
     public float hp = 10f;
+
+    protected float attackDamage = 1f;
+    public float AttackDamage => attackDamage;
     
     public float CliffRaycastDistance = 1f; // 발판 끝을 감지하기 위한 레이캐스트 거리
     public float ObstacleRaycastDistance = 1f;
+    public float recognizeRadius = 3f;
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
     
-    private Vector2 playerPos;
+    private Transform playerTransform;
     
     private SlimeState currentState = SlimeState.Idle;
     private Vector2 moveDirection = Vector2.right; // 초기 이동 방향
@@ -39,8 +38,14 @@ public class GreenSlimeAI : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         groundLayer = 1 << 7;
+        playerLayer = 1 << 6;
     }
 
+    private void Start()
+    {
+        Invoke("CheckPlayer", 1f);
+    }
+    
     private void Update()
     {
         switch (currentState)
@@ -68,11 +73,6 @@ public class GreenSlimeAI : MonoBehaviour
             if (currentState == SlimeState.Idle)
             {
                 TurnBack();
-            }
-
-            if (currentState == SlimeState.Attack)
-            {
-                //rb.velocity = new Vector2(0, rb.velocity.y);
             }
             
             rb.velocity = new Vector2(0, rb.velocity.y);
@@ -124,61 +124,50 @@ public class GreenSlimeAI : MonoBehaviour
 
     private void JumpAttack()
     {
-        if (playerPos != null && playerPos.magnitude > 0.01f)
+        if (playerTransform.position != null && (playerTransform.position.magnitude > 0.01f))
         {
-            animator.SetTrigger("Attack");
-            Vector2 attackDir = new Vector2(playerPos.x - rb.position.x, playerPos.y - rb.position.y).normalized;
+            Vector2 attackDir = new Vector2(playerTransform.position.x - rb.position.x, playerTransform.position.y - rb.position.y).normalized;
             sprite.flipX = (attackDir.x < 0) ? true : false;
             rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+            
+            SoundManager.instance.PlaySound("Slime_Jump", transform.position);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 10)
-        {
-            GetHurt(2);
-        }
+        if (currentState == SlimeState.Death) return;
+        
+        // if (other.gameObject.layer == 10)
+        // {
+        //     GetHurt(2);
+        // }
         
         if (other.gameObject.layer == 9)
         {
             TurnBack();
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.layer == 6)
         {
-            playerPos = other.transform.position;
-            animator.SetTrigger("Attack");
-            StartAttack();
+            other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, Vector2.up * 10);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerPos = Vector2.zero;
-        }
-    }
-    
-    public void StartAttack()
-    {
-        currentState = SlimeState.Attack;
-    }
-
-    public void EndAttack()
+    public void IdleEvent()
     {
         currentState = SlimeState.Idle;
     }
 
-    public void GetHurt(float damage)
+    public void GetDamaged(float damage)
     {
         if (damage <= 0) return;
+        if (currentState == SlimeState.Death) return;
         
         animator.SetTrigger("Hurt");
+        SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
+        currentState = SlimeState.Hurt;
+        
         this.hp -= damage;
         
         if (hp <= 0)
@@ -189,11 +178,33 @@ public class GreenSlimeAI : MonoBehaviour
 
     public void Die()
     {
-        animator.SetTrigger("Die");
+        currentState = SlimeState.Death;
+        animator.SetTrigger("Death");
+        SoundManager.instance.PlaySound("Slime_Destroyed", transform.position);
     }
 
     public void DestoryEvent()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
+    }
+    
+    public void CheckPlayer()
+    {
+        if (currentState == SlimeState.Death) return;
+        
+        Collider2D collider = Physics2D.OverlapCircle(rb.position, recognizeRadius, playerLayer);
+        if (collider == null && currentState == SlimeState.Attack)
+        {
+            animator.SetBool("Attack", false);
+            currentState = SlimeState.Idle;
+        }
+        else if(collider != null && currentState == SlimeState.Idle)
+        {
+            playerTransform = collider.transform;
+            animator.SetBool("Attack", true);
+            currentState = SlimeState.Attack;
+        }
+        
+        Invoke("CheckPlayer", 1f);
     }
 }
