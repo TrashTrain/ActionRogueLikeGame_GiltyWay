@@ -17,6 +17,11 @@ public class CameraFollower : MonoBehaviour
         {
             transform.position = new Vector3(0, 0, -10f);
         }
+
+        if (player.position.x + 3f > 295f)
+        {
+            transform.position = new Vector3(295f, 0, -10f);
+        }
         transform.position = Vector3.Slerp(transform.position, camPos, followSpeed * Time.deltaTime);
     }
 }
