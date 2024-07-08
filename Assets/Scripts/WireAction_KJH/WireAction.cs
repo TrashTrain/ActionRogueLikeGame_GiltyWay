@@ -79,8 +79,8 @@ public class WireAction : MonoBehaviour
             //후크가 붙었는데 한번 더 쓴 경우
             if (isAttached)
             {
-                //isAttached = false;
-                //hookAction.DisableJoint2D();
+                isAttached = false;
+                hookAction.DisableJoint2D();
                 return;
             }
             
@@ -91,12 +91,17 @@ public class WireAction : MonoBehaviour
         //후크 붙은 경우
         if (isAttached)
         {
-            if (Input.GetKey(hookKey))
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                playerPos.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);
+            }
+            
+            if (Input.GetKey(KeyCode.W))
             {
                 hookAction.ShortenJoint2D(shrinkSpeed);
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 isAttached = false;
                 hookAction.DisableJoint2D();
