@@ -12,6 +12,7 @@ public class CPItem : Item
         if (other.gameObject.layer == 6)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            itemGetText.DisplayText("Striking Power Up!");
             StartCoroutine(IncreaseCP(player));
 
             GetComponent<SpriteRenderer>().enabled = false;
@@ -24,10 +25,9 @@ public class CPItem : Item
         float playerAtk = player.atk;
         player.atk += CP;
 
-        
         yield return new WaitForSeconds(plusCPTime);
 
-        // player.atk = playerAtk;
+        player.atk = playerAtk;
         Destroy(gameObject);
     }
 }

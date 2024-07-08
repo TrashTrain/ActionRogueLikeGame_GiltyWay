@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class HPItem : Item
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         player.GetComponent<PlayerController>().hp += hp;
+        itemGetText.DisplayText("HP Up!");
         Destroy(gameObject);
     }
 }
