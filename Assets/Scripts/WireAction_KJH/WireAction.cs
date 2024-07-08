@@ -39,6 +39,12 @@ public class WireAction : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerPos == null)
+        {
+            Debug.LogError("playerPos is null");
+            Destroy(this.gameObject);
+        }
+        
         transform.position = playerPos.position;
         
         if (isHookLaunched && !isAttached)
