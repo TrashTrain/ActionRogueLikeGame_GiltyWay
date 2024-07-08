@@ -12,6 +12,7 @@ public class DEFItem : Item
         if (other.gameObject.layer == 6)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            itemGetText.DisplayText("Defense Up!");
             StartCoroutine(IncreaseDEF(player));
 
             GetComponent<SpriteRenderer>().enabled = false;
@@ -23,11 +24,10 @@ public class DEFItem : Item
     {
         float playerDEF = player.def;
         player.def += DEF;
-
         
         yield return new WaitForSeconds(plusDEFTime);
 
-        // player.def = playerDEF;
+        player.def = playerDEF;
         Destroy(gameObject);
     }
 }
