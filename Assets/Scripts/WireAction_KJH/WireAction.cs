@@ -18,6 +18,8 @@ public class WireAction : MonoBehaviour
     private bool isHookLaunched = false;
     public bool isWireMax = false;
     public bool isAttached = false;
+
+    public KeyCode hookKey = KeyCode.Q;
     
     private void Start()
     {
@@ -71,25 +73,35 @@ public class WireAction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        //후크 발사 키를 누를 경우
+        if (Input.GetKeyDown(hookKey))
         {
+            //후크가 붙었는데 한번 더 쓴 경우
             if (isAttached)
             {
-                isAttached = false;
-                hookAction.DisableJoint2D();
+                //isAttached = false;
+                //hookAction.DisableJoint2D();
                 return;
             }
             
+            //후크 발사
             LaunchHook();
         }
 
+        //후크 붙은 경우
         if (isAttached)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(hookKey))
             {
                 hookAction.ShortenJoint2D(shrinkSpeed);
             }
 
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                isAttached = false;
+                hookAction.DisableJoint2D();
+            }
+            
             // if (Input.GetKeyUp(KeyCode.E))
             // {
             //     isAttached = false;
