@@ -16,11 +16,7 @@ public class BasicPistol : GunController
         //bullet »ý¼º
 
         var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
-        if (target.x < 0) 
-        {
-            tempBullet.transform.Rotate(0f, 0f, -180f);
-        }
-        
+
         tempBullet.GetComponent<BulletController>().Init(bulletSpeed, bulletDmg);
     }
     protected override void OnRelease()

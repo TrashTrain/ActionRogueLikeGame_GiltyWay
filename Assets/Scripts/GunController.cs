@@ -13,8 +13,11 @@ public abstract class GunController : MonoBehaviour
     private float shootingRate = 0f;
     public float maxRate = 0.4f;
 
+    private SpriteRenderer sr;
+
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -26,11 +29,11 @@ public abstract class GunController : MonoBehaviour
         transform.right = (Vector2)target.normalized;
         if (target.x < 0)
         {
-            transform.Rotate(0f, 0f, 180f);
+            sr.flipY = true;
         }
         else
         {
-            transform.Rotate(0f, 0f, 0f);
+            sr.flipY= false;
         }
         
         //마우스 입력 총알 발사

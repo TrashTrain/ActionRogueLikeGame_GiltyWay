@@ -38,9 +38,9 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // ���� �浹�� �浹����
         if (collision.gameObject.layer == 9 || collision.gameObject.layer == 7)
         {
+            Debug.Log(collision.gameObject.layer);
             if (collision.gameObject.layer == 9)
             {
                 IDamageable enemy = collision.gameObject.GetComponent<IDamageable>();
@@ -50,6 +50,7 @@ public class BulletController : MonoBehaviour
                 }
             }
             Destroy(gameObject);
+            
         }
     }
 

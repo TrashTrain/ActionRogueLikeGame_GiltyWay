@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private int maxJump = 1;
     public int jumpCount = 0;
 
+    bool _isTurn = true;
+
     private SpriteRenderer spriteRenderer;
 
     Transform tf;
@@ -82,13 +84,17 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("IsRunning", false);
         }
 
-        if (target.x < tf.position.x)
+        if (target.x < tf.position.x && _isTurn)
         {
-            tf.localScale = new Vector3(-0.6f, 0.6f, 0.6f);
+            _isTurn = false;
+            tf.Rotate(0f, 180f, 0f);
+            
         }
-        else
+        if (target.x > tf.position.x && !_isTurn)
         {
-            tf.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            _isTurn = true;
+            tf.Rotate(0f, 180f, 0f);
+            
         }
 
         transform.position += moveVelocity * speed * Time.deltaTime;
