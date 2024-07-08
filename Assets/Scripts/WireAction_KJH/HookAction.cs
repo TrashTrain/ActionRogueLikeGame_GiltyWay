@@ -39,4 +39,9 @@ public class HookAction : MonoBehaviour
     {
         joint2D.distance -= speed * Time.deltaTime;
     }
+
+    private void OnDisable()
+    {
+        wireAction.playerPos.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);
+    }
 }
