@@ -409,8 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8159956eb50864976912dd35eb57917a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitDamageText: {fileID: 0}
-  hitDamageObject: {fileID: 0}
+  hitDamageObject: {fileID: 7501275295164611262, guid: 4ac031e7608d74b0b8b8fcb216774a9f, type: 3}
 --- !u!1 &3813507482203213339
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 4020137741486192640}
   playerInfo: {fileID: 6133445444330045596}
+  hitDamageInfo: {fileID: 4666743224625459407}
 --- !u!1 &8947135166922473589
 GameObject:
   m_ObjectHideFlags: 0

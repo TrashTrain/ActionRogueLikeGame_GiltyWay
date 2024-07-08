@@ -14,6 +14,7 @@ public class WireAction : MonoBehaviour
     public float launchSpeed = 10f;
     public float wireMaxLength = 8f;
     public float shrinkSpeed = 5f;
+    public float lastJumpSpeed = 10f;
     
     private bool isHookLaunched = false;
     public bool isWireMax = false;

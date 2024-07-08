@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public Canvas Canvas;
 
     public PlayerInfo playerInfo;
+    public HitDamageInfo hitDamageInfo;
     
     private void Awake()
     {

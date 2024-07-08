@@ -42,6 +42,6 @@ public class HookAction : MonoBehaviour
 
     private void OnDisable()
     {
-        wireAction.playerPos.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);
+        wireAction.playerPos.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * wireAction.lastJumpSpeed, ForceMode2D.Impulse);
     }
 }

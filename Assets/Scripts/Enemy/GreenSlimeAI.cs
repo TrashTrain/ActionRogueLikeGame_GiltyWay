@@ -32,6 +32,8 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
     private SlimeState currentState = SlimeState.Idle;
     private Vector2 moveDirection = Vector2.right; // 초기 이동 방향
 
+    public GameObject damageTextPrefab;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -169,6 +171,7 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
         currentState = SlimeState.Hurt;
         
         this.hp -= damage;
+        UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
         
         if (hp <= 0)
         {
