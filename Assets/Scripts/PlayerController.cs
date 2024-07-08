@@ -130,17 +130,18 @@ public class PlayerController : MonoBehaviour
 
             rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
         }
-        if (hp >= 0)
+        if (!isUnBeatTime)
         {
             hp -= dmg;
             UIManager.instance.playerInfo.SetHp(hp);
             isUnBeatTime = true;
             StartCoroutine("UnBeatTime");
-        }
-        else
-        {
-            Debug.Log("GameOver");
-            Destroy(gameObject);
+
+            if (hp <= 0)
+            {
+                Debug.Log("GameOver");
+                Destroy(gameObject);
+            }
         }
     }
     

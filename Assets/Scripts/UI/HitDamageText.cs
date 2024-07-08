@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HitDamageText : MonoBehaviour
 {
-    public float moveSpeed = 100f;
+    public float moveSpeed = 2f;
     private TextMeshProUGUI hitDamageText;
 
     private RectTransform rectTransform;
@@ -28,7 +28,7 @@ public class HitDamageText : MonoBehaviour
 
     private void FixedUpdate()
     {
-        upTransform += moveSpeed * Time.deltaTime * Vector3.up;
+        upTransform += moveSpeed * Vector3.up;
         // 월드 좌표를 화면 좌표로 변환
         if (enemyTrans != null)
         {

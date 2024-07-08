@@ -160,6 +160,7 @@ public class RedSlimeAI : MonoBehaviour, IDamageable
         SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
         
         this.hp -= damage;
+        UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
         
         if (hp <= 0)
         {

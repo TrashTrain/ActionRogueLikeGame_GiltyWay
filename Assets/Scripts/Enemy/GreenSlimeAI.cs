@@ -140,11 +140,6 @@ public class GreenSlimeAI : MonoBehaviour, IDamageable
     {
         if (currentState == SlimeState.Death) return;
         
-        // if (other.gameObject.layer == 10)
-        // {
-        //     GetHurt(2);
-        // }
-        
         if (other.gameObject.layer == 9)
         {
             TurnBack();
