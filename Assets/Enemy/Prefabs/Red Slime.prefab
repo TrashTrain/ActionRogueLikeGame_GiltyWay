@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4367289792872251007, guid: 260a83b0c94ee496babe03935f8f7473, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4056604, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,7 +130,11 @@ MonoBehaviour:
   hp: 30
   CliffRaycastDistance: 1
   ObstacleRaycastDistance: 1
+  recognizeRadius: 6
   groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerLayer:
     serializedVersion: 2
     m_Bits: 0
 --- !u!50 &2903301913619017512
