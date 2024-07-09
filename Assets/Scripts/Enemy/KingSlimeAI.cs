@@ -108,7 +108,7 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
             moveDirection = (playerTransform.position.x >= transform.position.x) ? Vector2.right : Vector2.left;
         }
         
-        Invoke("TurnToPlayer", 1f);
+        Invoke("TurnToPlayer", 2f);
     }
     
     private void Idle()

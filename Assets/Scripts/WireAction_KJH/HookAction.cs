@@ -30,6 +30,14 @@ public class HookAction : MonoBehaviour
     {
         if (isBindToEnemy)
         {
+            if (enemyTrans == null)
+            {
+                isBindToEnemy = false;
+                wireAction.isAttached = false;
+                wireAction.isWireMax = true;
+                joint2D.enabled = false;
+                return;
+            }
             transform.position = enemyTrans.position;
             //Debug.Log("stuck!");
         }
@@ -55,7 +63,7 @@ public class HookAction : MonoBehaviour
             wireAction.isAttached = true;
             wireAction.isWireMax = true;
             joint2D.enabled = true;
-            joint2D.distance = Vector2.Distance(  wireAction.playerPos.position, transform.position);
+            joint2D.distance = Vector2.Distance(  wireAction.playerPos.position, other.transform.position);
         }
     }
 
