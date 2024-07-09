@@ -11,7 +11,7 @@ public enum KingSlimeKind
     Blue
 }
 
-public class KingSlimeAI : MonoBehaviour
+public class KingSlimeAI : MonoBehaviour, IDamageable
 {
     [Header("Ref")]
     public Transform playerTransform;
@@ -67,6 +67,7 @@ public class KingSlimeAI : MonoBehaviour
 
     private void Start()
     {
+        sprite.color = Color.gray;
         TurnToPlayer();
     }
 
@@ -225,6 +226,8 @@ public class KingSlimeAI : MonoBehaviour
         SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
         
         this.hp -= damage;
+        sprite.color = Color.red;
+        Invoke("SetColorGray", 0.1f);
         UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
         
         if (hp <= 0)
@@ -233,8 +236,15 @@ public class KingSlimeAI : MonoBehaviour
         }
     }
 
+    public void SetColorGray()
+    {
+        sprite.color = Color.gray;
+    }
+    
     public void Die()
     {
+        sprite.color = Color.black;
+        
         currentState = SlimeState.Death;
         animator.SetTrigger("Death");
         SoundManager.instance.PlaySound("Slime_Destroyed", transform.position);

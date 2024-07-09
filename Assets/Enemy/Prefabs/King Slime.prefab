@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   isReady: 0
-  hp: 100
+  hp: 10
   moveSpeed: 10
   attackSpeed: 0
   preAttackCT: 0
