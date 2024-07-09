@@ -51,7 +51,7 @@ public class HookAction : MonoBehaviour
             wireAction.isAttached = true;
             wireAction.isWireMax = true;
             joint2D.enabled = true;
-            joint2D.distance = Vector2.Distance(other.transform.position, wireAction.playerPos.position);
+            joint2D.distance = Vector2.Distance(transform.position, wireAction.playerPos.position);
             //Debug.Log(joint2D.distance);
         }
         
@@ -63,7 +63,7 @@ public class HookAction : MonoBehaviour
             wireAction.isAttached = true;
             wireAction.isWireMax = true;
             joint2D.enabled = true;
-            joint2D.distance = Vector2.Distance(  wireAction.playerPos.position, transform.position);
+            joint2D.distance = Vector2.Distance(  wireAction.playerPos.position, other.transform.position);
         }
     }
 
