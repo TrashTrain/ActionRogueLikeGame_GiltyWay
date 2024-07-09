@@ -6,21 +6,34 @@ public class CameraFollower : MonoBehaviour
 {
     public float followSpeed = 2f;
     public Transform player;
+    
 
     private void FixedUpdate()
     {
         if (player == null) return;
 
-        Vector3 camPos = new Vector3(player.position.x + 3f, 0f, -10f);
-
+        Vector3 camPos = new Vector3(player.position.x + 3f, player.position.y + 1f, -10f);
+        Vector2 mousePos = Input.mousePosition;
+        
+        // player의 시야 자유도
+        if (mousePos.y > player.position.y)
+        {
+            camPos = new Vector3(player.position.x + 3f, player.position.y + 1f, -10f);
+        }
+        else if (mousePos.y < player.position.y)
+        {
+            camPos = new Vector3(player.position.x + 3f, player.position.y - 1.5f, -10f);
+        }
+        
+        // player가 맵 밖을 보지 못하도록
         if (player.position.x + 3f < 0f)
         {
-            transform.position = new Vector3(0, 0, -10f);
+            transform.position = new Vector3(0, player.position.y + 2f, -10f);
         }
-
-        if (player.position.x > 295f || transform.position.x > 295f)
+        
+        if (player.position.x > 300f || transform.position.x > 300f)
         {
-            transform.position = new Vector3(295f, 0, -10f);
+            transform.position = new Vector3(300f, player.position.y + 1f, -10f);
         }
         transform.position = Vector3.Slerp(transform.position, camPos, followSpeed * Time.deltaTime);
     }
