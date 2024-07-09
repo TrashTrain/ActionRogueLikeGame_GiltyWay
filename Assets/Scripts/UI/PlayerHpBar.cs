@@ -13,7 +13,7 @@ public class PlayerHpBar : MonoBehaviour
     private float playerCurrentHp = 20;
     
     //max width value of playerHpSlide RectTransform
-    private const float max = 112f;
+    private const float max = 155f;
 
     public void InitPlayerHp(float MaxHp)
     {
