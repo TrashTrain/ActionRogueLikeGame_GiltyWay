@@ -7,20 +7,31 @@ using UnityEngine;
 
 public class SpeedItem : Item
 {
+    public BuffPanelSystem buffPanelSystem;
+
+    public ItemData speedItemData;
     public float speed = 2f;
     public float speedPlusTime = 5f;
 
     SpriteRenderer spriteRenderer;
+
+    public BuffText buffText;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
+            //string itemName = gameObject.name;
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            itemGetText.DisplayText("Speed Up!");
-            BuffMgr.instance.CreateBuff("Speed",speed, speedPlusTime,spriteRenderer.sprite);
+            
+            //아이템이랑 부딪힐 때마다 itemdata 에 추가
+            buffPanelSystem.itemDataGroup.Add(speedItemData);
+            
             StartCoroutine(IncreaseSpeed(player));
-
+            
+            buffText.AddBuff("Speed Item", player.speed, speedPlusTime);
+            //speedItemData.AddBuff("Speed Item", player.speed, speedPlusTime);
+            
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
         }
@@ -35,5 +46,6 @@ public class SpeedItem : Item
 
         player.speed = playerSpeed;
         Destroy(gameObject);
+        
     }
 }
