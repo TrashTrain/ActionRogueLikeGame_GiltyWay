@@ -82,6 +82,7 @@ public class WireAction : MonoBehaviour
             {
                 isAttached = false;
                 hookAction.DisableJoint2D();
+                ResetHook();
                 return;
             }
             
@@ -106,6 +107,7 @@ public class WireAction : MonoBehaviour
             {
                 isAttached = false;
                 hookAction.DisableJoint2D();
+                ResetHook();
             }
             
             // if (Input.GetKeyUp(KeyCode.E))
@@ -148,7 +150,6 @@ public class WireAction : MonoBehaviour
         if (Vector2.Distance(transform.position, hook.position) < 0.1f)
         {
             ResetHook();
-            wire.enabled = false;
         }
     }
 
@@ -157,5 +158,6 @@ public class WireAction : MonoBehaviour
         isHookLaunched = false;
         isWireMax = false;
         hook.gameObject.SetActive(false);
+        wire.enabled = false;
     }
 }
