@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     private float maxhp = 50;
     //player Status
+    [Header("Player Status")]
     public float hp = 50;
     public float atk = 10;
     public float def = 10;
     public float speed = 5f;
-
     public float jumpPower = 1f;
 
     private int maxJump = 1;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     Transform tf;
-
+    [Header("Animation")]
     public Animator ani;
 
     Rigidbody2D rigid;
@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     Vector3 movement;
     bool isJumping = false;
     bool isUnBeatTime = false;
+
+    public GameObject[] guns;
 
     //---------------------------------------------------[Override Function]
     //Initialization
