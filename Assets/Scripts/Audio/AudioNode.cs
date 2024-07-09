@@ -17,4 +17,9 @@ public class AudioNode : MonoBehaviour
 
         SoundManager.instance.SetNode(this);
     }
+
+    public void SetVolumn(float percent)
+    {
+        audioSource.volume = percent;
+    }
 }

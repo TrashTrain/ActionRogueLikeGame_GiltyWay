@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GreenSlime_Idle
+  m_Name: KingSlime_Reset
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -91,7 +91,7 @@ AnimationClip:
   - time: 0.5
     functionName: ResetEvent
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: ef90e856eacb14e15bf3692d7624dfc6, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

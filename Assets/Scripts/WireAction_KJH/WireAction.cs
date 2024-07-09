@@ -123,6 +123,7 @@ public class WireAction : MonoBehaviour
         if (isHookLaunched) return;
         
         hook.gameObject.SetActive(true);
+        transform.position = playerPos.position;
         hook.position = transform.position;
         mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         isHookLaunched = true;
@@ -157,7 +158,7 @@ public class WireAction : MonoBehaviour
     {
         isHookLaunched = false;
         isWireMax = false;
-        hook.gameObject.SetActive(false);
         wire.enabled = false;
+        hook.gameObject.SetActive(false);
     }
 }

@@ -69,6 +69,11 @@ public class HookAction : MonoBehaviour
         joint2D.distance -= speed * Time.deltaTime;
     }
 
+    private void OnEnable()
+    {
+        transform.position = wireAction.playerPos.position;
+    }
+
     private void OnDisable()
     {
         var playerRb = wireAction.playerPos.gameObject.GetComponent<Rigidbody2D>();
@@ -77,7 +82,7 @@ public class HookAction : MonoBehaviour
             playerRb.AddForce(Vector2.up * wireAction.lastJumpSpeed, ForceMode2D.Impulse);
         }
             
-        transform.position = Vector2.zero;
+        //transform.position = Vector2.zero;
         enemyTrans = null;
         isBindToEnemy = false;
     }
