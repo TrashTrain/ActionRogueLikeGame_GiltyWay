@@ -93,6 +93,13 @@ public class WireAction : MonoBehaviour
         //후크 붙은 경우
         if (isAttached)
         {
+            if (hook == null)
+            {
+                isAttached = false;
+                hookAction.DisableJoint2D();
+                ResetHook();
+            }
+            
             if (Input.GetKeyDown(KeyCode.W))
             {
                 playerPos.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);

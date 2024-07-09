@@ -30,6 +30,14 @@ public class HookAction : MonoBehaviour
     {
         if (isBindToEnemy)
         {
+            if (enemyTrans == null)
+            {
+                isBindToEnemy = false;
+                wireAction.isAttached = false;
+                wireAction.isWireMax = true;
+                joint2D.enabled = false;
+                return;
+            }
             transform.position = enemyTrans.position;
             //Debug.Log("stuck!");
         }
