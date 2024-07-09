@@ -10,9 +10,9 @@ public class GunIcon : MonoBehaviour
     void Start()
     {
         player = GetComponent<PlayerController>();
-        if (player.guns[0] == null)
-            Debug.Log("null");
-        Debug.Log(player.guns[0]);
+        //if (player.guns[0] == null)
+        //    Debug.Log("null");
+        //Debug.Log(player.guns[0]);
         //gameObject.GetComponent<Image>().sprite = player.guns[0].GetComponent<SpriteRenderer>().sprite;
     }
 
