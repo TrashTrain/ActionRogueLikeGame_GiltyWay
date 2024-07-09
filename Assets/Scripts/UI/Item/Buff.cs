@@ -1,55 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Buff : MonoBehaviour
+public class Buff : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public string type;
-    public float percentage;
-    public float duration;
-    public float currentTime;
-    
-    public Image icon;
+    public BuffPanelSystem buffPanelSystem;
+    private ItemData itemData;
 
-    public void Init(string ty, float per, float du)
+    public ItemData ItemData => itemData;
+
+    public Image itemImage;
+
+    private bool _isFilled = false;
+    public bool isFilled => _isFilled;
+
+    public void SetItem(ItemData data)
     {
-        type = ty;
-        percentage = per;
-        duration = du;
-        currentTime = duration;
-        icon.fillAmount = 1;
+        itemData = data;
+        itemImage.sprite = data.itemImage;
+
+        var tempColor = itemImage.color;
+        tempColor.a = 1f;
+        itemImage.color = tempColor;
+
+        _isFilled = true;
+    }
+
+    public void MouseEnter()
+    {
+        if (itemData == null) return;
+        buffPanelSystem.InitBuffInfo(itemData);
+    }
+
+    public void MouseExit()
+    {
+        buffPanelSystem.ExitBuffInfo();
+    }
+
+    public void Reset()
+    {
+        itemImage.sprite = null;
+            
+        var tempcolor = itemImage.color;
+        tempcolor.a = 0f;
+        itemImage.color = tempcolor;
+
+        itemImage.raycastTarget = true;
+
+        itemData = null;
         
-        Execute();
+        _isFilled = false;
     }
-
-    WaitForSeconds seconds = new WaitForSeconds(0.1f);
     
-    public void Execute()
+    public void BackToSlot()
     {
-        PlayerData.instance.onBuff.Add(this);
-        PlayerData.instance.ChooseBuff(type);
-        StartCoroutine(Activation());
+        itemImage.raycastTarget = true;
+    }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        buffPanelSystem.SetFocusedBuff(this);
     }
 
-    IEnumerator Activation()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        while (currentTime > 0)
-        {
-            currentTime -= 0.1f;
-            icon.fillAmount = currentTime / duration;
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        icon.fillAmount = 0;
-        currentTime = 0;
-        Deactivation();
-    }
-
-    public void Deactivation()
-    {
-        PlayerData.instance.onBuff.Remove(this);
-        PlayerData.instance.ChooseBuff(type);
-        Destroy(gameObject);
+        if(buffPanelSystem.FocusedBuff == this)
+            buffPanelSystem.SetFocusedBuff(null);
     }
 }
