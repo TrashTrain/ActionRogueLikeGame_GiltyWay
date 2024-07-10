@@ -15,6 +15,7 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
 {
     [Header("Ref")]
     public Transform playerTransform;
+    public GameObject blueSlimeBullet;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     private Animator animator;
@@ -158,7 +159,9 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
     public void ResetEvent()
     {
         currentState = SlimeState.Idle;
-        Invoke("StopRoulette", Random.Range(3, 4));
+        var randomTime = Random.Range(15, 50);
+        Debug.Log((float)randomTime/10);
+        Invoke("StopRoulette", (float)randomTime/10);
     }
 
     public void SetAttackTrue(){ animator.SetBool("Attack", true);}
@@ -205,12 +208,26 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
     
     private void AttackEvent()
     {
-        if (playerTransform.position != null && playerTransform.position.magnitude > 0.01f)
+        if (playerTransform.position != null)
         {
             Vector2 attackDir = new Vector2(playerTransform.position.x - rb.position.x, playerTransform.position.y - rb.position.y).normalized;
             sprite.flipX = (attackDir.x < 0) ? true : false;
+
+            if (kingSlimeKind == KingSlimeKind.Blue)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    GameObject bullet = Instantiate(blueSlimeBullet, transform.position + new Vector3(moveDirection.x, i, 0) * 3, Quaternion.identity);
+                    bullet.transform.localScale *= 3;
+                    bullet.gameObject.GetComponent<Rigidbody2D>().AddForce(  attackSpeed * new Vector3(moveDirection.x, 0, 0) + Vector3.up , ForceMode2D.Impulse);
+                }
+            }
+
+            else
+            {
+                rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+            }
             
-            rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
             
             SoundManager.instance.PlaySound("Slime_Jump", transform.position);
         }

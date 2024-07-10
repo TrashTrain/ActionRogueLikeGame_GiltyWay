@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d5b1aae9bd54a7cafd77b8f339913d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueSlimeBullet: {fileID: 7759875867776931322, guid: 85ceafa9d78a5430e92d609df11ebd99, type: 3}
+  blueSlimeBullet: {fileID: 8832720468303632871, guid: 85ceafa9d78a5430e92d609df11ebd99, type: 3}
   sprite: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 0}

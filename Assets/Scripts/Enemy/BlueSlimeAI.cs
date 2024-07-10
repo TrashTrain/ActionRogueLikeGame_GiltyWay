@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BlueSlimeAI : MonoBehaviour, IDamageable
 {
-    public BlueSlimeBullet blueSlimeBullet;
+    public GameObject blueSlimeBullet;
     
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
@@ -117,14 +117,14 @@ public class BlueSlimeAI : MonoBehaviour, IDamageable
 
     private void ShootAttack()
     {
-        if (playerTransform.position != null && playerTransform.position.magnitude > 0.01f)
+        if (playerTransform.position != null)
         {
             Vector2 attackDir = new Vector2(playerTransform.position.x - rb.position.x, playerTransform.position.y - rb.position.y).normalized;
             sprite.flipX = (attackDir.x < 0) ? true : false;
 
-            BlueSlimeBullet bullet = Instantiate(blueSlimeBullet, transform.position+Vector3.up, Quaternion.identity);
+            GameObject bullet = Instantiate(blueSlimeBullet, transform.position+Vector3.up, Quaternion.identity);
             
-            bullet.gameObject.GetComponent<Rigidbody2D>().AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+            bullet.GetComponent<Rigidbody2D>().AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
             
             SoundManager.instance.PlaySound("Slime_Jump", transform.position);
         }
