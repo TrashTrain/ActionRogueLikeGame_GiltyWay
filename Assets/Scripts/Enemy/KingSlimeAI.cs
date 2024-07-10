@@ -232,7 +232,7 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
 
             else
             {
-                rb.AddForce(  attackSpeed * attackDir , ForceMode2D.Impulse);
+                rb.AddForce(  attackSpeed * (attackDir + Vector2.up) , ForceMode2D.Impulse);
             }
             
             
