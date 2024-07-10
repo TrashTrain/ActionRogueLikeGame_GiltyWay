@@ -53,7 +53,6 @@ public class SoundControl : MonoBehaviour
 
     public void OnVolume(float volume, string exposedName, bool _isVolume)
     {
-        Debug.Log(_isVolume);
         if (_isVolume)
         {
             audioMixer.SetFloat(exposedName, Mathf.Lerp(-80f, 0f, Mathf.Clamp01(volume)));
