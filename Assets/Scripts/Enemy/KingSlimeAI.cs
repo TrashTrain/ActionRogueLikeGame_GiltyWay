@@ -26,6 +26,8 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
     public float hp = 100f;
     public float maxHp = 100f;
     public float moveSpeed = 2f;
+    public float stunGauge = 1f;
+    public float stunTime = 5f;
     private float attackDamage = 3f;
     public float AttackDamage => attackDamage;
     
@@ -149,7 +151,6 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
         {
             TurnBack();
             var pushDir = new Vector2(other.transform.position.x - transform.position.x >= 0 ? 1 : -1, 1).normalized;
-            Debug.Log(pushDir);
             
             other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject, 50 * pushDir);
         }
@@ -239,6 +240,33 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
         }
     }
 
+    public void ResetStunGauge()
+    {
+        stunGauge = 1;
+        animator.SetBool("Stun", false);
+    }
+
+    public void GetStunned()
+    {
+        animator.SetBool("Stun", true);
+        Invoke("ResetStunGauge", stunTime);
+        currentState = SlimeState.Hurt;
+        SetAttackFalse();
+    }
+    
+    public void ReduceStunGauge(float gauge)
+    {
+        if (stunGauge > 0)
+        {
+            stunGauge -= gauge;
+
+            if (stunGauge <= 0)
+            {
+                GetStunned();
+            }
+        }
+    }
+    
     public void GetDamaged(float damage)
     {
         if (damage <= 0) return;
@@ -249,6 +277,8 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
         SoundManager.instance.PlaySound("Slime_Damaged", transform.position);
         
         this.hp -= damage;
+        
+        ReduceStunGauge(0.1f);
 
         //Phase 1 & half Hp (condition)
         if (phase == 1 && hp / maxHp <= 0.5)
