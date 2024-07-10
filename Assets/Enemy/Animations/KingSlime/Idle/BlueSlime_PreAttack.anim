@@ -89,7 +89,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: PostAttackEvent
+    functionName: PreAttackBlueEvent
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: ef90e856eacb14e15bf3692d7624dfc6, type: 3}
     floatParameter: 0

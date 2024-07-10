@@ -124,13 +124,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!isUnBeatTime && attackPower != null)
         {
-            Vector2 attackedVelocity = Vector2.zero;
-            if (enemy.gameObject.transform.position.x > transform.position.x)
-                attackedVelocity = new Vector2(-attackPower.x, attackPower.y);
-            else
-                attackedVelocity = new Vector2(attackPower.x, attackPower.y);
+            //Vector2 attackedVelocity = Vector2.zero;
+            // if (enemy.gameObject.transform.position.x > transform.position.x)
+            //     attackedVelocity = new Vector2(-attackPower.x, attackPower.y);
+            // else
+            //     attackedVelocity = new Vector2(attackPower.x, attackPower.y);
 
-            rigid.AddForce(attackedVelocity, ForceMode2D.Impulse);
+            rigid.AddForce(attackPower, ForceMode2D.Impulse);
         }
         if (!isUnBeatTime)
         {
