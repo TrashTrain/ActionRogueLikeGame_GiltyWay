@@ -7,14 +7,22 @@ public class SpeedObstacle : MonoBehaviour
     public PlayerController player;
     public float speed = 2f;
     public float minusSpeedTime = 5f;
+    public ItemGetText itemGetText;
+    
+    public BuffItemController buffItemController;
+    public Sprite icon;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
+            itemGetText.DisplayText("Slow Down!");
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            
             StartCoroutine(DecreaseSpeed(player));
-
+            
+            buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
+            
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
         }
