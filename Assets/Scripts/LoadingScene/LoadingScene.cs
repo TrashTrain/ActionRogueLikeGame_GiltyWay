@@ -21,6 +21,7 @@ public class LoadingScreen : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(true);
+        BGM.instance.StopBGM();
         
         // 로딩 씬에서 슬라이더 찾기
         if (loadingBar == null)
@@ -56,6 +57,7 @@ public class LoadingScreen : MonoBehaviour
                 loadingBar.value = 1f;
                 gameObject.SetActive(false);
                 loadOperation.allowSceneActivation = true;
+                BGM.instance.PlayBGM(sceneName);
             }
 
             await UniTask.Yield();
