@@ -16,7 +16,7 @@ public class BuffItemController : MonoBehaviour
     public TextMeshProUGUI tooltipText;
     public Image tooltipImg;
     
-    private List<Buff> activeBuffs = new List<Buff>();
+    public List<Buff> activeBuffs = new List<Buff>();
     private Buff currentBuff;
 
     void Update()
@@ -47,6 +47,15 @@ public class BuffItemController : MonoBehaviour
 
     public void AddBuff(string buffName, float current, float duration, Sprite icon)
     {
+        var duplicate = activeBuffs.Find(x => x.name.Equals(buffName));
+
+        if (duplicate != null)
+        {
+            // duplicate.duration += duration;
+            duplicate.duration = 5f;
+            return;
+        }
+        
         GameObject newBuffItem = Instantiate(buffItemPrefab, buffPanel);
         newBuffItem.GetComponentInChildren<Image>().sprite = icon;
         Buff buff = new Buff { name = buffName, current = current, duration = duration, image = icon, buffObject = newBuffItem };
@@ -83,7 +92,7 @@ public class BuffItemController : MonoBehaviour
         }
     }
 
-    private class Buff
+    public class Buff
     {
         public string name;
         public float current;
