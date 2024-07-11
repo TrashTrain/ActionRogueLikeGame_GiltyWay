@@ -47,6 +47,6 @@ public class ButtonControl : MonoBehaviour
     }
     public void OnClickStartPage()
     {
-
+        SceneLoader.LoadScene("MainScene");
     }
 }
