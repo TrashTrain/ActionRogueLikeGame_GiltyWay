@@ -28904,6 +28904,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2129915845}
+    - target: {fileID: 7656686882968820437, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8070756037392658254, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_Name
       value: UI
@@ -28912,7 +28916,8 @@ PrefabInstance:
       propertyPath: bgm
       value: 
       objectReference: {fileID: 841739196}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4779784732161111253, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

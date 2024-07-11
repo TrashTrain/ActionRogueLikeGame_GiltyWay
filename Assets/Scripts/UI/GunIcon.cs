@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class GunIcon : MonoBehaviour
 {
-    public GunSlot gunSlot;
+    public GunManager gunManager;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Image>().sprite = gunSlot.gunImages[GunSlot.selectGunNum];
+        gameObject.GetComponent<Image>().sprite = gunManager.gunImages[GunManager.selectGunNum];
     }
     private void Update()
     {
