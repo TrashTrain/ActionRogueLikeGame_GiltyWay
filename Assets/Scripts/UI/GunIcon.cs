@@ -6,16 +6,18 @@ using UnityEngine.UI;
 public class GunIcon : MonoBehaviour
 {
     public PlayerController player;
+    private Sprite[] gunImages = new Sprite[7];
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(player.guns[0].GetComponent<SpriteRenderer>().sprite.name);
-        gameObject.GetComponent<Image>().sprite = player.guns[0].GetComponent<SpriteRenderer>().sprite;
+        for (int i = 0; i < player.guns.Length; i++)
+        {
+            gunImages[i] = player.guns[i].GetComponent<SpriteRenderer>().sprite;
+        }
+
+        gameObject.GetComponent<Image>().sprite = gunImages[0];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 }

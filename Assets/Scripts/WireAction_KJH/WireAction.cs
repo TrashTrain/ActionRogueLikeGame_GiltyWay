@@ -74,6 +74,8 @@ public class WireAction : MonoBehaviour
 
     private void Update()
     {
+        if (!Pause.isPause) return;
+
         //후크 발사 키를 누를 경우
         if (Input.GetKeyDown(hookKey))
         {
