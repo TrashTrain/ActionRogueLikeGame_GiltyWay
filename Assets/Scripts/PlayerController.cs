@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     //---------------------------------------------------[Override Function]
     //Initialization
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     //Graphic & Input Updates	
     void Update()
     {
+        //Debug.Log("playertest");
         Jump();
         // fall Charactor
         if(transform.position.y <= -7)
@@ -124,12 +125,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!isUnBeatTime && attackPower != null)
         {
-            //Vector2 attackedVelocity = Vector2.zero;
-            // if (enemy.gameObject.transform.position.x > transform.position.x)
-            //     attackedVelocity = new Vector2(-attackPower.x, attackPower.y);
-            // else
-            //     attackedVelocity = new Vector2(attackPower.x, attackPower.y);
-
             rigid.AddForce(attackPower, ForceMode2D.Impulse);
         }
         if (!isUnBeatTime)

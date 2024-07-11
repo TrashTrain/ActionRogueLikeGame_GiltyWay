@@ -45,4 +45,8 @@ public class ButtonControl : MonoBehaviour
         }
 
     }
+    public void OnClickStartPage()
+    {
+
+    }
 }
