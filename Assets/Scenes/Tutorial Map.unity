@@ -1990,6 +1990,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &604608089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6841263590385101220, guid: 0d8775e830c5e9146b1d605c873d56f8, type: 3}
+  m_PrefabInstance: {fileID: 2013460777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3f2222ad717d24c816a314db4390a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &608553676
 GameObject:
   m_ObjectHideFlags: 0
@@ -28794,6 +28805,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3461585894769319603, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: gunManager
+      value: 
+      objectReference: {fileID: 604608089}
     - target: {fileID: 3516105896935585889, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2103896
@@ -28835,37 +28850,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4405548983550134189, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: player
+      propertyPath: gunManager
       value: 
-      objectReference: {fileID: 2129915845}
-    - target: {fileID: 7656686882968820437, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 604608089}
     - target: {fileID: 8070756037392658254, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 8977064556884674882, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: bgm
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8977064556884674882, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: soundManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8977064556884674882, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: soundBarValue
-      value: 
-      objectReference: {fileID: 1148558819}
-    - target: {fileID: 8977064556884674882, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: effectBarValue
-      value: 
-      objectReference: {fileID: 22354484}
     m_RemovedComponents: []
-      objectReference: {fileID: 841739196}
-    m_RemovedComponents:
-    - {fileID: 4779784732161111253, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
