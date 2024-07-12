@@ -22,6 +22,8 @@ public abstract class GunController : MonoBehaviour
 
     void Update()
     {
+        if (!Pause.isPause) return;
+        //Debug.Log("test");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target = mousePos - (Vector2)transform.position;
         shootingRate += Time.deltaTime;

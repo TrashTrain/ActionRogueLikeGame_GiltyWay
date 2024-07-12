@@ -6,20 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject LoadCanvas;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnClickNewGame()
     {
-        SceneManager.LoadScene("Tutorial Map");
+        //SceneManager.LoadScene("Tutorial Map");
+        SceneLoader.LoadScene("Tutorial Map");
     }
 
     public void OnClickLoad()

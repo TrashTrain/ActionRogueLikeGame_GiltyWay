@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPanel : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MenuPanel : MonoBehaviour
         {
             isMenuClick = true;
             menuScroll.SetActive(isMenuClick);
+            Pause.OnApplicationPause(true);
         }
         
     }
@@ -24,11 +26,14 @@ public class MenuPanel : MonoBehaviour
             {
                 isMenuClick = false;
                 menuScroll.SetActive(isMenuClick);
+                Pause.OnApplicationPause(false);
+
             }
             else
             {
                 isMenuClick = true;
                 menuScroll.SetActive(isMenuClick);
+                Pause.OnApplicationPause(true);
             }
             
             

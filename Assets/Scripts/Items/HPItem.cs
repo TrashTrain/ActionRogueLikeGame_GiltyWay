@@ -11,7 +11,6 @@ public class HPItem : Item
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        
         player.GetComponent<PlayerController>().hp += hp;
         if (player.GetComponent<PlayerController>().hp >= 50) player.GetComponent<PlayerController>().hp = 50;
         UIManager.instance.playerInfo.SetHp(player.GetComponent<PlayerController>().hp);

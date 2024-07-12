@@ -24,18 +24,20 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        
-        foreach (var soundResource in soundResources)
+        if (instance == null)
         {
-            soundDB.Add(soundResource.key, soundResource.Clip);
-        }
-        
-        DontDestroyOnLoad(gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            
+            foreach (var soundResource in soundResources)
+            {
+                soundDB.Add(soundResource.key, soundResource.Clip);
+            }
 
-        for (int i = 0; i < poolSize; i++)
-        {
-           MakeNode();
+            for (int i = 0; i < poolSize; i++)
+            {
+                MakeNode();
+            }
         }
     }
 

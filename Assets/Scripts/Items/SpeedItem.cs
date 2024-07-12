@@ -8,12 +8,14 @@ using UnityEngine;
 public class SpeedItem : Item
 {
     public float speed = 2f;
+    public float originalSpeed = 5f;
     public float speedPlusTime = 5f;
 
+    private static bool isActive = false;
+    private Coroutine speedCoroutine;
+    
     public BuffItemController buffItemController;
     public Sprite icon;
-    
-    SpriteRenderer spriteRenderer;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,10 +23,22 @@ public class SpeedItem : Item
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             itemGetText.DisplayText("Speed UP!");
+
+            // if (isActive)
+            // {
+            //     player.speed = originalSpeed;
+            // }
             
-            StartCoroutine(IncreaseSpeed(player));
+            speedCoroutine = StartCoroutine(IncreaseSpeed(player));
             
             buffItemController.AddBuff("Speed Up Item", player.speed, speedPlusTime, icon);
+            
+            if (isActive)
+            {
+                player.speed = originalSpeed;
+                StopCoroutine(speedCoroutine);
+                speedCoroutine = StartCoroutine(IncreaseSpeed(player));
+            }
             
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
@@ -33,13 +47,13 @@ public class SpeedItem : Item
 
     IEnumerator IncreaseSpeed(PlayerController player)
     {
-        float playerSpeed = player.speed;
+        isActive = true;
         player.speed += speed;
-        
-        yield return new WaitForSeconds(speedPlusTime);
 
-        player.speed = playerSpeed;
-        Destroy(gameObject);
+        yield return new WaitForSeconds(speedPlusTime);
         
+        player.speed = originalSpeed;
+        isActive = false;
+        Destroy(gameObject);
     }
 }
