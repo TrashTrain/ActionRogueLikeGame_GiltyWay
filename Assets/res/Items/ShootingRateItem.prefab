@@ -147,7 +147,7 @@ MonoBehaviour:
   player: {fileID: 0}
   itemGetText: {fileID: 0}
   shootingRate: 0.2
-  plusShootingRateTime: 10
+  plusShootingRateTime: 5
   gun: {fileID: 0}
   buffItemController: {fileID: 0}
   icon: {fileID: 21300000, guid: 15fd679098c39bd4890d7e0cd1d49d15, type: 3}

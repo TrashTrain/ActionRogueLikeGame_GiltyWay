@@ -51,8 +51,9 @@ public class BuffItemController : MonoBehaviour
 
         if (duplicate != null)
         {
-            // duplicate.duration += duration;
-            duplicate.duration = 5f;
+            //duplicate.duration += duration;
+            //duplicate.duration = 5f;
+            duplicate.duration = duration;
             return;
         }
         
