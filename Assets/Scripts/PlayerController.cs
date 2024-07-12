@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         rigid = gameObject.GetComponent<Rigidbody2D>();
         tf = transform;
         
+
         UIManager.instance.playerInfo.InitPlayerUI(this);
     }
 
