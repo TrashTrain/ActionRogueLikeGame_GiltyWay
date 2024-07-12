@@ -25,6 +25,7 @@ public class CameraFollower : MonoBehaviour
             camPos = new Vector3(player.position.x + 3f, player.position.y - 1f, -10f);
         }
         
+		Vector3 camofMousePos = camPos;
         
         
         // player가 맵 밖을 보지 못하도록
@@ -34,10 +35,11 @@ public class CameraFollower : MonoBehaviour
             transform.position = new Vector3(0, player.position.y + 2f, -10f);
         }
         
-        if (player.position.x > 300f || transform.position.x > 300f)
+        if (player.position.x > 316f || transform.position.x > 316f)
         {
-            transform.position = new Vector3(300f, player.position.y + 1f, -10f);
+            transform.position = new Vector3(316f, camofMousePos.y, -10f);
         }
+
         transform.position = Vector3.Slerp(transform.position, camPos, followSpeed * Time.deltaTime);
     
         // 볼 수 있는 최소 높이 설정
