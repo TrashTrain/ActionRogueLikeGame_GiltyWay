@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b354e5b43be342a6b97ac634593826a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeParticlePrefab: {fileID: 5824670795371433373, guid: f6fd568b816c64943a44efc3add3a881, type: 3}
   bullet: {fileID: 7164472469177122970, guid: 94f1494ef4f1a8d408097b894538b6ab, type: 3}
   shootTrans: {fileID: 0}
+  changeTime: 2
