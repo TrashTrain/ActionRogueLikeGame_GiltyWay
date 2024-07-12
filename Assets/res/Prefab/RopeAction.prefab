@@ -216,6 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireAction: {fileID: 2837764100808350679}
+  enemyTrans: {fileID: 0}
+  isBindToEnemy: 0
 --- !u!1 &6864023627771755251
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,8 +271,10 @@ MonoBehaviour:
   launchSpeed: 30
   wireMaxLength: 10
   shrinkSpeed: 10
+  lastJumpSpeed: 10
   isWireMax: 0
   isAttached: 0
+  hookKey: 113
 --- !u!1 &7911581965565710598
 GameObject:
   m_ObjectHideFlags: 0
