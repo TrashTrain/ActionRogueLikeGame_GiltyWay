@@ -29145,6 +29145,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2185303152470308974, guid: 4ac031e7608d74b0b8b8fcb216774a9f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 02e18ec6ea39540f79a7ed0175e25540, type: 2}
+    - target: {fileID: 2185303152470308974, guid: 4ac031e7608d74b0b8b8fcb216774a9f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -162588350182739928, guid: 02e18ec6ea39540f79a7ed0175e25540, type: 2}
+    - target: {fileID: 2185303152470308974, guid: 4ac031e7608d74b0b8b8fcb216774a9f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7501275295164611262, guid: 4ac031e7608d74b0b8b8fcb216774a9f, type: 3}
       propertyPath: m_Name
       value: HitDamageText
