@@ -15,7 +15,7 @@ public class HPItem : Item
         player.GetComponent<PlayerController>().hp += hp;
         if (player.GetComponent<PlayerController>().hp >= 50) player.GetComponent<PlayerController>().hp = 50;
         UIManager.instance.playerInfo.SetHp(player.GetComponent<PlayerController>().hp);
-        itemGetText.DisplayText("HP Up!");
+        itemGetText.DisplayText("HP +2 Up!");
         Destroy(gameObject);
     }
 }
