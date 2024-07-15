@@ -3732,6 +3732,7 @@ GameObject:
   - component: {fileID: 972712902}
   - component: {fileID: 972712901}
   - component: {fileID: 972712903}
+  - component: {fileID: 972712904}
   m_Layer: 7
   m_Name: Stage_1
   m_TagString: Untagged
@@ -3790,10 +3791,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d89238918914ab6aeb88a777185c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2129915835}
-  bossBlock: {fileID: 0}
-  kingSlime: {fileID: 0}
-  isblock: 0
+  bossBlock: {fileID: 1338538937}
+  kingActive: {fileID: 1728752846}
+  isBlocked: 0
+  waitingTime: 2
+--- !u!61 &972712904
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972712900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 252, y: -2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1049238872
 GameObject:
   m_ObjectHideFlags: 0
@@ -40596,6 +40642,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1728752846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189423712124460610, guid: dacee07e351ff4b4fb868328b4199104, type: 3}
+  m_PrefabInstance: {fileID: 1739922056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef90e856eacb14e15bf3692d7624dfc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1739922056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41617,18 +41674,18 @@ MonoBehaviour:
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 2.3
-  m_YDamping: 2.4
+  m_YDamping: 20
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.6
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_DeadZoneWidth: 0.2
+  m_DeadZoneHeight: 0.9
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.7
-  m_SoftZoneHeight: 0.7
+  m_SoftZoneWidth: 0.75
+  m_SoftZoneHeight: 2
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
