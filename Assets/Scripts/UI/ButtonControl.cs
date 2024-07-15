@@ -13,7 +13,7 @@ public class ButtonControl : MonoBehaviour
     private int check = 0;
     private void Awake()
     {
-        for (int i = 0; i < Info.Length; i++)
+        for (int i = 0; i < Info.Length-1; i++)
         {
             isButtonClick.Add(false);
         }
@@ -23,7 +23,7 @@ public class ButtonControl : MonoBehaviour
         
         if(check != a)
         {
-            for (int i = 0; i < Info.Length; i++)
+            for (int i = 0; i < Info.Length-1; i++)
             {
                 isButtonClick[i] = false;
                 Info[i].SetActive(isButtonClick[i]);
