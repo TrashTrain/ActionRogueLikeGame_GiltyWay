@@ -6,7 +6,6 @@ using UnityEngine;
 public class HPObstacle : MonoBehaviour
 {
     public int dmg;
-    public PlayerController player;
 
     private float bounceForce = 20f;
     private Color originalColor;            //장애물 원래 색
@@ -26,20 +25,25 @@ public class HPObstacle : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            Vector2 bounceDirection = new Vector2(bounceForce,bounceForce);
-
-            other.gameObject.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, bounceDirection);
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
             
-            StartCoroutine(ChangeColor());
+            Vector2 bounceDirection = new Vector2(bounceForce, bounceForce);
+
+            player.GetDamaged(dmg, gameObject, bounceDirection);
+
+            StartCoroutine(ChangeColor(this));
+
         }
     }
     
-    IEnumerator ChangeColor()
+    IEnumerator ChangeColor(HPObstacle hpObstacle)
     {
         spriteRenderer.color = hitColor;
         
+        hpObstacle.GetComponent<BoxCollider2D>().isTrigger = true;  // 한번 hp 손상되었으면 지나갈 수 있도록
         yield return new WaitForSeconds(changeTime);
-
+        
+        hpObstacle.GetComponent<BoxCollider2D>().isTrigger = false;
         spriteRenderer.color = originalColor;
     }
 }

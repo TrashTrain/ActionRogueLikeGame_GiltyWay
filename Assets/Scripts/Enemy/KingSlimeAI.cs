@@ -329,5 +329,10 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
     {
         Destroy(this.gameObject);
     }
-    
+
+    public void SetReady()
+    {
+        isReady = true;
+        animator.SetTrigger("Ready");
+    }
 }

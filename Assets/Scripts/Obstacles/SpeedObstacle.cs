@@ -5,10 +5,16 @@ using UnityEngine;
 public class SpeedObstacle : MonoBehaviour
 {
     public PlayerController player;
+    
     public float speed = 2f;
+    public float originalSpeed = 5f;
     public float minusSpeedTime = 5f;
+    
     public ItemGetText itemGetText;
     
+    private static bool isActive = false;
+    private static float remainingTime = 0f;
+
     public BuffItemController buffItemController;
     public Sprite icon;
     
@@ -16,10 +22,18 @@ public class SpeedObstacle : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            itemGetText.DisplayText("Slow Down!");
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            itemGetText.DisplayText("Slow Down!");
             
-            StartCoroutine(DecreaseSpeed(player));
+            if (isActive)
+            {
+                // 아이템 중복으로 획득하면 타이머만 갱신
+                remainingTime = minusSpeedTime;
+            }
+            else
+            {
+                StartCoroutine(DecreaseSpeed(player));
+            }
             
             buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
             
@@ -30,12 +44,20 @@ public class SpeedObstacle : MonoBehaviour
 
     IEnumerator DecreaseSpeed(PlayerController player)
     {
-        float playerSpeed = player.speed;
+        isActive = true;
+        remainingTime = minusSpeedTime;
+        
         player.speed -= speed;
         
-        yield return new WaitForSeconds(minusSpeedTime);
-
-        player.speed = playerSpeed;
+        while (remainingTime > 0)
+        {
+            yield return null;
+            remainingTime -= Time.deltaTime;
+        }
+        
+        player.speed = originalSpeed;
+        isActive = false;
+        
         Destroy(gameObject);
     }
 }
