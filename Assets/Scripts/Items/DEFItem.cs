@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class DEFItem : Item
 {
-    public int DEF = 2;
+    public float DEF = 2;
+    public float originalDEF = 5f;
     public float plusDEFTime = 5f;
 
+    private static bool isActive = false;
+    private static float remainingTime = 0f;
+    
     public BuffItemController buffItemController;
     public Sprite icon;
     
@@ -17,7 +21,15 @@ public class DEFItem : Item
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             itemGetText.DisplayText("Defense Power Up!");
             
-            StartCoroutine(IncreaseDEF(player));
+            if (isActive)
+            {
+                // 아이템 중복으로 획득하면 타이머만 갱신
+                remainingTime = plusDEFTime;
+            }
+            else
+            {
+                StartCoroutine(IncreaseDEF(player));
+            }
             
             // 아이템 버프창에 올리기
             buffItemController.AddBuff("DEF Up Item", player.def, plusDEFTime, icon);
@@ -29,12 +41,20 @@ public class DEFItem : Item
 
     IEnumerator IncreaseDEF(PlayerController player)
     {
-        float playerDEF = player.def;
+        isActive = true;    // 아이템 중복 확인용
+        remainingTime = plusDEFTime;
+        
         player.def += DEF;
         
-        yield return new WaitForSeconds(plusDEFTime);
+        while (remainingTime > 0)
+        {
+            yield return null;
+            remainingTime -= Time.deltaTime;
+        }
+        
+        player.def = originalDEF;
+        isActive = false;   // 아이템 효과 끝
 
-        player.def = playerDEF;
         Destroy(gameObject);
     }
 }
