@@ -51,4 +51,11 @@ public class ButtonControl : MonoBehaviour
         Info[2].SetActive(false);
         Pause.OnApplicationPause(false); 
     }
+
+    public void OnClickVillage()
+    {
+        SceneLoader.LoadScene("Town Map");
+        Info[2].SetActive(false);
+        Pause.OnApplicationPause(false);
+    }
 }
