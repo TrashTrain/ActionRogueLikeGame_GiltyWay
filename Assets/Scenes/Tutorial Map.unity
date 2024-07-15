@@ -5511,6 +5511,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1718629705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 169560139527011411, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+  m_PrefabInstance: {fileID: 2137803262119813446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1728752846 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1189423712124460610, guid: dacee07e351ff4b4fb868328b4199104, type: 3}
@@ -8091,6 +8096,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3602497586147418978, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: Info.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602497586147418978, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: Info.Array.data[2]
+      value: 
+      objectReference: {fileID: 1718629705}
     - target: {fileID: 8070756037392658254, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_Name
       value: UI
