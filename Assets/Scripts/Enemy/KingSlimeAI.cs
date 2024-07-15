@@ -327,6 +327,7 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
 
     public void DestroyEvent()
     {
+        // openDoor();
         Destroy(this.gameObject);
     }
 
@@ -335,4 +336,9 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
         isReady = true;
         animator.SetTrigger("Ready");
     }
+
+    // public void openDoor()
+    // {
+    //     GameObject.Find("Stage_1").transform.Find("Boss Stage").gameObject.SetActive(false);
+    // }
 }

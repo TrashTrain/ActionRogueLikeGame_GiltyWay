@@ -5,32 +5,49 @@ using UnityEngine;
 public class BossStageBlocker : MonoBehaviour
 {
 	public Transform player;
-	public Transform bossBlock;
-	
+	private Transform bossBlock;
+	private KingSlimeAI kingActive;
 	public GameObject kingSlime;
 	
-	public bool isblock = false;
+	public bool isBlocked = false;
 
+	private float timer;
+	public int waitingTime = 2;
 
-    // Start is called before the first frame update
     void Start()
     {
-	    bossBlock = GameObject.Find("Stage_1").transform.Find("Boss Stage");
-	    bossBlock.gameObject.SetActive(false);
+	    // bossBlock = GameObject.Find("Stage_1").transform.Find("Boss Stage");
+	    kingActive = GameObject.Find("King Slime").GetComponent<KingSlimeAI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() 	// 플레이어가 도착하면 / 문을 닫고 / 슬라임 활성화
     {
-	    if (player.position.x >= 260f)
+	    if (player.position.x >= 260f) // 플레이어가 도착하면
 	    {
 		    GameObject.Find("Stage_1").transform.Find("Boss Stage").gameObject.SetActive(true);
+				// 문을 닫고
+		    isBlocked = true;
 	    }
-	    else
+
+	    if (isBlocked)
 	    {
-		    bossBlock.gameObject.SetActive(false);
+		    timer += Time.deltaTime;
+		    
+		    if (timer > waitingTime)
+			    kingActive.SetReady();
+				// 딜레이 이후 슬라임 활성화
 	    }
+
+	    // if (kingSlime == false) // 슬라임 존재하지 않으면
+	    // {
+		   //  GameObject.Find("Stage_1").transform.Find("Boss Stage").gameObject.SetActive(false);
+		   //  // 문을 연다 문 열라고
+		   //  isBlocked = true;
+	    // }
     }
 
-	// 플레이어가 도착하면 / 문을 닫고 / 슬라임 활성화
+    public void doorDpen()
+    {
+	    GameObject.Find("Stage_1").transform.Find("Boss Stage").gameObject.SetActive(false);
+    }
 }
