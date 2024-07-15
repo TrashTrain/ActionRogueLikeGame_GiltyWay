@@ -39,6 +39,11 @@ public class SoundManager : MonoBehaviour
                 MakeNode();
             }
         }
+
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void MakeNode()

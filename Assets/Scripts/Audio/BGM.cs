@@ -27,6 +27,11 @@ public class BGM : MonoBehaviour
             
             PlayBGM("MainScene");
         }
+
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
     
     public void PlayBGM(string key)

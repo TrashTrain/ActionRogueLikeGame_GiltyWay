@@ -146,7 +146,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
   - key: GameOver
     Clip: {fileID: 8300000, guid: 775308a92daf9d74b90092f623bfb01f, type: 3}
-  - key: b3
+  - key: Town Map
     Clip: {fileID: 8300000, guid: 559c232a43caebe41870ce54786f604e, type: 3}
   - key: b4
     Clip: {fileID: 8300000, guid: 51a4f1157b7ff1449b5e5cf064d584c7, type: 3}
