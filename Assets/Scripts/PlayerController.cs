@@ -182,8 +182,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        BGM.instance.StopBGM();
-        BGM.instance.PlayBGM("GameOver");
-        SceneManager.LoadScene("GameOver");
+        //BGM.instance.StopBGM();
+        //BGM.instance.PlayBGM("GameOver");
+        //SceneManager.LoadScene("GameOver");
     }
 }

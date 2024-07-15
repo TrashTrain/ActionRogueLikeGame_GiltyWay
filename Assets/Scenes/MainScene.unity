@@ -790,7 +790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Guilty Road
+  m_text: Guilty Way
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02e18ec6ea39540f79a7ed0175e25540, type: 2}
   m_sharedMaterial: {fileID: -162588350182739928, guid: 02e18ec6ea39540f79a7ed0175e25540, type: 2}
