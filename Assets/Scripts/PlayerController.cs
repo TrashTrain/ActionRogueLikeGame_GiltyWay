@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -176,5 +178,12 @@ public class PlayerController : MonoBehaviour
         isUnBeatTime = false;
 
         yield return null;
+    }
+
+    private void OnDestroy()
+    {
+        BGM.instance.StopBGM();
+        BGM.instance.PlayBGM("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 }

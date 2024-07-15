@@ -144,8 +144,8 @@ MonoBehaviour:
   soundResources:
   - key: Tutorial Map
     Clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
-  - key: b2
-    Clip: {fileID: 8300000, guid: fc5af015011ea3745b7f78ea1dd1049f, type: 3}
+  - key: GameOver
+    Clip: {fileID: 8300000, guid: 775308a92daf9d74b90092f623bfb01f, type: 3}
   - key: b3
     Clip: {fileID: 8300000, guid: 559c232a43caebe41870ce54786f604e, type: 3}
   - key: b4
