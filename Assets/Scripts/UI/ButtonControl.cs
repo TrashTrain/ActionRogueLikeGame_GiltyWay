@@ -48,6 +48,7 @@ public class ButtonControl : MonoBehaviour
     public void OnClickStartPage()
     {
         SceneLoader.LoadScene("MainScene");
+        Info[2].SetActive(false);
         Pause.OnApplicationPause(false); 
     }
 }
