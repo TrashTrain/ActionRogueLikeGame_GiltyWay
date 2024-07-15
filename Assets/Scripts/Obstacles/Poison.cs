@@ -9,6 +9,9 @@ public class Poison : MonoBehaviour
     public float dmg = 2f;
     public float dmgTime = 3f;
 
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    
     // private static bool isActive = false;
     // private static float remainingTime = 0f;
 
@@ -20,6 +23,9 @@ public class Poison : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            spriteRenderer = player.GetComponent<SpriteRenderer>();
+            originalColor = spriteRenderer.color;
+            
             // -------------------
             // if (isActive)
             // {
@@ -73,7 +79,7 @@ public class Poison : MonoBehaviour
 
         while (duration < dmgTime)
         {
-            if (duration % 2 != 0)
+            if (duration % 2 == 0)
             {
                 player.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
             }
@@ -87,6 +93,8 @@ public class Poison : MonoBehaviour
             duration += 1f;
             yield return new WaitForSeconds(1f);
         }
+
+        spriteRenderer.color = originalColor;
         Destroy(gameObject);
     }
 }
