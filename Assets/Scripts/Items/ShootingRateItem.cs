@@ -16,6 +16,7 @@ public class ShootingRateItem : Item
     {
         if (other.gameObject.layer == 6)
         {
+            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
             itemGetText.DisplayText("Shooting Rate Up!");
             
             StartCoroutine(IncreaseShootingRate(gun));

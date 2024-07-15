@@ -18,6 +18,8 @@ public class CPItem : Item
     {
         if (other.gameObject.layer == 6)
         {
+            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             itemGetText.DisplayText("Attack Power Up!");
 
@@ -30,7 +32,7 @@ public class CPItem : Item
                 StartCoroutine(IncreaseCP(player));
             }
 
-            buffItemController.AddBuff("ATK Up Item", CP, plusCPTime, icon);
+            buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
             
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
