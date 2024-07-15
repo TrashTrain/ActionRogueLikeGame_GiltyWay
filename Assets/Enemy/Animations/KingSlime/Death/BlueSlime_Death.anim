@@ -109,13 +109,6 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: OpenDoor
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: e6d89238918914ab6aeb88a777185c80, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 1.0833334
     functionName: DestroyEvent
     data: 

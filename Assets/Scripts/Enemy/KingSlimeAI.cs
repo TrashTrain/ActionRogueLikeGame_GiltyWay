@@ -13,6 +13,8 @@ public enum KingSlimeKind
 
 public class KingSlimeAI : MonoBehaviour, IDamageable
 {
+    public event Action OnBossSlimeDeath;
+    
     [Header("Ref")]
     public Transform playerTransform;
     public GameObject blueSlimeBullet;
@@ -319,10 +321,15 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
     public void Die()
     {
         sprite.color = Color.black;
-        
         currentState = SlimeState.Death;
         animator.SetTrigger("Death");
         SoundManager.instance.PlaySound("Slime_Destroyed", transform.position);
+        
+        // 보스 슬라임이 죽었을 때 이벤트 발생
+        if (OnBossSlimeDeath != null)
+        {
+            OnBossSlimeDeath.Invoke();
+        }
     }
 
     public void DestroyEvent()

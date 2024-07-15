@@ -190,6 +190,8 @@ MonoBehaviour:
   hp: 20
   maxHp: 20
   moveSpeed: 10
+  stunGauge: 1
+  stunTime: 5
   attackSpeed: 0
   preAttackCT: 0
   postAttackCT: 0

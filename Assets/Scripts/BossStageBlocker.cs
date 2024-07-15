@@ -8,6 +8,16 @@ public class BossStageBlocker : MonoBehaviour
 	public GameObject bossBlock;
 	public KingSlimeAI kingActive;
 	
+	private void OnEnable()
+	{
+		kingActive.OnBossSlimeDeath += OpenDoor;
+	}
+
+	private void OnDisable()
+	{
+		kingActive.OnBossSlimeDeath -= OpenDoor;
+	}
+	
 	public bool isBlocked = false;
 	
 	public int waitingTime = 2;
