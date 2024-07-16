@@ -23,7 +23,8 @@ public class SpeedObstacle : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            itemGetText.DisplayText("Slow Down!");
+            //itemGetText.DisplayText("Slow Down!");
+            UIManager.instance.itemGetText.DisplayText("Slow Down!");
             
             if (isActive)
             {
@@ -35,8 +36,9 @@ public class SpeedObstacle : MonoBehaviour
                 StartCoroutine(DecreaseSpeed(player));
             }
             
-            buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
-            
+            // buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
+            UIManager.instance.buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
+
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
         }

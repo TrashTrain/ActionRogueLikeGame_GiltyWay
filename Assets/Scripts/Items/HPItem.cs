@@ -14,8 +14,9 @@ public class HPItem : Item
         SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
         player.GetComponent<PlayerController>().hp += hp;
         if (player.GetComponent<PlayerController>().hp >= 50) player.GetComponent<PlayerController>().hp = 50;
+        
         UIManager.instance.playerInfo.SetHp(player.GetComponent<PlayerController>().hp);
-        itemGetText.DisplayText("HP +2 Up!");
+        UIManager.instance.itemGetText.DisplayText("HP +2 Up!");
         Destroy(gameObject);
     }
 }

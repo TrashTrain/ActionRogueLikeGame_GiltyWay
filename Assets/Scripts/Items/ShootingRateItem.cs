@@ -17,12 +17,14 @@ public class ShootingRateItem : Item
         if (other.gameObject.layer == 6)
         {
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
-            itemGetText.DisplayText("Shooting Rate Up!");
+            //itemGetText.DisplayText("Shooting Rate Up!");
+            UIManager.instance.itemGetText.DisplayText("Shooting Rate Up!");
             
             StartCoroutine(IncreaseShootingRate(gun));
             
-            buffItemController.AddBuff("Shooting Rate Up Item", gun.maxRate, plusShootingRateTime, icon);
-            
+            //buffItemController.AddBuff("Shooting Rate Up Item", gun.maxRate, plusShootingRateTime, icon);
+            UIManager.instance.buffItemController.AddBuff("Shooting Rate Up Item", gun.maxRate, plusShootingRateTime, icon);
+
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
         }

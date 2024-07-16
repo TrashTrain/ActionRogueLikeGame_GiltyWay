@@ -20,7 +20,8 @@ public class DEFItem : Item
         {
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            itemGetText.DisplayText("Defense Power Up!");
+            //itemGetText.DisplayText("Defense Power Up!");
+            UIManager.instance.itemGetText.DisplayText("Defense Power Up!");
             
             if (isActive)
             {
@@ -33,7 +34,8 @@ public class DEFItem : Item
             }
             
             // 아이템 버프창에 올리기
-            buffItemController.AddBuff("DEF Up Item", player.def, plusDEFTime, icon);
+            //buffItemController.AddBuff("DEF Up Item", player.def, plusDEFTime, icon);
+            UIManager.instance.buffItemController.AddBuff("DEF Up Item", player.def, plusDEFTime, icon);
             
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
