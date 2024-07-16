@@ -4,11 +4,38 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool isContact = false;
+    public GameObject EButton;
+
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
+        if (isContact)
         {
-            Debug.Log("대화성공");
+            EButton.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                
+            }
+        }
+        else
+        {
+            EButton.SetActive(false);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 6)
+        {
+            isContact = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 6)
+        {
+            isContact = false;
+        }
+    }
+
 }
