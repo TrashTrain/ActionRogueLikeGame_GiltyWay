@@ -51,5 +51,9 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: e46b2a39f3c875f4fae503aa55c430d5, type: 3}
   - key: Slime_Jump
     Clip: {fileID: 8300000, guid: 6b49c26b106d92a4d977d8454d734c3c, type: 3}
+  - key: Shoot
+    Clip: {fileID: 8300000, guid: edd00dfd9179cfa4f909037d2034ae79, type: 3}
+  - key: Charge
+    Clip: {fileID: 8300000, guid: 97b1e7296c93f6b4b804b376b9277c0e, type: 3}
   poolSize: 10
   soundNodePrefab: {fileID: 5065385888036347568, guid: 6d4163a6c96864ca18e8d6c5f55b9e6e, type: 3}

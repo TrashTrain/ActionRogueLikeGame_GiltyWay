@@ -52,6 +52,7 @@ public class S_ChargeShoot : MonoBehaviour
             chargeParticleInstance.transform.SetParent(shootTrans);
             
             InitPS(chargeParticleInstance);
+            SoundManager.instance.PlaySound("Charge", transform);
         }
 
         if (Input.GetKey(KeyCode.E))

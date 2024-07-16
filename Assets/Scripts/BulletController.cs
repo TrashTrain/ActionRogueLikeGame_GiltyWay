@@ -22,8 +22,8 @@ public class BulletController : MonoBehaviour
     }
     private void Start()
     {
-        
         transform.Rotate(0, 0, -90);
+        SoundManager.instance.PlaySound("Shoot", transform.position);
     }
     // Update is called once per frame
     void Update()

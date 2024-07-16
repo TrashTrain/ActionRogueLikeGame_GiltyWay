@@ -10,7 +10,7 @@ public class SpeedItem : Item
 
     private static bool isActive = false;
     private static float remainingTime = 0f;
-
+    
     public BuffItemController buffItemController;
     public Sprite icon;
     
@@ -20,7 +20,8 @@ public class SpeedItem : Item
         {
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            itemGetText.DisplayText("Speed UP!");
+            //itemGetText.DisplayText("Speed UP!");
+            UIManager.instance.itemGetText.DisplayText("Speed UP!");
 
             if (isActive)
             {
@@ -32,7 +33,9 @@ public class SpeedItem : Item
                 StartCoroutine(IncreaseSpeed(player));
             }
             //아이템 버퍼창에 띄우기
-            buffItemController.AddBuff("Speed Up Item", player.speed, plusSpeedTime, icon);
+            //buffItemController.AddBuff("Speed Up Item", player.speed, plusSpeedTime, icon);
+            //UIManager.instance.Canvas.B
+            UIManager.instance.buffItemController.AddBuff("Speed Up Item", player.speed, plusSpeedTime, icon);
             
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;

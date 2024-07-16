@@ -10,6 +10,10 @@ public class UIManager : MonoBehaviour
 
     public PlayerInfo playerInfo;
     public HitDamageInfo hitDamageInfo;
+
+    public GameObject buffPanel;
+    public ItemGetText itemGetText;
+    public BuffItemController buffItemController;
     
     private void Awake()
     {

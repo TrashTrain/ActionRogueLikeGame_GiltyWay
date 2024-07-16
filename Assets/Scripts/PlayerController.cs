@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("GameOver");
                 Destroy(gameObject);
+                GameOver();
             }
         }
     }
@@ -180,10 +181,9 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
-    private void OnDestroy()
+    private void GameOver()
     {
-        //BGM.instance.StopBGM();
-        //BGM.instance.PlayBGM("GameOver");
-        //SceneManager.LoadScene("GameOver");
+        BGM.instance.PlayBGM("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 }
