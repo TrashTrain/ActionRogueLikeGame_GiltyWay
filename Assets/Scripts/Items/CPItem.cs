@@ -21,8 +21,9 @@ public class CPItem : Item
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
             
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            itemGetText.DisplayText("Attack Power Up!");
-
+            //itemGetText.DisplayText("Attack Power Up!");
+            UIManager.instance.itemGetText.DisplayText("Attack Power Up!");
+            
             if (isActive)
             {
                 remainingTime = plusCPTime;
@@ -32,7 +33,8 @@ public class CPItem : Item
                 StartCoroutine(IncreaseCP(player));
             }
 
-            buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
+            UIManager.instance.buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
+            //buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
             
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
