@@ -2002,6 +2002,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3054298963748617310, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4294640866864706599, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9205,6 +9209,14 @@ PrefabInstance:
       propertyPath: gunManager
       value: 
       objectReference: {fileID: 604608089}
+    - target: {fileID: 1973791024176015771, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062441308706843309, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3461585894769319603, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: gunManager
       value: 
