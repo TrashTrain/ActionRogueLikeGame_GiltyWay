@@ -22,6 +22,7 @@ public abstract class GunController : MonoBehaviour
 
     void Update()
     {
+        if (NPCManager._isAction) return;
         if (!Pause.isPause) return;
         //Debug.Log("test");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -3746,43 +3746,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7372531596178338096, guid: a21a9622e5ffc4a64bec6f6a7e4686a2, type: 3}
   m_PrefabInstance: {fileID: 1975171913}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972712900}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.86, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1108647236}
-  - {fileID: 1338538938}
-  - {fileID: 2122445493}
-  - {fileID: 941718081}
-  - {fileID: 234080199}
-  - {fileID: 199469579}
-  - {fileID: 1873533651}
-  - {fileID: 619375978}
-  - {fileID: 62962395}
-  - {fileID: 1562845549}
-  - {fileID: 1501712656}
-  - {fileID: 19400683}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &972712903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972712900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d89238918914ab6aeb88a777185c80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2129915835}
-  kingSlime: {fileID: 0}
-  isBlocked: 0
-  waitingTime: 2
 --- !u!1 &1049238872
 GameObject:
   m_ObjectHideFlags: 0
@@ -9021,7 +8984,7 @@ SpriteRenderer:
   m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2113170548
