@@ -7,7 +7,8 @@ public class SFXManager : MonoBehaviour
     public static SFXManager Instance { get; private set; }
 
     public AudioClip getItem;
-
+    public AudioClip hpAtk;
+    
     private AudioSource audioSource;
 
     private void Awake()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2300443865765915636}
   - component: {fileID: 8443106597925520355}
   - component: {fileID: 7645242271629391042}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PoisonMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,8 @@ MonoBehaviour:
   player: {fileID: 0}
   dmg: 2
   dmgTime: 3
+  buffItemController: {fileID: 0}
+  icon: {fileID: -854266814, guid: 2ace9a8ac6dbf3844b983378e71a3cc4, type: 3}
 --- !u!70 &7645242271629391042
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
