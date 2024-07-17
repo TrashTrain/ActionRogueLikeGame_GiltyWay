@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedObstacle : MonoBehaviour
+public class SpeedObstacle : Obstacle
 {
-    public PlayerController player;
-    
     public float speed = 2f;
     public float originalSpeed = 5f;
     public float minusSpeedTime = 5f;
@@ -17,8 +15,8 @@ public class SpeedObstacle : MonoBehaviour
 
     public BuffItemController buffItemController;
     public Sprite icon;
-    
-    private void OnTriggerEnter2D(Collider2D other)
+
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {

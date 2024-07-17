@@ -12,7 +12,8 @@ public class HPObstacle : MonoBehaviour
     public Color hitColor = Color.red;    //캐릭터가 장애물에 부딪혔을 때 바뀌는 색
     
     private float changeTime = 0.5f;        //장애물 색 유지시간
-
+    private static bool isActive;
+    
     private SpriteRenderer spriteRenderer;
 
     private void Start()
@@ -25,25 +26,36 @@ public class HPObstacle : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            
-            Vector2 bounceDirection = new Vector2(bounceForce, bounceForce);
+            if (!isActive)
+            {
+                SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
+                PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
-            player.GetDamaged(dmg, gameObject, bounceDirection);
+                //hp minus text
+                UIManager.instance.hitDamageInfo.PrintHitDamage(player.transform, dmg);
 
-            StartCoroutine(ChangeColor(this));
+                Vector2 bounceDirection = new Vector2(bounceForce, bounceForce);
 
+                // player.GetDamaged(dmg, gameObject, bounceDirection);
+                player.hp -= dmg;
+                UIManager.instance.playerInfo.SetHp(player.hp);
+                
+                StartCoroutine(ChangeColor(this));
+            }
         }
     }
     
     IEnumerator ChangeColor(HPObstacle hpObstacle)
     {
+        isActive = true;
         spriteRenderer.color = hitColor;
         
         hpObstacle.GetComponent<BoxCollider2D>().isTrigger = true;  // 한번 hp 손상되었으면 지나갈 수 있도록
         yield return new WaitForSeconds(changeTime);
         
         hpObstacle.GetComponent<BoxCollider2D>().isTrigger = false;
+        
         spriteRenderer.color = originalColor;
+        isActive = false;
     }
 }

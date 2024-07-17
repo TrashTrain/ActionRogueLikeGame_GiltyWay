@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Poison : MonoBehaviour
@@ -12,12 +13,12 @@ public class Poison : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     
-    // private static bool isActive = false;
-    // private static float remainingTime = 0f;
-
-    // public BuffItemController buffItemController;
-    // public Sprite icon;
-
+    private static bool isActive = false;
+    private static float duration = 0f;
+    
+    public BuffItemController buffItemController;
+    public Sprite icon;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
@@ -26,20 +27,19 @@ public class Poison : MonoBehaviour
             spriteRenderer = player.GetComponent<SpriteRenderer>();
             originalColor = spriteRenderer.color;
             
-            // -------------------
-            // if (isActive)
-            // {
-            //     remainingTime = dmgTime;
-            // }
-            // else
-            // {
-            //     StartCoroutine(DecreaseHp(player));
-            // }
-
-            // buffItemController.AddBuff("Poisonous Mushroom", player.hp, dmgTime, icon);
-            // ----------------------
-            StartCoroutine(DecreaseHp(player));
-
+            if (isActive)
+            {
+                // 아이템 중복으로 획득하면 타이머만 갱신
+                duration = 0f;
+            }
+            else
+            {
+                StartCoroutine(DecreaseHp(player));
+            }
+            
+            UIManager.instance.buffItemController.AddBuff("Poisonous Obstacle", -1*dmg*dmgTime, dmgTime, icon);
+            
+            
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
 
@@ -53,32 +53,11 @@ public class Poison : MonoBehaviour
 
     IEnumerator DecreaseHp(PlayerController player)
     {
-        // isActive = true;
-        // remainingTime = dmgTime;
-
-        float duration = 0f;
-
-        // while (remainingTime > 0)
-        // {
-        //     if (remainingTime % 2 != 0)
-        //     {
-        //         player.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
-        //     }
-        //     else
-        //     {
-        //         player.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 180);
-        //     }
-        //     player.hp -= dmg;
-        //     remainingTime -= Time.deltaTime;
-        //     UIManager.instance.playerInfo.SetHp(player.hp);
-        // }
-        //
-        // isActive = false;
-
-        // --------------
+        isActive = true;
 
         while (duration < dmgTime)
         {
+            yield return new WaitForSeconds(1f);
             if (duration % 2 == 0)
             {
                 player.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
@@ -88,13 +67,16 @@ public class Poison : MonoBehaviour
                 player.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 180);
             }
             
+            // 효과음
+            SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
+            
             player.hp -= dmg;
             UIManager.instance.playerInfo.SetHp(player.hp);
             duration += 1f;
-            yield return new WaitForSeconds(1f);
         }
-
+        
         spriteRenderer.color = originalColor;
+        isActive = false;
         Destroy(gameObject);
     }
 }
