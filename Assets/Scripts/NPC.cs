@@ -15,26 +15,21 @@ public class NPC : MonoBehaviour
     {
         if (isContact)
         {
-            EButton.SetActive(true);
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
-                EButton.SetActive(false);
                 npcManager.Action(gameObject);
             }
         }
         else
         {
-            EButton.SetActive(false);
         }
-    }
-    public void SetNPC(GameObject npc)
-    {
-        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == 6)
         {
+            EButton.SetActive(true);
             isContact = true;
         }
     }
@@ -42,6 +37,8 @@ public class NPC : MonoBehaviour
     {
         if(collision.gameObject.layer == 6)
         {
+
+            EButton.SetActive(false);
             isContact = false;
         }
     }
