@@ -120,9 +120,9 @@ public class Skull : MonoBehaviour, IDamageable
     {
         if(damage <= 0) return;
         if(currentState == GeneralMonsterState.Death) return;
-
-        this.hp -= damage;
-        UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
+        
+        //this.hp -= damage;
+        UIManager.instance.hitDamageInfo.PrintHitDamage(transform, 0);
 
         if (hp < 0)
         {
