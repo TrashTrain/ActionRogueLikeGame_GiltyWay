@@ -7,6 +7,10 @@ public class NPC : MonoBehaviour
     private bool isContact = false;
     public GameObject EButton;
 
+
+    [Header("NPCManager")]
+    public NPCManager npcManager;
+
     private void Update()
     {
         if (isContact)
@@ -14,7 +18,8 @@ public class NPC : MonoBehaviour
             EButton.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("test");
+                EButton.SetActive(false);
+                npcManager.Action(gameObject);
             }
         }
         else
@@ -22,7 +27,10 @@ public class NPC : MonoBehaviour
             EButton.SetActive(false);
         }
     }
-
+    public void SetNPC(GameObject npc)
+    {
+        
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == 6)

@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject[] guns;
 
+
     //---------------------------------------------------[Override Function]
     //Initialization
     void Awake()
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         
+
     }
 
 
@@ -122,6 +124,9 @@ public class PlayerController : MonoBehaviour
             }
         }
             
+    }
+    void NPCCommunicate()
+    {
     }
 
     public void GetDamaged(float dmg, GameObject enemy, Vector2 attackPower)
