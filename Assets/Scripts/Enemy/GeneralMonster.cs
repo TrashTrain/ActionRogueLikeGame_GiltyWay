@@ -14,32 +14,31 @@ public class GeneralMonster : MonoBehaviour, IDamageable
     private const int PlayerLayer = 1 << 6;
     private const int GroundLayer = 1 << 7;
     
-    private void Awake()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-
-        refData.SyncData();
-        generalMonsterData = refData.data;
-        
-        Debug.Log(generalMonsterData.patrolDistance);
-        
-        generalMonsterData.patrolPos = transform.position;
         
         //null check
         if(rb == null) {Debug.LogError($"{this.gameObject.name}(RigidBody2D) is null");}
         if(animator == null) {Debug.LogError($"{this.gameObject.name}(Animator) is null");}
         if(sprite == null) {Debug.LogError($"{this.gameObject.name}(Sprite) is null");}
+        if(refData == null) {Debug.LogError($"{this.gameObject.name}(refData) is null");}
         if( generalMonsterData.targetLayer != PlayerLayer) {Debug.LogError($"{this.gameObject.name}(targetLayer is not playerLayer)");}
+        
+        refData.SyncData();
+        generalMonsterData = refData.data;
+        
+        generalMonsterData.patrolPos = transform.position;
     }
 
-    private void Start()
+    protected void Start()
     {
-        //Invoke("CheckTarget", 1f);
+        Invoke("CheckTarget", 1f);
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if ( generalMonsterData.currentState == GeneralMonsterState.Idle)
         {
@@ -52,17 +51,14 @@ public class GeneralMonster : MonoBehaviour, IDamageable
         }
     }
 
-    private void TurnBack()
+    protected void TurnBack()
     {
         generalMonsterData.moveDirection = - generalMonsterData.moveDirection;
         sprite.flipX = ( generalMonsterData.moveDirection.x < 0 );
     }
 
-    private void Patrol()
+    protected void Patrol()
     {
-        Debug.Log(Vector2.Distance(transform.position,
-            generalMonsterData.patrolPos + Vector2.right * generalMonsterData.patrolDistance / 2));
-        
         if (DetectObstacle())
         {
             TurnBack();
@@ -81,7 +77,7 @@ public class GeneralMonster : MonoBehaviour, IDamageable
         rb.transform.Translate( generalMonsterData.moveSpeed * Time.deltaTime *  generalMonsterData.moveDirection);
     }
 
-    private void CheckTarget()
+    protected void CheckTarget()
     {
         if ( generalMonsterData.currentState != GeneralMonsterState.Idle) return;
 
@@ -97,7 +93,7 @@ public class GeneralMonster : MonoBehaviour, IDamageable
         Invoke("CheckTarget", 1f);
     }
     
-    private bool DetectObstacle()
+    protected bool DetectObstacle()
     {
         RaycastHit2D hit = Physics2D.Raycast(rb.transform.position,  generalMonsterData.moveDirection, generalMonsterData.obstacleRaycastDistance, GroundLayer);
         Debug.DrawRay(rb.transform.position, ( generalMonsterData.moveDirection) * generalMonsterData.obstacleRaycastDistance, Color.blue);
@@ -107,21 +103,7 @@ public class GeneralMonster : MonoBehaviour, IDamageable
         return false;
     }
     
-    public void GetDamaged(float damage)
-    {
-        if(damage <= 0) return;
-        if( generalMonsterData.currentState == GeneralMonsterState.Death) return;
-
-        generalMonsterData.hp -= damage;
-        UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
-
-        if ( generalMonsterData.hp < 0)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other)
+    protected void OnCollisionEnter2D(Collision2D other)
     {
         if ( generalMonsterData.currentState == GeneralMonsterState.Death) return;
         
@@ -140,5 +122,19 @@ public class GeneralMonster : MonoBehaviour, IDamageable
     protected virtual void Attack()
     {
         Debug.Log("Attack!GM");
+    }
+    
+    public void GetDamaged(float damage)
+    {
+        if(damage <= 0) return;
+        if( generalMonsterData.currentState == GeneralMonsterState.Death) return;
+
+        generalMonsterData.hp -= damage;
+        UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
+
+        if ( generalMonsterData.hp < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
