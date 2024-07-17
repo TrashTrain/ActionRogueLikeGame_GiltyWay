@@ -14,7 +14,7 @@ public class NPC : MonoBehaviour
             EButton.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                
+                Debug.Log("test");
             }
         }
         else
