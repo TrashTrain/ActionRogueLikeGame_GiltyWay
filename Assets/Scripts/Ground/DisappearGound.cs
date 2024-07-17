@@ -26,7 +26,7 @@ public class DisappearGound : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            Invoke("DisableEvent", 3f);
+            Invoke("DisableEvent", 2f);
         }
 
         if (other.gameObject.layer == 9)
