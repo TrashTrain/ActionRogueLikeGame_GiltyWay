@@ -5,7 +5,7 @@ public struct GeneralMonsterDataStruct
 {
     public float knockBackPower;
     public float hp;
-    public GeneralMonsterState currentState;
+    //public GeneralMonsterState currentState;
     
     public float moveSpeed;
     public float patrolDistance;

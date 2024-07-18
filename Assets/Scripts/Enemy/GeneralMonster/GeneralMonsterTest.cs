@@ -1,8 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-public class GeneralMonster : MonoBehaviour, IDamageable
+public class GeneralMonsterTest : MonoBehaviour, IDamageable
 {
     private GeneralMonsterDataStruct generalMonsterData;
+    
+    //Test
+    private bool isTransition = false;
+    protected FSMState idleState;
+    protected FSMState attackState;
+    protected FSMState deathState;
+    
+    protected FSMState currentState;
+    protected FSMState nextState;
+
+    protected bool FindTarget = false;
+    //
     
     [Header("Ref")]
     public SpriteRenderer sprite;
@@ -20,6 +35,9 @@ public class GeneralMonster : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         
+        refData.SyncData();
+        generalMonsterData = refData.data;
+        
         //null check
         if(rb == null) {Debug.LogError($"{this.gameObject.name}(RigidBody2D) is null");}
         if(animator == null) {Debug.LogError($"{this.gameObject.name}(Animator) is null");}
@@ -27,30 +45,80 @@ public class GeneralMonster : MonoBehaviour, IDamageable
         if(refData == null) {Debug.LogError($"{this.gameObject.name}(refData) is null");}
         if( generalMonsterData.targetLayer != PlayerLayer) {Debug.LogError($"{this.gameObject.name}(targetLayer is not playerLayer)");}
         
-        refData.SyncData();
-        generalMonsterData = refData.data;
-        
         generalMonsterData.patrolPos = transform.position;
+        
+        StateInit();
     }
 
     protected void Start()
     {
-        Invoke("CheckTarget", 1f);
+        IdleEnter();
     }
 
     protected void FixedUpdate()
     {
-        if ( generalMonsterData.currentState == GeneralMonsterState.Idle)
+        ////
+        if (isTransition && currentState != nextState)
         {
-            Patrol();
+            currentState = nextState;
+            currentState.OnEnter?.Invoke();
+            isTransition = false;
         }
-
-        if ( generalMonsterData.currentState == GeneralMonsterState.Attack)
-        {
-            sprite.flipX = ( generalMonsterData.targetTransform.position.x < transform.position.x);
-        }
+        
+        currentState.OnUpdate?.Invoke();
+        isTransition = TransitionCheck();
+        
+        if(isTransition && currentState != nextState) currentState.OnExit?.Invoke();
+        ////
     }
 
+    /// 
+    protected virtual void StateInit()
+    {
+        idleState = new FSMState( IdleEnter, IdleUpdate, null);
+        attackState = new FSMState( AttackEnter, AttackUpdate, null);
+        deathState = new FSMState(null, null, null);
+        
+        currentState = idleState;
+        nextState = idleState;
+    }
+
+    protected virtual bool TransitionCheck()
+    {
+        if (currentState == idleState)
+        {
+            if (FindTarget)
+            {
+                FindTarget = false;
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    protected virtual void IdleEnter()
+    {
+        Invoke("CheckTarget", 1f);
+    }
+    
+    protected virtual void IdleUpdate()
+    {
+        Patrol();
+    }
+
+    protected virtual void AttackEnter()
+    {
+        animator.SetTrigger("Attack");
+        Attack();
+    }
+    
+    protected virtual void AttackUpdate()
+    {
+        sprite.flipX = ( generalMonsterData.targetTransform.position.x < transform.position.x);
+    }
+    /// 
+    
     protected void TurnBack()
     {
         generalMonsterData.moveDirection = - generalMonsterData.moveDirection;
@@ -79,15 +147,14 @@ public class GeneralMonster : MonoBehaviour, IDamageable
 
     protected void CheckTarget()
     {
-        if ( generalMonsterData.currentState != GeneralMonsterState.Idle) return;
+        if ( currentState != idleState) return;
 
         Collider2D target = Physics2D.OverlapCircle(rb.position,  generalMonsterData.recognizeRadius,  generalMonsterData.targetLayer);
         if (target != null)
         {
-            Attack();
             generalMonsterData.targetTransform = target.transform;
-            animator.SetTrigger("Attack");
-            generalMonsterData.currentState = GeneralMonsterState.Attack;
+            nextState = attackState;
+            FindTarget = true;
         }
         
         Invoke("CheckTarget", 1f);
@@ -105,7 +172,7 @@ public class GeneralMonster : MonoBehaviour, IDamageable
     
     protected void OnCollisionEnter2D(Collision2D other)
     {
-        if ( generalMonsterData.currentState == GeneralMonsterState.Death) return;
+        if ( currentState == deathState) return;
         
         if (other.gameObject.layer == 9)
         {
@@ -127,7 +194,7 @@ public class GeneralMonster : MonoBehaviour, IDamageable
     public void GetDamaged(float damage)
     {
         if(damage <= 0) return;
-        if( generalMonsterData.currentState == GeneralMonsterState.Death) return;
+        if( currentState == deathState) return;
 
         generalMonsterData.hp -= damage;
         UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);

@@ -13,31 +13,31 @@ MonoBehaviour:
   m_Name: GeneralMonsterData
   m_EditorClassIdentifier: 
   data:
-    knockBackPower: 0
-    hp: 0
+    knockBackPower: 20
+    hp: 30
     currentState: 0
-    moveSpeed: 0
-    patrolDistance: 0
+    moveSpeed: 4
+    patrolDistance: 3
     patrolPos: {x: 0, y: 0}
-    moveDirection: {x: 0, y: 0}
-    obstacleRaycastDistance: 0
+    moveDirection: {x: 1, y: 0}
+    obstacleRaycastDistance: 1
     targetLayer:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 64
     targetTransform: {fileID: 0}
-    recognizeRadius: 0
-    attackSpeed: 0
-    attackDamage: 0
-  knockBackPower: 0
-  hp: 0
+    recognizeRadius: 3
+    attackSpeed: 1
+    attackDamage: 2
+  knockBackPower: 20
+  hp: 30
   currentState: 0
-  moveSpeed: 0
-  patrolDistance: 0
+  moveSpeed: 4
+  patrolDistance: 3
   moveDirection: {x: 1, y: 0}
-  obstacleRaycastDistance: 0
+  obstacleRaycastDistance: 1
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
-  recognizeRadius: 0
-  attackSpeed: 0
-  attackDamage: 0
+    m_Bits: 64
+  recognizeRadius: 3
+  attackSpeed: 1
+  attackDamage: 2

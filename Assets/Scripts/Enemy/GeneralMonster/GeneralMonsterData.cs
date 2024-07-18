@@ -8,7 +8,8 @@ public class GeneralMonsterData : ScriptableObject
     [Header("General Setting")] 
     public float knockBackPower;
     public float hp;
-    public GeneralMonsterState currentState = GeneralMonsterState.Idle;
+    //public GeneralMonsterState currentState = GeneralMonsterState.Idle;
+    //public FSMState currentState;
     
     [Header("Patrol(Idle) Setting")]
     public float moveSpeed;
@@ -27,7 +28,7 @@ public class GeneralMonsterData : ScriptableObject
     {
         data.knockBackPower = knockBackPower;
         data.hp = hp;
-        data.currentState = currentState;
+        //data.currentState = currentState;
 
         data.moveSpeed = moveSpeed;
         data.patrolDistance = patrolDistance;
