@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Superbia/FirstSuperbia.unity
     guid: d8292765ef851493da610b0e6a01d6b0
+  - enabled: 1
+    path: Assets/Scenes/Superbia/SecondSuperbia.unity
+    guid: 3b3de55fc10034c6a93f1a245ea0eecb
   m_configObjects: {}
