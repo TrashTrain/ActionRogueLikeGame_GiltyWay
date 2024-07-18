@@ -15982,8 +15982,9 @@ GameObject:
   - component: {fileID: 1681564338}
   - component: {fileID: 1681564340}
   - component: {fileID: 1681564339}
+  - component: {fileID: 1681564341}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: SlotPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16050,6 +16051,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681564337}
   m_CullTransparentMesh: 1
+--- !u!114 &1681564341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681564337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32923fd63a8cdc64a8a3267c3c660c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotDataGroup: []
+  slot1Image: {fileID: 918146463}
+  slot1Name: {fileID: 420194280}
+  slot1Description: {fileID: 23860675}
+  slot2Image: {fileID: 243415460}
+  slot2Name: {fileID: 1645680305}
+  slot2Description: {fileID: 1963255442}
+  slot3Image: {fileID: 1110518741}
+  slot3Name: {fileID: 293654663}
+  slot3Description: {fileID: 1086691228}
 --- !u!1 &1709371648
 GameObject:
   m_ObjectHideFlags: 0
