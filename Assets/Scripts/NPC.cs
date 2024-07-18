@@ -6,7 +6,9 @@ public class NPC : MonoBehaviour
 {
     private bool isContact = false;
     public GameObject EButton;
-
+    [Header("NPCInfo")]
+    public int id;
+    public bool isNpc;
 
     [Header("NPCManager")]
     public NPCManager npcManager;
