@@ -54,7 +54,7 @@ public abstract class GunController : MonoBehaviour
     }
     private void SumDmg()
     {
-        if (sumDmg != PlayerController.atk) 
+        if (sumDmg != PlayerController.atk && bulletDmg >= 2f) 
         {
             sumDmg = PlayerController.atk - sumDmg;
             bulletDmg += sumDmg;
