@@ -19,8 +19,7 @@ public class CPItem : Item
         if (other.gameObject.layer == 6)
         {
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
-            
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+
             //itemGetText.DisplayText("Attack Power Up!");
             UIManager.instance.itemGetText.DisplayText("Attack Power Up!");
             
@@ -30,10 +29,10 @@ public class CPItem : Item
             }
             else
             {
-                StartCoroutine(IncreaseCP(player));
+                StartCoroutine(IncreaseCP());
             }
 
-            UIManager.instance.buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
+            UIManager.instance.buffItemController.AddBuff("ATK Up Item", PlayerController.atk, plusCPTime, icon);
             //buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
             
             GetComponent<SpriteRenderer>().enabled = false;
@@ -41,12 +40,12 @@ public class CPItem : Item
         }
     }
 
-    IEnumerator IncreaseCP(PlayerController player)
+    IEnumerator IncreaseCP()
     {
         isActive = true;
         remainingTime = plusCPTime;
         
-        player.atk += CP;
+        PlayerController.atk += CP;
 
         while (remainingTime > 0)
         {
@@ -54,7 +53,7 @@ public class CPItem : Item
             remainingTime -= Time.deltaTime;
         }
         
-        player.atk = originalCP;
+        PlayerController.atk = originalCP;
         isActive = false;
         
         Destroy(gameObject);

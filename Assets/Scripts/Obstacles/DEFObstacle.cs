@@ -39,7 +39,7 @@ public class DEFObstacle : Obstacle
         isActive = true;
         remainingTime = minusDEFTime;
 
-        player.atk -= DEF;
+        player.def -= DEF;
 
         while (remainingTime > 0)
         {
@@ -47,7 +47,7 @@ public class DEFObstacle : Obstacle
             remainingTime -= Time.deltaTime;
         }
         
-        player.atk = originalDEF;
+        player.def = originalDEF;
         isActive = false;
         
         Destroy(gameObject);

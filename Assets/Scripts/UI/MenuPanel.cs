@@ -10,6 +10,7 @@ public class MenuPanel : MonoBehaviour
     private bool isMenuClick = false;
     public void OnMenuButtonClik()
     {
+        if (NPCManager._isAction) return;
         if (!isMenuClick)
         {
             isMenuClick = true;
@@ -20,6 +21,7 @@ public class MenuPanel : MonoBehaviour
     }
     private void Update()
     {
+        if (NPCManager._isAction) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isMenuClick)

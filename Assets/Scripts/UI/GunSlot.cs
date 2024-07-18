@@ -40,6 +40,7 @@ public class GunSlot : MonoBehaviour
     }
     private void Update()
     {
+        if (NPCManager._isAction) return;
         OnButtonScreen();
     }
 
