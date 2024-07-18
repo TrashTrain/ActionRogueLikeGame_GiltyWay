@@ -23,10 +23,14 @@ public class SlotController : MonoBehaviour
     public TextMeshProUGUI slot3Description;
     void Start()
     {
-        
+        slotDB = new Dictionary<string, SlotData>(); ;
+        foreach(var data in slotDataGroup)
+        {
+            slotDB.Add(data.name, data);
+        }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
