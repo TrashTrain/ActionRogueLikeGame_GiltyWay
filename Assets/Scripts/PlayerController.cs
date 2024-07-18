@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     //player Status
     [Header("Player Status")]
     public float hp = 50;
-    public float atk = 10;
+    public static float atk = 0;
     public float def = 10;
     public float speed = 5f;
     public float jumpPower = 1f;

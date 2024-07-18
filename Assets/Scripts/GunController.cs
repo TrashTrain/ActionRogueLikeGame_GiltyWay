@@ -15,6 +15,10 @@ public abstract class GunController : MonoBehaviour
 
     private SpriteRenderer sr;
 
+    public float bulletSpeed = 0f;
+    public float bulletDmg = 2f;
+    private float sumDmg = PlayerController.atk;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -24,6 +28,8 @@ public abstract class GunController : MonoBehaviour
     {
         if (NPCManager._isAction) return;
         if (!Pause.isPause) return;
+
+        SumDmg();
         //Debug.Log("test");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target = mousePos - (Vector2)transform.position;
@@ -45,6 +51,16 @@ public abstract class GunController : MonoBehaviour
             Fire();
             shootingRate = 0f;
         }
+    }
+    private void SumDmg()
+    {
+        if (sumDmg != PlayerController.atk) 
+        {
+            sumDmg = PlayerController.atk - sumDmg;
+            bulletDmg += sumDmg;
+            sumDmg = PlayerController.atk;
+        }
+
     }
     public void Init(Transform pos)
     {

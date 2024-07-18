@@ -5,8 +5,7 @@ using UnityEngine;
 public class BasicPistol : GunController
 {
     public GameObject bullet;
-    public float bulletSpeed = 0f;
-    public float bulletDmg = 2f;
+
     
 
     //마우스 입력 총알 발사

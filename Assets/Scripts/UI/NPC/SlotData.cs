@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum ItemType
@@ -11,8 +12,10 @@ public class SlotData : ScriptableObject
 {
     public Sprite itemImage;
     public string itemName;
+    public int statusValue;
 
     [TextArea]
     public string itemDescription;
     public ItemType type;
+
 }
