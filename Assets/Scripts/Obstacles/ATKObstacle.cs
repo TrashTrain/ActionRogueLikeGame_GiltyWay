@@ -26,7 +26,7 @@ public class ATKObstacle : Obstacle
             }
             else
             {
-                StartCoroutine(DecreaseATK(player));
+                StartCoroutine(DecreaseATK());
             }
             
             GetComponent<SpriteRenderer>().enabled = false;
@@ -34,20 +34,20 @@ public class ATKObstacle : Obstacle
         }
     }
 
-    IEnumerator DecreaseATK(PlayerController player)
+    IEnumerator DecreaseATK()
     {
         isActive = true;
         remainingTime = minusATKTime;
 
-        player.atk -= ATK;
+        PlayerController.atk -= ATK;
 
         while (remainingTime > 0)
         {
             yield return null;
             remainingTime -= Time.deltaTime;
         }
-        
-        player.atk = originalATK;
+
+        PlayerController.atk = originalATK;
         isActive = false;
         
         Destroy(gameObject);
