@@ -186,18 +186,4 @@ MonoBehaviour:
   sprite: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 0}
-  knockBackPower: 100
-  hp: 10
-  currentState: 0
-  moveSpeed: 5
-  patrolDistance: 6
-  patrolPos: {x: 0, y: 0}
-  moveDirection: {x: 1, y: 0}
-  obstacleRaycastDistance: 1
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  targetTransform: {fileID: 0}
-  recognizeRadius: 5
-  attackSpeed: 10
-  attackDamage: 0
+  refData: {fileID: 11400000, guid: 17a7ba01108954823893261f44011b2a, type: 2}

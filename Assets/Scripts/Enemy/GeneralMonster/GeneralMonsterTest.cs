@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GeneralMonsterTest : MonoBehaviour, IDamageable
 {
-    private GeneralMonsterDataStruct generalMonsterData;
+    protected GeneralMonsterDataStruct generalMonsterData;
     
     //Test
     private bool isTransition = false;
