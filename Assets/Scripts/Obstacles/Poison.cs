@@ -70,7 +70,11 @@ public class Poison : MonoBehaviour
             // 효과음
             SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
             
+            //hp minus text
+            UIManager.instance.hitDamageInfo.PrintHitDamage(player.transform, dmg);
+
             player.hp -= dmg;
+            
             UIManager.instance.playerInfo.SetHp(player.hp);
             duration += 1f;
         }

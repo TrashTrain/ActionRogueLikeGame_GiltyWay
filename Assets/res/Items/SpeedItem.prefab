@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6806685620549611569}
   m_Layer: 8
   m_Name: SpeedItem
-  m_TagString: Untagged
+  m_TagString: SpeedItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
