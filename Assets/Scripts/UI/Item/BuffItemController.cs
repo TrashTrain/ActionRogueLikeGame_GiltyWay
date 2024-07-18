@@ -45,6 +45,11 @@ public class BuffItemController : MonoBehaviour
         }
     }
 
+    public void RemoveBuff()
+    {
+        
+    }
+    
     public void AddBuff(string buffName, float current, float duration, Sprite icon)
     {
         var duplicate = activeBuffs.Find(x => x.name.Equals(buffName));

@@ -35,7 +35,7 @@ public class SpeedObstacle : Obstacle
             }
             
             // buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
-            UIManager.instance.buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
+            // UIManager.instance.buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
 
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;

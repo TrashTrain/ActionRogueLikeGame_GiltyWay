@@ -7,7 +7,7 @@ public class HPObstacle : MonoBehaviour
 {
     public int dmg;
 
-    private float bounceForce = 20f;
+    private float bounce = 20f;
     private Color originalColor;            //장애물 원래 색
     public Color hitColor = Color.red;    //캐릭터가 장애물에 부딪혔을 때 바뀌는 색
     
@@ -15,7 +15,7 @@ public class HPObstacle : MonoBehaviour
     private static bool isActive;
     
     private SpriteRenderer spriteRenderer;
-
+    
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,10 +34,13 @@ public class HPObstacle : MonoBehaviour
                 //hp minus text
                 UIManager.instance.hitDamageInfo.PrintHitDamage(player.transform, dmg);
 
-                Vector2 bounceDirection = new Vector2(bounceForce, bounceForce);
+                Vector2 bounceForce = new Vector2(bounce, bounce);
 
-                // player.GetDamaged(dmg, gameObject, bounceDirection);
+                //attack bounce
+                player.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
+                
                 player.hp -= dmg;
+
                 UIManager.instance.playerInfo.SetHp(player.hp);
                 
                 StartCoroutine(ChangeColor(this));
