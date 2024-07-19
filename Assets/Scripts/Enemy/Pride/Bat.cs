@@ -17,19 +17,18 @@ public class Bat : GeneralMonsterTest
 
     protected override void Attack()
     {
-        Debug.Log("AttackBat");
-        base.Attack();
         
         if (generalMonsterData.targetTransform.position != null)
         {
             var targetPos = generalMonsterData.targetTransform.position;
             
-            Vector2 attackDir = new Vector2(targetPos.x - rb.position.x, targetPos.z - rb.position.y).normalized;
-            sprite.flipX = (attackDir.x < 0) ? true : false;
-
-            GameObject bullet = Instantiate(sonicWavePrefab, transform.position + transform.forward, Quaternion.FromToRotation(transform.position, targetPos));
+            Vector2 attackDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
+            float angle = Mathf.Atan2(attackDir.y, attackDir.x) * Mathf.Rad2Deg; // 각도 계산
             
-            bullet.GetComponent<Rigidbody2D>().AddForce(  generalMonsterData. attackSpeed * attackDir , ForceMode2D.Impulse);
+            GameObject bullet = Instantiate(sonicWavePrefab, transform.position + transform.forward, Quaternion.Euler(new Vector3(0, 0, angle)));
+            bullet.GetComponent<Rigidbody2D>().AddForce(  generalMonsterData. attackSpeed * attackDir * 5 , ForceMode2D.Impulse);
         }
+        
+        Invoke("Attack", 1f);
     }
 }

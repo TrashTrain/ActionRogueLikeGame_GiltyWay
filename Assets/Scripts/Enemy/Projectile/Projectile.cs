@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -9,27 +10,34 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float knockBackPower = 50f;
     [SerializeField] private float attackDamage = 2f;
     public float AttackDamage => attackDamage;
-    
+
+
+    private void FixedUpdate()
+    {
+        transform.localScale += 0.5f * (Time.deltaTime) * transform.localScale;
+    }
 
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-
-        sprite.flipX = (rb.velocity.x > 0) ? false : true;
         
-        Invoke("DestroyEvent", 4f);
+        Invoke("DestroyEvent", 3f);
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 9) return;
         
         if (other.gameObject.layer == 6)
         {
+            
             other.gameObject.GetComponent<PlayerController>().GetDamaged(AttackDamage, this.gameObject,
                 (((other.transform.position.x > transform.position.x) ? Vector2.right : Vector2.left) + 0.5f * Vector2.up).normalized * knockBackPower);
+        }
+        else
+        {
+            return;
         }
         
         DestroyEvent();

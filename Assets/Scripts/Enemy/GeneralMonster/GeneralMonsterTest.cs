@@ -7,7 +7,6 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
 {
     protected GeneralMonsterDataStruct generalMonsterData;
     
-    //Test
     private bool isTransition = false;
     protected FSMState idleState;
     protected FSMState attackState;
@@ -17,7 +16,6 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
     protected FSMState nextState;
 
     protected bool FindTarget = false;
-    //
     
     [Header("Ref")]
     public SpriteRenderer sprite;
@@ -57,7 +55,6 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
 
     protected void FixedUpdate()
     {
-        ////
         if (isTransition && currentState != nextState)
         {
             currentState = nextState;
@@ -69,7 +66,6 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
         isTransition = TransitionCheck();
         
         if(isTransition && currentState != nextState) currentState.OnExit?.Invoke();
-        ////
     }
 
     /// 
@@ -134,10 +130,10 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
         
         switch (generalMonsterData.moveDirection.x)
         {
-            case > 0 when Vector2.Distance(transform.position,
-                generalMonsterData.patrolPos + Vector2.right * generalMonsterData.patrolDistance / 2) < 0.1f:
-            case < 0 when Vector2.Distance(transform.position, 
-                generalMonsterData.patrolPos + Vector2.left * generalMonsterData.patrolDistance / 2) < 0.1f:
+            case > 0 when (transform.position.x > 
+                           generalMonsterData.patrolPos.x + Vector2.right.x * generalMonsterData.patrolDistance / 2):
+            case < 0 when (transform.position.x <
+                           generalMonsterData.patrolPos.x + Vector2.left.x * generalMonsterData.patrolDistance / 2):
                 TurnBack();
                 break;
         }
