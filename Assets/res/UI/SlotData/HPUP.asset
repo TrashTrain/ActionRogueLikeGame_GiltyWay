@@ -15,5 +15,6 @@ MonoBehaviour:
   itemImage: {fileID: 21300000, guid: 0bd8df4126422a842851bbc6299d4154, type: 3}
   itemName: HpUp
   statusValue: 10
+  font: {fileID: 11400000, guid: 02e18ec6ea39540f79a7ed0175e25540, type: 2}
   itemDescription: "\uCCB4\uB825\uC774 10 \uB298\uC5B4\uB0A9\uB2C8\uB2E4."
   type: 0

@@ -26,7 +26,7 @@ public abstract class GunController : MonoBehaviour
 
     void Update()
     {
-        if (NPCManager._isAction) return;
+        if (DialogSystem._isAction) return;
         if (!Pause.isPause) return;
 
         SumDmg();
