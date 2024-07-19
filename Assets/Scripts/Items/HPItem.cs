@@ -21,8 +21,9 @@ public class HPItem : Item
 
             UIManager.instance.playerInfo.SetHp(player.GetComponent<PlayerController>().hp);
             
-            UIManager.instance.hitDamageInfo.PrintHitDamage(player.transform, hp);      // 내일 고치기
-            UIManager.instance.itemGetText.DisplayText("HP +2 Up!");
+            // UIManager.instance.hpUpInfo.PrintHpUp(player.transform, hp);      // UI manager 수정 후에 주석 풀기
+            
+            // UIManager.instance.itemGetText.DisplayText("HP +2 Up!");
             
             Destroy(gameObject);
         }

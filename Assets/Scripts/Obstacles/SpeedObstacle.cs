@@ -20,6 +20,8 @@ public class SpeedObstacle : Obstacle
     {
         if (other.gameObject.layer == 6)
         {
+            // BGM.instance.OnSpeedObstacleCollected(minusSpeedTime);
+            
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             //itemGetText.DisplayText("Slow Down!");
             UIManager.instance.itemGetText.DisplayText("Slow Down!");
