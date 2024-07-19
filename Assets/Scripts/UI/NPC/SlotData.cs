@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class SlotData : ScriptableObject
     public Sprite itemImage;
     public string itemName;
     public int statusValue;
+    public TMP_FontAsset font;
 
     [TextArea]
     public string itemDescription;

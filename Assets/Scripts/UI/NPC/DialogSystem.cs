@@ -4,13 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPCManager : MonoBehaviour
+public class NPCSystem : MonoBehaviour
 {
     public TalkManager talkManager;
     public TextMeshProUGUI talkText;
     private GameObject scanObject;
     public GameObject talkPanel;
-    public static bool _isAction;
+    //public static bool _isAction;
 
     private int talkIndex = 0;
 
@@ -20,7 +20,7 @@ public class NPCManager : MonoBehaviour
         NPC npcData = scanObj.GetComponent<NPC>();
         Talk(npcData.id, npcData.isNpc);
 
-        talkPanel.SetActive(_isAction);
+        //talkPanel.SetActive(_isAction);
 
     }
     void Talk(int id, bool isNpc)
@@ -29,7 +29,7 @@ public class NPCManager : MonoBehaviour
 
         if (talkData == null)
         {
-            _isAction = false;
+            //_isAction = false;
             talkIndex = 0;
             return;
         }
@@ -41,7 +41,7 @@ public class NPCManager : MonoBehaviour
         {
             talkText.text = talkData;
         }
-        _isAction = true;
+        //_isAction = true;
         talkIndex++;
     }
 }

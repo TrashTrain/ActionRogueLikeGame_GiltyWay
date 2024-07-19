@@ -11,12 +11,21 @@ public class HPItem : Item
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
-        player.GetComponent<PlayerController>().hp += hp;
-        if (player.GetComponent<PlayerController>().hp >= 50) player.GetComponent<PlayerController>().hp = 50;
-        
-        UIManager.instance.playerInfo.SetHp(player.GetComponent<PlayerController>().hp);
-        UIManager.instance.itemGetText.DisplayText("HP +2 Up!");
-        Destroy(gameObject);
+        if (other.gameObject.layer == 6)
+        {
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
+            player.GetComponent<PlayerController>().hp += hp;
+            if (player.GetComponent<PlayerController>().hp >= 50) player.GetComponent<PlayerController>().hp = 50;
+
+            UIManager.instance.playerInfo.SetHp(player.GetComponent<PlayerController>().hp);
+            
+            // UIManager.instance.hpUpInfo.PrintHpUp(player.transform, hp);      // UI manager 수정 후에 주석 풀기
+            
+            // UIManager.instance.itemGetText.DisplayText("HP +2 Up!");
+            
+            Destroy(gameObject);
+        }
     }
 }

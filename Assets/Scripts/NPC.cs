@@ -10,21 +10,22 @@ public class NPC : MonoBehaviour
     public int id;
     public bool isNpc;
 
-    [Header("NPCManager")]
-    public NPCManager npcManager;
+    [Header("DialogSystem")]
+    public DialogSystem dialog;
 
+    public int index = 0;
     private void Update()
     {
         if (isContact)
         {
-            
             if (Input.GetKeyDown(KeyCode.E))
             {
-                npcManager.Action(gameObject);
+                dialog.Action(gameObject);
+                if (true)
+                {
+                    UIManager.instance.slotController.RandomSlot();
+                }
             }
-        }
-        else
-        {
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     public GameObject buffPanel;
     public ItemGetText itemGetText;
     public BuffItemController buffItemController;
+
+    public SlotController slotController;
     
     private void Awake()
     {
