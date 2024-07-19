@@ -18,6 +18,7 @@ public class SpeedItem : Item
     {
         if (other.gameObject.layer == 6)
         {
+            BGM.instance.OnSpeedItemCollected(plusSpeedTime);   // 배경음악 속도 빠르게
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             //itemGetText.DisplayText("Speed UP!");
