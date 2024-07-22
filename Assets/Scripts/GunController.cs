@@ -26,7 +26,7 @@ public abstract class GunController : MonoBehaviour
 
     void Update()
     {
-        if (DialogSystem._isAction) return;
+        if (!PlayerController.IsControllable) return;
         if (!Pause.isPause) return;
 
         SumDmg();

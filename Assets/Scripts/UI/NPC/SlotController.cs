@@ -18,6 +18,11 @@ public class SlotController : MonoBehaviour
     public TextMeshProUGUI[] slotDescriptions;
 
     private int[] rands = new int[3];
+
+    void Start()
+    {
+        RandomSlot();
+    }
     public void RandomSlot()
     {
         for (int i = 0; i < rands.Length; i++)
@@ -33,12 +38,17 @@ public class SlotController : MonoBehaviour
     }
     public void OnButtonClick()
     {
+        gameObject.SetActive(false);
         RandomSlot();
+        gameObject.SetActive(true);
     }
 
-    void Start()
+    public void ShowSlotPanel()
     {
-        RandomSlot();
+        gameObject.SetActive(true);
     }
-
+    public void CloseSlotPanel()
+    {
+        gameObject.SetActive(false);
+    }
 }

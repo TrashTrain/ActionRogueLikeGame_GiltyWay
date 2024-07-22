@@ -6,26 +6,20 @@ public class NPC : MonoBehaviour
 {
     private bool isContact = false;
     public GameObject EButton;
-    [Header("NPCInfo")]
-    public int id;
-    public bool isNpc;
+    public string npcName;
 
-    [Header("DialogSystem")]
-    public DialogSystem dialog;
-
-    public int index = 0;
+    public int index = -1;
     private void Update()
     {
         if (isContact)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && PlayerController.IsControllable)
             {
-                dialog.Action(gameObject);
-                if (true)
-                {
-                    UIManager.instance.slotController.RandomSlot();
-                }
+                UIManager.instance.dialogSystem.ActiveDialog(index, npcName);
+                index = UIManager.instance.dialogSystem.nextDialogNum;
+                
             }
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

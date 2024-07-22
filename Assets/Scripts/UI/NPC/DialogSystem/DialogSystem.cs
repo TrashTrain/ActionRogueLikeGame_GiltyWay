@@ -8,79 +8,141 @@ public class DialogSystem : MonoBehaviour
 {
     public DialogSet[] dialogSets;
 
-    public GameObject talkPanel;
     public TextMeshProUGUI talkText;
-    public static bool _isAction = false;
+    
 
     [Header("Select")]
     public RectTransform selectCursor;
     public GameObject selectPanel;
     private int talkIndex = 0;
-    public bool isRandomSlot = false;
+    public bool isActiveSlot = true;
+
+    private DialogSet curDialogSet;
+    private DialogElement curDialog;
+
+    public int nextDialogNum;
+
+    [Header("NpcName")]
+    public TextMeshProUGUI npcName;
+
+    private bool isActive = false;
+
+    private void Update()
+    {
+        if (selectPanel.activeSelf)
+            SelectPanelInput();
+        else
+        {
+            DialogInput();
+        }
+    }
+
     public void CallMethod(int methodNum = 0)
     {
         if (methodNum < 0)
-        {
             return;
-        }
+
         switch (methodNum)
         {
             case 0:
+                NextSentence();
+                //InActiveDialog();
                 break;
             case 1:
-                selectPanel.SetActive(true);
+                UIManager.instance.slotController.ShowSlotPanel();
                 break;
             default:
                 break;
         }
-    }
-    public void Action(GameObject scanObj)
-    {
-        NPC npcData = scanObj.GetComponent<NPC>();
-  
-        Talk(npcData.index);
 
-        talkPanel.SetActive(_isAction);
-
+        selectPanel.SetActive(false);
     }
-    void Talk(int idx)
+    public void ActiveDialog(int dialogSetIndex, string npcName)
     {
+        if (isActive) return;
+        if (dialogSetIndex < 0)
+            return;
+
+        isActive = true;
+        talkIndex = 0;
+        this.npcName.text = npcName;
+
+        selectPanel.SetActive(false);
+
+        gameObject.SetActive(true);
+        PlayerController.IsControllable = false;
+
+        curDialogSet = dialogSets[dialogSetIndex];
+        nextDialogNum = curDialogSet.nextIdx;
+        NextSentence();
         
-        if (idx < 0)
+    }
+
+    public void InActiveDialog()
+    {
+        isActive = false;  
+
+        PlayerController.IsControllable = true;
+        gameObject.SetActive(false);
+    }
+    void NextSentence()
+    {
+        //Debug.Log(talkIndex);
+        if (talkIndex >= curDialogSet.dialogElements.Length)
         {
+            InActiveDialog(); 
             return;
         }
-        
-        var dialogSet = dialogSets[idx].dialogElements[talkIndex];
-        talkText.text = dialogSet.dialog;
-        CallMethod(dialogSet.selectYes);
-        _isAction = true;
-        if (talkIndex == dialogSets[idx].dialogElements.Length)
-        {
-            return;
-        }
+        curDialog = curDialogSet.dialogElements[talkIndex];
+        talkText.text = curDialog.dialog;
+
+        if (curDialog.selectYes >= 0)
+            selectPanel.SetActive(true);
+
         talkIndex++;
+        
     }
-    private void Update()
-    {
-        if (!selectPanel.activeSelf) return;
-        YESorNO();
-    }
-    void YESorNO()
+
+    void SelectPanelInput()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
         {
-            if (isRandomSlot)
+            if (isActiveSlot)
             {
-                isRandomSlot = false;
+                isActiveSlot = false;
             }
             else
             {
-                isRandomSlot = true;
+                isActiveSlot = true;
             }
             selectCursor.anchoredPosition = new Vector2(selectCursor.anchoredPosition.x, -selectCursor.anchoredPosition.y);
         }
-        
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (isActiveSlot)
+            {
+                Debug.Log(curDialog.selectYes);
+                CallMethod(curDialog.selectYes);
+            }
+            else
+            {
+                CallMethod(curDialog.selectNo);
+            }
+        }
+    }
+
+    private void DialogInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !UIManager.instance.slotController.gameObject.activeSelf)
+        {
+            NextSentence();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UIManager.instance.slotController.CloseSlotPanel();
+        }
     }
 }
 

@@ -10,7 +10,7 @@ public class MenuPanel : MonoBehaviour
     private bool isMenuClick = false;
     public void OnMenuButtonClik()
     {
-        if (DialogSystem._isAction) return;
+        if (!PlayerController.IsControllable) return;
         if (!isMenuClick)
         {
             isMenuClick = true;
@@ -21,7 +21,7 @@ public class MenuPanel : MonoBehaviour
     }
     private void Update()
     {
-        if (DialogSystem._isAction) return;
+        if (!PlayerController.IsControllable) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isMenuClick)

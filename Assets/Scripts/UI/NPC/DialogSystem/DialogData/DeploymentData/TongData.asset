@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
-  m_Name: NPCDialogIdle
+  m_Name: TongData
   m_EditorClassIdentifier: 
-  nextIdx: 1
+  nextIdx: 2
   dialogElements:
-  - dialog: "\uB098\uD55C\uD14C 3\uD3EC\uC778\uD2B8\uB97C \uC8FC\uBA74 \uC88B\uC740
-      \uD6A8\uACFC\uB97C \uC904\uAC8C! \uD560\uB798?"
-    selectYes: 1
-    selectNo: 0
-  - dialog: "\uADF8\uB7FC \uB2E4\uC74C\uC5D0 \uBD10!"
+  - dialog: "\uB0A1\uC544 \uBD80\uC11C\uC9C8 \uAC83 \uAC19\uC740 \uD1B5\uC774\uB2E4."
     selectYes: -1
     selectNo: 0

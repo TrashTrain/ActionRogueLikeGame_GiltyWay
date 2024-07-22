@@ -34,8 +34,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject[] guns;
 
-    [Header("NPCManager")]
-    public DialogSystem npcManager;
+    public static bool IsControllable = true;
 
     //---------------------------------------------------[Override Function]
     //Initialization
@@ -73,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        if (DialogSystem._isAction) return;
+        if (!IsControllable) return;
         Vector3 moveVelocity = Vector3.zero;
         Vector2 mousePos = Input.mousePosition;
 
@@ -113,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (DialogSystem._isAction) return;
+        if (!IsControllable) return;
         if (Input.GetButtonDown("Jump")&&isJumping)
         {
             //Prevent Velocity amplification.

@@ -40,7 +40,7 @@ public class GunSlot : MonoBehaviour
     }
     private void Update()
     {
-        if (DialogSystem._isAction) return;
+        if (!PlayerController.IsControllable) return;
         OnButtonScreen();
     }
 

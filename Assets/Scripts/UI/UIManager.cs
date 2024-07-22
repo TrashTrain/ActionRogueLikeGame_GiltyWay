@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
 
     public SlotController slotController;
     
+    public DialogSystem dialogSystem;
     private void Awake()
     {
         if (instance == null)
