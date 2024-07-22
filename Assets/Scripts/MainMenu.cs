@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject LoadCanvas;
-
+    public GameObject doorMove;
     public void OnClickNewGame()
     {
         //SceneManager.LoadScene("Tutorial Map");
@@ -15,10 +15,14 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickLoad()
     {
-        if (LoadCanvas != null)
-        {
-            LoadCanvas.SetActive(true);
-        }
+        doorMove.GetComponent<Animator>().SetTrigger("LoadButton");
+        //if()
+        LoadCanvas.SetActive(true);
+    }
+    public void OnClickXButton()
+    {
+        doorMove.GetComponent<Animator>().SetTrigger("LoadButton");
+        LoadCanvas.SetActive(false);
     }
 
     public void OnClickExit()

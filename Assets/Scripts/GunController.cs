@@ -29,7 +29,6 @@ public abstract class GunController : MonoBehaviour
         if (!PlayerController.IsControllable) return;
         if (!Pause.isPause) return;
 
-        SumDmg();
         //Debug.Log("test");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target = mousePos - (Vector2)transform.position;
@@ -52,16 +51,7 @@ public abstract class GunController : MonoBehaviour
             shootingRate = 0f;
         }
     }
-    private void SumDmg()
-    {
-        if (sumDmg != PlayerController.atk && bulletDmg >= 2f) 
-        {
-            sumDmg = PlayerController.atk - sumDmg;
-            bulletDmg += sumDmg;
-            sumDmg = PlayerController.atk;
-        }
 
-    }
     public void Init(Transform pos)
     {
         muzzle = pos;
