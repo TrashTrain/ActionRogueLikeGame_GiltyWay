@@ -29,6 +29,7 @@ public class Golem : MonoBehaviour, IDamageable
     public Animator animator;
     [SerializeField] private GeneralMonsterData refData;
     [SerializeField] private GameObject sonicWavePrefab;
+    [SerializeField] private GameObject subMonster;
     
     //Constant Variable
     private const int PlayerLayer = 1 << 6;
@@ -97,27 +98,20 @@ public class Golem : MonoBehaviour, IDamageable
         //AnyState -> ?
         if (currentState != nextState)
         {
-            if (nextState == P1_Idle)
-            {
-                return true;
-            }
-
-            if (nextState == P1_AtoB && currentState!=P1_AttackB && currentState != P1_RunB)
-            {
-                return true;
-            }
+            
         }
         
-        //P1_Idle -> ???
+        //P1_Idle -> P1_AttackA1, AttackA2, AtoB
         if (currentState == P1_Idle)
         {
-            if (FindTarget)
+            if (FindTarget && (nextState == P1_AttackA1 || nextState == P1_AttackA2 || nextState == P1_AtoB))
             {
                 FindTarget = false;
                 return true;
             }
         }
-
+        
+        //P1_AtoB -> P1_RunB
         if (currentState == P1_AtoB)
         {
             if (nextState == P1_RunB)
@@ -126,9 +120,19 @@ public class Golem : MonoBehaviour, IDamageable
             }
         }
         
+        //P1_RunB -> P1_AttackB
         if (currentState == P1_RunB)
         {
             if (nextState == P1_AttackB)
+            {
+                return true;
+            }
+        }
+        
+        //P1_AttackA1, AttackA2, AttackB -> P1_Idle
+        if (currentState == P1_AttackA1 || currentState == P1_AttackA2 || currentState == P1_AttackB)
+        {
+            if (nextState == P1_Idle)
             {
                 return true;
             }
@@ -170,15 +174,35 @@ public class Golem : MonoBehaviour, IDamageable
         animator.SetTrigger("P1_AttackA1");
         Attack();
         startTime = Time.time;
+        
+        Invoke("P1_AttackA1Attack", 0.5f);
     }
     
     protected virtual void P1_AttackA1Update()
     {
         sprite.flipX = ( generalMonsterData.targetTransform.position.x < transform.position.x);
-        if (Time.time - startTime > 2f)
+        
+        if(Time.time - startTime < 0.5f)
+        {
+            
+        }
+        else if(Time.time - startTime < 10f)
+        {
+            Patrol();
+        }
+        else
         {
             nextState = P1_Idle;
         }
+    }
+    
+    protected virtual void P1_AttackA1Attack()
+    {
+        if(currentState != P1_AttackA1) return;
+        
+        GameObject subMon1 = Instantiate(this.subMonster, transform.position + Vector3.up * 2 + Vector3.left, Quaternion.identity);
+        GameObject subMon2 = Instantiate(this.subMonster, transform.position + Vector3.up * 2 + Vector3.right, Quaternion.identity);
+        
     }
 
     protected virtual void P1_AttackA1Exit()
@@ -198,15 +222,48 @@ public class Golem : MonoBehaviour, IDamageable
     
     protected virtual void P1_AttackA2Update()
     {
-        sprite.flipX = ( generalMonsterData.targetTransform.position.x < transform.position.x);
+        if (Time.time - startTime < 1f)
+        {
+            sprite.flipX = (generalMonsterData.targetTransform.position.x < transform.position.x);
+
+            if (Time.time - startTime + 0.05f > 1f)
+            {
+                P1_AttackA2Attack();
+            }
+        }
+
+        else if(Time.time - startTime < 1.5f)
+        {
+            if (Time.time - startTime + 0.05f > 1.5f)
+            {
+                P1_AttackA2Attack();
+            }
+        }
+
+        
+        
         if (Time.time - startTime > 2f)
         {
             nextState = P1_Idle;
         }
     }
+    
+    protected virtual void P1_AttackA2Attack()
+    {
+        if(currentState != P1_AttackA2) return;
+        
+        rb.gravityScale = 0f;
+        sprite.flipX = (generalMonsterData.targetTransform.position.x < transform.position.x);
+        rb.velocity = Vector2.zero;
+        
+        var attackDir = sprite.flipX ? Vector2.left : Vector2.right;
+        rb.AddForce( 400f * attackDir, ForceMode2D.Impulse);
+    }
 
     protected virtual void P1_AttackA2Exit()
     {
+        rb.gravityScale = 1f;
+        rb.velocity = Vector2.zero;
     }
     #endregion
     
@@ -308,7 +365,7 @@ public class Golem : MonoBehaviour, IDamageable
     protected virtual void P1_AttackBExit()
     {
         rb.gravityScale = 1f;
-        rb.AddForce(20f * Vector2.down, ForceMode2D.Impulse);
+        rb.AddForce(200f * Vector2.down, ForceMode2D.Impulse);
     }
     #endregion
     
@@ -348,15 +405,22 @@ public class Golem : MonoBehaviour, IDamageable
         {
             generalMonsterData.targetTransform = target.transform;
 
-            var attackPattern = Random.Range(1, 3);
+            var attackPattern = Random.Range(1, 4);
             //Debug.Log(attackPattern);
+            //var attackPattern = 1;
+            
             if (attackPattern == 1)
             {
                 nextState = P1_AttackA1;
             }
+            else if(attackPattern == 2)
+            {
+                nextState = P1_AttackA2;
+            }
             else
             {
-                nextState = P1_AttackA2;}
+                nextState = P1_AtoB;
+            }
             
             FindTarget = true;
         }
@@ -409,7 +473,7 @@ public class Golem : MonoBehaviour, IDamageable
         generalMonsterData.hp -= damage;
         UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
 
-        if(generalMonsterData.targetTransform != null) SetP1_AtoB();
+        //if(generalMonsterData.targetTransform != null) SetP1_AtoB();
         
         if ( generalMonsterData.hp < 0)
         {

@@ -9,6 +9,8 @@ public class AudioNode : MonoBehaviour
     public void Play(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+
+        StartCoroutine("WaitSound");
     }
 
     private IEnumerator WaitSound()
