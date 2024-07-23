@@ -9,6 +9,7 @@ public class LoadGameUI : MonoBehaviour
     [SerializeField] private GameObject loadPanel;
     [SerializeField] private Button[] saveButtons; // 3개의 버튼
 
+    private bool isShow;
     private void Start()
     {
         LoadSaveFiles();
@@ -55,11 +56,13 @@ public class LoadGameUI : MonoBehaviour
 
     public void OpenLoadPanel()
     {
-        loadPanel.SetActive(true);
+        isShow = true;  
+        LoadDoorMove.Instance.OnClickSetLoadPanel(loadPanel, isShow);
     }
 
     public void CloseLoadPanel()
     {
-        loadPanel.SetActive(false);
+        isShow = false;
+        LoadDoorMove.Instance.OnClickSetLoadPanel(loadPanel, isShow);
     }
 }

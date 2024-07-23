@@ -17,8 +17,6 @@ public abstract class GunController : MonoBehaviour
 
     public float bulletSpeed = 0f;
     public float bulletDmg = 2f;
-    private float sumDmg = PlayerController.atk;
-
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
