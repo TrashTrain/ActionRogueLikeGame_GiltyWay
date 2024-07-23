@@ -16,17 +16,19 @@ public class MainMenu : MonoBehaviour
     public void OnClickLoad()
     {
         doorMove.SetTrigger("LoadButton");
-        doorMove.SetBool("ShowPanel", true);
-        LoadCanvas.SetActive(true);
-
+        //doorMove.SetBool("ShowPanel", true);
         
+    }
+    public void test()
+    {
+        LoadCanvas.SetActive(true);
     }
     public void OnClickXButton()
     {
         doorMove.SetTrigger("LoadButton");
         LoadCanvas.SetActive(false);
     }
-
+    
     public void OnClickExit()
     {
 #if UNITY_EDITOR
