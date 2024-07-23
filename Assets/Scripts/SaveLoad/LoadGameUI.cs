@@ -7,6 +7,7 @@ using TMPro;
 public class LoadGameUI : MonoBehaviour
 {
     [SerializeField] private GameObject loadPanel;
+    //[SerializeField] private LoadDoorMove loadDoorMove;
     [SerializeField] private Button[] saveButtons; // 3개의 버튼
 
     private bool isShow;
@@ -42,7 +43,6 @@ public class LoadGameUI : MonoBehaviour
             }
             else
             {
-                Debug.Log(saveButtons[i].GetComponentInChildren<TextMeshProUGUI>());
                 saveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Empty Slot";
                 saveButtons[i].interactable = false; // 버튼 비활성화
             }
@@ -51,18 +51,24 @@ public class LoadGameUI : MonoBehaviour
 
     private async void OnSaveButtonClicked(string filePath)
     {
+        //CloseLoadPanel();
         await DataManager.instance.LoadGame(filePath);
+        
     }
 
     public void OpenLoadPanel()
     {
         isShow = true;  
         LoadDoorMove.Instance.OnClickSetLoadPanel(loadPanel, isShow);
+        //loadDoorMove.OnClickSetLoadPanel(loadPanel, isShow);
+        
     }
 
     public void CloseLoadPanel()
     {
         isShow = false;
+        //Debug.Log(LoadDoorMove.Instance);
         LoadDoorMove.Instance.OnClickSetLoadPanel(loadPanel, isShow);
+        //loadDoorMove.OnClickSetLoadPanel(loadPanel, isShow);
     }
 }

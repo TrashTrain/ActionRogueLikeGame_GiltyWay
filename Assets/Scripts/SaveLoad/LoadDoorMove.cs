@@ -9,7 +9,20 @@ public class LoadDoorMove : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        //Debug.Log("Instance");
+        //Instance = this;
+        
+        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     private IEnumerator CloseDoor(GameObject setPanel, bool isShow)
     {
@@ -24,16 +37,13 @@ public class LoadDoorMove : MonoBehaviour
 
     private IEnumerator MoveDoorAni(bool doorClose)
     {
-        Debug.Log("in");
         if (doorClose)
         {
-            Debug.Log("true");
             doorMove.Play("DoorClose");
             yield return new WaitForSeconds(1f);
         }
         else
         {
-            Debug.Log("false");
             doorMove.Play("DoorOpen");
         }
         yield return null;
@@ -41,8 +51,8 @@ public class LoadDoorMove : MonoBehaviour
 
     public void OnClickSetLoadPanel(GameObject setPanel, bool isShow)
     {
+        //Debug.Log(setPanel);
         StartCoroutine(CloseDoor(setPanel, isShow));
-
     }
 
 }

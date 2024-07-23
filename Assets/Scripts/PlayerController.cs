@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             tf.Rotate(0f, 180f, 0f);
             
         }
-        Debug.LogError(speed);
+        
         transform.position += moveVelocity * speed * Time.deltaTime;
     }
 
