@@ -6185,7 +6185,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3091064329908503276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6168429520311715979, guid: 89a739bbcc6e34ee8b776d1de37b5156, type: 3}
+        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3497625281895905945
 GameObject:
   m_ObjectHideFlags: 0

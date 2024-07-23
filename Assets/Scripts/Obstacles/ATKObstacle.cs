@@ -13,12 +13,19 @@ public class ATKObstacle : Obstacle
 
     public BuffItemController BuffItemController;
     public Sprite icon;
+
+    private PlayerController playerController;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            playerController = other.gameObject.GetComponent<PlayerController>();
+            if (playerController == null)
+            {
+                Debug.LogError($"{this.gameObject.name} : playerController is null");
+                return;
+            }
 
             if (isActive)
             {
@@ -39,7 +46,7 @@ public class ATKObstacle : Obstacle
         isActive = true;
         remainingTime = minusATKTime;
 
-        PlayerController.atk -= ATK;
+        playerController.atk -= ATK;
 
         while (remainingTime > 0)
         {
@@ -47,7 +54,7 @@ public class ATKObstacle : Obstacle
             remainingTime -= Time.deltaTime;
         }
 
-        PlayerController.atk = originalATK;
+        playerController.atk = originalATK;
         isActive = false;
         
         Destroy(gameObject);

@@ -13,11 +13,20 @@ public class CPItem : Item
     
     public BuffItemController buffItemController;
     public Sprite icon;
+
+    private PlayerController playerController;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
+            playerController = other.gameObject.GetComponent<PlayerController>();
+            if (playerController == null)
+            {
+                Debug.LogError($"{this.gameObject.name} : playerController is null");
+                return;
+            }
+            
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
 
             //itemGetText.DisplayText("Attack Power Up!");
@@ -32,7 +41,7 @@ public class CPItem : Item
                 StartCoroutine(IncreaseCP());
             }
 
-            UIManager.instance.buffItemController.AddBuff("ATK Up Item", PlayerController.atk, plusCPTime, icon);
+            UIManager.instance.buffItemController.AddBuff("ATK Up Item", playerController.atk, plusCPTime, icon);
             //buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
             
             GetComponent<SpriteRenderer>().enabled = false;
@@ -45,7 +54,7 @@ public class CPItem : Item
         isActive = true;
         remainingTime = plusCPTime;
         
-        PlayerController.atk += CP;
+        playerController.atk += CP;
 
         while (remainingTime > 0)
         {
@@ -53,7 +62,7 @@ public class CPItem : Item
             remainingTime -= Time.deltaTime;
         }
         
-        PlayerController.atk = originalCP;
+        playerController.atk = originalCP;
         isActive = false;
         
         Destroy(gameObject);

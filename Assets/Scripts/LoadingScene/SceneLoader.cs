@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public static class SceneLoader
 {
-    public static async void LoadScene(string sceneName)
+    public static async UniTask LoadScene(string sceneName)
     {
         // 로딩 씬을 먼저 로드
         await LoadLoadingScene();

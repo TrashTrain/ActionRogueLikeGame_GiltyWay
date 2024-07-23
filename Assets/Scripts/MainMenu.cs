@@ -15,13 +15,13 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickLoad()
     {
+        LoadCanvas.SetActive(true);
         doorMove.SetTrigger("LoadButton");
         //doorMove.SetBool("ShowPanel", true);
-        
     }
     public void test()
     {
-        LoadCanvas.SetActive(true);
+        LoadCanvas.GetComponent<LoadGameUI>().OpenLoadPanel();
     }
     public void OnClickXButton()
     {

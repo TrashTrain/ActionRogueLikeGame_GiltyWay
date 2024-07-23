@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -188,3 +188,4 @@ MonoBehaviour:
   animator: {fileID: 0}
   refData: {fileID: 11400000, guid: d00f130943a0b4555b497695a6de86cf, type: 2}
   sonicWavePrefab: {fileID: 6830692668525415512, guid: 0cfc6dd869e424e40a4b98cba68d7bdb, type: 3}
+  subMonster: {fileID: 5358702582237832974, guid: 5e8fee8097816409b81aec48422202f7, type: 3}

@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private float maxhp = 50;
+    public float maxhp = 50;
     //player Status
     [Header("Player Status")]
     public float hp = 50;
-    public static float atk = 0;
+    public float atk = 0;
     public float def = 10;
     public float speed = 5f;
     public float jumpPower = 1f;
@@ -68,8 +68,7 @@ public class PlayerController : MonoBehaviour
         
 
     }
-
-
+    
     void Move()
     {
         if (!IsControllable) return;
@@ -106,7 +105,7 @@ public class PlayerController : MonoBehaviour
             tf.Rotate(0f, 180f, 0f);
             
         }
-
+        Debug.LogError(speed);
         transform.position += moveVelocity * speed * Time.deltaTime;
     }
 
@@ -194,4 +193,5 @@ public class PlayerController : MonoBehaviour
         BGM.instance.PlayBGM("GameOver");
         SceneManager.LoadScene("GameOver");
     }
+   
 }

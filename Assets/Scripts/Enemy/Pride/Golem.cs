@@ -407,7 +407,7 @@ public class Golem : MonoBehaviour, IDamageable
 
             var attackPattern = Random.Range(1, 4);
             //Debug.Log(attackPattern);
-            //var attackPattern = 1;
+            //var attackPattern = 3;
             
             if (attackPattern == 1)
             {
