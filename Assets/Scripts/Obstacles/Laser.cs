@@ -6,12 +6,12 @@ using UnityEngine.Serialization;
 public class Laser : MonoBehaviour
 {
     private LineRenderer lineRenderer;
-
-    // private ParticleSystem particleSystem;
     
     private enum State { inactive, active, disabled }
 
     private State currentState;
+    
+    private Animator chargeAnimator;
     
     public float activeTime = 3f;
     public float inactiveTime = 3f;
@@ -25,6 +25,8 @@ public class Laser : MonoBehaviour
     void Start()
     {
         lineRenderer = gameObject.GetComponent<LineRenderer>();
+
+        chargeAnimator = transform.parent.GetComponent<Animator>();
         
         // 레이저의 시작점과 끝점을 설정
         lineRenderer.positionCount = 2;
@@ -60,6 +62,7 @@ public class Laser : MonoBehaviour
             
             if (currentState == State.active)
             {
+                
                 lineRenderer.material = lineRenderer.materials[1];
                 if (hit.collider != null)
                 {
@@ -87,6 +90,9 @@ public class Laser : MonoBehaviour
             {
                 lineRenderer.enabled = false;
                 lineRenderer.material = defaultMaterial;
+                
+                chargeAnimator.SetBool("isCharge", false);
+                
                 yield return new WaitForSeconds(disabledTime);
                 currentState = State.inactive;
             }
@@ -101,6 +107,9 @@ public class Laser : MonoBehaviour
                 lineRenderer.material = defaultMaterial;
                 
                 lineRenderer.enabled = true;
+                
+                chargeAnimator.SetBool("isCharge", true);
+                
                 yield return new WaitForSeconds(inactiveTime);
                 currentState = State.active;
             }
@@ -116,6 +125,8 @@ public class Laser : MonoBehaviour
 
                 lineRenderer.material = activeMaterial;
                 lineRenderer.enabled = true;
+                
+                chargeAnimator.SetBool("isCharge", false);
                 yield return new WaitForSeconds(activeTime);
 
                 currentState = State.disabled;

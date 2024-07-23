@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2750162917469957665}
   - component: {fileID: 1551691207825890521}
+  - component: {fileID: 4846950803454885199}
   m_Layer: 12
   m_Name: Laser
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9407, y: 1.9146, z: 0}
-  m_LocalScale: {x: 0.9552161, y: 0.45156384, z: 1}
+  m_LocalScale: {x: 4.258164, y: 3.8416772, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7284644412374559431}
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 935787559, guid: c696d9fb8af98824dbfc8284a4efdb8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99e36729618df468b8a418b22c04d92d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4846950803454885199
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929007678321178887}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1eae2044e253941bb9bf486058b17865, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8531364953287661949
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +118,7 @@ GameObject:
   - component: {fileID: 7284644412374559431}
   - component: {fileID: 1107756977985215997}
   - component: {fileID: 1126212464481439993}
+  - component: {fileID: 426242159461488811}
   m_Layer: 12
   m_Name: Line
   m_TagString: Untagged
@@ -112,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 8531364953287661949}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.83, z: 0}
+  m_LocalPosition: {x: 0, y: -0.022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236,8 +259,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTime: 3
-  inactiveTime: 3
+  inactiveTime: 1.25
   disabledTime: 3
   laserLength: 3.1
   defaultMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   activeMaterial: {fileID: 2100000, guid: 3c8eca690e543447488de3c73f4f7399, type: 2}
+--- !u!95 &426242159461488811
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531364953287661949}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd124002a89004cd4a9bc9088d2b6a50, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
