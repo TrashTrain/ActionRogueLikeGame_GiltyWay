@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadCanvas: {fileID: 1556197844}
-  doorMove: {fileID: 336005455}
+  doorMove: {fileID: 336005459}
 --- !u!1 &336005455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,6 +1466,7 @@ GameObject:
   - component: {fileID: 1367287005}
   - component: {fileID: 1367287004}
   - component: {fileID: 1367287003}
+  - component: {fileID: 1367287006}
   m_Layer: 5
   m_Name: Load
   m_TagString: Untagged
@@ -1587,6 +1588,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367287001}
   m_CullTransparentMesh: 1
+--- !u!111 &1367287006
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367287001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ec11f771a0cf97640926ed1f3e127ea4, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ec11f771a0cf97640926ed1f3e127ea4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1377500235
 GameObject:
   m_ObjectHideFlags: 0
