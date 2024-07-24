@@ -101,8 +101,8 @@ public class Laser : MonoBehaviour
                 lineRenderer.startWidth = 0.1f;
                 lineRenderer.endWidth = 0.1f;
                 
-                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.5f);
-                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.5f);
+                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.4f);
+                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.4f);
 
                 lineRenderer.material = defaultMaterial;
                 
@@ -119,9 +119,9 @@ public class Laser : MonoBehaviour
                 lineRenderer.endWidth = 0.5f;
 
                 lineRenderer.material = lineRenderer.materials[1];  // 고치기
-                
-                lineRenderer.startColor = Color.white;
-                lineRenderer.endColor = Color.white;
+
+                lineRenderer.startColor = new Color(1f, 1f, 1f, 0.7f);
+                lineRenderer.endColor = new Color(1f, 1f, 1f, 0.7f);
 
                 lineRenderer.material = activeMaterial;
                 lineRenderer.enabled = true;
