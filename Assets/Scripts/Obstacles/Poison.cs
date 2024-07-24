@@ -71,7 +71,7 @@ public class Poison : MonoBehaviour
             SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
             
             //hp minus text
-            UIManager.instance.hitDamageInfo.PrintHitDamage(player.transform, dmg);
+            UIManager.instance.hpInfo.PrintHpDown(player.transform, dmg);
 
             player.hp -= dmg;
             
