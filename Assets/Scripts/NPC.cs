@@ -8,7 +8,7 @@ public class NPC : MonoBehaviour
     public GameObject EButton;
     public string npcName;
 
-    public int index = -1;
+    public int index;
     private void Update()
     {
         if (isContact)

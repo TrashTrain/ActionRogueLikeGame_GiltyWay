@@ -27,10 +27,17 @@ public class DialogSystem : MonoBehaviour
 
     private bool isActive = false;
 
+    //타이핑 기능
+    private bool isTyping = false;
+    private bool skip = false;
+    private float typingSpeed = 0.05f;
+    
     private void Update()
     {
         if (selectPanel.activeSelf)
+        {
             SelectPanelInput();
+        }
         else
         {
             DialogInput();
@@ -87,6 +94,13 @@ public class DialogSystem : MonoBehaviour
     }
     void NextSentence()
     {
+        // 대사가 출력 중인데 재호출 시 모든 대사를 출력함
+        if (isTyping)
+        {
+            skip = true;
+            return;
+        }
+        
         //Debug.Log(talkIndex);
         if (talkIndex >= curDialogSet.dialogElements.Length)
         {
@@ -94,8 +108,11 @@ public class DialogSystem : MonoBehaviour
             return;
         }
         curDialog = curDialogSet.dialogElements[talkIndex];
-        talkText.text = curDialog.dialog;
+        //talkText.text = curDialog.dialog;
 
+        // 코루틴 호출하여 대사를 한글자씩 출력
+        StartCoroutine(TypeSentence(curDialog.dialog));
+        
         if (curDialog.selectYes >= 0)
             selectPanel.SetActive(true);
 
@@ -144,5 +161,34 @@ public class DialogSystem : MonoBehaviour
             UIManager.instance.slotController.CloseSlotPanel();
         }
     }
+    
+    private IEnumerator TypeSentence(string sentence)
+    {
+        talkText.text = "";
+        isTyping = true;
+        skip = false;
+
+        // 0.05초마다 한 글자씩 출력
+        foreach (char letter in sentence.ToCharArray())
+        {
+            if (skip)
+            {
+                talkText.text = sentence;
+                break;
+            }
+        
+            talkText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        isTyping = false;
+        skip = false;
+    }
+
+    public void SetTypeSpeed(float typeSpeed)
+    {
+        this.typingSpeed = typeSpeed;
+    }
+
 }
 
