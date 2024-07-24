@@ -15739,6 +15739,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_margin.w
+      value: -49.124634
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_margin.y
+      value: -14.737377
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 218925983573024927, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: m_Name
       value: LoadUI
@@ -15770,6 +15794,30 @@ PrefabInstance:
     - target: {fileID: 304737077890198977, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_margin.w
+      value: -49.100613
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_margin.y
+      value: -13.452217
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2867722672963453741, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: loadDoorMove
@@ -15806,6 +15854,30 @@ PrefabInstance:
     - target: {fileID: 3846799289614668399, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_margin.w
+      value: -49.124634
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_margin.y
+      value: -14.737377
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8671815190326031131, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -15944,6 +16016,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_margin.w
+      value: -48.427986
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_margin.y
+      value: -17.487873
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 99006402438086475, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 218925983573024927, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_Name
       value: SaveUI
@@ -15976,6 +16072,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_margin.w
+      value: -48.428
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_margin.y
+      value: -15.470043
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 576251655893896493, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3125488947626691951, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -16003,6 +16123,34 @@ PrefabInstance:
     - target: {fileID: 3125488947626691951, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846799289614668399, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_margin.w
+      value: -49.100613
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_margin.y
+      value: -16.14265
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515842934992486736, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8671815190326031131, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

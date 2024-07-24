@@ -10,6 +10,15 @@ public class DataManager : MonoBehaviour
     
     public float playStartTime;
     public float playTime;
+    public int currentSlot;
+
+    //Init for New Game
+    public void InitPlayTime()
+    {
+        currentSlot = 0;
+        playTime = 0;
+        playStartTime = Time.time;
+    }
     
     private void Awake()
     {
@@ -38,6 +47,10 @@ public class DataManager : MonoBehaviour
             {
                 saveFiles.Add(filePath);
             }
+            else
+            {
+                saveFiles.Add(null);
+            }
         }
 
         return saveFiles;
@@ -52,7 +65,7 @@ public class DataManager : MonoBehaviour
     
     public void SaveGame(int slot)
     {
-        UpdatePlayTime(slot);
+        UpdatePlayTime(currentSlot);
         
         PlayerController player = FindObjectOfType<PlayerController>();
         PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);

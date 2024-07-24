@@ -19,6 +19,15 @@ public class GameData
         this.PlayerData = playerData;
         this.PlayTime = playTime;
     }
+    
+    public string FormatPlaytime()
+    {
+        int hours = (int)(PlayTime / 3600);
+        int minutes = (int)((PlayTime % 3600) / 60);
+        float seconds = PlayTime % 60;
+
+        return $"{hours}:{minutes:D2}:{seconds:F2}";
+    }
 }
 
 [System.Serializable]

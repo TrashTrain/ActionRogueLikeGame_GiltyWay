@@ -31,14 +31,14 @@ public class LoadGameUI : MonoBehaviour
                 {
                     saveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
                         $"Save {i + 1}\n" +
-                        $"Scene: {gameData.SceneName}\n" +
-                        $"PlayTime: {gameData.PlayTime}";
+                        $"{gameData.SceneName}\n" +
+                        gameData.FormatPlaytime();
                         // $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
                         // $"Atk: {gameData.PlayerData.Atk}\n" +
                         // $"Def: {gameData.PlayerData.Def}\n" +
                         // $"Speed: {gameData.PlayerData.Speed}\n" +
                         // $"JumpPower: {gameData.PlayerData.JumpPower}";
-                    saveButtons[i].onClick.AddListener(() => OnSaveButtonClicked(filePath));
+                    saveButtons[i].onClick.AddListener(() => OnSaveButtonClicked(filePath, i+1));
                     saveButtons[i].interactable = true; // 버튼 활성화
                 }
             }
@@ -50,10 +50,12 @@ public class LoadGameUI : MonoBehaviour
         }
     }
 
-    private async void OnSaveButtonClicked(string filePath)
+    private async void OnSaveButtonClicked(string filePath, int slot)
     {
         Time.timeScale = 1;
         CloseLoadPanel();
+        
+        DataManager.instance.currentSlot = slot;
         await DataManager.instance.LoadGame(filePath);
         
     }

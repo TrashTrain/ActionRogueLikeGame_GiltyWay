@@ -54,8 +54,8 @@ public class SaveGameUI : MonoBehaviour
                 {
                     saveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
                         $"Save {slot}\n" +
-                        $"Scene: {gameData.SceneName}\n" +
-                        $"PlayTime: {gameData.PlayTime}";
+                        $"{gameData.SceneName}\n" +
+                        gameData.FormatPlaytime();
                         // $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
                         // $"Atk: {gameData.PlayerData.Atk}\n" +
                         // $"Def: {gameData.PlayerData.Def}\n" +
@@ -86,8 +86,8 @@ public class SaveGameUI : MonoBehaviour
             {
                 saveButtons[slot - 1].GetComponentInChildren<TextMeshProUGUI>().text =
                     $"Save {slot}\n" +
-                    $"Scene: {gameData.SceneName}\n" +
-                    $"PlayTime: {gameData.PlayTime}";
+                    $"{gameData.SceneName}\n" +
+                    gameData.FormatPlaytime();
                 // $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
                 // $"Atk: {gameData.PlayerData.Atk}\n" +
                 // $"Def: {gameData.PlayerData.Def}\n" +

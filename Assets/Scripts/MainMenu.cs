@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     {
         //SceneManager.LoadScene("Tutorial Map");
         SceneLoader.LoadScene("Tutorial Map");
+        DataManager.instance.InitPlayTime();
     }
 
 
