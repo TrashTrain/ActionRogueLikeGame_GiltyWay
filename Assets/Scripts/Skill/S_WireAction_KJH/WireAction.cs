@@ -20,6 +20,9 @@ public class WireAction : MonoBehaviour
     public bool isWireMax = false;
     public bool isAttached = false;
 
+    public float maxHoldTime = 4f;
+    public float currentHoldTime = 0;
+    
     public KeyCode hookKey = KeyCode.Q;
     
     private void Start()
@@ -64,7 +67,7 @@ public class WireAction : MonoBehaviour
         }
         else if (isAttached)
         {
-            
+            currentHoldTime += Time.deltaTime;
         }
         
         wire.SetPosition(0, transform.position);
@@ -84,7 +87,7 @@ public class WireAction : MonoBehaviour
             {
                 isAttached = false;
                 hookAction.DisableJoint2D();
-                ResetHook();
+                //ResetHook();
                 return;
             }
             
@@ -112,11 +115,12 @@ public class WireAction : MonoBehaviour
                 hookAction.ShortenJoint2D(shrinkSpeed);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || currentHoldTime >= maxHoldTime)
             {
                 isAttached = false;
                 hookAction.DisableJoint2D();
-                ResetHook();
+                isWireMax = true;
+                //ResetHook();
             }
             
             // if (Input.GetKeyUp(KeyCode.E))
@@ -165,9 +169,11 @@ public class WireAction : MonoBehaviour
 
     public void ResetHook()
     {
+        currentHoldTime = 0;
         isHookLaunched = false;
         isWireMax = false;
         wire.enabled = false;
         hook.gameObject.SetActive(false);
     }
+    
 }

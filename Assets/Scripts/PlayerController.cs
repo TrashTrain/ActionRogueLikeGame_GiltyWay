@@ -53,12 +53,14 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log("playertest");
         Jump();
-        // fall Charactor
-        if(transform.position.y <= -7)
-        {
-            Destroy(gameObject);
-            Debug.Log("GameOver");
-        }
+        
+        
+        // // fall Charactor
+        // if(transform.position.y <= -7)
+        // {
+        //     Destroy(gameObject);
+        //     Debug.Log("GameOver");
+        // }
     }
 
     //Physics engine Updates
