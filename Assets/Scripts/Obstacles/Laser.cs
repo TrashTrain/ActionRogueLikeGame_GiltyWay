@@ -58,16 +58,19 @@ public class Laser : MonoBehaviour
             lineRenderer.SetPosition(0, startPoint);
 
             RaycastHit2D hit = Physics2D.Raycast(startPoint, Vector2.down, laserLength, LayerMask.GetMask("Player"));
+            RaycastHit2D hitGround = Physics2D.Raycast(startPoint, Vector2.down, laserLength, LayerMask.GetMask("Ground"));
             
-            
-            if (currentState == State.active)
+            if (currentState == State.active)      // 레이저가 active 상태
             {
-                
                 lineRenderer.material = lineRenderer.materials[1];
-                if (hit.collider != null)
+                if (hit.collider != null)       // 레이저에 플레이어가 부딪혔을 때
                 {
                     lineRenderer.SetPosition(1, hit.point);
                     hit.collider.GetComponent<PlayerController>().GetDamaged(1f,gameObject, new Vector2(0f,0f));
+                }
+                else if (hitGround.collider != null)    // 레이저가 바닥에 부딪혔을 때 
+                {
+                    lineRenderer.SetPosition(1, hitGround.point);
                 }
                 else
                 {
@@ -77,7 +80,9 @@ public class Laser : MonoBehaviour
             else
             {
                 lineRenderer.material = lineRenderer.materials[0];
-                lineRenderer.SetPosition(1, startPoint + Vector2.down * laserLength);
+                
+                if(hitGround.collider != null) lineRenderer.SetPosition(1, hitGround.point);
+                // lineRenderer.SetPosition(1, startPoint + Vector2.down * laserLength);
             }
         }
     }

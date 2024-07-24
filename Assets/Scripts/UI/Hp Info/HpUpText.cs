@@ -7,7 +7,7 @@ public class HpUpText : MonoBehaviour
 {
     public float moveSpeed = 2f;
     private TextMeshProUGUI hpUptext;
-
+    
     private RectTransform rectTransform;
     private Vector3 upTransform = Vector3.zero;
     private Transform charTrans;
@@ -34,10 +34,6 @@ public class HpUpText : MonoBehaviour
         }
 
         transform.position = screenPosition + upTransform;
-
-        //rectTransform.position = screenPosition;
-
-        //rectTransform.position += moveSpeed * Time.deltaTime * Vector3.up * 10;
     }
 
     private void Destroy()
@@ -47,7 +43,7 @@ public class HpUpText : MonoBehaviour
 
     public void SetHpUp(float plusHp)
     {
-        hpUptext.text = $"   + {plusHp}";
+        hpUptext.text = $" HP  + {plusHp}";
     }
 
     public void SetCharTrans(Transform transform)
