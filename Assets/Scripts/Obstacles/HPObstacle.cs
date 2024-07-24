@@ -31,17 +31,10 @@ public class HPObstacle : MonoBehaviour
                 SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
-                //hp minus text
-                UIManager.instance.hpInfo.PrintHpDown(player.transform, dmg);
-
                 Vector2 bounceForce = new Vector2(bounce, bounce);
 
                 //attack bounce
-                player.GetComponent<Rigidbody2D>().AddForce(bounceForce, ForceMode2D.Impulse);
-                
-                player.hp -= dmg;
-
-                UIManager.instance.playerInfo.SetHp(player.hp);
+                player.GetDamaged(2f,this.gameObject,bounceForce);
                 
                 StartCoroutine(ChangeColor(this));
             }

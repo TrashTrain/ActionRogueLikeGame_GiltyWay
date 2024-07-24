@@ -143,6 +143,10 @@ public class PlayerController : MonoBehaviour
         {
             hp -= dmg;
             UIManager.instance.playerInfo.SetHp(hp);
+            
+            //hp minus text
+            UIManager.instance.hpInfo.PrintHpDown(transform, dmg);
+            
             isUnBeatTime = true;
             StartCoroutine("UnBeatTime");
 

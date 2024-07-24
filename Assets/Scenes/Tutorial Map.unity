@@ -1876,6 +1876,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498996671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8081763636101751571, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+  m_PrefabInstance: {fileID: 2137803262119813446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1716863ebbf404abccad084e1b62c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &514488608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3161,11 +3172,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1100277255693365223, guid: 4ae058308eba44247a1d45aba2219452, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.57
+      value: 54.59
       objectReference: {fileID: 0}
     - target: {fileID: 1100277255693365223, guid: 4ae058308eba44247a1d45aba2219452, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.39
+      value: -2.43
       objectReference: {fileID: 0}
     - target: {fileID: 1100277255693365223, guid: 4ae058308eba44247a1d45aba2219452, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6185,6 +6196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getItem: {fileID: 8300000, guid: 5efa41faebe12634db9ffad659cb294c, type: 3}
+  hpAtk: {fileID: 8300000, guid: f3aebff15a2971c49bac005a7bc5bc9b, type: 3}
 --- !u!82 &1671871579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9375,6 +9387,10 @@ PrefabInstance:
       propertyPath: Info.Array.data[2]
       value: 
       objectReference: {fileID: 1718629705}
+    - target: {fileID: 6617782427534182565, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: hpInfo
+      value: 
+      objectReference: {fileID: 498996671}
     - target: {fileID: 8070756037392658254, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_Name
       value: UI
