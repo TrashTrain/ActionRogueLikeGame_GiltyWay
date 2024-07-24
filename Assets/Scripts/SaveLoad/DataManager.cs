@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
@@ -80,7 +81,8 @@ public class DataManager : MonoBehaviour
             return;
         }
         
-        await SceneLoader.LoadScene(gameData.SceneName);
+        //await SceneLoader.LoadScene(gameData.SceneName);
+        await SceneManager.LoadSceneAsync(gameData.SceneName);
         ApplyPlayerData(gameData.PlayerData);
     }
     

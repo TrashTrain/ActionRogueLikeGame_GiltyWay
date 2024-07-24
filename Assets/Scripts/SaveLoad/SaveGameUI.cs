@@ -8,7 +8,8 @@ public class SaveGameUI : MonoBehaviour
 {
     [SerializeField] private GameObject savePanel;
     [SerializeField] private Button[] saveButtons; // 3개의 버튼
-
+    private bool isShow;
+    
     private void Start()
     {
         for (int i = 0; i < saveButtons.Length; i++)
@@ -90,14 +91,17 @@ public class SaveGameUI : MonoBehaviour
             //saveButtons[slot - 1].interactable = false; // 버튼 비활성화
         }
     }
-    
+
     public void OpenSavePanel()
     {
-        savePanel.SetActive(true);
+        isShow = true;  
+        LoadDoorMove.Instance.OnClickSetLoadPanel(savePanel, isShow);
+        
     }
 
     public void CloseSavePanel()
     {
-        savePanel.SetActive(false);
+        isShow = false;
+        LoadDoorMove.Instance.OnClickSetLoadPanel(savePanel, isShow);
     }
 }

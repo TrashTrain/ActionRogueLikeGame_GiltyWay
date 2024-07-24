@@ -1526,6 +1526,7 @@ GameObject:
   - component: {fileID: 1367287005}
   - component: {fileID: 1367287004}
   - component: {fileID: 1367287003}
+  - component: {fileID: 1367287006}
   m_Layer: 5
   m_Name: Load
   m_TagString: Untagged
@@ -1597,9 +1598,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1367825934}
-        m_TargetAssemblyTypeName: LoadGameUI, Assembly-CSharp
-        m_MethodName: OpenLoadPanel
+      - m_Target: {fileID: 1367287006}
+        m_TargetAssemblyTypeName: MainScene_Load, Assembly-CSharp
+        m_MethodName: OnClickLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1647,15 +1648,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367287001}
   m_CullTransparentMesh: 1
---- !u!114 &1367825934 stripped
+--- !u!114 &1367287006
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 598474899849582919, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-  m_PrefabInstance: {fileID: 1277513949}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1367287001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 468b1b90e2fb94ab1b8017d961674f46, type: 3}
+  m_Script: {fileID: 11500000, guid: e67649d42f0754aa29ab68b1c29df6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1377500235

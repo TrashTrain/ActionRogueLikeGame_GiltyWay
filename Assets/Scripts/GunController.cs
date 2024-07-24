@@ -25,7 +25,8 @@ public abstract class GunController : MonoBehaviour
     void Update()
     {
         if (!PlayerController.IsControllable) return;
-        if (!Pause.isPause) return;
+        //if (!Pause.isPause) return;
+        if(Time.timeScale == 0) return;
 
         //Debug.Log("test");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -42,7 +43,7 @@ public abstract class GunController : MonoBehaviour
             sr.flipY= false;
         }
         
-        //¸¶¿ì½º ÀÔ·Â ÃÑ¾Ë ¹ß»ç
+        //ï¿½ï¿½ï¿½ì½º ï¿½Ô·ï¿½ ï¿½Ñ¾ï¿½ ï¿½ß»ï¿½
         if (Input.GetMouseButtonDown(0) && shootingRate > maxRate)
         {
             Fire();
@@ -55,7 +56,7 @@ public abstract class GunController : MonoBehaviour
         muzzle = pos;
     }
 
-    //Ãß»óÈ­ ³» ¹Ø ÀÚ½Ä °³Ã¼µéÀÌ ±â´ÉÀ» ±¸ÇöÇØ¶ó.
+    //ï¿½ß»ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½.
     protected abstract void Fire();
     protected abstract void OnRelease();
 }

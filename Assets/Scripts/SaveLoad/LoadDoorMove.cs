@@ -16,6 +16,7 @@ public class LoadDoorMove : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            doorMove.updateMode = AnimatorUpdateMode.UnscaledTime;
             DontDestroyOnLoad(gameObject);
         }
         
@@ -40,7 +41,7 @@ public class LoadDoorMove : MonoBehaviour
         if (doorClose)
         {
             doorMove.Play("DoorClose");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
         }
         else
         {

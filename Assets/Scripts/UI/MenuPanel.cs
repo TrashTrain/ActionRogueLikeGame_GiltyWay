@@ -15,7 +15,8 @@ public class MenuPanel : MonoBehaviour
         {
             isMenuClick = true;
             menuScroll.SetActive(isMenuClick);
-            Pause.OnApplicationPause(true);
+            //Pause.OnApplicationPause(true);
+            Time.timeScale = 0;
         }
         
     }
@@ -28,14 +29,16 @@ public class MenuPanel : MonoBehaviour
             {
                 isMenuClick = false;
                 menuScroll.SetActive(isMenuClick);
-                Pause.OnApplicationPause(false);
+                //Pause.OnApplicationPause(false);
+                Time.timeScale = 1;
 
             }
             else
             {
                 isMenuClick = true;
                 menuScroll.SetActive(isMenuClick);
-                Pause.OnApplicationPause(true);
+                //Pause.OnApplicationPause(true);
+                Time.timeScale = 0;
             }
             
             

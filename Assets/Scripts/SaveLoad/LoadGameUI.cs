@@ -51,7 +51,8 @@ public class LoadGameUI : MonoBehaviour
 
     private async void OnSaveButtonClicked(string filePath)
     {
-        //CloseLoadPanel();
+        Time.timeScale = 1;
+        CloseLoadPanel();
         await DataManager.instance.LoadGame(filePath);
         
     }

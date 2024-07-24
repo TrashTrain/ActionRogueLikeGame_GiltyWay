@@ -47,15 +47,17 @@ public class ButtonControl : MonoBehaviour
     }
     public void OnClickStartPage()
     {
+        Time.timeScale = 1;
         SceneLoader.LoadScene("MainScene");
         Info[2].SetActive(false);
-        Pause.OnApplicationPause(false); 
+        //Pause.OnApplicationPause(false); 
     }
 
     public void OnClickVillage()
     {
+        Time.timeScale = 1;
         SceneLoader.LoadScene("Town Map");
         Info[2].SetActive(false);
-        Pause.OnApplicationPause(false);
+        //Pause.OnApplicationPause(false);
     }
 }
