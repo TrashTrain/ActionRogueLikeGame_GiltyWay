@@ -11,11 +11,13 @@ public class GameData
     
     public string SceneName;
     public PlayerData PlayerData;
-
-    public GameData(string sceneName, PlayerData playerData)
+    public float PlayTime;
+    
+    public GameData(string sceneName, PlayerData playerData, float playTime)
     {
         this.SceneName = sceneName;
         this.PlayerData = playerData;
+        this.PlayTime = playTime;
     }
 }
 

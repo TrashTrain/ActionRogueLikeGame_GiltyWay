@@ -6,6 +6,7 @@ public class ButtonControl : MonoBehaviour
 {
 
     public GameObject[] Info;
+    public MenuPanel menu;
 
     //private bool[] isButtonClick;
     List<bool> isButtonClick = new List<bool>();
@@ -47,17 +48,34 @@ public class ButtonControl : MonoBehaviour
     }
     public void OnClickStartPage()
     {
-        Time.timeScale = 1;
-        SceneLoader.LoadScene("MainScene");
-        Info[2].SetActive(false);
+        //Time.timeScale = 1;
+        //Info[2].SetActive(false);
         //Pause.OnApplicationPause(false); 
+        
+        //시작 버튼 클릭 시 : 메뉴 패널 끄기 및 초기화 / 시간 재실행 / 메인 씬으로 이동
+        menu.SetMenuPanel(false);
+        SceneLoader.LoadScene("MainScene");
     }
 
     public void OnClickVillage()
     {
-        Time.timeScale = 1;
-        SceneLoader.LoadScene("Town Map");
-        Info[2].SetActive(false);
+        //Time.timeScale = 1;
+        //Info[2].SetActive(false);
         //Pause.OnApplicationPause(false);
+        
+        //마을 버튼 클릭 시 메뉴 패널 끄기 및 초기화 / 시간 재실행 / 마을 씬으로 이동
+        menu.SetMenuPanel(false);
+        SceneLoader.LoadScene("Town Map");
+    }
+    
+    ////
+    // 주의 : 메뉴 스크롤의 세이브 로드 버튼이 아님, 로드 패널 내의 3개의 버튼 클릭 시 실행
+    ////
+    public void OnClickSaveLoad()
+    {
+        //Info[2].SetActive(false);
+        
+        //로드 시 메뉴 패널을 끄기 및 초기화 / 시간 재실행
+        menu.SetMenuPanel(false);
     }
 }

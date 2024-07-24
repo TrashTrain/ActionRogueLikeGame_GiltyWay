@@ -32,11 +32,12 @@ public class LoadGameUI : MonoBehaviour
                     saveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
                         $"Save {i + 1}\n" +
                         $"Scene: {gameData.SceneName}\n" +
-                        $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
-                        $"Atk: {gameData.PlayerData.Atk}\n" +
-                        $"Def: {gameData.PlayerData.Def}\n" +
-                        $"Speed: {gameData.PlayerData.Speed}\n" +
-                        $"JumpPower: {gameData.PlayerData.JumpPower}";
+                        $"PlayTime: {gameData.PlayTime}";
+                        // $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
+                        // $"Atk: {gameData.PlayerData.Atk}\n" +
+                        // $"Def: {gameData.PlayerData.Def}\n" +
+                        // $"Speed: {gameData.PlayerData.Speed}\n" +
+                        // $"JumpPower: {gameData.PlayerData.JumpPower}";
                     saveButtons[i].onClick.AddListener(() => OnSaveButtonClicked(filePath));
                     saveButtons[i].interactable = true; // 버튼 활성화
                 }

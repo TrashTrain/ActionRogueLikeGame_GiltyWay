@@ -10,11 +10,15 @@ public class MenuPanel : MonoBehaviour
     private bool isMenuClick = false;
     public void OnMenuButtonClik()
     {
-        if (!PlayerController.IsControllable) return;
+        Debug.Log(isMenuClick);
+        
+        if (!PlayerController.IsControllable)
+        {
+            return;
+        }
         if (!isMenuClick)
         {
-            isMenuClick = true;
-            menuScroll.SetActive(isMenuClick);
+            SetMenuPanel(true);
             //Pause.OnApplicationPause(true);
             Time.timeScale = 0;
         }
@@ -27,21 +31,29 @@ public class MenuPanel : MonoBehaviour
         {
             if (isMenuClick)
             {
-                isMenuClick = false;
-                menuScroll.SetActive(isMenuClick);
+                SetMenuPanel(false);
                 //Pause.OnApplicationPause(false);
                 Time.timeScale = 1;
 
             }
             else
             {
-                isMenuClick = true;
-                menuScroll.SetActive(isMenuClick);
+                if (SceneManager.GetActiveScene().name == "MainScene" ||
+                    SceneManager.GetActiveScene().name == "GameOver" ||
+                    SceneManager.GetActiveScene().name == "LoadingScene") return;
+                SetMenuPanel(true);
                 //Pause.OnApplicationPause(true);
                 Time.timeScale = 0;
             }
             
             
         }
+    }
+
+    public void SetMenuPanel(bool click)
+    {
+        isMenuClick = click;
+        menuScroll.SetActive(isMenuClick);
+        Time.timeScale = (click) ? 0 : 1;
     }
 }

@@ -8,11 +8,15 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     
+    public float playStartTime;
+    public float playTime;
+    
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            playTime = 0;
             DontDestroyOnLoad(gameObject);
 
         }
@@ -48,13 +52,30 @@ public class DataManager : MonoBehaviour
     
     public void SaveGame(int slot)
     {
+        UpdatePlayTime(slot);
+        
         PlayerController player = FindObjectOfType<PlayerController>();
         PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);
-        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData);
+        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime);
 
         //string json = JsonUtility.ToJson(gameData);
         //File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
         SaveGameData(gameData, slot);
+    }
+
+    public void UpdatePlayTime(int slot)
+    {
+        string path = Path.Combine(Application.persistentDataPath, $"savefile_{slot}.json");
+        
+        if (File.Exists(path))
+        {
+            playTime = LoadGameData(path).PlayTime;
+        }
+        else
+        {
+            playTime = 0;
+        }
+        playTime += Time.time - playStartTime;
     }
 
     public GameData LoadGameData(string filePath)
@@ -84,6 +105,8 @@ public class DataManager : MonoBehaviour
         //await SceneLoader.LoadScene(gameData.SceneName);
         await SceneManager.LoadSceneAsync(gameData.SceneName);
         ApplyPlayerData(gameData.PlayerData);
+
+        playStartTime = Time.time;
     }
     
     private void ApplyPlayerData(PlayerData playerData)

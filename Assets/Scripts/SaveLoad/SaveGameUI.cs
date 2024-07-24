@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
@@ -19,6 +20,15 @@ public class SaveGameUI : MonoBehaviour
         }
 
         UpdateSaveButtons();
+    }
+
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (isShow)
+        {
+            CloseSavePanel();
+        }
     }
 
     private void OnSaveButtonClicked(int slot)
@@ -45,11 +55,12 @@ public class SaveGameUI : MonoBehaviour
                     saveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
                         $"Save {slot}\n" +
                         $"Scene: {gameData.SceneName}\n" +
-                        $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
-                        $"Atk: {gameData.PlayerData.Atk}\n" +
-                        $"Def: {gameData.PlayerData.Def}\n" +
-                        $"Speed: {gameData.PlayerData.Speed}\n" +
-                        $"JumpPower: {gameData.PlayerData.JumpPower}";
+                        $"PlayTime: {gameData.PlayTime}";
+                        // $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
+                        // $"Atk: {gameData.PlayerData.Atk}\n" +
+                        // $"Def: {gameData.PlayerData.Def}\n" +
+                        // $"Speed: {gameData.PlayerData.Speed}\n" +
+                        // $"JumpPower: {gameData.PlayerData.JumpPower}";
                     
                     //saveButtons[i].interactable = true; // 버튼 활성화
                 }
@@ -73,15 +84,16 @@ public class SaveGameUI : MonoBehaviour
 
             if (gameData != null)
             {
-                saveButtons[slot - 1].GetComponentInChildren<TextMeshProUGUI>().text = 
+                saveButtons[slot - 1].GetComponentInChildren<TextMeshProUGUI>().text =
                     $"Save {slot}\n" +
                     $"Scene: {gameData.SceneName}\n" +
-                    $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
-                    $"Atk: {gameData.PlayerData.Atk}\n" +
-                    $"Def: {gameData.PlayerData.Def}\n" +
-                    $"Speed: {gameData.PlayerData.Speed}\n" +
-                    $"JumpPower: {gameData.PlayerData.JumpPower}";
-                
+                    $"PlayTime: {gameData.PlayTime}";
+                // $"MaxHP: {gameData.PlayerData.MaxHp}\n" +
+                // $"Atk: {gameData.PlayerData.Atk}\n" +
+                // $"Def: {gameData.PlayerData.Def}\n" +
+                // $"Speed: {gameData.PlayerData.Speed}\n" +
+                // $"JumpPower: {gameData.PlayerData.JumpPower}";
+
                 //saveButtons[slot - 1].interactable = true; // 버튼 활성화
             }
         }
@@ -94,6 +106,7 @@ public class SaveGameUI : MonoBehaviour
 
     public void OpenSavePanel()
     {
+        if (isShow) return;
         isShow = true;  
         LoadDoorMove.Instance.OnClickSetLoadPanel(savePanel, isShow);
         
@@ -101,6 +114,7 @@ public class SaveGameUI : MonoBehaviour
 
     public void CloseSavePanel()
     {
+        if (!isShow) return;
         isShow = false;
         LoadDoorMove.Instance.OnClickSetLoadPanel(savePanel, isShow);
     }
