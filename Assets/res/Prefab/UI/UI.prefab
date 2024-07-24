@@ -14264,7 +14264,7 @@ MonoBehaviour:
   Canvas: {fileID: 4020137741486192640}
   playerInfo: {fileID: 6133445444330045596}
   hitDamageInfo: {fileID: 4666743224625459407}
-  hpInfo: {fileID: 0}
+  hpInfo: {fileID: 8081763636101751571}
   buffPanel: {fileID: 8109432723496019845}
   itemGetText: {fileID: 1506161442528533990}
   buffItemController: {fileID: 8525254691707203650}
