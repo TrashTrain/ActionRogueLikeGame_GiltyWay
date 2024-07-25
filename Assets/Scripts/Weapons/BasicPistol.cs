@@ -12,9 +12,16 @@ public class BasicPistol : GunController
     {
         //muzzleFlash.Play();
         //bullet ����
-
-        var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
-
-        tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
+        
+        if (Input.GetMouseButtonDown(0) && shootingRate > gunData.maxRate)
+        {
+            var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
+            tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
+            
+            shootingRate = 0f;
+            
+            //for .NET Gabage Collector
+            tempBullet = null;
+        }
     }
 }

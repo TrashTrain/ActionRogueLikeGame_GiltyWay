@@ -11,6 +11,7 @@ public abstract class GunController : MonoBehaviour
     public GunDataStruct GunData => gunData;
     [Header("Ref")] 
     [SerializeField] protected GunData refData;
+    public GunData RefData => refData;
     
     #endregion
     
@@ -22,7 +23,7 @@ public abstract class GunController : MonoBehaviour
     protected Vector2 target;
     private SpriteRenderer sr;
     
-    private float shootingRate = 0f;
+    protected float shootingRate = 0f;
     
     //public float maxRate = 0.4f;
     //public float bulletSpeed = 0f;
@@ -42,7 +43,7 @@ public abstract class GunController : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
     }
@@ -69,42 +70,78 @@ public abstract class GunController : MonoBehaviour
         }
         
         //���콺 �Է� �Ѿ� �߻�
-        if (Input.GetMouseButtonDown(0) && shootingRate > gunData.maxRate)
-        {
-            Fire();
-            shootingRate = 0f;
-        }
+        // if (Input.GetMouseButtonDown(0) && shootingRate > gunData.maxRate)
+        // {
+        //     Fire();
+        //     shootingRate = 0f;
+        // }
+        
+        Fire();
     }
 
 
     //�߻�ȭ �� �� �ڽ� ��ü���� ����� �����ض�.
     protected abstract void Fire();
-    
-    
-    
+
+
+    #region SetGunData
+
     //For Changing GunData Temporary 
-    public void SetBulletDamage(float damage)
+    public void SetBulletDamageT(float damage)
     {
         gunData.bulletDamage = damage;
     }
     
-    public void SetBulletSpeed(float speed)
+    public void SetBulletSpeedT(float speed)
     {
         gunData.bulletSpeed = speed;
     }
     
-    public void SetBulletMaxRate(float maxRate)
+    public void SetBulletMaxRateT(float maxRate)
     {
         gunData.maxRate = maxRate;
     }
     
-    public void SetBulletReloadTime(float reloadTime)
+    public void SetBulletReloadTimeT(float reloadTime)
     {
         gunData.reloadTime = reloadTime;
     }
     
-    public void SetMaxAmmo(int maxAmmo)
+    public void SetMaxAmmoT(int maxAmmo)
     {
         gunData.maxAmmo = maxAmmo;
     }
+
+    #endregion
+    
+    #region SetRefData
+
+    //For Changing refData Eternally
+    public void SetBulletDamageE(float damage)
+    {
+        refData.bulletDamage = damage;
+    }
+    
+    public void SetBulletSpeedE(float speed)
+    {
+        refData.bulletSpeed = speed;
+    }
+    
+    public void SetBulletMaxRateE(float maxRate)
+    {
+        refData.maxRate = maxRate;
+    }
+    
+    public void SetBulletReloadTimeE(float reloadTime)
+    {
+        refData.reloadTime = reloadTime;
+    }
+    
+    public void SetMaxAmmo(int maxAmmo)
+    {
+        refData.maxAmmo = maxAmmo;
+    }
+
+    #endregion
+    
 }

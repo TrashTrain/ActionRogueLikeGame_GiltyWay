@@ -33,11 +33,11 @@ public class ShootingRateItem : Item
     IEnumerator IncreaseShootingRate(GunController gun)
     {
         float playerShootingRate = gun.GunData.maxRate;
-        gun.SetBulletMaxRate(playerShootingRate + shootingRate);
+        gun.SetBulletMaxRateT(playerShootingRate + shootingRate);
         
         yield return new WaitForSeconds(plusShootingRateTime);
 
-        gun.SetBulletMaxRate(playerShootingRate);
+        gun.SetBulletMaxRateT(playerShootingRate);
         Destroy(gameObject);
     }
 }
