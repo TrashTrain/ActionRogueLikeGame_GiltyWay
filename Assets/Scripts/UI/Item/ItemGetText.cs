@@ -35,6 +35,5 @@ public class ItemGetText : MonoBehaviour
         itemText.text = text;
         timer = 0f;
         isDisplaying = true;
-        
     }
 }

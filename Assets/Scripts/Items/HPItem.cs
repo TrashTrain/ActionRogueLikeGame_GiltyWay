@@ -15,15 +15,31 @@ public class HPItem : Item
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
-            
-            player.GetComponent<PlayerController>().hp += hp;
-            if (player.GetComponent<PlayerController>().hp >= 50) player.GetComponent<PlayerController>().hp = 50;
 
-            UIManager.instance.playerInfo.SetHp(player.GetComponent<PlayerController>().hp);
-            
-            UIManager.instance.hpInfo.PrintHpUp(player.transform, hp);      // UI manager 수정 후에 주석 풀기
-            
-            // UIManager.instance.itemGetText.DisplayText("HP +2 Up!");
+            if (player.hp == 50f)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                float originalHp = player.hp;
+                
+                player.hp += hp;
+                
+                if (player.hp > 50)
+                {
+                    player.hp = 50;
+                    float increase = player.hp - originalHp;
+                    UIManager.instance.hpInfo.PrintHpUp(player.transform, increase); 
+                }
+                else
+                {
+                    UIManager.instance.hpInfo.PrintHpUp(player.transform, hp); 
+                }
+                
+                UIManager.instance.playerInfo.SetHp(player.hp);
+            }
             
             Destroy(gameObject);
         }

@@ -35,7 +35,7 @@ public class HpInfo : MonoBehaviour
 
     public void PrintHpUp(Transform charTrans, float plusHp)
     {
-        var hpUp = Instantiate(hpUpObject, this.transform);
+        var hpUp = Instantiate(hpUpObject, transform);
         
         hpUp.GetComponent<TextMeshProUGUI>().fontSize = hpUpFontSize;
         hpUp.GetComponent<TextMeshProUGUI>().colorGradient =
