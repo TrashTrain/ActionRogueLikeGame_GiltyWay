@@ -9,6 +9,7 @@ public class GunManager : MonoBehaviour
     public static int selectGunNum = 0;
     private void Awake()
     {
+        if (player == null) return;
         DontDestroyOnLoad(gameObject);
         for (int i = 0; i < player.guns.Length; i++)
         {

@@ -19,7 +19,7 @@ public class GunSlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gunManager.player == null) return;
+        if (gunManager == null) return;
 
         GunSlotCheck();
     }
@@ -27,6 +27,7 @@ public class GunSlot : MonoBehaviour
     {
         if (!PlayerController.IsControllable) return;
         OnButtonScreen();
+        if (gunManager == null) return;
         if (gunManager.player == null) return;
         GunSlotCheck();
     }
