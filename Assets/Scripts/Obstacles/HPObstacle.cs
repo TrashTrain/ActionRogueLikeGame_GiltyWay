@@ -28,18 +28,21 @@ public class HPObstacle : MonoBehaviour
         {
             if (!isActive)
             {
+                // 효과음
                 SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
+                
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
                 Vector2 bounceForce = new Vector2(bounce, bounce);
                 
-                player.GetDamaged(dmg,this.gameObject,bounceForce);
+                player.GetDamaged(dmg, gameObject, bounceForce);
                 
                 StartCoroutine(ChangeColor(this));
             }
         }
     }
     
+    // 플레이어와 함정 접촉 시 함정 색 변경
     IEnumerator ChangeColor(HPObstacle hpObstacle)
     {
         isActive = true;

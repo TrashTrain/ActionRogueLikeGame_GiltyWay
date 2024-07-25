@@ -38,7 +38,7 @@ public class HpDownText : MonoBehaviour
 
     private void Destroy()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void SetHpUp(float minusHp)
