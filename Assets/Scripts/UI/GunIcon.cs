@@ -9,7 +9,7 @@ public class GunIcon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Image>().sprite = gunManager.gunImages[GunManager.selectGunNum];
+        gameObject.GetComponent<Image>().sprite = gunManager.gunImages[GunSlot.selectGunNum];
     }
     private void Update()
     {

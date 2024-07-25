@@ -9,7 +9,9 @@ public class GunSlot : MonoBehaviour
     public Image[] gunSlot;
     public GunManager gunManager;
     public GameObject slotCenter;
+    public PlayerController player;
 
+    public static int selectGunNum = 0;
     public GameObject slot;
 
     Vector2 slotPos = new();
@@ -28,12 +30,13 @@ public class GunSlot : MonoBehaviour
         if (!PlayerController.IsControllable) return;
         OnButtonScreen();
         if (gunManager == null) return;
-        if (gunManager.player == null) return;
         GunSlotCheck();
     }
 
     void GunSlotCheck()
     {
+        if (gunSlot == null) return;
+        if (player.guns.Length <= selectGunNum) return;  
         for (int i = 1; i < gunSlot.Length; i++)
         {
             Color color = gunSlot[i].GetComponent<Image>().color;
@@ -51,7 +54,7 @@ public class GunSlot : MonoBehaviour
         Color zeroColor = gunSlot[0].GetComponent<Image>().color;
         zeroColor.a = 1f;
         gunSlot[0].GetComponent<Image>().color = zeroColor;
-        gunSlot[0].GetComponent<Image>().sprite = gunManager.gunImages[GunManager.selectGunNum];
+        gunSlot[0].GetComponent<Image>().sprite = gunManager.gunImages[selectGunNum];
     }
     void OnButtonScreen()
     {
@@ -72,7 +75,7 @@ public class GunSlot : MonoBehaviour
                 angle *= -1;
             }
             
-            for (int i = 1; i <= gunSlot.Length; i++)
+            for (int i = 0; i < gunSlot.Length; i++)
             {
                 endAngle = startAngle - 45;
                 if (angle > endAngle && angle < startAngle)
@@ -86,8 +89,9 @@ public class GunSlot : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.F))
         {
-            GunManager.selectGunNum = check;
-            Debug.Log(GunManager.selectGunNum);
+            selectGunNum = check;
+            Debug.Log(selectGunNum);
+            player.SelectWeapon(selectGunNum);
             slot.SetActive(false);
         }
     }

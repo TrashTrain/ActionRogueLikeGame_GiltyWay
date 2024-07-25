@@ -6,7 +6,7 @@ public class GunManager : MonoBehaviour
 {
     public PlayerController player;
     public Sprite[] gunImages = new Sprite[8];
-    public static int selectGunNum = 0;
+    //public static int selectGunNum = 0;
     private void Awake()
     {
         if (player == null) return;

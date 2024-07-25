@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     bool isUnBeatTime = false;
 
     public GameObject[] guns;
-
+    private GameObject curGun;
     public static bool IsControllable = true;
 
     //---------------------------------------------------[Override Function]
@@ -43,7 +43,8 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
         tf = transform;
-        
+        curGun = guns[0];
+        curGun.SetActive(true);
 
         UIManager.instance.playerInfo.InitPlayerUI(this);
     }
@@ -53,8 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log("playertest");
         Jump();
-        
-        
+
+
         // // fall Charactor
         // if(transform.position.y <= -7)
         // {
@@ -196,5 +197,14 @@ public class PlayerController : MonoBehaviour
         BGM.instance.PlayBGM("GameOver");
         SceneManager.LoadScene("GameOver");
     }
-   
+    public void SelectWeapon(int idx)
+    {
+        if (guns.Length <= GunSlot.selectGunNum) return;
+        curGun.SetActive(false);
+
+
+        guns[idx].gameObject.SetActive(true);
+
+        curGun = guns[idx];
+    }
 }

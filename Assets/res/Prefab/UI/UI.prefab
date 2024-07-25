@@ -8690,7 +8690,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8769485204377222707}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5604746617634248583}
+        m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
+        m_MethodName: OnSlotclick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &6741123220713138558
 Animator:
   serializedVersion: 5
@@ -9346,7 +9358,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4615651839660967367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5604746617634248583}
+        m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
+        m_MethodName: OnSlotclick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &5784775480757760404
 Animator:
   serializedVersion: 5
@@ -11618,7 +11642,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4607010574119608961}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5604746617634248583}
+        m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
+        m_MethodName: OnSlotclick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &2527100375885145262
 Animator:
   serializedVersion: 5
@@ -13439,16 +13475,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunSlot:
   - {fileID: 7543811587146146994}
+  - {fileID: 8172059496783783202}
+  - {fileID: 7308765396503818798}
   - {fileID: 2855203697975747515}
   - {fileID: 7198650484504463278}
   - {fileID: 1756316385675965807}
   - {fileID: 1359487057554413}
   - {fileID: 2984082580954113148}
   - {fileID: 1735878390552969101}
-  - {fileID: 8172059496783783202}
-  - {fileID: 7308765396503818798}
   gunManager: {fileID: 0}
   slotCenter: {fileID: 2814882664970807274}
+  player: {fileID: 0}
   slot: {fileID: 5236760634306021555}
 --- !u!1 &7671453473554845854
 GameObject:
