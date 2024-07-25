@@ -48,11 +48,17 @@ public class SpeedItem : Item
     {
         isActive = true;    // 아이템 중복 확인용
         remainingTime = plusSpeedTime;
-        
+
+        // float currentSpeed = player.speed;
         player.speed += speed;
-        if (player.speed > 5)
+        
+        if (player.speed > originalSpeed)
         {
             BGM.instance.OnSpeedItemCollected(plusSpeedTime);
+        }
+        else if (player.speed == originalSpeed)
+        {
+            BGM.instance.SetOriginalPitch();
         }
         
         while (remainingTime > 0)

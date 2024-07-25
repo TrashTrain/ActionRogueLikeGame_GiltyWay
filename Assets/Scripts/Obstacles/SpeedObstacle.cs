@@ -20,9 +20,7 @@ public class SpeedObstacle : Obstacle
     {
         if (other.gameObject.layer == 6)
         {
-            // BGM.instance.OnSpeedObstacleCollected(minusSpeedTime);
-            
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            player = other.gameObject.GetComponent<PlayerController>();
             //itemGetText.DisplayText("Slow Down!");
             UIManager.instance.itemGetText.DisplayText("Slow Down!");
             
@@ -48,8 +46,18 @@ public class SpeedObstacle : Obstacle
     {
         isActive = true;
         remainingTime = minusSpeedTime;
-        
+
+        // float currentSpeed = player.speed;
         player.speed -= speed;
+
+        if (player.speed < originalSpeed)
+        {
+            BGM.instance.OnSpeedObstacleCollected(minusSpeedTime);
+        }
+        else if (player.speed == originalSpeed)
+        {
+            BGM.instance.SetOriginalPitch();
+        }
         
         while (remainingTime > 0)
         {
