@@ -14,11 +14,14 @@ public class RazorGun : GunController
     
     public Color chargingColor = Color.yellow;
     public Color chargedColor = Color.red;
-    public float chargingWidth = 0.1f;
-    public float chargedWidth = 0.2f;
+    public float chargingWidth = 0.05f;
+    public float chargedWidth = 0.1f;
     public float firingWidth = 0.5f;
     public float minFiringWidth = 0.1f;
     public float widthDecreaseRate = 0.1f; // 레이저 두께 증가율
+    
+    public LineRenderer chargeGaze;
+    public float chargeGazef;
     
     protected override void Start()
     {
@@ -33,20 +36,30 @@ public class RazorGun : GunController
         lineRenderer.startWidth = chargingWidth;
         lineRenderer.endWidth = chargingWidth;
         lineRenderer.enabled = false;
+
+        chargeGaze.positionCount = 2;
+        chargeGaze.enabled = true;
+        chargeGaze.startWidth = 0.35f;
+        chargeGaze.endWidth = 0.35f;
     }
     
     protected override void Fire()
     {
+        
+        chargeGaze.SetPosition(0, transform.position - transform.right * 0.4f);
+        chargeGaze.SetPosition(1, transform.position - transform.right * 0.4f + 0.8f  * Mathf.Min(currentTime, chargeTime)/chargeTime * transform.right);
         
         if (Input.GetMouseButtonDown(0))
         {
             isCharge = false;
             currentTime = 0;
             SetRazor(chargingColor, chargingWidth);
+            UpdateRazor();
             lineRenderer.enabled = true;
         }
         else if(Input.GetMouseButton(0))
         {
+            UpdateRazor();
             if (!isCharge)
             {
                 currentTime += Time.deltaTime;
@@ -56,7 +69,6 @@ public class RazorGun : GunController
                     SetRazor(chargedColor, chargedWidth);
                 }
             }
-            UpdateRazor();
         }
         else if(Input.GetMouseButtonUp(0))
         {
@@ -75,7 +87,7 @@ public class RazorGun : GunController
     private void ShootLaser()
     {
         // 레이저 시작 위치 및 방향 설정
-        Vector3 startPos = transform.position;
+        Vector3 startPos = transform.position + transform.right * 0.5f;
         Vector3 direction = transform.right; 
 
         UpdateRazor();
@@ -108,9 +120,9 @@ public class RazorGun : GunController
             // 레이저 두께 증가
             firingWidth = Mathf.Max(firingWidth - widthDecreaseRate, minFiringWidth);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
-
+        
         lineRenderer.enabled = false;
     }
 
@@ -125,7 +137,7 @@ public class RazorGun : GunController
     private void UpdateRazor()
     {
         // 레이저 시작 위치 및 방향 설정
-        Vector3 startPos = transform.position;
+        Vector3 startPos = transform.position + transform.right * 0.5f;
         Vector3 direction = transform.right;
         // 레이저의 끝 위치 계산
         Vector3 endPos = startPos + direction * laserDistance;
