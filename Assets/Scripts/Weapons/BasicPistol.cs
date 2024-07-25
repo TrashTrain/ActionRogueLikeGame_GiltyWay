@@ -18,8 +18,4 @@ public class BasicPistol : GunController
 
         tempBullet.GetComponent<BulletController>().Init(bulletSpeed, bulletDmg);
     }
-    protected override void OnRelease()
-    {
-
-    }
 }

@@ -51,12 +51,7 @@ public abstract class GunController : MonoBehaviour
         }
     }
 
-    public void Init(Transform pos)
-    {
-        muzzle = pos;
-    }
 
     //�߻�ȭ �� �� �ڽ� ��ü���� ����� �����ض�.
     protected abstract void Fire();
-    protected abstract void OnRelease();
 }

@@ -19,10 +19,24 @@ public class GunSlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (gunManager.player == null) return;
+
+        GunSlotCheck();
+    }
+    private void Update()
+    {
+        if (!PlayerController.IsControllable) return;
+        OnButtonScreen();
+        if (gunManager.player == null) return;
+        GunSlotCheck();
+    }
+
+    void GunSlotCheck()
+    {
         for (int i = 1; i < gunSlot.Length; i++)
         {
             Color color = gunSlot[i].GetComponent<Image>().color;
-            if (gunManager.gunImages[i-1] == null)
+            if (gunManager.gunImages[i - 1] == null)
             {
                 color.a = 0f;
             }
@@ -31,19 +45,13 @@ public class GunSlot : MonoBehaviour
                 color.a = 1f;
             }
             gunSlot[i].GetComponent<Image>().color = color;
-            gunSlot[i].GetComponent<Image>().sprite = gunManager.gunImages[i-1];
+            gunSlot[i].GetComponent<Image>().sprite = gunManager.gunImages[i - 1];
         }
         Color zeroColor = gunSlot[0].GetComponent<Image>().color;
         zeroColor.a = 1f;
-        gunSlot[0].GetComponent<Image>().color= zeroColor;
+        gunSlot[0].GetComponent<Image>().color = zeroColor;
         gunSlot[0].GetComponent<Image>().sprite = gunManager.gunImages[GunManager.selectGunNum];
     }
-    private void Update()
-    {
-        if (!PlayerController.IsControllable) return;
-        OnButtonScreen();
-    }
-
     void OnButtonScreen()
     {
         Vector2 mousePos = Input.mousePosition;
