@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,7 +19,7 @@ public class SpeedItem : Item
     {
         if (other.gameObject.layer == 6)
         {
-            BGM.instance.OnSpeedItemCollected(plusSpeedTime);   // 배경음악 속도 빠르게
+            // BGM.instance.OnSpeedItemCollected(plusSpeedTime);   // 배경음악 속도 빠르게
             SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             //itemGetText.DisplayText("Speed UP!");
@@ -49,7 +50,11 @@ public class SpeedItem : Item
         remainingTime = plusSpeedTime;
         
         player.speed += speed;
-
+        if (player.speed > 5)
+        {
+            BGM.instance.OnSpeedItemCollected(plusSpeedTime);
+        }
+        
         while (remainingTime > 0)
         {
             yield return null;
