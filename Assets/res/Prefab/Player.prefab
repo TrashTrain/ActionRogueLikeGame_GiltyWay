@@ -114,7 +114,9 @@ MonoBehaviour:
   jumpCount: 0
   ani: {fileID: 7747488254735896910}
   guns:
-  - {fileID: 1328831016901626952, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+  - {fileID: 3464958133003781058}
+  - {fileID: 4686038361543313964}
+  - {fileID: 3651971427359569615}
 --- !u!50 &3663490773043001850
 Rigidbody2D:
   serializedVersion: 4
@@ -289,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328831016901626952, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6211832421720998823, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: refData
@@ -303,6 +305,11 @@ PrefabInstance:
 --- !u!4 &2911218189855014239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 720659848375399125, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+  m_PrefabInstance: {fileID: 2478938938744229770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3464958133003781058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328831016901626952, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
   m_PrefabInstance: {fileID: 2478938938744229770}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2600036417652678711
@@ -362,6 +369,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47268df2e3c2a43df9e0ce9f21be6e1d, type: 3}
+--- !u!1 &4686038361543313964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7285988943032543771, guid: 47268df2e3c2a43df9e0ce9f21be6e1d, type: 3}
+  m_PrefabInstance: {fileID: 2600036417652678711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7373967084987938169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4774018628307948878, guid: 47268df2e3c2a43df9e0ce9f21be6e1d, type: 3}
@@ -378,6 +390,10 @@ PrefabInstance:
     - target: {fileID: 5015797683671689022, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
       propertyPath: m_Name
       value: Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015797683671689022, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6767513858069649827, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,5 +443,10 @@ PrefabInstance:
 --- !u!4 &3089135361999800402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6767513858069649827, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
+  m_PrefabInstance: {fileID: 8590011287933473265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3651971427359569615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5015797683671689022, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
   m_PrefabInstance: {fileID: 8590011287933473265}
   m_PrefabAsset: {fileID: 0}

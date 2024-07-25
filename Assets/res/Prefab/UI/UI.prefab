@@ -15734,9 +15734,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2761540743049949329, guid: de0a5fd83b140490f803d2ae0114bfd2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d1cf3cc6abe64f29be46341092e2013, type: 3}
+    - target: {fileID: 2761540743049949329, guid: de0a5fd83b140490f803d2ae0114bfd2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761540743049949329, guid: de0a5fd83b140490f803d2ae0114bfd2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5142231087497225240, guid: de0a5fd83b140490f803d2ae0114bfd2, type: 3}
       propertyPath: m_Name
       value: DoorUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255639700658191726, guid: de0a5fd83b140490f803d2ae0114bfd2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1661e7df739904a889e5ab5ec59550e9, type: 3}
+    - target: {fileID: 5255639700658191726, guid: de0a5fd83b140490f803d2ae0114bfd2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255639700658191726, guid: de0a5fd83b140490f803d2ae0114bfd2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15916,6 +15940,22 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1859476198746427130, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3890367fd293b4180bc3033d15290ada, type: 3}
+    - target: {fileID: 1859476198746427130, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859476198746427130, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859476198746427130, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2867722672963453741, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: loadDoorMove
       value: 
@@ -15948,10 +15988,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3258159160734187560, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258159160734187560, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b2c77a55df7fae0418ec9528e119faee, type: 3}
     - target: {fileID: 3846799289614668399, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6713726988444817603, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713726988444817603, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949052807770504516, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4060a2f91c8244e05b6c19808efc75f9, type: 3}
     - target: {fileID: 7515842934992486736, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -15976,6 +16036,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7916974071448531797, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4365d1e5aad9748459c6488100abb770, type: 3}
     - target: {fileID: 8671815190326031131, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -16004,6 +16068,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8833174600391077583, guid: 9449477b8a3714e6fb9be1816bf0247a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4060a2f91c8244e05b6c19808efc75f9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16225,6 +16293,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6949052807770504516, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4060a2f91c8244e05b6c19808efc75f9, type: 3}
     - target: {fileID: 7515842934992486736, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -16249,6 +16321,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7916974071448531797, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4365d1e5aad9748459c6488100abb770, type: 3}
     - target: {fileID: 8671815190326031131, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -16277,6 +16353,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8833174600391077583, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4060a2f91c8244e05b6c19808efc75f9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
