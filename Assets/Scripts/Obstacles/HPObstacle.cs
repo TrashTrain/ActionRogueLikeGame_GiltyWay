@@ -32,9 +32,8 @@ public class HPObstacle : MonoBehaviour
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
                 Vector2 bounceForce = new Vector2(bounce, bounce);
-
-                //attack bounce
-                player.GetDamaged(2f,this.gameObject,bounceForce);
+                
+                player.GetDamaged(dmg,this.gameObject,bounceForce);
                 
                 StartCoroutine(ChangeColor(this));
             }
