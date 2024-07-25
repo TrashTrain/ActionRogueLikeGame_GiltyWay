@@ -217,7 +217,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: af9f3564dd005904397341a9eb713771, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28bb17d15f179442957966f1dfab736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxhp: 50
   hp: 50
   atk: 10
   def: 10
@@ -519,6 +520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basicgun
       objectReference: {fileID: 0}
+    - target: {fileID: 6211832421720998823, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: refData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4defa1a95343b43f4ad890f9f8fbabfd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

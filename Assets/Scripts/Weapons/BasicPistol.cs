@@ -5,17 +5,16 @@ using UnityEngine;
 public class BasicPistol : GunController
 {
     public GameObject bullet;
-
     
 
-    //¸¶¿ì½º ÀÔ·Â ÃÑ¾Ë ¹ß»ç
+    //ï¿½ï¿½ï¿½ì½º ï¿½Ô·ï¿½ ï¿½Ñ¾ï¿½ ï¿½ß»ï¿½
     protected override void Fire()
     {
         //muzzleFlash.Play();
-        //bullet »ý¼º
+        //bullet ï¿½ï¿½ï¿½ï¿½
 
         var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
 
-        tempBullet.GetComponent<BulletController>().Init(bulletSpeed, bulletDmg);
+        tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
     }
 }

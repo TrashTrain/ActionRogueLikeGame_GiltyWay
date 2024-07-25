@@ -23,7 +23,7 @@ public class ShootingRateItem : Item
             StartCoroutine(IncreaseShootingRate(gun));
             
             //buffItemController.AddBuff("Shooting Rate Up Item", gun.maxRate, plusShootingRateTime, icon);
-            UIManager.instance.buffItemController.AddBuff("Shooting Rate Up Item", gun.maxRate, plusShootingRateTime, icon);
+            UIManager.instance.buffItemController.AddBuff("Shooting Rate Up Item", gun.GunData.maxRate, plusShootingRateTime, icon);
 
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
@@ -32,12 +32,12 @@ public class ShootingRateItem : Item
 
     IEnumerator IncreaseShootingRate(GunController gun)
     {
-        float playerShootingRate = gun.maxRate;
-        gun.maxRate += shootingRate;
+        float playerShootingRate = gun.GunData.maxRate;
+        gun.SetBulletMaxRate(playerShootingRate + shootingRate);
         
         yield return new WaitForSeconds(plusShootingRateTime);
 
-        gun.maxRate = playerShootingRate;
+        gun.SetBulletMaxRate(playerShootingRate);
         Destroy(gameObject);
     }
 }

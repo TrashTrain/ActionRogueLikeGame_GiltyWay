@@ -118,6 +118,7 @@ public class DataManager : MonoBehaviour
         //await SceneLoader.LoadScene(gameData.SceneName);
         await SceneManager.LoadSceneAsync(gameData.SceneName);
         ApplyPlayerData(gameData.PlayerData);
+        BGM.instance?.PlayBGM(gameData.SceneName);
 
         playStartTime = Time.time;
     }
