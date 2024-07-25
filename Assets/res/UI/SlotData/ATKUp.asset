@@ -18,3 +18,4 @@ MonoBehaviour:
   font: {fileID: 11400000, guid: 02e18ec6ea39540f79a7ed0175e25540, type: 2}
   itemDescription: "\uACF5\uACA9\uB825\uC774 2 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   type: 0
+  status: 1

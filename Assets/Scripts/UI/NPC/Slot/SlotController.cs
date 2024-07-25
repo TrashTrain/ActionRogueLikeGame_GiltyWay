@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class SlotController : MonoBehaviour
 {
     public SlotData[] slotDataGroup;
-
     [Header("Slot1")]
     public Image[] slotItems;
 
@@ -33,8 +32,13 @@ public class SlotController : MonoBehaviour
             slotDescriptions[i].text = slotDataGroup[rands[i]].itemDescription;
             slotDescriptions[i].font = slotDataGroup[rands[i]].font;
         }
+    }
+    public void OnSlotclick(int slotNum)
+    {
+        var slotData = slotDataGroup[rands[slotNum]];
+        if(slotData.type == ItemType.Status)
+            ChangeStatus(slotData);
         
-     
     }
     public void OnButtonClick()
     {
@@ -42,7 +46,20 @@ public class SlotController : MonoBehaviour
         RandomSlot();
         gameObject.SetActive(true);
     }
+    public void ChangeStatus(SlotData slotData)
+    {
+        if (slotData == null) return;
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (slotData.status == StatusType.HP)
+            player.maxhp += slotData.statusValue;
+        if(slotData.status == StatusType.ATK)
+            player.atk += slotData.statusValue;
+        if(slotData.status == StatusType.SPD)
+            player.speed += slotData.statusValue;
 
+        Debug.Log("playerAtk : " + player.atk + "/playerHP : " + player.maxhp + "/playerSPD : " + player.speed);
+        UIManager.instance.playerInfo.playerHpBar.InitPlayerHp(player.maxhp);
+    }
     public void ShowSlotPanel()
     {
         gameObject.SetActive(true);

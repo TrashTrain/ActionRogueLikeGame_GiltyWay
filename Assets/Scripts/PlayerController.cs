@@ -22,11 +22,11 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    Transform tf;
+    private Transform tf;
     [Header("Animation")]
     public Animator ani;
 
-    Rigidbody2D rigid;
+    private Rigidbody2D rigid;
 
     Vector3 movement;
     bool isJumping = false;
@@ -128,9 +128,6 @@ public class PlayerController : MonoBehaviour
             }
         }
             
-    }
-    void NPCCommunicate()
-    {
     }
 
     public void GetDamaged(float dmg, GameObject enemy, Vector2 attackPower)

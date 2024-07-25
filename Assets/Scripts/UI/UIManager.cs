@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour
     public PlayerInfo playerInfo;
     public HitDamageInfo hitDamageInfo;
     public HpInfo hpInfo;   // hp 텍스트
-    
+
+
     public GameObject buffPanel;
     public ItemGetText itemGetText;
     public BuffItemController buffItemController;
