@@ -83,18 +83,23 @@ public class BGM : MonoBehaviour
     }
     
     // 스피드 장애물 획득 시 배경음악 느리게
-    // public void OnSpeedObstacleCollected(float duration)
-    // {
-    //     StartCoroutine(SpeedObstacleCoroutine(duration));
-    // }
-    //
-    // private IEnumerator SpeedObstacleCoroutine(float duration)
-    // {
-    //     audioSource.pitch = 0.7f; // 배경음악 속도 빠르게
-    //
-    //     // 지속시간 동안 대기
-    //     yield return new WaitForSeconds(duration);
-    //
-    //     audioSource.pitch = originalPitch; // 배경음악 속도 원래대로
-    // }
+    public void OnSpeedObstacleCollected(float duration)
+    {
+        StartCoroutine(SpeedObstacleCoroutine(duration));
+    }
+    
+    private IEnumerator SpeedObstacleCoroutine(float duration)
+    {
+        audioSource.pitch = 0.7f; // 배경음악 속도 빠르게
+    
+        // 지속시간 동안 대기
+        yield return new WaitForSeconds(duration);
+    
+        audioSource.pitch = originalPitch; // 배경음악 속도 원래대로
+    }
+
+    public void SetOriginalPitch()
+    {
+        audioSource.pitch = originalPitch;
+    }
 }
