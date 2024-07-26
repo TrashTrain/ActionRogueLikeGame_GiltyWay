@@ -27,8 +27,6 @@ public class GunSlot : MonoBehaviour
     {
         if (player == null) return;
         GetFindPlayer();
-
-
         GetGunImage();
         GunSlotCheck();
     }

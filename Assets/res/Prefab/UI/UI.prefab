@@ -2351,16 +2351,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112715212254117881}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7660445, w: 0.64278764}
+  m_LocalRotation: {x: 0, y: 0, z: 0.81915206, w: 0.57357645}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.90000004, y: 0.90000004, z: 0.90000004}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5939802213478399773}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 110}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: -10}
+  m_AnchoredPosition: {x: 5, y: 5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6150763279774982264
@@ -3608,7 +3608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668b268715affb94eabfc88bbe10c522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunManager: {fileID: 0}
 --- !u!114 &8888962689164204316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4154,7 +4153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4666468748279568462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12094,7 +12093,7 @@ MonoBehaviour:
   Info:
   - {fileID: 5392162982025406514}
   - {fileID: 5768105242910974385}
-  - {fileID: 169560139527011411}
+  - {fileID: 0}
   menu: {fileID: 5244952673088293248}
 --- !u!223 &6476268854311388713
 Canvas:
@@ -13473,6 +13472,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7c1afa94e64f74ca4425ae4b549ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunSlotBG:
+  - {fileID: 2409482111387229461}
+  - {fileID: 2713182316100511185}
+  - {fileID: 4665038347969237084}
+  - {fileID: 3364582236786753654}
+  - {fileID: 9220741373116457496}
+  - {fileID: 4443632037860160213}
+  - {fileID: 8582536635369655005}
+  - {fileID: 410438056213571471}
   gunSlot:
   - {fileID: 7543811587146146994}
   - {fileID: 8172059496783783202}
@@ -13483,10 +13491,17 @@ MonoBehaviour:
   - {fileID: 1359487057554413}
   - {fileID: 2984082580954113148}
   - {fileID: 1735878390552969101}
-  gunManager: {fileID: 0}
   slotCenter: {fileID: 2814882664970807274}
-  player: {fileID: 0}
   slot: {fileID: 5236760634306021555}
+  gunImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7671453473554845854
 GameObject:
   m_ObjectHideFlags: 0
@@ -14332,16 +14347,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8090793970635039851}
-  m_LocalRotation: {x: -0, y: -0, z: 0.42261827, w: 0.9063079}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5735764, w: 0.8191521}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.90000004, y: 0.90000004, z: 0.90000004}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5205692583726169594}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 70}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 0}
+  m_AnchoredPosition: {x: 10, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4535640186260672190
