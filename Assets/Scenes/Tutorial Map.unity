@@ -2013,12 +2013,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3464958133003781058, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878049335604492070, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: chargeGaze
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4294640866864706599, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4686038361543313964, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152310596734117814, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074631838979398266, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5623441378684350846, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+    - {fileID: 87358425531509051, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+    - {fileID: 1367860978213262583, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
@@ -9335,6 +9358,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2366684916252688410, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3461585894769319603, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: gunManager
       value: 
@@ -9387,17 +9414,45 @@ PrefabInstance:
       propertyPath: Info.Array.data[2]
       value: 
       objectReference: {fileID: 1718629705}
+    - target: {fileID: 3998778589945086464, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020137741486192640, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5236760634306021555, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289088509393648002, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476268854311388713, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6617782427534182565, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: hpInfo
       value: 
       objectReference: {fileID: 498996671}
+    - target: {fileID: 7957149426643726164, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8070756037392658254, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422514810180678006, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105350727234259446, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
