@@ -218,6 +218,9 @@ MonoBehaviour:
   wireAction: {fileID: 2837764100808350679}
   enemyTrans: {fileID: 0}
   isBindToEnemy: 0
+  maxHoldLength: 4
+  isLerping: 0
+  lerpDuration: 0.4
 --- !u!1 &6864023627771755251
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,15 +268,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookAction: {fileID: 4070532409301832702}
   playerPos: {fileID: 0}
+  player: {fileID: 0}
   hook: {fileID: 570988727419286136}
   wire: {fileID: 3013668314952671488}
   mouseDir: {x: 0, y: 0}
-  launchSpeed: 30
+  launchSpeed: 50
   wireMaxLength: 10
   shrinkSpeed: 10
   lastJumpSpeed: 10
   isWireMax: 0
   isAttached: 0
+  maxHoldTime: 4
+  currentHoldTime: 0
   hookKey: 113
 --- !u!1 &7911581965565710598
 GameObject:

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-
     private float bulletSpeed = 2f;
     private float bulletDamage;
 
@@ -13,19 +12,30 @@ public class BulletController : MonoBehaviour
     private float timeCounter = 0f;
 
     private const float maxTime = 3f;
+    
+    public int penetrateCount = 0;
+    public int maxPenetrateCount = 1;
 
     public void Init(float speed, float dmg)
     {
         bulletSpeed = speed;
         bulletDamage = dmg;
-
+        maxPenetrateCount = 1;
     }
+
+    public void Init(float speed, float dmg, int maxPenetrateCount)
+    {
+        bulletSpeed = speed;
+        bulletDamage = dmg;
+        this.maxPenetrateCount = maxPenetrateCount;
+    }
+    
     private void Start()
     {
         transform.Rotate(0, 0, -90);
         SoundManager.instance.PlaySound("Shoot", transform.position);
     }
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -36,21 +46,31 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 7)
+        penetrateCount = 0;
+        
+        if (collision.gameObject.layer == 9)
         {
-            Debug.Log(collision.gameObject.layer);
-            if (collision.gameObject.layer == 9)
+            IDamageable enemy = collision.gameObject.GetComponent<IDamageable>();
+            if (enemy != null)
             {
-                IDamageable enemy = collision.gameObject.GetComponent<IDamageable>();
-                if (enemy != null)
-                {
-                    enemy.GetDamaged(bulletDamage);
-                }
+                enemy.GetDamaged(bulletDamage);
             }
-            Destroy(gameObject);
             
+            penetrateCount += 1;
+
+            Debug.Log(penetrateCount);
+            if (penetrateCount >= maxPenetrateCount)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        if (collision.gameObject.layer == 7)
+        {
+            Destroy(gameObject);
         }
     }
 
