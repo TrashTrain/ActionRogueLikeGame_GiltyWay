@@ -80,6 +80,7 @@ public class GunSlot : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            Pause.OnSlowMotion(true);
             GetFindPlayer();
             GetGunImage();
             GunSlotCheck();
@@ -114,6 +115,7 @@ public class GunSlot : MonoBehaviour
             Debug.Log(selectGunNum);
             player.SelectWeapon(selectGunNum);
             slot.SetActive(false);
+            Pause.OnSlowMotion(false);
         }
     }
     public void GetGunImage()
