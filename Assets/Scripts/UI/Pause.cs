@@ -20,4 +20,15 @@ public class Pause : MonoBehaviour
         isPause = pause;
     }
 
+    public static void OnSlowMotion(bool slowMotion)
+    {
+        if (slowMotion)
+        {
+            Time.timeScale = 0.4f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
 }

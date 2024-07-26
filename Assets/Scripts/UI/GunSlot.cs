@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
+using Color = UnityEngine.Color;
 
 public class GunSlot : MonoBehaviour
 {
+    public Image[] gunSlotBG;
     public Image[] gunSlot;
     public GameObject slotCenter;
     private PlayerController player;
@@ -18,6 +21,7 @@ public class GunSlot : MonoBehaviour
     int startAngle = 180;
     int endAngle;
     int check = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +84,7 @@ public class GunSlot : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            Pause.OnSlowMotion(true);
             GetFindPlayer();
             GetGunImage();
             GunSlotCheck();
@@ -96,7 +101,7 @@ public class GunSlot : MonoBehaviour
                 angle *= -1;
             }
             
-            for (int i = 0; i < gunSlot.Length; i++)
+            for (int i = 0; i < gunSlot.Length-1; i++)
             {
                 endAngle = startAngle - 45;
                 if (angle > endAngle && angle < startAngle)
@@ -104,6 +109,14 @@ public class GunSlot : MonoBehaviour
                     check = i;
                 }
                 startAngle = endAngle;
+                if (i == check)
+                {
+                    gunSlotBG[i].transform.localScale = Vector3.one * 1.5f;
+                }
+                else
+                {
+                    gunSlotBG[i].transform.localScale = Vector3.one;
+                }
             }
             startAngle = 180;
             
@@ -114,6 +127,7 @@ public class GunSlot : MonoBehaviour
             Debug.Log(selectGunNum);
             player.SelectWeapon(selectGunNum);
             slot.SetActive(false);
+            Pause.OnSlowMotion(false);
         }
     }
     public void GetGunImage()
