@@ -3608,6 +3608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668b268715affb94eabfc88bbe10c522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunSlot: {fileID: 1362006033881118511}
 --- !u!114 &8888962689164204316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13494,7 +13495,7 @@ MonoBehaviour:
   slotCenter: {fileID: 2814882664970807274}
   slot: {fileID: 5236760634306021555}
   gunImages:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 517f26d987c859f4f9fc85b637edcd21, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

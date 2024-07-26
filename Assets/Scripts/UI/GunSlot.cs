@@ -22,14 +22,6 @@ public class GunSlot : MonoBehaviour
     int endAngle;
     int check = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (player == null) return;
-        GetFindPlayer();
-        GetGunImage();
-        GunSlotCheck();
-    }
     private void Update()
     {
         if (!PlayerController.IsControllable) return;

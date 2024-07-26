@@ -2002,9 +2002,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1386819934730910643, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386819934730910643, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4294640866864706599, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377157516599985633, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4579653386523664705, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
       propertyPath: m_LocalScale.x
@@ -9369,6 +9381,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1362006033881118511, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: gunImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 517f26d987c859f4f9fc85b637edcd21, type: 3}
     - target: {fileID: 3516105896935585889, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2103896
