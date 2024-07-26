@@ -120,7 +120,7 @@ public class RazorGun : GunController
             // 레이저 두께 증가
             firingWidth = Mathf.Max(firingWidth - widthDecreaseRate, minFiringWidth);
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
         }
         
         lineRenderer.enabled = false;

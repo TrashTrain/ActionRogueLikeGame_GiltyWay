@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class HookAction : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class HookAction : MonoBehaviour
     
     public Transform enemyTrans;
     public bool isBindToEnemy = false;
+    
+    public float maxHoldLength = 8f;
+    public bool isLerping = false;
+    public float lerpDuration = 0.4f;
+    
     
     private void Awake()
     {
@@ -43,6 +49,36 @@ public class HookAction : MonoBehaviour
         }
     }
 
+    IEnumerator SetRopeForce()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (wireAction.isAttached)
+        {
+            var RopeForceDir = ((wireAction.playerPos.position.x <= transform.position.x) ? 1 :-1) * 
+                               new Vector2(- wireAction.playerPos.position.y + transform.position.y, 
+                                   - transform.position.x + wireAction.playerPos.position.x).normalized; 
+            Debug.Log(RopeForceDir);
+            wireAction.player.SetForce( 80 * RopeForceDir);
+        }
+    }
+    
+    IEnumerator LerpDistance(float targetDistance)
+    {
+        isLerping = true;
+        float timeElapsed = 0f;
+        float initialDistance = joint2D.distance;
+
+        while (timeElapsed < lerpDuration)
+        {
+            joint2D.distance = Mathf.Lerp(initialDistance, targetDistance, timeElapsed / lerpDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        joint2D.distance = targetDistance; // 최종 거리 설정
+        isLerping = false;
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 7)
@@ -51,8 +87,22 @@ public class HookAction : MonoBehaviour
             wireAction.isAttached = true;
             wireAction.isWireMax = true;
             joint2D.enabled = true;
-            joint2D.distance = Vector2.Distance(transform.position, wireAction.playerPos.position);
+            
+            //joint2D.distance = Mathf.Min(Vector2.Distance(transform.position, wireAction.playerPos.position), maxHoldLength);
+            float currentDistance = Vector2.Distance(transform.position, wireAction.playerPos.position);
+            float newDistance = Mathf.Min(currentDistance, maxHoldLength);
+
+            if (currentDistance > newDistance && !isLerping)
+            {
+                StartCoroutine(LerpDistance(newDistance));
+            }
+            else
+            {
+                joint2D.distance = currentDistance;
+            }
+            
             //Debug.Log(joint2D.distance);
+            StartCoroutine(SetRopeForce());
         }
         
         else if (other.gameObject.layer == 9)
@@ -84,11 +134,11 @@ public class HookAction : MonoBehaviour
 
     private void OnDisable()
     {
-        var playerRb = wireAction.playerPos.gameObject.GetComponent<Rigidbody2D>();
-        if (playerRb != null)
-        {
-            playerRb.AddForce(Vector2.up * wireAction.lastJumpSpeed, ForceMode2D.Impulse);
-        }
+        // var playerRb = wireAction.playerPos.gameObject.GetComponent<Rigidbody2D>();
+        // if (playerRb != null)
+        // {
+        //     playerRb.AddForce(Vector2.up * wireAction.lastJumpSpeed, ForceMode2D.Impulse);
+        // }
             
         //transform.position = Vector2.zero;
         enemyTrans = null;

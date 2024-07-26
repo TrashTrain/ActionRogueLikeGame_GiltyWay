@@ -7,13 +7,14 @@ public class WireAction : MonoBehaviour
 {
     public HookAction hookAction;
     public Transform playerPos;
+    public PlayerController player;
     public Transform hook;
     public LineRenderer wire;
     public Vector2 mouseDir;
     
-    public float launchSpeed = 10f;
+    public float launchSpeed = 50f;
     public float wireMaxLength = 8f;
-    public float shrinkSpeed = 5f;
+    public float shrinkSpeed = 2f;
     public float lastJumpSpeed = 10f;
     
     private bool isHookLaunched = false;
@@ -51,8 +52,6 @@ public class WireAction : MonoBehaviour
             Destroy(this.gameObject);
         }
         
-        transform.position = playerPos.position;
-        
         if (isHookLaunched && !isAttached)
         {
             if (!isWireMax)
@@ -77,11 +76,13 @@ public class WireAction : MonoBehaviour
 
     private void Update()
     {
-        if (!Pause.isPause) return;
-
+        transform.position = playerPos.position;
+        
         //후크 발사 키를 누를 경우
         if (Input.GetKeyDown(hookKey))
         {
+            transform.position = playerPos.position;
+            
             //후크가 붙었는데 한번 더 쓴 경우
             if (isAttached)
             {
@@ -104,10 +105,10 @@ public class WireAction : MonoBehaviour
                 hookAction.DisableJoint2D();
                 ResetHook();
             }
-            
-            if (Input.GetKeyDown(KeyCode.W))
+
+            if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                playerPos.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);
+                player.AddForce(Input.GetAxisRaw("Horizontal") * Vector2.right);
             }
             
             if (Input.GetKey(KeyCode.W))
@@ -115,12 +116,24 @@ public class WireAction : MonoBehaviour
                 hookAction.ShortenJoint2D(shrinkSpeed);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) || currentHoldTime >= maxHoldTime)
+            if (currentHoldTime >= maxHoldTime)
             {
                 isAttached = false;
                 hookAction.DisableJoint2D();
                 isWireMax = true;
                 //ResetHook();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                isAttached = false;
+                hookAction.DisableJoint2D();
+                isWireMax = true;
+
+                var JumpForceDir = ((playerPos.position.x <= hook.transform.position.x) ? 1 : -1) *
+                                   Vector2.left; 
+                Debug.Log(JumpForceDir);
+                player.AddForce( 20 * JumpForceDir);
             }
             
             // if (Input.GetKeyUp(KeyCode.E))

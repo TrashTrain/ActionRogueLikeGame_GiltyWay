@@ -131,6 +131,17 @@ public class PlayerController : MonoBehaviour
             
     }
 
+    public void SetForce(Vector2 force)
+    {
+        rigid.velocity = Vector2.zero;
+        rigid.AddForce(force, ForceMode2D.Impulse);
+    }
+    
+    public void AddForce(Vector2 force)
+    {
+        rigid.AddForce(force, ForceMode2D.Force);
+    }
+    
     public void GetDamaged(float dmg, GameObject enemy, Vector2 attackPower)
     {
         if (!isUnBeatTime && attackPower != null)
