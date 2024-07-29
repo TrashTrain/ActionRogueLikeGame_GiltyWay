@@ -42,6 +42,7 @@ public class SlotController : MonoBehaviour
         if(slotData.type == ItemType.PassiveSkill) 
             GetPassiveSkill(slotData);
         CloseSlotPanel();
+        RandomSlot();
     }
     public void OnReRollButtonClick()
     {

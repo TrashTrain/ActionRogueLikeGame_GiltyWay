@@ -669,13 +669,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1362006033881118511, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1362006033881118511, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: gunManager
-      value: 
+    - target: {fileID: 2550524708642619799, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3516105896935585889, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -717,21 +713,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5604746617634248583, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: slotDataGroup.Array.size
-      value: 4
+    - target: {fileID: 6143256075834234204, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5604746617634248583, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: slotDataGroup.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 9cf83b9b995c0b44e97b1fa9f55f778e, type: 2}
     - target: {fileID: 8070756037392658254, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8589849568557819167, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnReRollButtonClick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13991,7 +13979,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: cd51435ad7f554d47b5bb5108dd97d91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
