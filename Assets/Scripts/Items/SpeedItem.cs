@@ -1,7 +1,9 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class SpeedItem : Item
 {
@@ -38,6 +40,10 @@ public class SpeedItem : Item
             //buffItemController.AddBuff("Speed Up Item", player.speed, plusSpeedTime, icon);
             //UIManager.instance.Canvas.B
             UIManager.instance.buffItemController.AddBuff("Speed Up Item", player.speed, plusSpeedTime, icon);
+            
+            // skill test
+            UIManager.instance.skillController.AddSkill(icon, "new skill");
+            // test end;
             
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
