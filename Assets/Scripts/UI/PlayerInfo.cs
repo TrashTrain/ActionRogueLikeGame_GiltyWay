@@ -6,6 +6,10 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour
 {
     public PlayerHpBar playerHpBar;
+    
+    // ------
+    // public ProfileInfo profileInfo;
+    // ------
 
     public void SetHp(float currentHp)
     {
@@ -15,5 +19,10 @@ public class PlayerInfo : MonoBehaviour
     public void InitPlayerUI(PlayerController playerController)
     {
         playerHpBar.InitPlayerHp(playerController.hp);
+       
+        // ------
+        // profileInfo.InitProfileInfo(playerController.atk, playerController.def, playerController.speed);
+        // ------
+
     }
 }

@@ -21,6 +21,10 @@ public class UIManager : MonoBehaviour
     public SlotController slotController;
     
     public DialogSystem dialogSystem;
+    
+    // profile skill
+    public SkillController skillController;
+    
     private void Awake()
     {
         if (instance == null)

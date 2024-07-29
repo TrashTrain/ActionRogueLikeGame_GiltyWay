@@ -44,7 +44,6 @@ public class BuffItemController : MonoBehaviour
             tooltipText.text = $"{currentBuff.name} \n current status/damage : {currentBuff.current} \n duration : {currentBuff.duration:F1}s";
         }
     }
-
     public void RemoveBuff()
     {
         
