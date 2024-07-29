@@ -15,13 +15,31 @@ public class BasicPistol : GunController
         
         if (Input.GetMouseButtonDown(0) && shootingRate > gunData.maxRate)
         {
-            var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
-            tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
-            
-            shootingRate = 0f;
-            
-            //for .NET Gabage Collector
-            tempBullet = null;
+
+            StartCoroutine(ShowCreateBullet());
+
         }
+    }
+
+    private IEnumerator ShowCreateBullet()
+    {
+        CreateBullet();
+        for (int i = 0; i < PassiveSkillData.instance.AutomaticBulletCnt; i++)
+        {
+            yield return new WaitForSeconds(0.05f);
+            CreateBullet();
+        }
+
+    }
+
+    private void CreateBullet()
+    {
+        var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
+        tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
+
+        shootingRate = 0f;
+
+        //for .NET Gabage Collector
+        tempBullet = null;
     }
 }

@@ -31,8 +31,9 @@ public class BulletController : MonoBehaviour
     }
     
     private void Start()
-    {
+    {        
         transform.Rotate(0, 0, -90);
+        if (SoundManager.instance == null) return;
         SoundManager.instance.PlaySound("Shoot", transform.position);
     }
     

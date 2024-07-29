@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SlotController : MonoBehaviour
 {
+
     public SlotData[] slotDataGroup;
     [Header("Slot1")]
     public Image[] slotItems;
@@ -38,27 +39,39 @@ public class SlotController : MonoBehaviour
         var slotData = slotDataGroup[rands[slotNum]];
         if(slotData.type == ItemType.Status)
             ChangeStatus(slotData);
-        
+        if(slotData.type == ItemType.PassiveSkill) 
+            GetPassiveSkill(slotData);
+        CloseSlotPanel();
     }
-    public void OnButtonClick()
+    public void OnReRollButtonClick()
     {
-        gameObject.SetActive(false);
+        CloseSlotPanel();
         RandomSlot();
-        gameObject.SetActive(true);
+        ShowSlotPanel();
     }
     public void ChangeStatus(SlotData slotData)
     {
         if (slotData == null) return;
         PlayerController player = FindObjectOfType<PlayerController>();
         if (slotData.status == StatusType.HP)
-            player.maxhp += slotData.statusValue;
+            player.maxhp += slotData.value;
         if(slotData.status == StatusType.ATK)
-            player.atk += slotData.statusValue;
+            player.atk += slotData.value;
         if(slotData.status == StatusType.SPD)
-            player.speed += slotData.statusValue;
-
+            player.speed += slotData.value;
+        
         Debug.Log("playerAtk : " + player.atk + "/playerHP : " + player.maxhp + "/playerSPD : " + player.speed);
         UIManager.instance.playerInfo.playerHpBar.InitPlayerHp(player.maxhp);
+    }
+
+    public void GetPassiveSkill(SlotData slotData)
+    {
+        if(slotData == null) return;
+        if(slotData.passive == PassiveType.BulletCnt)
+        {
+            PassiveSkillData.instance.AutomaticBulletCnt += 1;
+        }
+        
     }
     public void ShowSlotPanel()
     {

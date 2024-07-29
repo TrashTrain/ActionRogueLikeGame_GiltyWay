@@ -12,9 +12,10 @@ public abstract class GunController : MonoBehaviour
     [Header("Ref")] 
     [SerializeField] protected GunData refData;
     public GunData RefData => refData;
-    
+
     #endregion
-    
+
+    protected PassiveSkillData passiveData;
     protected Transform muzzle;
     protected float angle;
 
@@ -24,11 +25,12 @@ public abstract class GunController : MonoBehaviour
     private SpriteRenderer sr;
     
     protected float shootingRate = 0f;
-    
+
     //public float maxRate = 0.4f;
     //public float bulletSpeed = 0f;
     //public float bulletDmg = 2f;
 
+    //public int automaticBulletCnt = 0;
 
     private void Awake()
     {
@@ -68,15 +70,15 @@ public abstract class GunController : MonoBehaviour
         {
             sr.flipY= false;
         }
-        
+
         //���콺 �Է� �Ѿ� �߻�
         // if (Input.GetMouseButtonDown(0) && shootingRate > gunData.maxRate)
         // {
         //     Fire();
         //     shootingRate = 0f;
         // }
-        
         Fire();
+
     }
 
 
@@ -113,7 +115,7 @@ public abstract class GunController : MonoBehaviour
     }
 
     #endregion
-    
+
     #region SetRefData
 
     //For Changing refData Eternally
@@ -141,7 +143,6 @@ public abstract class GunController : MonoBehaviour
     {
         refData.maxAmmo = maxAmmo;
     }
-
     #endregion
-    
+
 }

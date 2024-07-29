@@ -11,7 +11,7 @@ public class GunData : ScriptableObject
     public float maxRate;
     public float reloadTime;
     public int maxAmmo;
-    
+
     //Sync SO class variable to struct data (for deep copy)
     public void SyncData()
     {
