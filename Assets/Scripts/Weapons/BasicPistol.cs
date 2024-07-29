@@ -6,8 +6,6 @@ public class BasicPistol : GunController
 {
     public GameObject bullet;
     
-
-    //���콺 �Է� �Ѿ� �߻�
     protected override void Fire()
     {
         //muzzleFlash.Play();

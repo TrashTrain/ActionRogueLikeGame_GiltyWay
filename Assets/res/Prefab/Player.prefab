@@ -514,6 +514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 957715092232003453}
     m_Modifications:
+    - target: {fileID: 4492186441330651789, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7164472469177122970, guid: 67b7a1da913d88b469d87f1066a94387, type: 3}
     - target: {fileID: 5015797683671689022, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
       propertyPath: m_Name
       value: Cannon

@@ -76,6 +76,7 @@ public class WireAction : MonoBehaviour
 
     private void Update()
     {
+        if (playerPos == null) return;
         transform.position = playerPos.position;
         
         //후크 발사 키를 누를 경우

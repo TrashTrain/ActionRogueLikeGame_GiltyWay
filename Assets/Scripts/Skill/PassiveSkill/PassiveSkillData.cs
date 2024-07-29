@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class PassiveSkillData : MonoBehaviour 
+public class PassiveSkillData
 {
     private int automaticBulletCnt = 0;
-    public static PassiveSkillData instance = new PassiveSkillData();
+    private float bulletSize = 1.0f;
+    public static PassiveSkillData instance = new ();
     public int AutomaticBulletCnt
     {
         get { return automaticBulletCnt; }
@@ -13,6 +11,11 @@ public class PassiveSkillData : MonoBehaviour
         set{ automaticBulletCnt = value; }
     }
 
+    public float BulletSize
+    {
+        get { return bulletSize; }
+        set { bulletSize = value; }
+    }
 
 
 }

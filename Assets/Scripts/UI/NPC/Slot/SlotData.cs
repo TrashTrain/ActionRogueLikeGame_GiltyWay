@@ -14,7 +14,7 @@ public enum StatusType
 }
 public enum PassiveType
 {
-    NULL, BulletCnt, RopeAtk, PenetrateCnt
+    NULL, BulletCnt, RopeAtk, PenetrateCnt, BulletSize
 }
 
 [CreateAssetMenu(fileName = " New SlotData", menuName ="CustomData/Create SlotData")]
