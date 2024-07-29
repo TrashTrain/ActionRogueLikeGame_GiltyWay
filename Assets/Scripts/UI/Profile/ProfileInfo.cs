@@ -19,7 +19,9 @@ public class ProfileInfo : MonoBehaviour
     private float currentATK = 10f;
     private float currentDEF = 10f;
     private float currentSPD = 5f;
-    
+
+    // player Find <-
+
     void Start()
     {
         // originalATK = player.atk;
@@ -35,6 +37,7 @@ public class ProfileInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player = null) return;
         float diffATK = player.atk - originalATK;
         float diffDEF = player.def - originalDEF;
         float diffSPD = player.speed - originalSPD;
