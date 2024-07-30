@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
         curGun.SetActive(true);
 
         UIManager.instance.playerInfo.InitPlayerUI(this);
+        
+        // 플레이어 프로필 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(this);
     }
 
     //Graphic & Input Updates	

@@ -7,26 +7,16 @@ using TMPro;
 using Unity.VisualScripting;
 using Image = UnityEngine.UI.Image;
 
-
+// 플레이어 프로필 스킬 정보
 public class SkillController : MonoBehaviour
 {
     public GameObject skillPrefab;
     public Transform skillPanel;
 
     public List<Skill> activeSkills = new List<Skill>();
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // 스킬 획득 시 플레이어 프로필에 추가
+    // UIManager.instance.skillController.AddSkill(icon, "new skill");
     public void AddSkill(Sprite addedSkill, string skillName)
     {
         GameObject newSkill = Instantiate(skillPrefab, skillPanel);

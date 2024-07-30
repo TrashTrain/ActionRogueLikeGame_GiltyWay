@@ -49,6 +49,9 @@ public class DEFItem : Item
         
         player.def += DEF;
         
+        // 플레이어 프로필 방어력 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
+        
         while (remainingTime > 0)
         {
             yield return null;
@@ -57,7 +60,10 @@ public class DEFItem : Item
         
         player.def = originalDEF;
         isActive = false;   // 아이템 효과 끝
-
+        
+        // 플레이어 프로필 방어력 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
+        
         Destroy(gameObject);
     }
 }

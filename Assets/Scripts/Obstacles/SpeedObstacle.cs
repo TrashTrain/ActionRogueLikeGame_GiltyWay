@@ -49,7 +49,10 @@ public class SpeedObstacle : Obstacle
 
         // float currentSpeed = player.speed;
         player.speed -= speed;
-
+        
+        // 플레이어 프로필 스피드 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
+        
         if (player.speed < originalSpeed)
         {
             BGM.instance.OnSpeedObstacleCollected(minusSpeedTime);
@@ -67,6 +70,9 @@ public class SpeedObstacle : Obstacle
         
         player.speed = originalSpeed;
         isActive = false;
+        
+        // 플레이어 프로필 스피드 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
         
         Destroy(gameObject);
     }
