@@ -55,9 +55,10 @@ public class PlayerController : MonoBehaviour
     //Graphic & Input Updates	
     void Update()
     {
+        UIManager.instance.playerInfo.UpdateProfileUI(this);
         //Debug.Log("playertest");
         Jump();
-
+        
 
         // // fall Charactor
         // if(transform.position.y <= -7)

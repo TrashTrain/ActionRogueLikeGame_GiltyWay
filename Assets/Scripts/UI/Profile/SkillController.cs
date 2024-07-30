@@ -11,7 +11,6 @@ using Image = UnityEngine.UI.Image;
 public class SkillController : MonoBehaviour
 {
     public GameObject skillPrefab;
-    public Transform skillPanel;
 
     public List<Skill> activeSkills = new List<Skill>();
 
@@ -19,7 +18,8 @@ public class SkillController : MonoBehaviour
     // UIManager.instance.skillController.AddSkill(icon, "new skill");
     public void AddSkill(Sprite addedSkill, string skillName)
     {
-        GameObject newSkill = Instantiate(skillPrefab, skillPanel);
+        Debug.Log("in");
+        GameObject newSkill = Instantiate(skillPrefab, transform);
         newSkill.GetComponentInChildren<Image>().sprite = addedSkill;
         
         Skill skill = new Skill

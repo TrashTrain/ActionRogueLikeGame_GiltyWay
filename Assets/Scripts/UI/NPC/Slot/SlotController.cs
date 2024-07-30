@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class SlotController : MonoBehaviour
 {
-
     public SlotData[] slotDataGroup;
     [Header("Slot1")]
     public Image[] slotItems;
@@ -28,6 +27,7 @@ public class SlotController : MonoBehaviour
         for (int i = 0; i < rands.Length; i++)
         {
             rands[i] = Random.Range(0, slotDataGroup.Length);
+            slotNames[i].font = slotDataGroup[rands[i]].font;
             slotItems[i].sprite = slotDataGroup[rands[i]].itemImage;
             slotNames[i].text = slotDataGroup[rands[i]].itemName;
             slotDescriptions[i].text = slotDataGroup[rands[i]].itemDescription;
@@ -36,11 +36,13 @@ public class SlotController : MonoBehaviour
     }
     public void OnSlotclick(int slotNum)
     {
+        
         var slotData = slotDataGroup[rands[slotNum]];
         if(slotData.type == ItemType.Status)
             ChangeStatus(slotData);
         if(slotData.type == ItemType.PassiveSkill) 
             GetPassiveSkill(slotData);
+        UIManager.instance.skillController.AddSkill(slotData.itemImage, slotData.name);
         CloseSlotPanel();
         RandomSlot();
     }
@@ -60,7 +62,9 @@ public class SlotController : MonoBehaviour
             player.atk += slotData.value;
         if(slotData.status == StatusType.SPD)
             player.speed += slotData.value;
-        
+        if (slotData.status == StatusType.DEF)
+            player.def += slotData.value;
+
         Debug.Log("playerAtk : " + player.atk + "/playerHP : " + player.maxhp + "/playerSPD : " + player.speed);
         UIManager.instance.playerInfo.playerHpBar.InitPlayerHp(player.maxhp);
     }
@@ -76,6 +80,7 @@ public class SlotController : MonoBehaviour
     }
     public void ShowSlotPanel()
     {
+        RandomSlot();
         gameObject.SetActive(true);
     }
     public void CloseSlotPanel()
