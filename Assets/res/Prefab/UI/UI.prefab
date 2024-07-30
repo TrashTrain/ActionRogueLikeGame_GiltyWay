@@ -7934,7 +7934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c084779f571464a93ace52f6bbdbd1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   name: {fileID: 6470043404428999641}
   atk: {fileID: 2496100994233665127}
   def: {fileID: 8921726418180216817}
@@ -15574,6 +15573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHpBar: {fileID: 2518353662696713631}
+  profileInfo: {fileID: 1812233394847862551}
 --- !u!222 &2001213546646601101
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16425,6 +16425,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2823478756083471125, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
     - target: {fileID: 3125488947626691951, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -16495,7 +16499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3846799289614668399, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679160026567857031, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_Type
@@ -16516,6 +16520,14 @@ PrefabInstance:
     - target: {fileID: 4679160026567857031, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156444319665974300, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595165728845506472, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 6949052807770504516, guid: 7d2a51ef2b7894fa9ac56f363af4b145, type: 3}
       propertyPath: m_Sprite

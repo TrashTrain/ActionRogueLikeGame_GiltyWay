@@ -37,12 +37,10 @@ public class SpeedItem : Item
                 StartCoroutine(IncreaseSpeed(player));
             }
             //아이템 버퍼창에 띄우기
-            //buffItemController.AddBuff("Speed Up Item", player.speed, plusSpeedTime, icon);
-            //UIManager.instance.Canvas.B
             UIManager.instance.buffItemController.AddBuff("Speed Up Item", player.speed, plusSpeedTime, icon);
             
             // skill test
-            UIManager.instance.skillController.AddSkill(icon, "new skill");
+            // UIManager.instance.skillController.AddSkill(icon, "new skill");
             // test end;
             
             GetComponent<SpriteRenderer>().enabled = false;
@@ -57,6 +55,10 @@ public class SpeedItem : Item
 
         // float currentSpeed = player.speed;
         player.speed += speed;
+        
+
+        // 플레이어 프로필 스피드 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
         
         if (player.speed > originalSpeed)
         {
@@ -75,6 +77,9 @@ public class SpeedItem : Item
 
         player.speed = originalSpeed;
         isActive = false;   // 아이템 효과 끝
+        
+        // 플레이어 프로필 스피드 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
 
         Destroy(gameObject);
     }
