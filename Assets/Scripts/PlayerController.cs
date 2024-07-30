@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         UIManager.instance.playerInfo.UpdateProfileUI(this);
         //Debug.Log("playertest");
         Jump();
-        
+        Move();
 
         // // fall Charactor
         // if(transform.position.y <= -7)
@@ -68,13 +68,6 @@ public class PlayerController : MonoBehaviour
         // }
     }
 
-    //Physics engine Updates
-    void FixedUpdate()
-    {
-        Move();
-        
-
-    }
     
     void Move()
     {

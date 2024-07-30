@@ -3609,6 +3609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSlot: {fileID: 1362006033881118511}
+  testSkill: {fileID: 0}
 --- !u!114 &8888962689164204316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12181,7 +12182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 7307403391358641682, guid: 87fa90937438140758cee0e3860252a8, type: 3}
-  skillPanel: {fileID: 4592593469159846650}
 --- !u!1 &6877534826171974459
 GameObject:
   m_ObjectHideFlags: 0
@@ -14467,6 +14467,7 @@ MonoBehaviour:
   itemGetText: {fileID: 1506161442528533990}
   buffItemController: {fileID: 8525254691707203650}
   slotController: {fileID: 5604746617634248583}
+  gunSlot: {fileID: 1362006033881118511}
   dialogSystem: {fileID: 1693301317571730936}
   skillController: {fileID: 955998820473245259}
 --- !u!1 &8090793970635039851
@@ -14739,6 +14740,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f97ec4bed76197848b65363257c45986, type: 2}
   - {fileID: 11400000, guid: 067cca50bc0130747bbf0c38758da8eb, type: 2}
   - {fileID: 11400000, guid: 9cf83b9b995c0b44e97b1fa9f55f778e, type: 2}
+  - {fileID: 11400000, guid: c4f2068354fed044e985cb65041cfe66, type: 2}
   slotItems:
   - {fileID: 7436966688287359980}
   - {fileID: 6173207824754189768}

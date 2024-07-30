@@ -73,9 +73,9 @@ public class SlotController : MonoBehaviour
     {
         if(slotData == null) return;
         if(slotData.passive == PassiveType.BulletCnt)
-            PassiveSkillData.instance.AutomaticBulletCnt += 1;
+            PassiveSkillData.instance.AutomaticBulletCnt += slotData.value;
         if(slotData.passive == PassiveType.BulletSize)
-            PassiveSkillData.instance.BulletSize += 0.5f;
+            PassiveSkillData.instance.BulletSize += slotData.value / 10;
         
     }
     public void ShowSlotPanel()

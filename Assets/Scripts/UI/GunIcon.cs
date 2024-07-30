@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class GunIcon : MonoBehaviour
 {
-    public GunSlot gunSlot;
+    // 추후에 스킬 받아와서 교체 및 처리 할 수 있게.
+    public RollingShoot testSkill;
     private void Update()
     {
-        if (gunSlot.gunImages[GunSlot.selectGunNum] == null) return;
-        gameObject.GetComponent<Image>().sprite = gunSlot.gunImages[GunSlot.selectGunNum];
+        if (UIManager.instance.gunSlot.gunImages[GunSlot.selectGunNum] == null) return;
+        gameObject.GetComponent<Image>().sprite = UIManager.instance.gunSlot.gunImages[GunSlot.selectGunNum];
     }
 
+    private void FillSkillGauge()
+    {
 
+    }
 
 
 }
