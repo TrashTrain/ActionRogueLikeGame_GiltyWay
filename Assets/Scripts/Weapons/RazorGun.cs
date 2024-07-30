@@ -109,7 +109,7 @@ public class RazorGun : GunController
         lineRenderer.enabled = true;
     }
     
-    private IEnumerator FireLaserContinuously()
+    public IEnumerator FireLaserContinuously()
     {
         firingWidth = 0.6f;
 
