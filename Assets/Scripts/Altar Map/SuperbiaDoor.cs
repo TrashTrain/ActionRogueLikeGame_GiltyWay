@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SuperbiaDoor : MonoBehaviour
 {
-    public Transform superbiaDoor;
     public bool isPlayerInPortal = false;
 
     void Update()

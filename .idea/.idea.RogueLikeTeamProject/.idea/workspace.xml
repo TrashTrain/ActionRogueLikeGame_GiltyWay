@@ -8,8 +8,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Altar.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Altar.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/FirstSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/FirstSuperbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SuperbiaDoor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SuperbiaDoor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/FourthSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/FourthSuperbia.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/ThirdSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/ThirdSuperbia.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AltarDoor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AltarDoor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SuperbiaDoor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SuperbiaDoor.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Portal.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -130,7 +136,8 @@
       <workItem from="1721199909752" duration="1637000" />
       <workItem from="1721265956432" duration="4812000" />
       <workItem from="1722475679308" duration="399000" />
-      <workItem from="1722476760594" duration="720000" />
+      <workItem from="1722476760594" duration="4191000" />
+      <workItem from="1722485106091" duration="1434000" />
     </task>
     <servers />
   </component>
