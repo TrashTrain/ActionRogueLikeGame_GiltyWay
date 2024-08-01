@@ -72,10 +72,11 @@ public class SlotController : MonoBehaviour
     public void GetPassiveSkill(SlotData slotData)
     {
         if(slotData == null) return;
+        BasicPistol pistol = FindObjectOfType<BasicPistol>();
         if(slotData.passive == PassiveType.BulletCnt)
-            PassiveSkillData.instance.AutomaticBulletCnt += slotData.value;
+            pistol.automaticBulletCnt += slotData.value;
         if(slotData.passive == PassiveType.BulletSize)
-            PassiveSkillData.instance.BulletSize += slotData.value / 10;
+            pistol.bulletSize += slotData.value / 10;
         
     }
     public void ShowSlotPanel()

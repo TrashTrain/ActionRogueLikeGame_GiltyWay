@@ -23,6 +23,14 @@ public class BulletController : MonoBehaviour
         maxPenetrateCount = 1;
     }
 
+    public void Init(float speed, float dmg, float bulletSize)
+    {
+        bulletSpeed = speed;
+        bulletDamage = dmg;
+        gameObject.transform.localScale = Vector3.one * bulletSize;
+        maxPenetrateCount = 1;
+    }
+
     public void Init(float speed, float dmg, int maxPenetrateCount)
     {
         bulletSpeed = speed;

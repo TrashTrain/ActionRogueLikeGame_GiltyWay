@@ -12,12 +12,14 @@ public class GameData
     public string SceneName;
     public PlayerData PlayerData;
     public float PlayTime;
+    public PassiveSkillData PassiveSkillData;
     
-    public GameData(string sceneName, PlayerData playerData, float playTime)
+    public GameData(string sceneName, PlayerData playerData, float playTime, PassiveSkillData passiveSkillData)
     {
         this.SceneName = sceneName;
         this.PlayerData = playerData;
         this.PlayTime = playTime;
+        this.PassiveSkillData = passiveSkillData;
     }
     
     public string FormatPlaytime()

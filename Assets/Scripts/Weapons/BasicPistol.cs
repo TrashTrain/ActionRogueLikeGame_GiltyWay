@@ -6,7 +6,10 @@ using UnityEngine;
 public class BasicPistol : GunController
 {
     public GameObject bullet;
-    
+
+    public int automaticBulletCnt = 0;
+    public float bulletSize = 0.1f;
+
     protected override void Fire()
     {
         //muzzleFlash.Play();
@@ -14,7 +17,7 @@ public class BasicPistol : GunController
         
         if (Input.GetMouseButtonDown(0) && shootingRate > gunData.maxRate)
         {
-
+            Debug.Log(automaticBulletCnt);
             StartCoroutine(ShowCreateBullet());
 
         }
@@ -23,7 +26,7 @@ public class BasicPistol : GunController
     private IEnumerator ShowCreateBullet()
     {
         CreateBullet();
-        for (int i = 0; i < PassiveSkillData.instance.AutomaticBulletCnt; i++)
+        for (int i = 0; i < automaticBulletCnt; i++)
         {
             yield return new WaitForSeconds(0.05f);
             CreateBullet();
@@ -34,7 +37,7 @@ public class BasicPistol : GunController
     private void CreateBullet()
     {
         var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
-        tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
+        tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage, bulletSize);
 
         shootingRate = 0f;
 

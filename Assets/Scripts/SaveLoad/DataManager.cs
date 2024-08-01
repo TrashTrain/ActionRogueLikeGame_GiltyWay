@@ -69,7 +69,9 @@ public class DataManager : MonoBehaviour
         
         PlayerController player = FindObjectOfType<PlayerController>();
         PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);
-        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime);
+        BasicPistol basicPistol = FindObjectOfType<BasicPistol>();
+        PassiveSkillData passiveData = new PassiveSkillData(basicPistol.automaticBulletCnt, basicPistol.bulletSize);
+        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData);
 
         //string json = JsonUtility.ToJson(gameData);
         //File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
@@ -118,9 +120,18 @@ public class DataManager : MonoBehaviour
         //await SceneLoader.LoadScene(gameData.SceneName);
         await SceneManager.LoadSceneAsync(gameData.SceneName);
         ApplyPlayerData(gameData.PlayerData);
+        ApplyPassiveData(gameData.PassiveSkillData);
         BGM.instance?.PlayBGM(gameData.SceneName);
 
         playStartTime = Time.time;
+    }
+
+    private void ApplyPassiveData(PassiveSkillData data)
+    {
+        BasicPistol passiveData = FindObjectOfType<BasicPistol>();
+        if (passiveData == null) return;
+        passiveData.automaticBulletCnt = data.automaticBulletCnt;
+        passiveData.bulletSize = data.bulletSize;
     }
     
     private void ApplyPlayerData(PlayerData playerData)

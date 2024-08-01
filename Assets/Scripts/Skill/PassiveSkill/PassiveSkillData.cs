@@ -1,21 +1,15 @@
+using UnityEngine;
 
+[System.Serializable]
 public class PassiveSkillData
 {
-    private int automaticBulletCnt = 0;
-    private float bulletSize = 1.0f;
-    public static PassiveSkillData instance = new ();
-    public int AutomaticBulletCnt
+    public int automaticBulletCnt = 0;
+    public float bulletSize = 1.0f;
+
+    public PassiveSkillData(int automaticBulletCnt, float bulletSize)
     {
-        get { return automaticBulletCnt; }
-
-        set{ automaticBulletCnt = value; }
+        Debug.Log("autoBullet : " + automaticBulletCnt + "bulletsize" + bulletSize);
+        this.automaticBulletCnt = automaticBulletCnt;
+        this.bulletSize = bulletSize;
     }
-
-    public float BulletSize
-    {
-        get { return bulletSize; }
-        set { bulletSize = value; }
-    }
-
-
 }

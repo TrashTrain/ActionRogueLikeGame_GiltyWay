@@ -14,7 +14,6 @@ public class Cannon : GunController
         {
             var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
             tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
-            tempBullet.transform.localScale = PassiveSkillData.instance.BulletSize * Vector3.one;
             
             shootingRate = 0f;
             

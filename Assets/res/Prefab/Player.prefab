@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: refData
       value: 
       objectReference: {fileID: 11400000, guid: 4defa1a95343b43f4ad890f9f8fbabfd, type: 2}
+    - target: {fileID: 6211832421720998823, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: bulletSize
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
