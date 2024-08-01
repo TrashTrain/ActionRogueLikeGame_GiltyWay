@@ -69,8 +69,7 @@ public class BulletController : MonoBehaviour
             }
             
             penetrateCount += 1;
-
-            Debug.Log(penetrateCount);
+            
             if (penetrateCount >= maxPenetrateCount)
             {
                 Destroy(gameObject);

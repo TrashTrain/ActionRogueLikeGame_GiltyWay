@@ -57,7 +57,7 @@ public class HookAction : MonoBehaviour
             var RopeForceDir = ((wireAction.playerPos.position.x <= transform.position.x) ? 1 :-1) * 
                                new Vector2(- wireAction.playerPos.position.y + transform.position.y, 
                                    - transform.position.x + wireAction.playerPos.position.x).normalized; 
-            Debug.Log(RopeForceDir);
+            //Debug.Log(RopeForceDir);
             wireAction.player.SetForce( 80 * RopeForceDir);
         }
     }
@@ -96,7 +96,7 @@ public class HookAction : MonoBehaviour
             {
                 StartCoroutine(LerpDistance(newDistance));
             }
-            else
+            else if(currentDistance <= newDistance)
             {
                 joint2D.distance = currentDistance;
             }
@@ -104,17 +104,23 @@ public class HookAction : MonoBehaviour
             //Debug.Log(joint2D.distance);
             StartCoroutine(SetRopeForce());
         }
-        
-        else if (other.gameObject.layer == 9)
-        {
-            isBindToEnemy = true;
-            enemyTrans = other.transform;
 
-            wireAction.isAttached = true;
-            wireAction.isWireMax = true;
-            joint2D.enabled = true;
-            joint2D.distance = Vector2.Distance(  wireAction.playerPos.position, other.transform.position);
+        else if(other.gameObject.layer == 9 || other.gameObject.layer == 4)
+        {
+            isBindToEnemy = false;
+            wireAction.isWireMax = true;   
         }
+        
+        // else if (other.gameObject.layer == 9)
+        // {
+        //     isBindToEnemy = true;
+        //     enemyTrans = other.transform;
+        //
+        //     wireAction.isAttached = true;
+        //     wireAction.isWireMax = true;
+        //     joint2D.enabled = true;
+        //     joint2D.distance = Vector2.Distance(  wireAction.playerPos.position, other.transform.position);
+        // }
     }
 
     public void DisableJoint2D()

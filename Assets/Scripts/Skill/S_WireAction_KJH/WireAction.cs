@@ -133,7 +133,7 @@ public class WireAction : MonoBehaviour
 
                 var JumpForceDir = ((playerPos.position.x <= hook.transform.position.x) ? 1 : -1) *
                                    Vector2.left; 
-                Debug.Log(JumpForceDir);
+                //Debug.Log(JumpForceDir);
                 player.AddForce( 20 * JumpForceDir);
             }
             
