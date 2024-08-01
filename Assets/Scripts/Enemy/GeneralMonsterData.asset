@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: GeneralMonsterData
   m_EditorClassIdentifier: 
   data:
-    knockBackPower: 20
+    knockBackPower: 60
     hp: 30
-    currentState: 0
     moveSpeed: 4
     patrolDistance: 3
     patrolPos: {x: 0, y: 0}
@@ -25,12 +24,11 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     targetTransform: {fileID: 0}
-    recognizeRadius: 3
+    recognizeRadius: 0
     attackSpeed: 1
     attackDamage: 2
-  knockBackPower: 20
+  knockBackPower: 60
   hp: 30
-  currentState: 0
   moveSpeed: 4
   patrolDistance: 3
   moveDirection: {x: 1, y: 0}
@@ -38,6 +36,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  recognizeRadius: 3
+  recognizeRadius: 0
   attackSpeed: 1
   attackDamage: 2
