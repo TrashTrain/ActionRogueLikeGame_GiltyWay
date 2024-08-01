@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8730ced369759458c96775feb02c66, type: 3}
   m_Name: SniperChange
   m_EditorClassIdentifier: 
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: fd6bc38a577885f41b91fa94e8798dba, type: 3}
   itemName: "\uC2A4\uB098\uC774\uD37C \uBCC0\uD615"
   value: 0
   font: {fileID: 11400000, guid: 02e18ec6ea39540f79a7ed0175e25540, type: 2}

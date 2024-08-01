@@ -165,16 +165,24 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.layer == 7)
+    //    {
+    //        jumpCount = 0;
+    //        isJumping = true;
+    //    }
+        
+    //}
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 7)
+        if (collision.gameObject.layer == 7)
         {
             jumpCount = 0;
             isJumping = true;
         }
-        
     }
-    
+
     IEnumerator UnBeatTime()
     {
         int countTime = 0;
