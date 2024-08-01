@@ -26,7 +26,6 @@ public class LoadGameUI : MonoBehaviour
             {
                 string filePath = saveFiles[i];
                 GameData gameData = DataManager.instance.LoadGameData(filePath);
-
                 if (gameData != null)
                 {
                     saveButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 

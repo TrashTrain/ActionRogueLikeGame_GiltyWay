@@ -134,6 +134,7 @@ public class DataManager : MonoBehaviour
 
         player.transform.position = playerData.Pos;
         player.maxhp = playerData.MaxHp;
+        UIManager.instance.playerInfo.playerHpBar.InitPlayerHp(player.maxhp);
         player.atk = playerData.Atk;
         player.def = playerData.Def;
         player.speed = playerData.Speed;
