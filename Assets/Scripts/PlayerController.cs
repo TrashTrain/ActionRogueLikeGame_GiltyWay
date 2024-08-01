@@ -237,6 +237,13 @@ public class PlayerController : MonoBehaviour
 
     private void WallCheck()
     {
+        if (isUnBeatTime)
+        {
+            isWallSliding = false;
+            isWallJump = false;
+            return;
+        }
+        
         // 좌우로 레이캐스트를 쏘아서 벽에 닿았는지 확인
         RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, wallCheckDistance, wallLayer);
         RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, wallCheckDistance, wallLayer);
