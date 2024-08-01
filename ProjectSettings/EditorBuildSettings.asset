@@ -26,7 +26,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Superbia/FirstSuperbia.unity
     guid: d8292765ef851493da610b0e6a01d6b0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Superbia/SecondSuperbia.unity
-    guid: 3b3de55fc10034c6a93f1a245ea0eecb
+    guid: 43122c0c312264511b305d222c23e4cc
+  - enabled: 1
+    path: Assets/Scenes/Superbia/ThirdSuperbia.unity
+    guid: 78f23c0b77abe4b7fa07188799323e64
+  - enabled: 1
+    path: Assets/Scenes/Superbia/FourthSuperbia.unity
+    guid: 5cc8d81eabd9c4f02abb52e8844bfec8
+  - enabled: 1
+    path: Assets/Scenes/Superbia/FifthSuperbia.unity
+    guid: 7617536232f4740e798ec763e50a0521
+  - enabled: 1
+    path: Assets/Scenes/Superbia/SixthSuperbia.unity
+    guid: f0dd21be42d434c2a95d197277e3a9ec
+  - enabled: 1
+    path: Assets/Scenes/Superbia/SeventhSuperbia.unity
+    guid: 7710b940dea0743d8b2711933b722bcf
+  - enabled: 1
+    path: Assets/Scenes/Superbia/EighthSuperbia.unity
+    guid: e06a304b853b14997a6d36f2151ba823
+  - enabled: 1
+    path: Assets/Scenes/Superbia/NinethSuperbia.unity
+    guid: b86076889ea7a479d80051215524b39e
+  - enabled: 1
+    path: Assets/Scenes/Superbia/TenthSuperbia.unity
+    guid: eafea0fde5e654df383fe93ef738bd42
   m_configObjects: {}

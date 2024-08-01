@@ -13881,6 +13881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a1b4908c94a44a291c8be99c62036c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  superbiaDoor: {fileID: 632306651}
   isPlayerInPortal: 0
 --- !u!1 &682217689
 GameObject:
@@ -16046,6 +16047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getItem: {fileID: 8300000, guid: 5efa41faebe12634db9ffad659cb294c, type: 3}
+  hpAtk: {fileID: 0}
 --- !u!82 &1671871579
 AudioSource:
   m_ObjectHideFlags: 0
