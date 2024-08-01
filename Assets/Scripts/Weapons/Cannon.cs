@@ -12,7 +12,7 @@ public class Cannon : GunController
         
         if (Input.GetMouseButtonDown(0) && shootingRate > gunData.maxRate)
         {
-            var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
+            var tempBullet = Instantiate(bullet, transform.position + (Vector3.up * 0.2f), transform.rotation);
             tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
             
             shootingRate = 0f;

@@ -69,7 +69,7 @@ public class DataManager : MonoBehaviour
         
         PlayerController player = FindObjectOfType<PlayerController>();
         PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);
-        BasicPistol basicPistol = FindObjectOfType<BasicPistol>();
+        BasicPistol basicPistol = FindObjectOfType<PlayerController>().gameObject.transform.GetChild(0).GetComponent<BasicPistol>();
         PassiveSkillData passiveData = new PassiveSkillData(basicPistol.automaticBulletCnt, basicPistol.bulletSize);
         GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData);
 
