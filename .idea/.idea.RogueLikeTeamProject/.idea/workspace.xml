@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Altar.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Altar.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/FirstSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/FirstSuperbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/FourthSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/FourthSuperbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/ThirdSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/ThirdSuperbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AltarDoor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AltarDoor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SuperbiaDoor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SuperbiaDoor.cs.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
