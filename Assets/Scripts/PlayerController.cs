@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -47,6 +48,12 @@ public class PlayerController : MonoBehaviour
     public bool isWallSliding = false;
     public bool isWallJump = false;
     public Vector2 groundCheckSize = new Vector2(0.4f, 0.1f); // 박스캐스트 크기
+
+    
+    //Hit Effect
+    public CinemachineImpulseSource impurse;
+    public Animator hitAnimator;
+    
     //---------------------------------------------------[Override Function]
     //Initialization
     void Awake()
@@ -64,6 +71,9 @@ public class PlayerController : MonoBehaviour
         UIManager.instance.playerInfo.UpdateProfileUI(this);
 
         jumpCount = maxJump;
+        
+        //Cinemachine Impurse
+        impurse = transform.GetComponent<CinemachineImpulseSource>();
     }
 
     //Graphic & Input Updates	
@@ -193,6 +203,8 @@ public class PlayerController : MonoBehaviour
             isUnBeatTime = true;
             StartCoroutine("UnBeatTime");
 
+            ShakeCamera();
+            
             if (hp <= 0)
             {
                 Debug.Log("GameOver");
@@ -245,10 +257,10 @@ public class PlayerController : MonoBehaviour
         }
         
         // 좌우로 레이캐스트를 쏘아서 벽에 닿았는지 확인
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, wallCheckDistance, wallLayer);
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, wallCheckDistance, wallLayer);
+        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position + 0.3f * Vector3.up, Vector2.left, wallCheckDistance, wallLayer);
+        RaycastHit2D hitRight = Physics2D.Raycast(transform.position + 0.3f * Vector3.up, Vector2.right, wallCheckDistance, wallLayer);
 
-        if (hitLeft.collider != null || hitRight.collider != null)
+        if (hitLeft.collider != null && Input.GetAxisRaw("Horizontal") <= 0 || hitRight.collider != null && Input.GetAxisRaw("Horizontal") >= 0)
         {
             isWallSliding = true; // 벽에 닿았으면 벽 슬라이딩 상태로 설정
         }
@@ -267,6 +279,30 @@ public class PlayerController : MonoBehaviour
             rigid.velocity = new Vector2(rigid.velocity.x, -wallSlideSpeed);
         }
 
+        // if (Input.GetAxisRaw("Horizontal") > 0 && Input.GetButtonDown("Horizontal"))
+        // {
+        //     RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, wallCheckDistance, wallLayer);
+        //     if (hitLeft.collider != null)
+        //     {
+        //         rigid.AddForce(new Vector2(jumpPower / 2, 0), ForceMode2D.Impulse);
+        //         isWallSliding = false;
+        //         isWallJump = false;
+        //         return;
+        //     }
+        // }
+        //
+        // if (Input.GetAxisRaw("Horizontal") < 0 && Input.GetButtonDown("Horizontal"))
+        // {
+        //     RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, wallCheckDistance, wallLayer);
+        //     if (hitRight.collider != null)
+        //     {
+        //         rigid.AddForce(new Vector2(-jumpPower / 2, 0), ForceMode2D.Impulse);
+        //         isWallSliding = false;
+        //         isWallJump = false;
+        //         return;
+        //     }
+        // }
+        
         if (Input.GetButtonDown("Jump"))
         {
             RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, wallCheckDistance, wallLayer);
@@ -274,7 +310,7 @@ public class PlayerController : MonoBehaviour
             {
                 rigid.AddForce(new Vector2(jumpPower/2, 0), ForceMode2D.Impulse);
             }
-            else
+            else if (hitLeft.collider == null)
             {
                 rigid.AddForce(new Vector2(-jumpPower/2, 0), ForceMode2D.Impulse);
             }
@@ -302,8 +338,8 @@ public class PlayerController : MonoBehaviour
 
         
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * wallCheckDistance);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * wallCheckDistance);
+        Gizmos.DrawLine(transform.position + 0.3f * Vector3.up, transform.position + 0.3f * Vector3.up + Vector3.left * wallCheckDistance);
+        Gizmos.DrawLine(transform.position + 0.3f * Vector3.up, transform.position + 0.3f * Vector3.up + Vector3.right * wallCheckDistance);
     }
 
     IEnumerator UnBeatTime()
@@ -345,5 +381,10 @@ public class PlayerController : MonoBehaviour
         guns[idx].gameObject.SetActive(true);
 
         curGun = guns[idx];
+    }
+
+    private void ShakeCamera()
+    {
+        impurse.GenerateImpulse(0.25f);
     }
 }

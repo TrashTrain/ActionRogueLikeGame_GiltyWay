@@ -7,7 +7,7 @@ using UnityEngine.PlayerLoop;
 public class HookAction : MonoBehaviour
 {
     public WireAction wireAction;
-    private DistanceJoint2D joint2D;
+    public DistanceJoint2D joint2D;
     //private SpringJoint2D joint2D;
     
     
