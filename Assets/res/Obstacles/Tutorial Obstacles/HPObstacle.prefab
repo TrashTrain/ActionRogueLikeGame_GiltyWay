@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 209077511695351905}
   - component: {fileID: 331692486745633785}
   - component: {fileID: -2770122450459008868}
-  - component: {fileID: 8210713039365288489}
+  - component: {fileID: 4974396819319356971}
   m_Layer: 11
   m_Name: HPObstacle
   m_TagString: Untagged
@@ -99,11 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 2
-  player: {fileID: 0}
-  bounceForce: 0
+  bounce: 20
   hitColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!61 &8210713039365288489
-BoxCollider2D:
+--- !u!60 &4974396819319356971
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,7 +131,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -144,6 +143,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.59375}
+      - {x: -0.75, y: 0.46875}
+      - {x: -0.75, y: -0.34375}
+      - {x: -0.625, y: -0.59375}
+      - {x: 0.6875, y: -0.59375}
+      - {x: 0.75, y: -0.46875}
+      - {x: 0.75, y: 0.40625}
+      - {x: 0.5, y: 0.59375}
+  m_UseDelaunayMesh: 0
