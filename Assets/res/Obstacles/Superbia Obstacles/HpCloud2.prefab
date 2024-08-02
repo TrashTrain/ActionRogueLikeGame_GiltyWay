@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4073478490509871254}
   - component: {fileID: 2300573262175348327}
   - component: {fileID: 6917989439341812627}
-  - component: {fileID: 6147129039301023833}
   - component: {fileID: 2027707891620741585}
+  - component: {fileID: 2068916527205595816}
   m_Layer: 11
   m_Name: HpCloud2
   m_TagString: Untagged
@@ -101,8 +101,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 1
   frequency: 0.5
---- !u!61 &6147129039301023833
-BoxCollider2D:
+--- !u!114 &2027707891620741585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728970366955517557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60623b7ec12747839239657c59bced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 2
+  bounce: 0
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!60 &2068916527205595816
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,21 +158,82 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 2}
-  m_EdgeRadius: 0
---- !u!114 &2027707891620741585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5728970366955517557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e60623b7ec12747839239657c59bced8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 2
-  bounce: 0
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  m_Points:
+    m_Paths:
+    - - {x: 4.29, y: -1.0799999}
+      - {x: 4.29, y: -0.48999998}
+      - {x: 4.18, y: -0.38}
+      - {x: 3.83, y: -0.19}
+      - {x: 3.48, y: -0.21}
+      - {x: 3.46, y: -0.22999999}
+      - {x: 3.36, y: -0.31}
+      - {x: 3.21, y: -0.39}
+      - {x: 3.3999999, y: 0.13}
+      - {x: 3.59, y: 0.39999998}
+      - {x: 3.58, y: 1.1999999}
+      - {x: 3.51, y: 1.31}
+      - {x: 3.1999998, y: 1.5699999}
+      - {x: 1.9599999, y: 1.5699999}
+      - {x: 1.9399999, y: 1.55}
+      - {x: 1.78, y: 1.48}
+      - {x: 1.76, y: 1.4599999}
+      - {x: 1.68, y: 1.41}
+      - {x: 1.42, y: 1.14}
+      - {x: 1.25, y: 1.04}
+      - {x: 1.15, y: 1.12}
+      - {x: 0.45, y: 1.12}
+      - {x: 0.25, y: 1.05}
+      - {x: 0.13, y: 0.76}
+      - {x: 0.14999999, y: 0.59}
+      - {x: -0.14999999, y: 0.71}
+      - {x: -0.17, y: 0.87}
+      - {x: -0.32999998, y: 1.03}
+      - {x: -0.45, y: 1.12}
+      - {x: -1.15, y: 1.12}
+      - {x: -1.17, y: 1.1}
+      - {x: -1.3399999, y: 1.04}
+      - {x: -1.51, y: 0.96999997}
+      - {x: -1.63, y: 0.9}
+      - {x: -1.9, y: 0.52}
+      - {x: -1.91, y: -0.14}
+      - {x: -1.81, y: -0.29}
+      - {x: -2.07, y: -0.03}
+      - {x: -2.3999999, y: -0.01}
+      - {x: -2.46, y: -0.08}
+      - {x: -2.72, y: -0.13}
+      - {x: -2.86, y: -0.19}
+      - {x: -2.97, y: -0.31}
+      - {x: -2.98, y: -0.76}
+      - {x: -2.87, y: -0.91999996}
+      - {x: -3.1399999, y: -0.83}
+      - {x: -3.47, y: -0.81}
+      - {x: -3.6399999, y: -0.91999996}
+      - {x: -3.76, y: -1.03}
+      - {x: -3.85, y: -1.1899999}
+      - {x: -4.18, y: -1.1899999}
+      - {x: -4.22, y: -1.2099999}
+      - {x: -4.39, y: -1.3399999}
+      - {x: -4.39, y: -1.56}
+      - {x: -4.37, y: -1.5699999}
+      - {x: 4.3399997, y: -1.5699999}
+      - {x: 4.37, y: -1.54}
+      - {x: 4.37, y: -1.1}
+    - - {x: 1.8399999, y: -0.45999998}
+      - {x: 1.8499999, y: -0.47}
+      - {x: 1.87, y: -0.47}
+      - {x: 1.92, y: -0.42}
+      - {x: 1.92, y: -0.39999998}
+      - {x: 1.9599999, y: -0.34}
+      - {x: 1.9599999, y: -0.32}
+      - {x: 1.92, y: -0.26999998}
+      - {x: 1.93, y: -0.25}
+      - {x: 1.93, y: -0.31}
+      - {x: 1.9599999, y: -0.34}
+      - {x: 2.07, y: -0.34}
+      - {x: 2.09, y: -0.37}
+      - {x: 2.04, y: -0.39}
+      - {x: 2.01, y: -0.39}
+      - {x: 1.9399999, y: -0.41}
+      - {x: 1.91, y: -0.42}
+      - {x: 1.87, y: -0.45999998}
+  m_UseDelaunayMesh: 0

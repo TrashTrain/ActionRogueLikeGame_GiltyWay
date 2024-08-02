@@ -21,6 +21,8 @@ public class Laser : MonoBehaviour
 
     public Material defaultMaterial;
     public Material activeMaterial;
+
+    public int dmg;
     
     void Start()
     {
@@ -66,7 +68,7 @@ public class Laser : MonoBehaviour
                 if (hit.collider != null)       // 레이저에 플레이어가 부딪혔을 때
                 {
                     lineRenderer.SetPosition(1, hit.point);
-                    hit.collider.GetComponent<PlayerController>().GetDamaged(1f,gameObject, new Vector2(0f,0f));
+                    hit.collider.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, new Vector2(0f,0f));
                 }
                 else if (hitGround.collider != null)    // 레이저가 바닥에 부딪혔을 때 
                 {

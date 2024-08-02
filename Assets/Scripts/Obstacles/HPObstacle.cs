@@ -21,7 +21,7 @@ public class HPObstacle : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
     }
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer == 6)
@@ -48,10 +48,10 @@ public class HPObstacle : MonoBehaviour
         isActive = true;
         spriteRenderer.color = hitColor;
         
-        hpObstacle.GetComponent<BoxCollider2D>().isTrigger = true;  // 한번 hp 손상되었으면 지나갈 수 있도록
+        hpObstacle.GetComponent<PolygonCollider2D>().isTrigger = true;  // 한번 hp 손상되었으면 지나갈 수 있도록
         yield return new WaitForSeconds(changeTime);
         
-        hpObstacle.GetComponent<BoxCollider2D>().isTrigger = false;
+        hpObstacle.GetComponent<PolygonCollider2D>().isTrigger = false;
         
         spriteRenderer.color = originalColor;
         isActive = false;
