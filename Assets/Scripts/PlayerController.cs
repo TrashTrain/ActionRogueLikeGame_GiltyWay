@@ -204,6 +204,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("UnBeatTime");
 
             ShakeCamera();
+            if (hitAnimator != null)
+            {
+                hitAnimator.SetTrigger("Hit");
+            }
             
             if (hp <= 0)
             {
@@ -385,6 +389,6 @@ public class PlayerController : MonoBehaviour
 
     private void ShakeCamera()
     {
-        impurse.GenerateImpulse(0.25f);
+        impurse.GenerateImpulse(1.25f);
     }
 }
