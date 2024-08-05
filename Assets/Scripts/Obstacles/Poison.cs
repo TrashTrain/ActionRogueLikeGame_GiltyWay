@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Poison : MonoBehaviour
 {
-    public PlayerController player;
     public float dmg = 2f;
     public float dmgTime = 3f;
 
