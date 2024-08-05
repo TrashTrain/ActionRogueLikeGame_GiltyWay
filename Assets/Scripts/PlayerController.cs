@@ -64,16 +64,18 @@ public class PlayerController : MonoBehaviour
         tf = transform;
         curGun = guns[0];
         curGun.SetActive(true);
-
-        UIManager.instance.playerInfo.InitPlayerUI(this);
         
-        // 플레이어 프로필 업데이트
-        UIManager.instance.playerInfo.UpdateProfileUI(this);
 
         jumpCount = maxJump;
-        
         //Cinemachine Impurse
         impurse = transform.GetComponent<CinemachineImpulseSource>();
+    }
+
+    private void Start()
+    {
+        UIManager.instance.playerInfo.InitPlayerUI(this);
+        // 플레이어 프로필 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(this);
     }
 
     //Graphic & Input Updates	
