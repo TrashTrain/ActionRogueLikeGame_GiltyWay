@@ -81,7 +81,7 @@ public class HookAction : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7 || other.gameObject.layer == 12)
         {
             isBindToEnemy = false;
             wireAction.isAttached = true;
@@ -105,7 +105,7 @@ public class HookAction : MonoBehaviour
             StartCoroutine(SetRopeForce());
         }
 
-        else if(other.gameObject.layer == 9 || other.gameObject.layer == 4)
+        else if(other.gameObject.layer == 9 || other.gameObject.layer == 4 || other.gameObject.layer == 3)
         {
             isBindToEnemy = false;
             wireAction.isWireMax = true;   
