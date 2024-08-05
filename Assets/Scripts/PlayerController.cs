@@ -391,6 +391,6 @@ public class PlayerController : MonoBehaviour
 
     private void ShakeCamera()
     {
-        impurse.GenerateImpulse(1.25f);
+        impurse.GenerateImpulse(0.25f);
     }
 }
