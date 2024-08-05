@@ -23,6 +23,9 @@ public class Laser : MonoBehaviour
     public Material activeMaterial;
 
     public int dmg;
+
+    public float directionX;
+    public float directionY;
     
     void Start()
     {
@@ -58,10 +61,15 @@ public class Laser : MonoBehaviour
             
             // 레이저의 위치를 업데이트
             lineRenderer.SetPosition(0, startPoint);
-
-            RaycastHit2D hit = Physics2D.Raycast(startPoint, Vector2.down, laserLength, LayerMask.GetMask("Player"));
-            RaycastHit2D hitGround = Physics2D.Raycast(startPoint, Vector2.down, laserLength, LayerMask.GetMask("Ground"));
             
+            Vector2 direction = new Vector2(directionX, directionY).normalized;
+            
+            // RaycastHit2D hit = Physics2D.Raycast(startPoint, Vector2.down, laserLength, LayerMask.GetMask("Player"));
+            RaycastHit2D hit = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Player"));
+
+            // RaycastHit2D hitGround = Physics2D.Raycast(startPoint, Vector2.down, laserLength, LayerMask.GetMask("Ground"));
+            RaycastHit2D hitGround = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Ground"));
+
             if (currentState == State.active)      // 레이저가 active 상태
             {
                 lineRenderer.material = lineRenderer.materials[1];
@@ -76,7 +84,8 @@ public class Laser : MonoBehaviour
                 }
                 else
                 {
-                    lineRenderer.SetPosition(1, startPoint + Vector2.down * laserLength);
+                    lineRenderer.SetPosition(1, startPoint + direction * laserLength);
+                    // lineRenderer.SetPosition(1, startPoint + Vector2.down * laserLength);
                 }
             }
             else
@@ -108,8 +117,8 @@ public class Laser : MonoBehaviour
                 lineRenderer.startWidth = 0.1f;
                 lineRenderer.endWidth = 0.1f;
                 
-                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.4f);
-                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.4f);
+                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.3f);
+                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.3f);
 
                 lineRenderer.material = defaultMaterial;
                 

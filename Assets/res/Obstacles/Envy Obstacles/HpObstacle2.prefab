@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7149880640838286056}
   - component: {fileID: 37174788128031373}
-  - component: {fileID: 8087680014915182090}
   - component: {fileID: 3043768369939476564}
+  - component: {fileID: 4123545488814875567}
   m_Layer: 0
   m_Name: HpObstacle2
   m_TagString: Untagged
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -788680602, guid: 1e29dc1887f02a5478b197771bdac0a2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,8 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8087680014915182090
-BoxCollider2D:
+--- !u!114 &3043768369939476564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150059962182210732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60623b7ec12747839239657c59bced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 1
+  bounce: 20
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!60 &4123545488814875567
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,21 +143,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.7}
-  m_EdgeRadius: 0
---- !u!114 &3043768369939476564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8150059962182210732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e60623b7ec12747839239657c59bced8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 0
-  bounce: 20
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  m_Points:
+    m_Paths:
+    - - {x: -0.65625, y: 1}
+      - {x: -0.90625, y: -0.375}
+      - {x: -0.90625, y: -1}
+      - {x: 0.84375, y: -1}
+      - {x: 0.90625, y: -0.875}
+      - {x: 0.90625, y: 0.8125}
+      - {x: 0.84375, y: 1}
+  m_UseDelaunayMesh: 0
