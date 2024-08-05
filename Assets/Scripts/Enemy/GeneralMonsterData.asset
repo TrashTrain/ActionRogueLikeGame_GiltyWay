@@ -16,7 +16,7 @@ MonoBehaviour:
     knockBackPower: 60
     hp: 30
     moveSpeed: 4
-    patrolDistance: 3
+    patrolDistance: 8
     patrolPos: {x: 0, y: 0}
     moveDirection: {x: 1, y: 0}
     obstacleRaycastDistance: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
   knockBackPower: 60
   hp: 30
   moveSpeed: 4
-  patrolDistance: 3
+  patrolDistance: 8
   moveDirection: {x: 1, y: 0}
   obstacleRaycastDistance: 1
   targetLayer:
