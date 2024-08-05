@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60623b7ec12747839239657c59bced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 0
+  dmg: 1
   bounce: 20
   hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!60 &4315321530312035871
