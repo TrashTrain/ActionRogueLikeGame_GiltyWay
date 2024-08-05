@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7747488254735896910}
   - component: {fileID: 6302126468447550850}
   - component: {fileID: 4157556935421156725}
-  - component: {fileID: 8220689779295612890}
+  - component: {fileID: 69911376768953441}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -245,7 +245,7 @@ MonoBehaviour:
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
---- !u!114 &8220689779295612890
+--- !u!114 &69911376768953441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4294640866864706599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
@@ -298,13 +298,6 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: -1, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_IgnoreTag: 
-  m_UseImpactDirection: 0
-  m_ScaleImpactWithMass: 0
-  m_ScaleImpactWithSpeed: 0
 --- !u!1001 &2478938938744229770
 PrefabInstance:
   m_ObjectHideFlags: 0

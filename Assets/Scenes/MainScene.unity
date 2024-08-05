@@ -404,23 +404,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c780c5f0e45c404b943fd6b480076aa, type: 3}
---- !u!1 &210164766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4387523774518773249, guid: 89a739bbcc6e34ee8b776d1de37b5156, type: 3}
-  m_PrefabInstance: {fileID: 1647429521}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &210164769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210164766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b3f2222ad717d24c816a314db4390a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &268598409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1393,7 @@ GameObject:
   - component: {fileID: 1015112667}
   - component: {fileID: 1015112669}
   - component: {fileID: 1015112668}
+  - component: {fileID: 1015112670}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1474,6 +1458,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015112666}
   m_CullTransparentMesh: 1
+--- !u!114 &1015112670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015112666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0966c6ba1ff46ec98e1176f101c1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxFactor: 1
+  edgeThreshold: 80
+  maxOffset: 80
+  smoothTime: 0.2
 --- !u!1001 &1277513949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1870,10 +1870,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4387523774518773249, guid: 89a739bbcc6e34ee8b776d1de37b5156, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 210164769}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89a739bbcc6e34ee8b776d1de37b5156, type: 3}
 --- !u!1001 &6484579954406853350
 PrefabInstance:
@@ -1926,6 +1923,14 @@ PrefabInstance:
     - target: {fileID: 4457374348858934164, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
       propertyPath: m_Name
       value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478065000943291479, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478065000943291479, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
+      propertyPath: DopplerLevel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
