@@ -27,6 +27,8 @@ public class DialogSystem : MonoBehaviour
     [Header("NpcName")]
     public TextMeshProUGUI npcName;
 
+    public Dictionary<string, int> npcObj = new ();
+
     private bool isActive = false;
 
     //타이핑 기능
@@ -66,7 +68,7 @@ public class DialogSystem : MonoBehaviour
 
         selectPanel.SetActive(false);
     }
-    public void ActiveDialog(int dialogSetIndex, string npcName)
+    public void ActiveDialog(int dialogSetIndex, string npcName, NPC npc = null)
     {
         if (isActive) return;
         if (dialogSetIndex < 0)
@@ -87,8 +89,10 @@ public class DialogSystem : MonoBehaviour
                 curDialogSet = dialogSets[i];
         }
         nextDialogNum = curDialogSet.nextIdx;
-        NextSentence();
         
+        NextSentence();
+
+        npcObj.Add(npc.npcName, nextDialogNum);
     }
 
     public void InActiveDialog()
