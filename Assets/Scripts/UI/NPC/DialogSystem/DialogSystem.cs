@@ -8,7 +8,10 @@ public class DialogSystem : MonoBehaviour
     public DialogSet[] dialogSets;
 
     public TextMeshProUGUI talkText;
-    
+
+    // CharacterInfo
+    private string charName = "주인공";
+    public int charCurIndex = 100;
 
     [Header("Select")]
     public RectTransform selectCursor;
@@ -78,7 +81,11 @@ public class DialogSystem : MonoBehaviour
         gameObject.SetActive(true);
         PlayerController.IsControllable = false;
 
-        curDialogSet = dialogSets[dialogSetIndex];
+        for(int i = 0; i < dialogSets.Length; i++)
+        {
+            if(dialogSets[i].IdxNum == dialogSetIndex)
+                curDialogSet = dialogSets[i];
+        }
         nextDialogNum = curDialogSet.nextIdx;
         NextSentence();
         
@@ -135,7 +142,7 @@ public class DialogSystem : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isActiveSlot)
             {
@@ -151,7 +158,7 @@ public class DialogSystem : MonoBehaviour
 
     private void DialogInput()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !UIManager.instance.slotController.gameObject.activeSelf)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && !UIManager.instance.slotController.gameObject.activeSelf)
         {
             NextSentence();
         }

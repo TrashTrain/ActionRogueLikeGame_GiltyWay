@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
   m_Name: TongData
   m_EditorClassIdentifier: 
+  IdxNum: 2
   nextIdx: 2
   dialogElements:
   - dialog: "\uB0A1\uC544 \uBD80\uC11C\uC9C8 \uAC83 \uAC19\uC740 \uD1B5\uC774\uB2E4."
