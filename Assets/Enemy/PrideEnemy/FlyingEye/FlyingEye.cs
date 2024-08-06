@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlyingEye : GeneralMonsterTest
 {
     protected float startTime;
+    // -----
+    private Transform laserTrans;
+    // -----
 
     protected override void IdleEnter()
     {
@@ -19,6 +23,16 @@ public class FlyingEye : GeneralMonsterTest
         base.AttackEnter();
         startTime = Time.time;
         Debug.Log("FlyingEye Attack Enter");
+        
+        // ----------
+        laserTrans = transform.Find("Body/Laser/Line");
+        if (laserTrans != null)
+        {
+            Debug.LogError("Laser not found!");
+        }
+        
+        laserTrans.GetComponent<FlyingEyeLaser>().activeState();
+        // ----------
     }
 
 
@@ -33,6 +47,17 @@ public class FlyingEye : GeneralMonsterTest
         else
         {
             nextState = idleState;
+            
+            // -----
+            laserTrans = transform.Find("Body/Laser/Line");
+            if (laserTrans != null)
+            {
+                Debug.LogError("Laser not found!");
+            }
+        
+            laserTrans.GetComponent<FlyingEyeLaser>().disabledState();
+            // -----
+
         }
     }
     
