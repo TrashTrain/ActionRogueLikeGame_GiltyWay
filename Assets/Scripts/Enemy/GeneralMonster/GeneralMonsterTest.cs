@@ -25,7 +25,8 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
     
     //Constant Variable
     private const int PlayerLayer = 1 << 6;
-    private const int GroundLayer = 1 << 7;
+    private const int GroundLayer = 1 << 7 | 1 << 3 | 1 << 12;
+    
     
     protected void Awake()
     {
