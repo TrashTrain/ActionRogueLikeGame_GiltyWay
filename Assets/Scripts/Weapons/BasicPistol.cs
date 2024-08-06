@@ -36,7 +36,7 @@ public class BasicPistol : GunController
 
     private void CreateBullet()
     {
-        var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
+        var tempBullet = Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
         tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage, bulletSize);
 
         shootingRate = 0f;
