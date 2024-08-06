@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/FirstSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/FirstSuperbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/GeneralMonsterData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/GeneralMonsterData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Skill/S_WireAction_KJH/HookAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Skill/S_WireAction_KJH/HookAction.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +131,7 @@
       <workItem from="1722475679308" duration="399000" />
       <workItem from="1722476760594" duration="4191000" />
       <workItem from="1722485106091" duration="1434000" />
+      <workItem from="1722906852965" duration="31000" />
     </task>
     <servers />
   </component>
