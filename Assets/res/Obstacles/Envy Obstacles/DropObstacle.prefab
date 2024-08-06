@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8502534413781423652}
   - component: {fileID: 8865621636595756874}
   - component: {fileID: 517020131345657126}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DropObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   dropDistance: 6
+  gravityScale: 0
   dmg: 1
 --- !u!60 &517020131345657126
 PolygonCollider2D:
