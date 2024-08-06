@@ -30,9 +30,20 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
     
     protected void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+        
+        if (sprite == null)
+        {
+            sprite = GetComponent<SpriteRenderer>();
+        }
         
         refData.SyncData();
         generalMonsterData = refData.data;
@@ -90,6 +101,14 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
                 return true;
             }
         }
+
+        if (currentState == attackState)
+        {
+            if (nextState == idleState)
+            {
+                return true;
+            }
+        }
         
         return false;
     }
@@ -103,7 +122,7 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
     {
         Patrol();
     }
-
+    
     protected virtual void AttackEnter()
     {
         animator.SetTrigger("Attack");
