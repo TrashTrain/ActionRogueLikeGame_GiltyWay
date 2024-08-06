@@ -62,12 +62,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328831016901626952, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_Name
-      value: Shotgun
+      value: ShotGun
       objectReference: {fileID: 0}
     - target: {fileID: 1328831016901626952, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878312945385852198, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 73d1ef34279f9784fbd5c5d65fabfe1a, type: 3}
     - target: {fileID: 6211832421720998823, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: refData
       value: 
@@ -99,7 +111,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refData: {fileID: 11400000, guid: 7a5074845f9924543b40106c0d20d423, type: 2}
+  muzzle: {fileID: 5603920221568399764}
   bullet: {fileID: 7164472469177122970, guid: 94f1494ef4f1a8d408097b894538b6ab, type: 3}
   player: {fileID: 0}
   bulletNum: 5
   reboundForce: 50
+--- !u!4 &5603920221568399764 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+  m_PrefabInstance: {fileID: 6103085616504659837}
+  m_PrefabAsset: {fileID: 0}

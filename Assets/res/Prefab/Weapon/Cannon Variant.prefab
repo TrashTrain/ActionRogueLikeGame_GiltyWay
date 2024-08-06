@@ -68,6 +68,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.592
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878312945385852198, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878312945385852198, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2878312945385852198, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -103,4 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refData: {fileID: 11400000, guid: a2492aead7ce9422785cb72a7d226041, type: 2}
+  muzzle: {fileID: 5664646968126934431}
   bullet: {fileID: 7164472469177122970, guid: 94f1494ef4f1a8d408097b894538b6ab, type: 3}
+--- !u!4 &5664646968126934431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
+  m_PrefabInstance: {fileID: 6335233922381327222}
+  m_PrefabAsset: {fileID: 0}

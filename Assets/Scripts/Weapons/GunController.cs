@@ -16,7 +16,7 @@ public abstract class GunController : MonoBehaviour
     #endregion
 
     protected PassiveSkillData passiveData;
-    protected Transform muzzle;
+    public Transform muzzle;
     protected float angle;
 
     protected Vector2 mousePos;
@@ -64,10 +64,12 @@ public abstract class GunController : MonoBehaviour
         transform.right = (Vector2)target.normalized;
         if (target.x < 0)
         {
+            //if (sr.flipY != true) SetMuzzlePos();
             sr.flipY = true;
         }
         else
         {
+            //if (sr.flipY != false) SetMuzzlePos();
             sr.flipY= false;
         }
 
@@ -79,6 +81,12 @@ public abstract class GunController : MonoBehaviour
         // }
         Fire();
 
+    }
+
+    void SetMuzzlePos()
+    {
+        if (muzzle == null) return;
+        muzzle.position = new Vector3(muzzle.position.x, muzzle.position.y, muzzle.position.z);
     }
 
 

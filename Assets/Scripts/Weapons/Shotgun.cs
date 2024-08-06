@@ -14,7 +14,7 @@ public class Shotgun : GunController
         {
             for (int i = 0; i < bulletNum; i++)
             {
-                var tempBullet = Instantiate(bullet, transform.position + 0.8f * transform.right + 0.2f * Vector3.up, transform.rotation * Quaternion.Euler( 10 * (bulletNum/2 - i) * transform.forward));
+                var tempBullet = Instantiate(bullet, muzzle.transform.position + 0.8f * muzzle.transform.right + 0.2f * Vector3.up, muzzle.transform.rotation * Quaternion.Euler( 10 * (bulletNum/2 - i) * transform.forward));
                 tempBullet.GetComponent<BulletController>().Init(gunData.bulletSpeed, gunData.bulletDamage);
                 tempBullet = null;
             }

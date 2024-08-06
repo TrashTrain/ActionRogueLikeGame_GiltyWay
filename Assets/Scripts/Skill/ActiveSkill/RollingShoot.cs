@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 
@@ -15,6 +16,7 @@ public class RollingShoot : MonoBehaviour
     private float delayCheck = 4f;
     void Start()
     {
+        if (player == null) return;
          trans = player.transform;
     }
 

@@ -48,7 +48,7 @@ public class Sniper : GunController
                 bulletDamage *= 10f;
             }
             
-            var tempBullet = Instantiate(bullet, transform.position, transform.rotation);
+            var tempBullet = Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
             tempBullet.GetComponent<BulletController>().Init(bulletSpeed, bulletDamage, 2);
 
             shootingRate = 0f;
