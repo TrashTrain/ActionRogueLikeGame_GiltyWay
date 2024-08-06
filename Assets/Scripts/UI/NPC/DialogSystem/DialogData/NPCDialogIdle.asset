@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
   m_Name: NPCDialogIdle
   m_EditorClassIdentifier: 
+  IdxNum: 1
   nextIdx: 1
   dialogElements:
   - dialog: "\uB098\uD55C\uD14C 3\uD3EC\uC778\uD2B8\uB97C \uC8FC\uBA74 \uC88B\uC740

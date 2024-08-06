@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DialogData", menuName = "CreateDialogData/DialogData")]
 public class DialogSet : ScriptableObject
 {
+    public int IdxNum;
     public int nextIdx;
     public DialogElement[] dialogElements;
 

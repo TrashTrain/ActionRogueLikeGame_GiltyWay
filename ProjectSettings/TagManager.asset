@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpeedItem
+  - PlayerDialogEvent
   layers:
   - Default
   - TransparentFX
