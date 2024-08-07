@@ -12,6 +12,11 @@ public class DataManager : MonoBehaviour
     public float playTime;
     public int currentSlot;
 
+    //플레이어 일시 데이터 저장(임시)
+    public float tempPlayerHp;
+    
+    public const string AutoSaveSlot = "autoSavefile.json";
+
     //Init for New Game
     public void InitPlayTime()
     {
@@ -63,6 +68,13 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(path, json);
     }
     
+    public void AutoSaveGameData(GameData gameData)
+    {
+        string json = JsonUtility.ToJson(gameData);
+        string path = Path.Combine(Application.persistentDataPath, AutoSaveSlot);
+        File.WriteAllText(path, json);
+    }
+    
     public void SaveGame(int slot)
     {
         UpdatePlayTime(currentSlot);
@@ -71,12 +83,45 @@ public class DataManager : MonoBehaviour
         PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);
         BasicPistol basicPistol = FindObjectOfType<PlayerController>().gameObject.transform.GetChild(0).GetComponent<BasicPistol>();
         PassiveSkillData passiveData = new PassiveSkillData(basicPistol.automaticBulletCnt, basicPistol.bulletSize);
-        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData);
+        DialogData dialogData = new DialogData(UIManager.instance.dialogSystem.npcObj);
 
+        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData, dialogData);
+        
         //string json = JsonUtility.ToJson(gameData);
         //File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
         SaveGameData(gameData, slot);
     }
+    
+    public void AutoSaveGame()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        
+        //메인메뉴 또는 플레이어가 없는 상황에서는 오토 세이브 파일을 삭제
+        //오토 세이브는 씬 전환 시 일시적 데이터를 연동하기 위한 것.
+        if (player == null)
+        {
+            if (File.Exists(AutoSaveSlot))
+            {
+                File.Delete(AutoSaveSlot);
+            }
+            return;
+        }
+        
+        Debug.Log("AutoSaveGame");
+        
+        PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);
+        BasicPistol basicPistol = player.gameObject.transform.GetChild(0).GetComponent<BasicPistol>();
+        PassiveSkillData passiveData = new PassiveSkillData(basicPistol.automaticBulletCnt, basicPistol.bulletSize);
+        DialogData dialogData = new DialogData(UIManager.instance.dialogSystem.npcObj);
+        
+        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData, dialogData);
+        
+        AutoSaveGameData(gameData);
+        
+        //플레이어 현재 체력 저장(임시)
+        tempPlayerHp = player.hp;
+    }
+    
 
     public void UpdatePlayTime(int slot)
     {
@@ -103,17 +148,26 @@ public class DataManager : MonoBehaviour
 
         return null;
     }
+
+    public GameData AutoLoadGameData()
+    {
+        var path = Path.Combine(Application.persistentDataPath, AutoSaveSlot);
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            return JsonUtility.FromJson<GameData>(json);
+        }
+
+        return null;
+    }
     
     public async UniTask LoadGame(string filePath)
     {
-        //string json = File.ReadAllText(Application.persistentDataPath + "/savefile.json");
-        //GameData gameData = JsonUtility.FromJson<GameData>(json);
-        
         GameData gameData = LoadGameData(filePath);
         
         if (gameData == null)
         {
-            Debug.LogError("Load Fail : gameData is null");
+            Debug.Log("Load Fail : gameData is null");
             return;
         }
         
@@ -121,9 +175,37 @@ public class DataManager : MonoBehaviour
         await SceneManager.LoadSceneAsync(gameData.SceneName);
         ApplyPlayerData(gameData.PlayerData);
         ApplyPassiveData(gameData.PassiveSkillData);
+        ApplyDialogData(gameData.DialogData);
+
         BGM.instance?.PlayBGM(gameData.SceneName);
 
         playStartTime = Time.time;
+    }
+
+    private void ApplyDialogData(DialogData dialogData)
+    {
+        if (dialogData == null) { Debug.Log("dialogDataNull"); return; }
+        Dictionary<string, int> data = new ();
+        for (int i = 0; i < dialogData.dialogName.Count; i++)
+        {
+            data.Add(dialogData.dialogName[i], dialogData.dialogIndex[i]);
+        }
+        UIManager.instance.dialogSystem.npcObj = data;
+    }
+    public void AutoLoadGame(int type)
+    {
+        GameData gameData = AutoLoadGameData();
+        
+        if (gameData == null)
+        {
+            Debug.Log("AutoLoadGame Fail");
+            return;
+        }
+        
+        Debug.Log("AutoLoadGame");
+        ApplyPlayerDataForAuto(gameData.PlayerData, type);
+        ApplyPassiveData(gameData.PassiveSkillData);
+        ApplyDialogData(gameData.DialogData);
     }
 
     private void ApplyPassiveData(PassiveSkillData data)
@@ -150,5 +232,38 @@ public class DataManager : MonoBehaviour
         player.def = playerData.Def;
         player.speed = playerData.Speed;
         player.jumpPower = playerData.JumpPower;
+    }
+    
+    private void ApplyPlayerDataForAuto(PlayerData playerData, int type)
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player == null)
+        {
+            Debug.LogError($"{this.gameObject} : player is not found");
+            return;
+        }
+        
+        //player.transform.position = playerData.Pos;
+        player.maxhp = playerData.MaxHp;
+        //UIManager.instance.playerInfo.playerHpBar.InitPlayerHp(player.maxhp);
+        player.atk = playerData.Atk;
+        player.def = playerData.Def;
+        player.speed = playerData.Speed;
+        player.jumpPower = playerData.JumpPower;
+
+        //던전 내 빠른 로드
+        if (type == 1)
+        {
+            //플레이어 현재 체력 연동(임시)
+            player.hp = tempPlayerHp;
+            //UIManager.instance.playerInfo.playerHpBar.SetHp(player.hp);
+        }
+        //로딩씬 있는 로드
+        else if(type == 2)
+        {
+            //플레이어 체력을 최대체력으로 초기화
+            player.hp = playerData.MaxHp;
+            //UIManager.instance.playerInfo.playerHpBar.SetHp(player.hp);
+        }
     }
 }

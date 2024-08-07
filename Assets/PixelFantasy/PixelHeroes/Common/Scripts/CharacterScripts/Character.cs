@@ -14,6 +14,7 @@ namespace Assets.PixelFantasy.PixelHeroes.Common.Scripts.CharacterScripts
 
         public void OnValidate()
         {
+            if (GetComponent<CharacterBuilder>() == null) return;
             if (Application.isPlaying && Time.time > 1)
             {
                 GetComponent<CharacterBuilder>().Rebuild();

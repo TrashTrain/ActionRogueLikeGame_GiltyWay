@@ -9,10 +9,6 @@ public class DialogSystem : MonoBehaviour
 
     public TextMeshProUGUI talkText;
 
-    // CharacterInfo
-    private string charName = "주인공";
-    public int charCurIndex = 100;
-
     [Header("Select")]
     public RectTransform selectCursor;
     public GameObject selectPanel;
@@ -26,6 +22,8 @@ public class DialogSystem : MonoBehaviour
 
     [Header("NpcName")]
     public TextMeshProUGUI npcName;
+
+    public Dictionary<string, int> npcObj = new ();
 
     private bool isActive = false;
 
@@ -78,17 +76,32 @@ public class DialogSystem : MonoBehaviour
 
         selectPanel.SetActive(false);
 
-        gameObject.SetActive(true);
-        PlayerController.IsControllable = false;
-
-        for(int i = 0; i < dialogSets.Length; i++)
+        bool idxCheck = false;
+        for (int i = 0; i < dialogSets.Length; i++)
         {
-            if(dialogSets[i].IdxNum == dialogSetIndex)
+            Debug.Log(dialogSets[i].IdxNum + "/" + dialogSetIndex);
+            if (dialogSets[i].IdxNum == dialogSetIndex)
+            {
                 curDialogSet = dialogSets[i];
+                idxCheck = true;
+            }
         }
+        gameObject.SetActive(idxCheck);
+        if (gameObject.activeSelf)
+            PlayerController.IsControllable = false;
         nextDialogNum = curDialogSet.nextIdx;
+
+        if (!gameObject.activeSelf)
+        {
+            isActive = false;
+            return;
+        }
         NextSentence();
-        
+
+        if (npcObj.ContainsKey(npcName))
+            npcObj[npcName] = nextDialogNum;
+        else
+            npcObj.Add(npcName, nextDialogNum);
     }
 
     public void InActiveDialog()

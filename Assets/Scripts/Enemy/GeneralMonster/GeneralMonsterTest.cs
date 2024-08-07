@@ -7,7 +7,8 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
 {
     protected GeneralMonsterDataStruct generalMonsterData;
     public GeneralMonsterDataStruct GeneralMonsterData => generalMonsterData;
-    
+
+
     private bool isTransition = false;
     protected FSMState idleState;
     protected FSMState attackState;
@@ -61,7 +62,7 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
         StateInit();
     }
 
-    protected virtual void Start()
+    protected void Start()
     {
         IdleEnter();
     }
