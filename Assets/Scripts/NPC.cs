@@ -30,6 +30,10 @@ public class NPC : MonoBehaviour
         {
             index = curNPC[npcName];
         }
+        else
+        {
+            Debug.Log("null");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
