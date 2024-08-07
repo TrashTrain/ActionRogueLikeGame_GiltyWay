@@ -16,7 +16,7 @@ public class NPC : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && PlayerController.IsControllable)
             {
                 InitNPCInfo();
-                UIManager.instance.dialogSystem.ActiveDialog(index, npcName, this);
+                UIManager.instance.dialogSystem.ActiveDialog(index, npcName);
                 //index = UIManager.instance.dialogSystem.nextDialogNum;
                 
             }

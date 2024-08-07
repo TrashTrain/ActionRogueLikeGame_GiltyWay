@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerDialogEvent : MonoBehaviour
 {
     private string playerName = "주인공";
+    private int playerIndex = 100;
 
     private string sceneName;
 
@@ -15,7 +16,7 @@ public class PlayerDialogEvent : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "Tutorial Map")
-            UIManager.instance.dialogSystem.charCurIndex = 100;
+            playerIndex = 100;
 
         // 씬에 할당하는 메세지가 많을시 사용
         switch (sceneName)
@@ -29,11 +30,22 @@ public class PlayerDialogEvent : MonoBehaviour
         SetIndex();
         if (collision.gameObject.tag == "Player")
         {
-            UIManager.instance.dialogSystem.ActiveDialog(UIManager.instance.dialogSystem.charCurIndex, playerName);
-            UIManager.instance.dialogSystem.charCurIndex = UIManager.instance.dialogSystem.nextDialogNum;
+            InitPlayerInfo();
+            UIManager.instance.dialogSystem.ActiveDialog(playerIndex, playerName);
+            //UIManager.instance.dialogSystem.charCurIndex = UIManager.instance.dialogSystem.nextDialogNum;
         }
 
         Destroy(gameObject);
 
     }
+
+    private void InitPlayerInfo()
+    {
+        var curNPC = UIManager.instance.dialogSystem.npcObj;
+        if (curNPC.ContainsKey(playerName))
+        {
+            playerIndex = curNPC[playerName];
+        }
+    }
+
 }
