@@ -76,16 +76,26 @@ public class DialogSystem : MonoBehaviour
 
         selectPanel.SetActive(false);
 
-        gameObject.SetActive(true);
-        PlayerController.IsControllable = false;
-
-        for(int i = 0; i < dialogSets.Length; i++)
+        bool idxCheck = false;
+        for (int i = 0; i < dialogSets.Length; i++)
         {
-            if(dialogSets[i].IdxNum == dialogSetIndex)
+            Debug.Log(dialogSets[i].IdxNum + "/" + dialogSetIndex);
+            if (dialogSets[i].IdxNum == dialogSetIndex)
+            {
                 curDialogSet = dialogSets[i];
+                idxCheck = true;
+            }
         }
+        gameObject.SetActive(idxCheck);
+        if (gameObject.activeSelf)
+            PlayerController.IsControllable = false;
         nextDialogNum = curDialogSet.nextIdx;
-        
+
+        if (!gameObject.activeSelf)
+        {
+            isActive = false;
+            return;
+        }
         NextSentence();
 
         if (npcObj.ContainsKey(npcName))

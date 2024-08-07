@@ -27,10 +27,11 @@ public class PlayerDialogEvent : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SetIndex();
+        
         if (collision.gameObject.tag == "Player")
         {
             InitPlayerInfo();
+            SetIndex();
             UIManager.instance.dialogSystem.ActiveDialog(playerIndex, playerName);
             //UIManager.instance.dialogSystem.charCurIndex = UIManager.instance.dialogSystem.nextDialogNum;
         }

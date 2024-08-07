@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerDialog2
   m_EditorClassIdentifier: 
   IdxNum: 101
-  nextIdx: 101
+  nextIdx: 102
   dialogElements:
   - dialog: "\uC5EC\uAE30\uB294 \uC5B4\uB514\uC9C0?"
     selectYes: -1
