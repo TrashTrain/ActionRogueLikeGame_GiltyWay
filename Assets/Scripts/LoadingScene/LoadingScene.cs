@@ -56,6 +56,7 @@ public class LoadingScreen : MonoBehaviour
             // 로딩이 완료되면 씬 전환을 허용
             if (loadOperation.progress >= 0.9f && Time.time - startTime >= minimumLoadingTime)
             {
+                DataManager.instance.AutoLoadGame(2);
                 loadingBar.value = 1f;
                 loadOperation.allowSceneActivation = true;
                 BGM.instance?.PlayBGM(sceneName);

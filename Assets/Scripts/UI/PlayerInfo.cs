@@ -18,7 +18,8 @@ public class PlayerInfo : MonoBehaviour
 
     public void InitPlayerUI(PlayerController playerController)
     {
-        playerHpBar.InitPlayerHp(playerController.hp);
+        playerHpBar.InitPlayerHp(playerController.maxhp);
+        playerHpBar.SetHp(playerController.hp);
     }
 
     // 플레이어 프로필 업데이트

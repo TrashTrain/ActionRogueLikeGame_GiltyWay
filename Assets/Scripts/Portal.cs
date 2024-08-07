@@ -17,7 +17,8 @@ public class Portal : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            SceneManager.LoadScene(nextSceneName);
+            //SceneManager.LoadScene(nextSceneName);
+            SceneLoader.LoadSceneFast(nextSceneName);
         }
     }
 }
