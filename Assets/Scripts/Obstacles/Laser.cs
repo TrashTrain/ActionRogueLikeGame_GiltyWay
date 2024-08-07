@@ -9,6 +9,7 @@ public class Laser : MonoBehaviour
     
     private enum State { inactive, active, disabled }
 
+    // private State currentState;
     private State currentState;
     
     private Animator chargeAnimator;
