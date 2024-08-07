@@ -3,18 +3,13 @@ using UnityEngine;
 
 public class Demon : GeneralMonsterTest
 {
-    // 
     public ParticleSystem attackParticle;
-    // 
 
     protected float startTime;
-    
-    // 
+
     protected Vector3 originalParticlePosition;
     protected FSMState readyState;
-    // 
-    
-    // 
+
     protected override void Start()
     {
         base.Start();
@@ -56,7 +51,6 @@ public class Demon : GeneralMonsterTest
         
         return false;
     }
-    // 
 
     protected override void IdleEnter()
     {
@@ -64,7 +58,6 @@ public class Demon : GeneralMonsterTest
         Debug.Log("Demon Idle Enter");
     }
 
-    //
     protected virtual void ReadyEnter()
     {
         animator.SetTrigger("Ready");
@@ -83,7 +76,7 @@ public class Demon : GeneralMonsterTest
             nextState = attackState;
         }
     }
-    //
+
     
     #region AttackState
 
@@ -129,7 +122,7 @@ public class Demon : GeneralMonsterTest
     //
     #endregion
     
-    //
+
     protected override void CheckTarget()
     {
         if ( currentState != idleState) return;
@@ -144,5 +137,4 @@ public class Demon : GeneralMonsterTest
         
         Invoke("CheckTarget", 1f);
     }
-    //
 }
