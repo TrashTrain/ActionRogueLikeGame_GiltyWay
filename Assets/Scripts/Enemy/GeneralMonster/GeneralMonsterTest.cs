@@ -6,7 +6,6 @@ using UnityEngine;
 public class GeneralMonsterTest : MonoBehaviour, IDamageable
 {
     protected GeneralMonsterDataStruct generalMonsterData;
-
     public GeneralMonsterDataStruct GeneralMonsterData => generalMonsterData;
 
 
@@ -164,7 +163,7 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
         rb.transform.Translate( generalMonsterData.moveSpeed * Time.deltaTime *  generalMonsterData.moveDirection);
     }
 
-    protected void CheckTarget()
+    protected virtual void CheckTarget()
     {
         if ( currentState != idleState) return;
 
