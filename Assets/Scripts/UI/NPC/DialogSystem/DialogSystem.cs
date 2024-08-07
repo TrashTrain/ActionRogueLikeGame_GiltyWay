@@ -92,7 +92,6 @@ public class DialogSystem : MonoBehaviour
             npcObj[npcName] = nextDialogNum;
         else
             npcObj.Add(npcName, nextDialogNum);
-        Debug.Log(npcObj["카도"]);
     }
 
     public void InActiveDialog()

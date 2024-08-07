@@ -72,8 +72,9 @@ public class DataManager : MonoBehaviour
         BasicPistol basicPistol = FindObjectOfType<PlayerController>().gameObject.transform.GetChild(0).GetComponent<BasicPistol>();
         PassiveSkillData passiveData = new PassiveSkillData(basicPistol.automaticBulletCnt, basicPistol.bulletSize);
         DialogData dialogData = new DialogData(UIManager.instance.dialogSystem.npcObj);
-        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData, dialogData);
 
+        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData, dialogData);
+        
         //string json = JsonUtility.ToJson(gameData);
         //File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
         SaveGameData(gameData, slot);
@@ -132,7 +133,12 @@ public class DataManager : MonoBehaviour
     private void ApplyDialogData(DialogData dialogData)
     {
         if (dialogData == null) { Debug.Log("dialogDataNull"); return; }
-        UIManager.instance.dialogSystem.npcObj = dialogData.Data;
+        Dictionary<string, int> data = new ();
+        for (int i = 0; i < dialogData.dialogName.Count; i++)
+        {
+            data.Add(dialogData.dialogName[i], dialogData.dialogIndex[i]);
+        }
+        UIManager.instance.dialogSystem.npcObj = data;
     }
     private void ApplyPassiveData(PassiveSkillData data)
     {

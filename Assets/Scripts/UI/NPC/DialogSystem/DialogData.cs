@@ -1,16 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class DialogData
 {
-    public Dictionary<string, int> Data;
+    public List<string> dialogName = new ();
+    public List<int> dialogIndex = new (); 
 
     public DialogData (Dictionary<string, int> data)
     {
-        Debug.Log(data["카도"]);
-        if (data == null) Debug.Log("다이얼로그 데이터 안들어감");
-        this.Data = data;
+        foreach(KeyValuePair<string, int> kvp in data)
+        {
+            dialogName.Add(kvp.Key);
+            dialogIndex.Add(kvp.Value);
+        }
+        
     }
 
 }
