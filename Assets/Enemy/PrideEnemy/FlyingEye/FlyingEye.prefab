@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4184724544410129919}
   - component: {fileID: 8493055104527209856}
   - component: {fileID: 2990347891894715227}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FlyingEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4184724545476923281}
   - component: {fileID: 4184724545476923294}
   - component: {fileID: 7494375003124011465}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Library: []
+  m_Library:
+  - m_Name: Attack
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: 2
+      m_Hash: 0
+      m_Sprite: {fileID: -7008412969330441016, guid: 4c734f645135458dbb988afaf7a41ce1, type: 3}
+    - m_Name: 3
+      m_Hash: 0
+      m_Sprite: {fileID: -7763475090823894447, guid: 4c734f645135458dbb988afaf7a41ce1, type: 3}
+    - m_Name: 4
+      m_Hash: 0
+      m_Sprite: {fileID: -7008412969330441016, guid: 4c734f645135458dbb988afaf7a41ce1, type: 3}
+    - m_Name: 5
+      m_Hash: 0
+      m_Sprite: {fileID: -7763475090823894447, guid: 4c734f645135458dbb988afaf7a41ce1, type: 3}
   m_SpriteLibraryAsset: {fileID: 11400000, guid: f01faf45681447c48e9bbf3ddede44e8, type: 2}
 --- !u!114 &4184724545476923294
 MonoBehaviour:
@@ -280,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907830324048295996, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 907830324048295996, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: m_LocalPosition.y
@@ -318,6 +333,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2732633147685637088, guid: b5916757df03648678536b6578132c00, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: cc640e02700c343faae1531c0acbb3d7, type: 2}
     - target: {fileID: 2762878979541561114, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: m_Name
       value: Laser
@@ -354,6 +373,10 @@ PrefabInstance:
       propertyPath: laserLength
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
+      propertyPath: activeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: cc640e02700c343faae1531c0acbb3d7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
