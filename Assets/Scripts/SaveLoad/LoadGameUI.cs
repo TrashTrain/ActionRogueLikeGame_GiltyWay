@@ -61,6 +61,7 @@ public class LoadGameUI : MonoBehaviour
 
     public void OpenLoadPanel()
     {
+        LoadSaveFiles();
         isShow = true;  
         LoadDoorMove.Instance.OnClickSetLoadPanel(loadPanel, isShow);
         //loadDoorMove.OnClickSetLoadPanel(loadPanel, isShow);
