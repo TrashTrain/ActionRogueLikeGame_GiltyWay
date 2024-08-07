@@ -17,7 +17,7 @@ public class NPC : MonoBehaviour
             {
                 InitNPCInfo();
                 UIManager.instance.dialogSystem.ActiveDialog(index, npcName, this);
-                index = UIManager.instance.dialogSystem.nextDialogNum;
+                //index = UIManager.instance.dialogSystem.nextDialogNum;
                 
             }
             
@@ -25,13 +25,10 @@ public class NPC : MonoBehaviour
     }
     private void InitNPCInfo()
     {
-        for (int i = 0; i < UIManager.instance.dialogSystem.npcObj.Count; i++)
+        var curNPC = UIManager.instance.dialogSystem.npcObj;
+        if (curNPC.ContainsKey(npcName))
         {
-            var curNPC = UIManager.instance.dialogSystem.npcObj;
-            if (curNPC[npcName].ToString() == npcName)
-            {
-                index = curNPC[npcName];
-            }
+            index = curNPC[npcName];
         }
     }
 

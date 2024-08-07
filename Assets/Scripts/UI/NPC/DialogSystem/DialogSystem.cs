@@ -89,10 +89,12 @@ public class DialogSystem : MonoBehaviour
                 curDialogSet = dialogSets[i];
         }
         nextDialogNum = curDialogSet.nextIdx;
-        
-        NextSentence();
 
-        npcObj.Add(npc.npcName, nextDialogNum);
+        if (npcObj.ContainsKey(npc.npcName))
+            npcObj[npcName] = nextDialogNum;
+        else
+            npcObj.Add(npc.npcName, nextDialogNum);
+        NextSentence();
     }
 
     public void InActiveDialog()
