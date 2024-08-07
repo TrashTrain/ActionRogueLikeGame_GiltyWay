@@ -81,11 +81,12 @@ public class PlayerController : MonoBehaviour
     //Graphic & Input Updates	
     void Update()
     {
+        if (!IsControllable) return;
         UIManager.instance.playerInfo.UpdateProfileUI(this);
         //Debug.Log("playertest");
         WallCheck();
         Jump();
-        Move();
+        
 
         // // fall Charactor
         // if(transform.position.y <= -7)
@@ -93,6 +94,10 @@ public class PlayerController : MonoBehaviour
         //     Destroy(gameObject);
         //     Debug.Log("GameOver");
         // }
+    }
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void LateUpdate()

@@ -62,7 +62,7 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
         StateInit();
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         IdleEnter();
     }
