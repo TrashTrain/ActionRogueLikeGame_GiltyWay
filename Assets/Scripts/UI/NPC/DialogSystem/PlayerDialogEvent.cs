@@ -9,7 +9,7 @@ public class PlayerDialogEvent : MonoBehaviour
 {
     private string playerName = "¡÷¿Œ∞¯";
     private int playerIndex = 100;
-
+    public int checkIndex;
     private string sceneName;
 
     void SetIndex()
@@ -32,7 +32,8 @@ public class PlayerDialogEvent : MonoBehaviour
         {
             InitPlayerInfo();
             SetIndex();
-            UIManager.instance.dialogSystem.ActiveDialog(playerIndex, playerName);
+            if(checkIndex == playerIndex)
+                UIManager.instance.dialogSystem.ActiveDialog(playerIndex, playerName);
             //UIManager.instance.dialogSystem.charCurIndex = UIManager.instance.dialogSystem.nextDialogNum;
         }
 

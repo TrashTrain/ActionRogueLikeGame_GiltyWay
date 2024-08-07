@@ -66,15 +66,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328831016901626952, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.58
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1835106658380424937, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2878312945385852198, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_Sprite

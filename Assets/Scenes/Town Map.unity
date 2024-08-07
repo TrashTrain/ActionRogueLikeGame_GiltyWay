@@ -263,6 +263,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5096085932285460160, guid: cec43ef2a07136d4583969af21d9e1a7, type: 3}
+      propertyPath: checkIndex
+      value: 101
+      objectReference: {fileID: 0}
     - target: {fileID: 5855781700718003710, guid: cec43ef2a07136d4583969af21d9e1a7, type: 3}
       propertyPath: m_Name
       value: PlayerDialogEvent
@@ -14924,18 +14928,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 957715092232003453, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 957715092232003453, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 957715092232003453, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 957715092232003453, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.58
       objectReference: {fileID: 0}
@@ -14974,10 +14966,6 @@ PrefabInstance:
     - target: {fileID: 957715092232003453, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054298963748617310, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3054298963748617310, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
       propertyPath: m_Materials.Array.data[0]

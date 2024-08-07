@@ -37763,6 +37763,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5096085932285460160, guid: cec43ef2a07136d4583969af21d9e1a7, type: 3}
+      propertyPath: checkIndex
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5855781700718003710, guid: cec43ef2a07136d4583969af21d9e1a7, type: 3}
       propertyPath: m_Name
       value: PlayerDialogEvent
