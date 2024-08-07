@@ -6,8 +6,10 @@ using UnityEngine;
 public class GeneralMonsterTest : MonoBehaviour, IDamageable
 {
     protected GeneralMonsterDataStruct generalMonsterData;
+
     public GeneralMonsterDataStruct GeneralMonsterData => generalMonsterData;
-    
+
+
     private bool isTransition = false;
     protected FSMState idleState;
     protected FSMState attackState;
@@ -61,7 +63,7 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
         StateInit();
     }
 
-    protected virtual void Start()
+    protected void Start()
     {
         IdleEnter();
     }
@@ -162,7 +164,7 @@ public class GeneralMonsterTest : MonoBehaviour, IDamageable
         rb.transform.Translate( generalMonsterData.moveSpeed * Time.deltaTime *  generalMonsterData.moveDirection);
     }
 
-    protected virtual void CheckTarget()
+    protected void CheckTarget()
     {
         if ( currentState != idleState) return;
 

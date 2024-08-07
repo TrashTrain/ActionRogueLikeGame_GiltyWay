@@ -15,13 +15,23 @@ public class NPC : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && PlayerController.IsControllable)
             {
-                UIManager.instance.dialogSystem.ActiveDialog(index, npcName);
-                index = UIManager.instance.dialogSystem.nextDialogNum;
+                InitNPCInfo();
+                UIManager.instance.dialogSystem.ActiveDialog(index, npcName, this);
+                //index = UIManager.instance.dialogSystem.nextDialogNum;
                 
             }
             
         }
     }
+    private void InitNPCInfo()
+    {
+        var curNPC = UIManager.instance.dialogSystem.npcObj;
+        if (curNPC.ContainsKey(npcName))
+        {
+            index = curNPC[npcName];
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == 6)
