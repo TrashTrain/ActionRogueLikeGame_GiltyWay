@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 37174788128031373}
   - component: {fileID: 3043768369939476564}
   - component: {fileID: 4123545488814875567}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HpObstacle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
