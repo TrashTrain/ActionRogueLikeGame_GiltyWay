@@ -83,8 +83,12 @@ public class DataManager : MonoBehaviour
         PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);
         BasicPistol basicPistol = FindObjectOfType<PlayerController>().gameObject.transform.GetChild(0).GetComponent<BasicPistol>();
         PassiveSkillData passiveData = new PassiveSkillData(basicPistol.automaticBulletCnt, basicPistol.bulletSize);
-        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData);
+        DialogData dialogData = new DialogData(UIManager.instance.dialogSystem.npcObj);
+
+        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData, dialogData);
         
+        //string json = JsonUtility.ToJson(gameData);
+        //File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
         SaveGameData(gameData, slot);
     }
     
@@ -169,11 +173,23 @@ public class DataManager : MonoBehaviour
         await SceneManager.LoadSceneAsync(gameData.SceneName);
         ApplyPlayerData(gameData.PlayerData);
         ApplyPassiveData(gameData.PassiveSkillData);
+        ApplyDialogData(gameData.DialogData);
+
         BGM.instance?.PlayBGM(gameData.SceneName);
 
         playStartTime = Time.time;
     }
 
+    private void ApplyDialogData(DialogData dialogData)
+    {
+        if (dialogData == null) { Debug.Log("dialogDataNull"); return; }
+        Dictionary<string, int> data = new ();
+        for (int i = 0; i < dialogData.dialogName.Count; i++)
+        {
+            data.Add(dialogData.dialogName[i], dialogData.dialogIndex[i]);
+        }
+        UIManager.instance.dialogSystem.npcObj = data;
+    }
     public void AutoLoadGame(int type)
     {
         GameData gameData = AutoLoadGameData();

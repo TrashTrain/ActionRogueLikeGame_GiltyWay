@@ -9,10 +9,6 @@ public class DialogSystem : MonoBehaviour
 
     public TextMeshProUGUI talkText;
 
-    // CharacterInfo
-    private string charName = "주인공";
-    public int charCurIndex = 100;
-
     [Header("Select")]
     public RectTransform selectCursor;
     public GameObject selectPanel;
@@ -68,7 +64,7 @@ public class DialogSystem : MonoBehaviour
 
         selectPanel.SetActive(false);
     }
-    public void ActiveDialog(int dialogSetIndex, string npcName, NPC npc = null)
+    public void ActiveDialog(int dialogSetIndex, string npcName)
     {
         if (isActive) return;
         if (dialogSetIndex < 0)
@@ -89,12 +85,13 @@ public class DialogSystem : MonoBehaviour
                 curDialogSet = dialogSets[i];
         }
         nextDialogNum = curDialogSet.nextIdx;
+        
+        NextSentence();
 
-        if (npcObj.ContainsKey(npc.npcName))
+        if (npcObj.ContainsKey(npcName))
             npcObj[npcName] = nextDialogNum;
         else
-            npcObj.Add(npc.npcName, nextDialogNum);
-        NextSentence();
+            npcObj.Add(npcName, nextDialogNum);
     }
 
     public void InActiveDialog()

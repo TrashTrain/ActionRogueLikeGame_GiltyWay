@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,13 +14,15 @@ public class GameData
     public PlayerData PlayerData;
     public float PlayTime;
     public PassiveSkillData PassiveSkillData;
+    public DialogData DialogData;
     
-    public GameData(string sceneName, PlayerData playerData, float playTime, PassiveSkillData passiveSkillData)
+    public GameData(string sceneName, PlayerData playerData, float playTime, PassiveSkillData passiveSkillData, DialogData dialogData)
     {
         this.SceneName = sceneName;
         this.PlayerData = playerData;
         this.PlayTime = playTime;
         this.PassiveSkillData = passiveSkillData;
+        this.DialogData = dialogData;
     }
     
     public string FormatPlaytime()

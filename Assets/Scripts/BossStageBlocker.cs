@@ -10,12 +10,14 @@ public class BossStageBlocker : MonoBehaviour
 	
 	private void OnEnable()
 	{
+		if (kingActive == null) return;
 		kingActive.OnBossSlimeDeath += OpenDoor;
 	}
 
 	private void OnDisable()
 	{
-		kingActive.OnBossSlimeDeath -= OpenDoor;
+        if (kingActive == null) return;
+        kingActive.OnBossSlimeDeath -= OpenDoor;
 	}
 	
 	public bool isBlocked = false;
