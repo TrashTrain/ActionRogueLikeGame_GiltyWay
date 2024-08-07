@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 213048578798965759}
   - component: {fileID: 213048578798965744}
   - component: {fileID: 7303320067254893952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,13 +174,13 @@ GameObject:
   - component: {fileID: 213048579874933137}
   - component: {fileID: 3696826241660850510}
   - component: {fileID: 6009820333603751601}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EarthGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &213048579874933139
 Transform:
   m_ObjectHideFlags: 0

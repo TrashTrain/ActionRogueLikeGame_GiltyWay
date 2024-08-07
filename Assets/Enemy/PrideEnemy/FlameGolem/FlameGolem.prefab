@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6442854522951440431}
   - component: {fileID: 7233289651292787549}
   - component: {fileID: 3991877627256319181}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FlameGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6442854524031074881}
   - component: {fileID: 6442854524031074894}
   - component: {fileID: 6749952833362109842}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
