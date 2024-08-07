@@ -112,7 +112,9 @@ public class DataManager : MonoBehaviour
         PlayerData playerData = new PlayerData(player.transform.position, player.maxhp, player.atk, player.def, player.speed, player.jumpPower);
         BasicPistol basicPistol = player.gameObject.transform.GetChild(0).GetComponent<BasicPistol>();
         PassiveSkillData passiveData = new PassiveSkillData(basicPistol.automaticBulletCnt, basicPistol.bulletSize);
-        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData);
+        DialogData dialogData = new DialogData(UIManager.instance.dialogSystem.npcObj);
+        
+        GameData gameData = new GameData(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, playerData, playTime, passiveData, dialogData);
         
         AutoSaveGameData(gameData);
         
@@ -203,6 +205,7 @@ public class DataManager : MonoBehaviour
         Debug.Log("AutoLoadGame");
         ApplyPlayerDataForAuto(gameData.PlayerData, type);
         ApplyPassiveData(gameData.PassiveSkillData);
+        ApplyDialogData(gameData.DialogData);
     }
 
     private void ApplyPassiveData(PassiveSkillData data)
