@@ -21,17 +21,19 @@ public class FlyingEye : GeneralMonsterTest
     protected override void AttackEnter()
     {
         base.AttackEnter();
+        base.CheckTarget();
         startTime = Time.time;
         Debug.Log("FlyingEye Attack Enter");
         
         // ----------
+        
         laserTrans = transform.Find("Body/Laser/Line");
-        if (laserTrans != null)
+        if (laserTrans == null)
         {
             Debug.LogError("Laser not found!");
         }
         
-        laserTrans.GetComponent<FlyingEyeLaser>().activeState();
+        laserTrans.GetComponent<FlyingEyeLaser>().ActiveState();
         // ----------
     }
 
@@ -39,7 +41,6 @@ public class FlyingEye : GeneralMonsterTest
     protected override void AttackUpdate()
     {
         base.AttackUpdate();
-        
         if(Time.time - startTime < 2f)
         {
             //2초 대기 후 idle 상태로
@@ -50,12 +51,12 @@ public class FlyingEye : GeneralMonsterTest
             
             // -----
             laserTrans = transform.Find("Body/Laser/Line");
-            if (laserTrans != null)
+            if (laserTrans == null)
             {
                 Debug.LogError("Laser not found!");
             }
         
-            laserTrans.GetComponent<FlyingEyeLaser>().disabledState();
+            laserTrans.GetComponent<FlyingEyeLaser>().DisabledState();
             // -----
 
         }
@@ -65,7 +66,16 @@ public class FlyingEye : GeneralMonsterTest
     protected override void Attack()
     {
         base.Attack();
-        
+       
+    }
+
+    public bool ExistTarget()
+    {
+        if (FindTarget == true)
+        {
+            return true;
+        }
+        return false;
     }
 
     #endregion

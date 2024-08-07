@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class FlyingEyeLaser : MonoBehaviour
 {
+    private enum State { active, disabled }
+    private State currentState;
+    
     private LineRenderer lineRenderer;
 
     public float laserLength = 6f;
@@ -14,9 +18,13 @@ public class FlyingEyeLaser : MonoBehaviour
 
     public int dmg;
 
+    public Vector2 direction;
+    
     public float directionX = 0f;
     public float directionY = -1f;
 
+    public GeneralMonsterTest flyingEye;
+    
     void Start()
     {
         lineRenderer = gameObject.GetComponent<LineRenderer>();
@@ -33,8 +41,10 @@ public class FlyingEyeLaser : MonoBehaviour
     
         // 시작할 때는 레이저 안 나오게
         lineRenderer.enabled = false;
+        currentState = State.disabled;
+        
         // 레이저의 Z축 위치를 고정
-        lineRenderer.sortingOrder = 3;
+        lineRenderer.sortingOrder = 101;
     }
 
     void Update()
@@ -47,41 +57,60 @@ public class FlyingEyeLaser : MonoBehaviour
             // 레이저의 위치를 업데이트
             lineRenderer.SetPosition(0, startPoint);
 
-            Vector2 direction = new Vector2(directionX, directionY).normalized;
+            if (flyingEye.GeneralMonsterData.targetTransform != null)
+            {
+                Transform target = flyingEye.GeneralMonsterData.targetTransform;
+                direction = (target.position - transform.position).normalized;
+            }
+            else
+            {
+                direction = new Vector2(0f, -1f).normalized;
+            }
 
-            RaycastHit2D hit = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Player"));
-
-            RaycastHit2D hitGround = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Ground"));
-
-            // if (currentState == State.active) // 레이저가 active 상태
-            // {
+            RaycastHit2D hit = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Player","Ground","Wall","HookNParkour"));
+            
+            if (currentState == State.active) // 레이저가 active 상태
+            {
+                lineRenderer.enabled = true;
                 lineRenderer.material = lineRenderer.materials[1];
+                
                 if (hit.collider != null) // 레이저에 플레이어가 부딪혔을 때
                 {
                     lineRenderer.SetPosition(1, hit.point);
-                    hit.collider.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, new Vector2(0f, 0f));
-                }
-                else if (hitGround.collider != null) // 레이저가 바닥에 부딪혔을 때 
-                {
-                    lineRenderer.SetPosition(1, hitGround.point);
+
+                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                    {
+                        hit.collider.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, new Vector2(0f, 0f));
+                    }
                 }
                 else
                 {
                     lineRenderer.SetPosition(1, startPoint + direction * laserLength);
-                    // lineRenderer.SetPosition(1, startPoint + Vector2.down * laserLength);
                 }
+            }
+            else if (currentState == State.disabled)
+            {
+                lineRenderer.enabled = false;
+            }
+        }
+        else
+        {
+            Debug.LogError("Laser not active!");
         }
     }
 
-    public void disabledState()
+    public void DisabledState()
     {
-        lineRenderer.enabled = false;
+        // lineRenderer.enabled = false;
+        currentState = State.disabled;
     }
+    
 
-    public void activeState()
+    public void ActiveState()
     {
-        lineRenderer.enabled = true;
+        // lineRenderer.enabled = true;
+        currentState = State.active;
     }
-
+    
 }
 
