@@ -28,7 +28,9 @@ public class NPC : MonoBehaviour
         var curNPC = UIManager.instance.dialogSystem.npcObj;
         if (curNPC.ContainsKey(npcName))
         {
+            Debug.Log("index : " + index);
             index = curNPC[npcName];
+            Debug.Log("curindex : " + index);
         }
         else
         {

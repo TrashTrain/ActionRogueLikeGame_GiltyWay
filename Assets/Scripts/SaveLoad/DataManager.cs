@@ -20,7 +20,7 @@ public class DataManager : MonoBehaviour
     //Init for New Game
     public void InitPlayTime()
     {
-        UIManager.instance.dialogSystem.npcObj = null;
+        UIManager.instance.dialogSystem.npcObj.Clear();
         currentSlot = 0;
         playTime = 0;
         playStartTime = Time.time;

@@ -16,7 +16,7 @@ public class GameData
     public PassiveSkillData PassiveSkillData;
     public DialogData DialogData;
     
-    public GameData(string sceneName, PlayerData playerData, float playTime, PassiveSkillData passiveSkillData, DialogData dialogData)
+    public GameData(string sceneName, PlayerData playerData, float playTime, PassiveSkillData passiveSkillData, DialogData dialogData = null)
     {
         this.SceneName = sceneName;
         this.PlayerData = playerData;
