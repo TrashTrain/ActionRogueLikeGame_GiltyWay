@@ -35,7 +35,10 @@ public class Golem : MonoBehaviour, IDamageable
     private const int PlayerLayer = 1 << 6;
     private const int GroundLayer = 1 << 7;
 
-    private Vector2 screenCenter;
+    public Vector2 screenCenter;
+    public float maxDistance = 12f;
+    public float minDistance = 4f;
+    
     
     protected void Awake()
     {
@@ -206,9 +209,14 @@ public class Golem : MonoBehaviour, IDamageable
     {
         if(currentState != P1_AttackA1) return;
         
-        GameObject subMon1 = Instantiate(this.subMonster, transform.position + Vector3.up * 2 + Vector3.left, Quaternion.identity);
-        GameObject subMon2 = Instantiate(this.subMonster, transform.position + Vector3.up * 2 + Vector3.right, Quaternion.identity);
+        GameObject subMon1 = Instantiate(this.subMonster, transform.position + Vector3.up * 2 + Vector3.left * 5, Quaternion.identity);
+        GameObject subMon2 = Instantiate(this.subMonster, transform.position + Vector3.up * 2 + Vector3.right * 5, Quaternion.identity);
         
+        subMon1.SetActive(true);
+        subMon2.SetActive(true);
+        
+        subMon1.transform.localScale = 5 * Vector3.one;
+        subMon2.transform.localScale = 5 * Vector3.one;
     }
 
     protected virtual void P1_AttackA1Exit()
@@ -334,6 +342,8 @@ public class Golem : MonoBehaviour, IDamageable
         float angle = Mathf.Atan2(attackDir.y, attackDir.x) * Mathf.Rad2Deg; // 각도 계산
             
         GameObject bullet = Instantiate(sonicWavePrefab, transform.position + transform.forward, Quaternion.Euler(new Vector3(0, 0, angle)));
+        bullet.SetActive(true);
+        bullet.transform.localScale = Vector3.one;
         bullet.GetComponent<Rigidbody2D>().AddForce(  generalMonsterData.attackSpeed * attackDir , ForceMode2D.Impulse);
         
         Invoke("P1_RunBAttack", 1f);
@@ -386,7 +396,7 @@ public class Golem : MonoBehaviour, IDamageable
 
     protected void Patrol()
     {
-        if (ReachedBoundary())
+        if (ShouldChangeDirection())
         {
             SetRandomDirection();
         }
@@ -394,48 +404,58 @@ public class Golem : MonoBehaviour, IDamageable
         rb.transform.Translate( generalMonsterData.moveSpeed * Time.deltaTime *  generalMonsterData.moveDirection);
     }
     
+    private bool ShouldChangeDirection()
+    {
+        if (generalMonsterData.targetTransform == null)
+        {
+            generalMonsterData.targetTransform = FindObjectOfType<PlayerController>().transform;
+        }
+            
+        // Change direction if the monster is too close or too far from the player
+        float distanceToPlayer = Vector2.Distance(transform.position, generalMonsterData.targetTransform.position);
+        return generalMonsterData.targetTransform.position.y - 4 >= transform.position.y || distanceToPlayer > maxDistance;
+    }
+    
     private bool ReachedBoundary()
     {
         // 화면 경계 체크
-        return transform.position.x > generalMonsterData.patrolPos.x + generalMonsterData.patrolDistance / 2 ||
-               transform.position.x < generalMonsterData.patrolPos.x - generalMonsterData.patrolDistance / 2 ||
-               transform.position.y > generalMonsterData.patrolPos.y + generalMonsterData.patrolDistance / 2 ||
-               transform.position.y < generalMonsterData.patrolPos.y - generalMonsterData.patrolDistance / 2;
+        // return transform.position.x > generalMonsterData.patrolPos.x + generalMonsterData.patrolDistance / 2 ||
+        //        transform.position.x < generalMonsterData.patrolPos.x - generalMonsterData.patrolDistance / 2 ||
+        //        transform.position.y > generalMonsterData.patrolPos.y + generalMonsterData.patrolDistance / 2 ||
+        //        transform.position.y < generalMonsterData.patrolPos.y - generalMonsterData.patrolDistance / 2;
+        return false;
     }
 
+    
     private void SetRandomDirection()
     {
-        // 상하좌우 움직임에 대해 가중치 적용
-        float[] weights = new float[4] { 1f, 1f, 1.5f, 1.5f }; // 상, 하, 좌, 우
-        float totalWeight = 0f;
-        foreach (float weight in weights) totalWeight += weight;
+        if (generalMonsterData.targetTransform == null)
+        {
+            generalMonsterData.targetTransform = FindObjectOfType<PlayerController>().transform;
+        }
         
-        float randomValue = Random.Range(0, totalWeight);
+        Vector2 directionToPlayer = (generalMonsterData.targetTransform.position - transform.position).normalized;
+        float distanceToPlayer = Vector2.Distance(transform.position, generalMonsterData.targetTransform.position);
         
-        if (randomValue < weights[0])
+        if (distanceToPlayer >= maxDistance)
         {
-            generalMonsterData.moveDirection = Vector2.up;
-        }
-        else if (randomValue < weights[0] + weights[1])
-        {
-            generalMonsterData.moveDirection = Vector2.down;
-        }
-        else if (randomValue < weights[0] + weights[1] + weights[2])
-        {
-            generalMonsterData.moveDirection = Vector2.left;
-        }
-        else
-        {
-            generalMonsterData.moveDirection = Vector2.right;
+            generalMonsterData.moveDirection = directionToPlayer;
+            return;
         }
 
-        // 화면 중앙으로의 가중치 적용
-        if (Random.value < 0.5f) // 50% 확률로 중앙으로 이동
+        if (generalMonsterData.targetTransform.position.y - 4 >= transform.position.y)
         {
-            Vector2 directionToCenter = (screenCenter - (Vector2)Camera.main.WorldToScreenPoint(transform.position)).normalized;
-            generalMonsterData.moveDirection = directionToCenter;
+            generalMonsterData.moveDirection =
+                new Vector2(generalMonsterData.moveDirection.x, generalMonsterData.moveDirection.y >= 0 ? generalMonsterData.moveDirection.y : -generalMonsterData.moveDirection.y);
+            
+            return;
         }
+        
+        //Otherwise, calculate a new random direction
+        float angle = Random.Range(0f, 360f);
+        generalMonsterData.moveDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized;
     }
+    
 
     protected void CheckTarget()
     {
@@ -488,10 +508,6 @@ public class Golem : MonoBehaviour, IDamageable
     {
         if ( currentState == deathState) return;
         
-        if (other.gameObject.layer == 9)
-        {
-            TurnBack();
-        }
 
         if (other.gameObject.layer == 6)
         {

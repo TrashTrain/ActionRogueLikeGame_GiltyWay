@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDialogEvent : MonoBehaviour
 {
-    private string playerName = "ÁÖÀÎ°ø";
+    private string playerName = "ì£¼ì¸ê³µ";
     private int playerIndex = 100;
     public int checkIndex;
     private string sceneName;
@@ -18,7 +18,7 @@ public class PlayerDialogEvent : MonoBehaviour
         if (scene.name == "Tutorial Map")
             playerIndex = 100;
 
-        // ¾À¿¡ ÇÒ´çÇÏ´Â ¸Ş¼¼Áö°¡ ¸¹À»½Ã »ç¿ë
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ï´ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         switch (sceneName)
         {
             default:
