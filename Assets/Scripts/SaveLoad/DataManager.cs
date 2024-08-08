@@ -212,7 +212,11 @@ public class DataManager : MonoBehaviour
     private void ApplyPassiveData(PassiveSkillData data)
     {
         BasicPistol passiveData = FindObjectOfType<BasicPistol>();
-        if (passiveData == null) return;
+        if (passiveData == null)
+        {
+            Debug.Log("passiveDataNull");
+            return;
+        }
         passiveData.automaticBulletCnt = data.automaticBulletCnt;
         passiveData.bulletSize = data.bulletSize;
     }
