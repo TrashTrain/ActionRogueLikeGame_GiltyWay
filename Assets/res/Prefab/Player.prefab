@@ -125,15 +125,15 @@ MonoBehaviour:
   groundCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 144
-  wallCheckDistance: 0.4
+    m_Bits: 4248
+  wallCheckDistance: 0.8
   wallLayer:
     serializedVersion: 2
-    m_Bits: 144
+    m_Bits: 4120
   wallSlideSpeed: 2
   isWallSliding: 0
   isWallJump: 0
-  groundCheckSize: {x: 0.3, y: 0.1}
+  groundCheckSize: {x: 0.8, y: 0.2}
   impurse: {fileID: 0}
   hitAnimator: {fileID: 0}
 --- !u!50 &3663490773043001850
