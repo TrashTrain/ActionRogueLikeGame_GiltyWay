@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8881095282775579652}
   - component: {fileID: -9171114914836526741}
   - component: {fileID: 2274932971935315033}
+  - component: {fileID: -4287318058806897579}
   m_Layer: 0
   m_Name: Bat_SonicWave
   m_TagString: Untagged
@@ -188,3 +189,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.2, y: 0}
   m_Size: {x: 0.45, y: 0.875}
   m_Direction: 0
+--- !u!114 &-4287318058806897579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830692668525415512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
