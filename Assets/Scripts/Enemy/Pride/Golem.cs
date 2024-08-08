@@ -34,6 +34,8 @@ public class Golem : MonoBehaviour, IDamageable
     //Constant Variable
     private const int PlayerLayer = 1 << 6;
     private const int GroundLayer = 1 << 7;
+
+    private Vector2 screenCenter;
     
     protected void Awake()
     {
@@ -153,6 +155,10 @@ public class Golem : MonoBehaviour, IDamageable
         Debug.Log("P1_Idle");
         animator.SetBool("P1_Idle", true);
         Invoke("CheckTarget", 1f);
+        rb.velocity = Vector2.zero;
+        
+        screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+        SetRandomDirection();
     }
     
     protected virtual void P1_IdleUpdate()
@@ -186,7 +192,7 @@ public class Golem : MonoBehaviour, IDamageable
         {
             
         }
-        else if(Time.time - startTime < 10f)
+        else if(Time.time - startTime < 5f)
         {
             Patrol();
         }
@@ -252,17 +258,19 @@ public class Golem : MonoBehaviour, IDamageable
     {
         if(currentState != P1_AttackA2) return;
         
-        rb.gravityScale = 0f;
+        
+        //rb.gravityScale = 0f;
         sprite.flipX = (generalMonsterData.targetTransform.position.x < transform.position.x);
         rb.velocity = Vector2.zero;
         
-        var attackDir = sprite.flipX ? Vector2.left : Vector2.right;
-        rb.AddForce( 400f * attackDir, ForceMode2D.Impulse);
+        //var attackDir = sprite.flipX ? Vector2.left : Vector2.right;
+        var attackDir = generalMonsterData.targetTransform.position - transform.position;
+        rb.AddForce( 600f * attackDir.normalized, ForceMode2D.Impulse);
     }
 
     protected virtual void P1_AttackA2Exit()
     {
-        rb.gravityScale = 1f;
+        //rb.gravityScale = 1f;
         rb.velocity = Vector2.zero;
     }
     #endregion
@@ -284,7 +292,7 @@ public class Golem : MonoBehaviour, IDamageable
     
     protected virtual void P1_AtoBUpdate()
     {
-        rb.transform.Translate(2 * Time.deltaTime * Vector2.up);
+        rb.transform.Translate(4 * Time.deltaTime * Vector2.up);
         if (Time.time - startTime > 2f)
         {
             nextState = P1_RunB;
@@ -364,8 +372,8 @@ public class Golem : MonoBehaviour, IDamageable
 
     protected virtual void P1_AttackBExit()
     {
-        rb.gravityScale = 1f;
-        rb.AddForce(200f * Vector2.down, ForceMode2D.Impulse);
+        //rb.gravityScale = 1f;
+        //rb.AddForce(200f * Vector2.down, ForceMode2D.Impulse);
     }
     #endregion
     
@@ -378,22 +386,55 @@ public class Golem : MonoBehaviour, IDamageable
 
     protected void Patrol()
     {
-        if (DetectObstacle())
+        if (ReachedBoundary())
         {
-            TurnBack();
-        }
-        
-        switch (generalMonsterData.moveDirection.x)
-        {
-            case > 0 when (transform.position.x > 
-                generalMonsterData.patrolPos.x + Vector2.right.x * generalMonsterData.patrolDistance / 2):
-            case < 0 when (transform.position.x <
-                generalMonsterData.patrolPos.x + Vector2.left.x * generalMonsterData.patrolDistance / 2):
-                TurnBack();
-                break;
+            SetRandomDirection();
         }
         
         rb.transform.Translate( generalMonsterData.moveSpeed * Time.deltaTime *  generalMonsterData.moveDirection);
+    }
+    
+    private bool ReachedBoundary()
+    {
+        // 화면 경계 체크
+        return transform.position.x > generalMonsterData.patrolPos.x + generalMonsterData.patrolDistance / 2 ||
+               transform.position.x < generalMonsterData.patrolPos.x - generalMonsterData.patrolDistance / 2 ||
+               transform.position.y > generalMonsterData.patrolPos.y + generalMonsterData.patrolDistance / 2 ||
+               transform.position.y < generalMonsterData.patrolPos.y - generalMonsterData.patrolDistance / 2;
+    }
+
+    private void SetRandomDirection()
+    {
+        // 상하좌우 움직임에 대해 가중치 적용
+        float[] weights = new float[4] { 1f, 1f, 1.5f, 1.5f }; // 상, 하, 좌, 우
+        float totalWeight = 0f;
+        foreach (float weight in weights) totalWeight += weight;
+        
+        float randomValue = Random.Range(0, totalWeight);
+        
+        if (randomValue < weights[0])
+        {
+            generalMonsterData.moveDirection = Vector2.up;
+        }
+        else if (randomValue < weights[0] + weights[1])
+        {
+            generalMonsterData.moveDirection = Vector2.down;
+        }
+        else if (randomValue < weights[0] + weights[1] + weights[2])
+        {
+            generalMonsterData.moveDirection = Vector2.left;
+        }
+        else
+        {
+            generalMonsterData.moveDirection = Vector2.right;
+        }
+
+        // 화면 중앙으로의 가중치 적용
+        if (Random.value < 0.5f) // 50% 확률로 중앙으로 이동
+        {
+            Vector2 directionToCenter = (screenCenter - (Vector2)Camera.main.WorldToScreenPoint(transform.position)).normalized;
+            generalMonsterData.moveDirection = directionToCenter;
+        }
     }
 
     protected void CheckTarget()

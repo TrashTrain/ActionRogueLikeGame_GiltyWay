@@ -15,8 +15,8 @@ MonoBehaviour:
   data:
     knockBackPower: 20
     hp: 40
-    moveSpeed: 4
-    patrolDistance: 10
+    moveSpeed: 10
+    patrolDistance: 20
     patrolPos: {x: 0, y: 0}
     moveDirection: {x: 1, y: 0}
     obstacleRaycastDistance: 2
@@ -24,18 +24,18 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     targetTransform: {fileID: 0}
-    recognizeRadius: 6
+    recognizeRadius: 30
     attackSpeed: 4
     attackDamage: 4
   knockBackPower: 20
   hp: 40
-  moveSpeed: 4
-  patrolDistance: 10
+  moveSpeed: 10
+  patrolDistance: 20
   moveDirection: {x: 1, y: 0}
   obstacleRaycastDistance: 2
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  recognizeRadius: 6
+  recognizeRadius: 30
   attackSpeed: 4
   attackDamage: 4

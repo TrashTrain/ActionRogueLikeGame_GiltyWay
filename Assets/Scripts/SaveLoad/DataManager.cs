@@ -101,9 +101,9 @@ public class DataManager : MonoBehaviour
         //오토 세이브는 씬 전환 시 일시적 데이터를 연동하기 위한 것.
         if (player == null)
         {
-            if (File.Exists(AutoSaveSlot))
+            if (File.Exists(Path.Combine(Application.persistentDataPath, AutoSaveSlot)))
             {
-                File.Delete(AutoSaveSlot);
+                File.Delete(Path.Combine(Application.persistentDataPath, AutoSaveSlot));
             }
             return;
         }
