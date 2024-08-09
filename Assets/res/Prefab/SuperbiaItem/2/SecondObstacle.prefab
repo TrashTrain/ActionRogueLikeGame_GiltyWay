@@ -115,7 +115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 944741781335110093, guid: a96755722fb804cb7956978ffc7f2fba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.585396
+      value: -33.98
       objectReference: {fileID: 0}
     - target: {fileID: 944741781335110093, guid: a96755722fb804cb7956978ffc7f2fba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -240,6 +240,10 @@ PrefabInstance:
     - target: {fileID: 929007678321178887, guid: 11e9beda870464a0a8e27529cf91c14a, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126212464481439993, guid: 11e9beda870464a0a8e27529cf91c14a, type: 3}
+      propertyPath: directionY
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1126212464481439993, guid: 11e9beda870464a0a8e27529cf91c14a, type: 3}
       propertyPath: disabledTime

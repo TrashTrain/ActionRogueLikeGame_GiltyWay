@@ -8,6 +8,9 @@ public class SFXManager : MonoBehaviour
 
     public AudioClip getItem;
     public AudioClip hpAtk;
+    public AudioClip flyingEyeAttack;
+    public AudioClip demonAttack;
+    public AudioClip laserAttack;
     
     private AudioSource audioSource;
 

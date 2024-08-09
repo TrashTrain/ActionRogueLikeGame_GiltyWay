@@ -21,7 +21,6 @@ public class SpeedObstacle : Obstacle
         if (other.gameObject.layer == 6)
         {
             player = other.gameObject.GetComponent<PlayerController>();
-            //itemGetText.DisplayText("Slow Down!");
             UIManager.instance.itemGetText.DisplayText("Slow Down!");
             
             if (isActive)
@@ -34,9 +33,6 @@ public class SpeedObstacle : Obstacle
                 StartCoroutine(DecreaseSpeed(player));
             }
             
-            // buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
-            // UIManager.instance.buffItemController.AddBuff("Slow Down Item", player.speed, minusSpeedTime, icon);
-
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
         }
