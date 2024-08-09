@@ -127,6 +127,84 @@ DistanceJoint2D:
   m_CorrespondingSourceObject: {fileID: 2023134945126191284, guid: b8e1510392c664648bc440db951a776d, type: 3}
   m_PrefabInstance: {fileID: 7907372777512542834}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &344879921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.899401
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.578052
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.106818125
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 172191928457361995, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564883101777347055, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      propertyPath: m_Name
+      value: FifthEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1564883101777347055, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 344879923}
+  m_SourcePrefab: {fileID: 100100000, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+--- !u!1 &344879922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1564883101777347055, guid: d11542fe3a6e1439f8b1677e89d7133e, type: 3}
+  m_PrefabInstance: {fileID: 344879921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &344879923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344879922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91eaa0c00d1403e419ee3f452442fd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapIndex: 5
 --- !u!1 &455222448
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 2574756924547006828, guid: b7cb23fd3e8314a4296b5d73e124d5c3, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574756924547006828, guid: b7cb23fd3e8314a4296b5d73e124d5c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4642255229709903391, guid: b7cb23fd3e8314a4296b5d73e124d5c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47749,6 +47831,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getItem: {fileID: 8300000, guid: 5efa41faebe12634db9ffad659cb294c, type: 3}
   hpAtk: {fileID: 0}
+  flyingEyeAttack: {fileID: 0}
+  demonAttack: {fileID: 0}
+  laserAttack: {fileID: 0}
 --- !u!82 &1671871579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -60108,3 +60193,4 @@ SceneRoots:
   - {fileID: 1306798216}
   - {fileID: 2063163881}
   - {fileID: 678551482}
+  - {fileID: 344879921}
