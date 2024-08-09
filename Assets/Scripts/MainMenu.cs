@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public void OnClickNewGame()
     {
         //SceneManager.LoadScene("Tutorial Map");
-        SceneLoader.LoadScene("Tutorial Map");
+        SceneLoader.LoadScene("Opening Scene");
         DataManager.instance.InitPlayTime();
     }
 
