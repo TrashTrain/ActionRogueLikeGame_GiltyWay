@@ -85,6 +85,9 @@ public class Demon : GeneralMonsterTest
         base.AttackEnter();
         startTime = Time.time;
         Debug.Log("Demon Attack Enter");
+        
+        // sound effect
+        SFXManager.Instance.PlaySound(SFXManager.Instance.demonAttack);
     }
 
 
@@ -107,7 +110,7 @@ public class Demon : GeneralMonsterTest
     {
         base.Attack();
         Invoke("DemonAttack", 0.4f);
-         
+
         attackParticle.transform.localPosition = new Vector3(((generalMonsterData.targetTransform.position.x < transform.position.x) ? -originalParticlePosition.x : originalParticlePosition.x), originalParticlePosition.y, originalParticlePosition.z);
         attackParticle.transform.localScale = new Vector3(((generalMonsterData.targetTransform.position.x < transform.position.x) ? -1 : 1), 1, 1);
     }

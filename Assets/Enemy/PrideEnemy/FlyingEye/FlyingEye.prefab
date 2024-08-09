@@ -82,7 +82,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &2990347891894715227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 2990347891894715227}
     - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: laserLength
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: activeMaterial

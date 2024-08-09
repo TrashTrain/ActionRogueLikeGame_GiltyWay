@@ -8,6 +8,7 @@ using UnityEngine;
 public class DemonAttack : MonoBehaviour
 {
     public GeneralMonsterTest demon;
+    public float attackDmg;
     
     private void Awake()
     {
@@ -25,13 +26,13 @@ public class DemonAttack : MonoBehaviour
         {
             if (demon != null)
             {
-                float damage = demon.GeneralMonsterData.attackDamage;
+                // float damage = demon.GeneralMonsterData.attackDamage;
                 float knockBackPower = demon.GeneralMonsterData.knockBackPower;
                 Transform player = other.transform;
-
+                
                 // 데미지와 넉백을 처리
                 player.gameObject.GetComponent<PlayerController>().GetDamaged(
-                    damage, 
+                    attackDmg, 
                     this.transform.parent.gameObject,
                     (((this.transform.parent.position.x > transform.position.x) ? Vector2.left : Vector2.right) + 0.5f * Vector2.up).normalized * knockBackPower
                 );
