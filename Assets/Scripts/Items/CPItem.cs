@@ -27,7 +27,8 @@ public class CPItem : Item
                 return;
             }
             
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
 
             //itemGetText.DisplayText("Attack Power Up!");
             UIManager.instance.itemGetText.DisplayText("Attack Power Up!");

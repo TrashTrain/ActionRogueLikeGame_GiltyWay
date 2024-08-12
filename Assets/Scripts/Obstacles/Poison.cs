@@ -27,7 +27,8 @@ public class Poison : MonoBehaviour
             originalColor = spriteRenderer.color;
             
             // sound
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            SoundManager.instance.PlaySound("Obstacle_Attack", player.GetComponent<Transform>().position);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
             
             if (isActive)
             {

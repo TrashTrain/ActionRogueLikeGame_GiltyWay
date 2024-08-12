@@ -29,7 +29,8 @@ public class HPObstacle : MonoBehaviour
             if (!isActive)
             {
                 // 효과음
-                SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
+                SoundManager.instance.PlaySound("Obstacle_Attack", transform);
+                // SFXManager.Instance.PlaySound(SFXManager.Instance.hpAtk);
                 
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
