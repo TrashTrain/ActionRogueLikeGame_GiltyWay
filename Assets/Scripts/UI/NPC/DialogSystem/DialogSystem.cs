@@ -27,6 +27,9 @@ public class DialogSystem : MonoBehaviour
 
     private bool isActive = false;
 
+    public Animator altarDoor;
+    public BoxCollider2D doorCol;
+    
     //타이핑 기능
     private bool isTyping = false;
     private bool skip = false;
@@ -57,6 +60,12 @@ public class DialogSystem : MonoBehaviour
                 break;
             case 1:
                 UIManager.instance.slotController.ShowSlotPanel();
+                break;
+            case 2:
+                altarDoor = GameObject.Find("Dungeon Door").GetComponent<Animator>();
+                doorCol = GameObject.Find("Dungeon Door").GetComponent<BoxCollider2D>();
+                altarDoor.enabled = true;
+                doorCol.enabled = true;
                 break;
             default:
                 break;

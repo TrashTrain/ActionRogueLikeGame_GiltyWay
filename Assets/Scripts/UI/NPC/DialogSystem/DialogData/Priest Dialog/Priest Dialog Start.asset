@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
+  m_Name: Priest Dialog Start
+  m_EditorClassIdentifier: 
+  IdxNum: 10
+  nextIdx: 11
+  dialogElements:
+  - dialog: "\uB0AF\uC124\uC9C0 \uC54A\uC740 \uC80A\uC740\uC774\uB85C\uAD70... \uC774\uB7F0
+      \uB9C8\uC744\uC5D4 \uBB34\uC2A8 \uC77C\uC778\uAC00."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uC544\uC774\uB4E4\uC774 \uC5C6\uC5B4\uC84C\uB2E4\uACE0?"
+    selectYes: -1
+    selectNo: 0
+  - dialog: ...
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uD070\uC77C\uC774\uAD70... \uD070\uC77C\uC774\uC57C."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uC544\uC774\uB4E4\uC740 \uC544\uBB34\uB798\uB3C4 7\uC8C4\uC885\uC758
+      \uC545\uB9C8\uB4E4\uC5D0\uAC8C \uB04C\uB824\uAC04 \uAC83 \uAC19\uAD70."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uC545\uB9C8\uB4E4\uC740 \uC774 \uBB38 \uB4A4\uC5D0 \uC874\uC7AC\uD558\uB124."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uD5C8\uB098 \uBCF4\uB2E4\uC2DC\uD53C \uB9C8\uC744 \uC0AC\uB78C\uB4E4\uC758
+      \uC548\uC804\uC744 \uC704\uD574 \uB0B4 \uC190\uC218 \uBB38\uC744 \uAD73\uAC8C
+      \uB2EB\uACE0 \uAD00\uB9AC\uD558\uACE0 \uC788\uC9C0."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uC548\uD0C0\uAE5D\uC9C0\uB9CC... \uC545\uB9C8\uB97C \uB9C8\uC8FC\uD55C\uB2E4\uACE0
+      \uD574\uB3C4 \uC544\uC774\uB4E4\uC758 \uC548\uC804\uC740 \uBCF4\uC7A5\uC774
+      \uC5B4\uB835\uB124."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uADF8\uB798\uB3C4 \uB4E4\uC5B4\uAC08 \uD150\uAC00?"
+    selectYes: 2
+    selectNo: 0
+  - dialog: "\uC790\uB124\uC758 \uB73B\uC744 \uC798 \uC54C\uACA0\uB124..."
+    selectYes: -1
+    selectNo: 0
