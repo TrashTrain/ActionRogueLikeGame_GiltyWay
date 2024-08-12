@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireAction: {fileID: 2837764100808350679}
+  joint2D: {fileID: 0}
   enemyTrans: {fileID: 0}
   isBindToEnemy: 0
   maxHoldLength: 4
