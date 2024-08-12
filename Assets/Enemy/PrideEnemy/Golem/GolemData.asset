@@ -38,4 +38,4 @@ MonoBehaviour:
     m_Bits: 64
   recognizeRadius: 10
   attackSpeed: 4
-  attackDamage: 4
+  attackDamage: 5

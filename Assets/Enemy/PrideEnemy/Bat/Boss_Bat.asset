@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Boss_Bat
   m_EditorClassIdentifier: 
   data:
-    knockBackPower: 0
-    hp: 0
-    moveSpeed: 0
-    patrolDistance: 0
+    knockBackPower: 80
+    hp: 10
+    moveSpeed: 6
+    patrolDistance: 10
     patrolPos: {x: 0, y: 0}
-    moveDirection: {x: 0, y: 0}
+    moveDirection: {x: 1, y: 0}
     obstacleRaycastDistance: 0
     targetLayer:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 64
     targetTransform: {fileID: 0}
-    recognizeRadius: 0
+    recognizeRadius: 10
     attackSpeed: 0
-    attackDamage: 0
+    attackDamage: 4
   knockBackPower: 80
   hp: 10
   moveSpeed: 6
@@ -36,6 +36,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  recognizeRadius: 0
+  recognizeRadius: 20
   attackSpeed: 0
-  attackDamage: 4
+  attackDamage: 5

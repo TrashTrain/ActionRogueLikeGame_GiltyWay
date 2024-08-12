@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogSystem : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class DialogSystem : MonoBehaviour
 
     [Header("NpcName")]
     public TextMeshProUGUI npcName;
+    public Image npcImage;
 
     public Dictionary<string, int> npcObj = new ();
 
@@ -64,7 +66,7 @@ public class DialogSystem : MonoBehaviour
 
         selectPanel.SetActive(false);
     }
-    public void ActiveDialog(int dialogSetIndex, string npcName)
+    public void ActiveDialog(int dialogSetIndex, string npcName, Sprite npcImage = null)
     {
         if (isActive) return;
         if (dialogSetIndex < 0)
@@ -86,7 +88,18 @@ public class DialogSystem : MonoBehaviour
                 idxCheck = true;
             }
         }
+        if (npcImage == null)
+        {
+            transform.GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.GetChild(1).gameObject.SetActive(idxCheck);
+            transform.GetChild(1).gameObject.GetComponent<Image>().sprite = npcImage;
+        }
+
         gameObject.SetActive(idxCheck);
+
         if (gameObject.activeSelf)
             PlayerController.IsControllable = false;
         nextDialogNum = curDialogSet.nextIdx;
@@ -97,6 +110,8 @@ public class DialogSystem : MonoBehaviour
             return;
         }
         NextSentence();
+
+        transform.GetChild(0).gameObject.SetActive(false);
 
         if (npcObj.ContainsKey(npcName))
             npcObj[npcName] = nextDialogNum;

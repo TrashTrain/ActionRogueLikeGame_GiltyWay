@@ -39,7 +39,7 @@ public class MonsterCount : MonoBehaviour
         if (enemyCount == 0 && visibleWall.activeSelf)
         { 
             visibleWall.SetActive(false);
-            MonsterCountDB.Instance.stageCheck(mapIndex, visibleWall.activeSelf);
+            MonsterCountDB.Instance.StageCheck(mapIndex, visibleWall.activeSelf);
         }
     }
 }
