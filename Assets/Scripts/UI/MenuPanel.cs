@@ -27,7 +27,8 @@ public class MenuPanel : MonoBehaviour
     private void Update()
     {
         if (!PlayerController.IsControllable) return;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        Scene scene = SceneManager.GetActiveScene();
+        if (Input.GetKeyDown(KeyCode.Escape) && !(scene.name == "Opening Scene"))
         {
             if (isMenuClick)
             {

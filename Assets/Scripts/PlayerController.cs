@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     //Initialization
     void Awake()
     {
+        //DataManager.gameData
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();

@@ -4828,6 +4828,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10e00a98e30690440bcff774be49dd18, type: 2}
   - {fileID: 11400000, guid: da495064d61e3bd4e85af7d9e86dd1cc, type: 2}
   - {fileID: 11400000, guid: 16c99c31a164cd44ab03b5dcbb92c0b2, type: 2}
+  - {fileID: 11400000, guid: b005c3610e4c341709335350002cbe91, type: 2}
+  - {fileID: 11400000, guid: c7427890cc8574b918f0cc15a06c58aa, type: 2}
   talkText: {fileID: 3497447522291853514}
   selectCursor: {fileID: 1128767011591828313}
   selectPanel: {fileID: 4804347259905950380}
@@ -4835,6 +4837,8 @@ MonoBehaviour:
   nextDialogNum: 0
   npcName: {fileID: 1191365701018786924}
   npcImage: {fileID: 3807794801499223706}
+  altarDoor: {fileID: 0}
+  doorCol: {fileID: 0}
 --- !u!1 &2658007476864674313
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,9 +15,6 @@ MonoBehaviour:
   IdxNum: 11
   nextIdx: 11
   dialogElements:
-  - dialog: "\uC815\uB9D0\uB85C \uB4E4\uC5B4\uAC08 \uD150\uAC00?"
-    selectYes: 2
-    selectNo: 0
   - dialog: "\uC790\uB124\uC758 \uB73B\uC744 \uC798 \uC54C\uACA0\uB124..."
     selectYes: -1
     selectNo: 0

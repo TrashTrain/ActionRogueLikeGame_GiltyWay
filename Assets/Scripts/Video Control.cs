@@ -17,4 +17,11 @@ public class VideoControl : MonoBehaviour
     {
         SceneLoader.LoadScene("Tutorial Map");
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneLoader.LoadScene("Tutorial Map");
+        }
+    }
 }
