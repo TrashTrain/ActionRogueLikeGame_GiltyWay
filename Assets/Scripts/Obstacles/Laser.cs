@@ -74,7 +74,8 @@ public class Laser : MonoBehaviour
                 if (hit.collider != null)       // 레이저에 플레이어가 부딪혔을 때
                 {
                     // sound
-                    SFXManager.Instance.PlaySound(SFXManager.Instance.laserAttack);
+                    SoundManager.instance.PlaySound("Laser_Attack", transform);
+                    // SFXManager.Instance.PlaySound(SFXManager.Instance.laserAttack);
                     
                     lineRenderer.SetPosition(1, hit.point);
                     hit.collider.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, new Vector2(0f,0f));

@@ -111,7 +111,8 @@ public class FlyingEyeLaser : MonoBehaviour
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
                     // sound
-                    SFXManager.Instance.PlaySound(SFXManager.Instance.flyingEyeAttack);
+                    SoundManager.instance.PlaySound("FlyingEye_Attack", flyingEye.GetComponent<Transform>().position);
+                    // SFXManager.Instance.PlaySound(SFXManager.Instance.flyingEyeAttack);
                     
                     hit.collider.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, new Vector2(0f, 0f));
                 }

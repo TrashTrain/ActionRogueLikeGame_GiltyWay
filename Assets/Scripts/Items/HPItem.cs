@@ -14,7 +14,9 @@ public class HPItem : Item
         if (other.gameObject.layer == 6)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
 
             if (player.hp == 50f)
             {

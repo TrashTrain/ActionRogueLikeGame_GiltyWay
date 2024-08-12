@@ -87,7 +87,8 @@ public class Demon : GeneralMonsterTest
         Debug.Log("Demon Attack Enter");
         
         // sound effect
-        SFXManager.Instance.PlaySound(SFXManager.Instance.demonAttack);
+        SoundManager.instance.PlaySound("Demon_Attack",transform.position);
+        // SFXManager.Instance.PlaySound(SFXManager.Instance.demonAttack);
     }
 
 
