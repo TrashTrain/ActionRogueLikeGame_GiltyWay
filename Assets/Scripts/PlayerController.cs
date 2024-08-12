@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         rigid = gameObject.GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         tf = transform;
-        curGun = guns[0];
+        curGun = guns[GunSlot.selectGunNum];
         curGun.SetActive(true);
         
 
