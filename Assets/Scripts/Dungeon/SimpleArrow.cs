@@ -29,6 +29,12 @@ public class SimpleArrow : MonoBehaviour
 
     void DrawArrow()
     {
+        if (targetMonster == null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        
         // 목표 몬스터까지의 방향 계산
         Vector3 direction = (targetMonster.position - player.position).normalized;
 
