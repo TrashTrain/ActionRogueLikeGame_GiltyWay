@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
     private bool isContact = false;
     public GameObject EButton;
     public string npcName;
+    public Sprite npcImage;
 
     public int index;
     private void Update()
@@ -16,7 +18,7 @@ public class NPC : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && PlayerController.IsControllable)
             {
                 InitNPCInfo();
-                UIManager.instance.dialogSystem.ActiveDialog(index, npcName);
+                UIManager.instance.dialogSystem.ActiveDialog(index, npcName, npcImage);
                 //index = UIManager.instance.dialogSystem.nextDialogNum;
                 
             }

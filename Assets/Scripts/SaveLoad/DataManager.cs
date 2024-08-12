@@ -212,6 +212,7 @@ public class DataManager : MonoBehaviour
     private void ApplyPassiveData(PassiveSkillData data)
     {
         BasicPistol passiveData = FindObjectOfType<BasicPistol>();
+        //BasicPistol passiveData = FindObjectOfType<PlayerController>().gameObject.transform.GetChild(0).gameObject.GetComponent<BasicPistol>();
         if (passiveData == null)
         {
             Debug.Log("passiveDataNull");
