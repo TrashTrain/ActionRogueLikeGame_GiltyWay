@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Golem : MonoBehaviour, IDamageable
@@ -38,7 +39,21 @@ public class Golem : MonoBehaviour, IDamageable
     public Vector2 screenCenter;
     public float maxDistance = 12f;
     public float minDistance = 4f;
+
+    public int phase = 1;
     
+    [Header("Bullet")]
+    public ObjectPool bulletPool; // 오브젝트 풀
+    public Transform firePoint; // 발사 위치
+    public float fireDuration = 3f; // 발사 지속 시간
+    public float fireRate = 0.3f; // 발사 주기
+    public int bulletsPerBurst = 10; // 한 번의 탄막에 발사할 총 탄환 수
+    public float bulletSpeed = 15f; // 탄환의 속도
+    public float rotationSpeed = 5f; // 회전 속도 (도 단위)
+    
+    float rotationAmount = 0;
+    
+    private bool isFiring = false;
     
     protected void Awake()
     {
@@ -92,7 +107,7 @@ public class Golem : MonoBehaviour, IDamageable
         P1_AtoB = new FSMState(P1_AtoBEnter, P1_AtoBUpdate, P1_AtoBExit);
         P1_RunB = new FSMState(P1_RunBEnter, P1_RunBUpdate, P1_RunBExit);
         P1_AttackB = new FSMState(P1_AttackBEnter, P1_AttackBUpdate, P1_AttackBExit);
-        
+        deathState = new FSMState(deathEnter, deathUpdate, deathExit);
         
         currentState = P1_Idle;
         nextState = P1_Idle;
@@ -103,7 +118,12 @@ public class Golem : MonoBehaviour, IDamageable
         //AnyState -> ?
         if (currentState != nextState)
         {
-            
+            if (nextState == deathState)
+            {
+                transform.position = new Vector3(-4, 10, 0);
+                return true;
+                //
+            }
         }
         
         //P1_Idle -> P1_AttackA1, AttackA2, AtoB
@@ -175,6 +195,84 @@ public class Golem : MonoBehaviour, IDamageable
     }
     #endregion
 
+    #region deathState
+    
+    protected virtual void deathEnter()
+    {
+        Debug.Log("deathEnter");
+        animator.SetBool("P2_Armor", true);
+        rb.velocity = Vector2.zero;
+    }
+    
+    protected virtual void deathUpdate()
+    {
+        if (!isFiring)
+        {
+            StartCoroutine(FireBulletHell());
+        }
+    }
+
+    protected virtual void deathExit()
+    {
+        animator.SetBool("P2_Armor", false);
+        StopCoroutine(FireBulletHell());
+        
+        Destroy(this.gameObject);
+    }
+    
+    IEnumerator FireBulletHell()
+    {
+        isFiring = true;
+
+        // 발사하는 동안 반복
+        float startTime = Time.time;
+        while (Time.time - startTime < fireDuration)
+        {
+            FireBurst();
+            yield return new WaitForSeconds(fireRate); // 발사 주기만큼 대기
+        }
+
+        // 발사 후 정지하는 동안 대기
+        yield return new WaitForSeconds(fireDuration);
+
+        isFiring = false; // 발사 상태를 해제하여 반복 시작
+    }
+
+    void FireBurst()
+    {
+        float angleStep = 360f / bulletsPerBurst; // 원형으로 퍼지는 각도
+        float currentAngle = 0f;
+
+        for (int i = 0; i < bulletsPerBurst; i++)
+        {
+            Vector2 direction = new Vector2(Mathf.Cos((currentAngle + rotationAmount) * Mathf.Deg2Rad), Mathf.Sin((currentAngle + rotationAmount) * Mathf.Deg2Rad)).normalized;
+            ShootBullet(direction);
+            currentAngle += angleStep; // 다음 탄환의 방향으로 각도 증가
+        }
+
+        rotationAmount += rotationSpeed;
+    }
+
+    void ShootBullet(Vector2 direction)
+    {
+        GameObject bullet = bulletPool.GetPooledObject();
+        bullet.transform.position = firePoint.position;
+        bullet.transform.rotation = Quaternion.identity;
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = direction * bulletSpeed; // 탄환의 속도 설정
+
+        // 탄환의 수명을 관리하는 추가 로직이 필요할 수 있음
+        StartCoroutine(DeactivateBulletAfterTime(bullet, 5f)); // 예를 들어 5초 후 비활성화
+    }
+
+    IEnumerator DeactivateBulletAfterTime(GameObject bullet, float time)
+    {
+        yield return new WaitForSeconds(time);
+        bulletPool.ReturnToPool(bullet);
+    }
+    #endregion
+    
     #region P1_AttackA1
 
     protected virtual void P1_AttackA1Enter()
@@ -232,6 +330,8 @@ public class Golem : MonoBehaviour, IDamageable
         animator.SetTrigger("P1_AttackA2");
         Attack();
         startTime = Time.time;
+
+        Invoke("P1_AttackA2Attack", 1f);
     }
     
     protected virtual void P1_AttackA2Update()
@@ -239,22 +339,8 @@ public class Golem : MonoBehaviour, IDamageable
         if (Time.time - startTime < 1f)
         {
             sprite.flipX = (generalMonsterData.targetTransform.position.x < transform.position.x);
-
-            if (Time.time - startTime + 0.05f > 1f)
-            {
-                P1_AttackA2Attack();
-            }
+            
         }
-
-        else if(Time.time - startTime < 1.5f)
-        {
-            if (Time.time - startTime + 0.05f > 1.5f)
-            {
-                P1_AttackA2Attack();
-            }
-        }
-
-        
         
         if (Time.time - startTime > 2f)
         {
@@ -534,7 +620,14 @@ public class Golem : MonoBehaviour, IDamageable
         
         if ( generalMonsterData.hp < 0)
         {
-            Destroy(this.gameObject);
+            nextState = deathState;
+            //Destroy(this.gameObject);
+        }
+
+        //반피 이하로 내려가면 2페이지(각 공격 패턴 강화)
+        if (generalMonsterData.hp <= refData.hp / 2)
+        {
+            phase = 2;
         }
     }
 }
