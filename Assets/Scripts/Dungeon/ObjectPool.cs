@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cinemachine.Editor;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
@@ -7,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     public int poolSize = 200; // 초기 풀 크기
 
     private Queue<GameObject> pool = new Queue<GameObject>();
-
+    
     void Start()
     {
         // 풀 초기화
@@ -16,10 +17,11 @@ public class ObjectPool : MonoBehaviour
             GameObject obj = Instantiate(prefab);
             obj.SetActive(false);
             obj.GetComponent<BossBullet>().pool = this;
+            obj.GetComponent<BossBullet>().SetDisableTime(5f);
             pool.Enqueue(obj);
         }
     }
-
+    
     public GameObject GetPooledObject()
     {
         if (pool.Count > 0)
@@ -32,6 +34,9 @@ public class ObjectPool : MonoBehaviour
         {
             // 필요한 경우 추가로 생성
             GameObject obj = Instantiate(prefab);
+            obj.SetActive(false);
+            obj.GetComponent<BossBullet>().pool = this;
+            obj.GetComponent<BossBullet>().SetDisableTime(4f);
             return obj;
         }
     }

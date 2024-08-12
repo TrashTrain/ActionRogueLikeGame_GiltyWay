@@ -1,12 +1,10 @@
 using System;
 using UnityEngine;
 
-public class BossBullet : MonoBehaviour
+public class BossBigBullet : MonoBehaviour
 {
-    public ObjectPool pool;
-    public SpriteRenderer sprite;
     public Rigidbody2D rb;
-    public float disableTime = 5f;
+    public float disableTime = 20f;
 
     [SerializeField] private float knockBackPower = 80f;
     [SerializeField] private float attackDamage = 2f;
@@ -20,7 +18,6 @@ public class BossBullet : MonoBehaviour
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
         
         Invoke("DestroyEvent", disableTime);
     }
@@ -41,7 +38,6 @@ public class BossBullet : MonoBehaviour
 
     public void DestroyEvent()
     {
-        //Destroy(this.gameObject);
-        pool.ReturnToPool(this.gameObject);
+        Destroy(this.gameObject);
     }
 }
