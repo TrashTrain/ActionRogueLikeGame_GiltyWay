@@ -18,7 +18,9 @@ public class DEFItem : Item
     {
         if (other.gameObject.layer == 6)
         {
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             //itemGetText.DisplayText("Defense Power Up!");
             UIManager.instance.itemGetText.DisplayText("Defense Power Up!");

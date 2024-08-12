@@ -39,6 +39,7 @@ public class DropHpObstacle : MonoBehaviour
         }
         else if (other.gameObject.layer == 6)
         {
+            SoundManager.instance.PlaySound("Obstacle_Attack", transform);
             other.gameObject.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, new Vector2(0f,0f));
             Destroy(gameObject);
         }

@@ -58,11 +58,12 @@ public class PlayerController : MonoBehaviour
     //Initialization
     void Awake()
     {
+        //DataManager.gameData
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         tf = transform;
-        curGun = guns[0];
+        curGun = guns[GunSlot.selectGunNum];
         curGun.SetActive(true);
         
 

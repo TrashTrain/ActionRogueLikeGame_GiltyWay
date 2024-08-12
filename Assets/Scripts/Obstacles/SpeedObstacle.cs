@@ -20,6 +20,7 @@ public class SpeedObstacle : Obstacle
     {
         if (other.gameObject.layer == 6)
         {
+            SoundManager.instance.PlaySound("Get_Item", transform);
             player = other.gameObject.GetComponent<PlayerController>();
             UIManager.instance.itemGetText.DisplayText("Slow Down!");
             

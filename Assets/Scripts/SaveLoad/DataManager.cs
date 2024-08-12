@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,10 @@ public class DataManager : MonoBehaviour
     public float playStartTime;
     public float playTime;
     public int currentSlot;
+
+    //public static GameData gameData {  get; private set; }
+
+
 
     //플레이어 일시 데이터 저장(임시)
     public float tempPlayerHp;
@@ -212,6 +217,7 @@ public class DataManager : MonoBehaviour
     private void ApplyPassiveData(PassiveSkillData data)
     {
         BasicPistol passiveData = FindObjectOfType<BasicPistol>();
+        //BasicPistol passiveData = FindObjectOfType<PlayerController>().gameObject.transform.GetChild(0).gameObject.GetComponent<BasicPistol>();
         if (passiveData == null)
         {
             Debug.Log("passiveDataNull");

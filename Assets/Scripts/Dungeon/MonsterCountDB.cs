@@ -9,11 +9,16 @@ public class MonsterCountDB
     public Dictionary<int, bool> count = new ();
 
     public static MonsterCountDB Instance = new MonsterCountDB ();
-    public void stageCheck(int stageIndex, bool check)
+    public void StageCheck(int stageIndex, bool check)
     {
         if (count.ContainsKey(stageIndex))
             return;
         count.Add (stageIndex, check);
+    }
+
+    public void DataClear()
+    {
+        count.Clear();
     }
 
 }

@@ -16,7 +16,9 @@ public class ShootingRateItem : Item
     {
         if (other.gameObject.layer == 6)
         {
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
             //itemGetText.DisplayText("Shooting Rate Up!");
             UIManager.instance.itemGetText.DisplayText("Shooting Rate Up!");
             

@@ -286,14 +286,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 4184724545476923295}
     m_Modifications:
     - target: {fileID: 907830324048295996, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5546557
-      objectReference: {fileID: 0}
-    - target: {fileID: 907830324048295996, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7748549
-      objectReference: {fileID: 0}
-    - target: {fileID: 907830324048295996, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
       objectReference: {fileID: 0}
@@ -333,50 +325,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2732633147685637088, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: cc640e02700c343faae1531c0acbb3d7, type: 2}
     - target: {fileID: 2762878979541561114, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
-    - target: {fileID: 4556374717640559300, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: m_Size.x
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 4556374717640559300, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: m_Size.y
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 4556374717640559300, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740833039825042650, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0294
-      objectReference: {fileID: 0}
-    - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: dmg
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: monster
-      value: 
-      objectReference: {fileID: 2990347891894715227}
     - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
       propertyPath: flyingEye
       value: 
       objectReference: {fileID: 2990347891894715227}
-    - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: laserLength
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
-      propertyPath: activeMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: cc640e02700c343faae1531c0acbb3d7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
