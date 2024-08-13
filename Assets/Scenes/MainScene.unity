@@ -1920,33 +1920,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1857610611025548131, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
-      propertyPath: soundResources.Array.data[0].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 058a92b24c611471a9bebd625ae3324e, type: 3}
-    - target: {fileID: 1857610611025548131, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
-      propertyPath: soundResources.Array.data[2].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 058a92b24c611471a9bebd625ae3324e, type: 3}
-    - target: {fileID: 1857610611025548131, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
-      propertyPath: soundResources.Array.data[9].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 058a92b24c611471a9bebd625ae3324e, type: 3}
     - target: {fileID: 4457374348858934164, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
       propertyPath: m_Name
       value: BGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 4478065000943291479, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
-      propertyPath: m_Pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4478065000943291479, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 058a92b24c611471a9bebd625ae3324e, type: 3}
-    - target: {fileID: 4478065000943291479, guid: 79122b892de1542d093fb190e45f8d73, type: 3}
-      propertyPath: DopplerLevel
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -345,6 +345,10 @@ PrefabInstance:
       propertyPath: flyingEye
       value: 
       objectReference: {fileID: 2990347891894715227}
+    - target: {fileID: 7182099886044970789, guid: b5916757df03648678536b6578132c00, type: 3}
+      propertyPath: laserLength
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
