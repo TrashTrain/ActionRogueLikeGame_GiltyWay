@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
   m_Name: Knight Dialog Start
   m_EditorClassIdentifier: 
-  IdxNum: 0
-  nextIdx: 0
-  dialogElements: []
+  IdxNum: 20
+  nextIdx: 21
+  dialogElements:
+  - dialog: "\uC7A0\uAE50!"
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uC774 \uC55E\uC740 \uB9E4\uC6B0 \uC704\uD5D8\uD574."
+    selectYes: -1
+    selectNo: 0
