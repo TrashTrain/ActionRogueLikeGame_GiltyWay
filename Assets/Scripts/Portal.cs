@@ -18,6 +18,12 @@ public class Portal : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             //SceneManager.LoadScene(nextSceneName);
+            if (nextSceneName == "BossSuperbia")
+            {
+                SceneLoader.LoadScene(nextSceneName);
+                return;
+            }
+            
             SceneLoader.LoadSceneFast(nextSceneName);
         }
     }
