@@ -65,5 +65,9 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 854fa7e18326a472db0df6c83381c7b1, type: 3}
   - key: Obstacle_Attack
     Clip: {fileID: 8300000, guid: f3aebff15a2971c49bac005a7bc5bc9b, type: 3}
+  - key: Boss_Phase2Bullet
+    Clip: {fileID: 8300000, guid: 6b8529cfb65779d4994a6768e2b3ff64, type: 3}
+  - key: Hook_Attach
+    Clip: {fileID: 8300000, guid: ef7506809e3539d44a20483e1af5ac99, type: 3}
   poolSize: 10
   soundNodePrefab: {fileID: 5065385888036347568, guid: 6d4163a6c96864ca18e8d6c5f55b9e6e, type: 3}
