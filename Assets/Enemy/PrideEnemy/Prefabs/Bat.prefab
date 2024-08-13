@@ -97,7 +97,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -6869589605592600110, guid: 4c92fdf190c298f43a958ea64410319e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!58 &1216777853967131624
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1055679
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -186,5 +186,4 @@ MonoBehaviour:
   sprite: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 0}
-  refData: {fileID: 11400000, guid: 17a7ba01108954823893261f44011b2a, type: 2}
-  sonicWavePrefab: {fileID: 6830692668525415512, guid: 0cfc6dd869e424e40a4b98cba68d7bdb, type: 3}
+  refData: {fileID: 11400000, guid: e6126ae40f1024ea99dcf693d0c9d266, type: 2}

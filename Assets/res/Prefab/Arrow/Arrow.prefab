@@ -152,7 +152,7 @@ MonoBehaviour:
   player: {fileID: 0}
   targetMonster: {fileID: 0}
   lineRenderer: {fileID: 2545467492767437821}
-  arrowSize: 0.3
+  arrowSize: 0.1
   distanceFromPlayer: 1
   arrowWidth: 0.1
 --- !u!114 &8210428184597791702

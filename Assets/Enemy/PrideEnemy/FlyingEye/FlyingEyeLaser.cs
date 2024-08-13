@@ -16,9 +16,6 @@ public class FlyingEyeLaser : MonoBehaviour
 
     public float laserLength = 6f;
 
-    public Material defaultMaterial;
-    public Material activeMaterial;
-
     public int dmg;
 
     public Vector2 direction;
@@ -33,11 +30,12 @@ public class FlyingEyeLaser : MonoBehaviour
         lineRenderer.positionCount = 2;
 
         // 레이저의 너비를 설정
-        lineRenderer.startWidth = 0.3f;
-        lineRenderer.endWidth = 0.3f;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
 
-        lineRenderer.material = defaultMaterial;
-    
+        // lineRenderer.material = defaultMaterial;
+        lineRenderer.material = lineRenderer.materials[0];
+        
         // 시작할 때는 레이저 안 나오게
         lineRenderer.enabled = false;
         currentState = State.disabled;
@@ -91,8 +89,9 @@ public class FlyingEyeLaser : MonoBehaviour
         Vector2 currentEndPoint = startPoint;
 
         lineRenderer.enabled = true;
-        lineRenderer.material = activeMaterial;
-
+        // lineRenderer.material = activeMaterial;
+        lineRenderer.material = lineRenderer.materials[1];
+        
         float currentLength = 0f;
 
         while (currentLength < laserLength)

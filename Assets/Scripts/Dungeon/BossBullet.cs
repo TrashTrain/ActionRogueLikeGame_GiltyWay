@@ -6,17 +6,23 @@ public class BossBullet : MonoBehaviour
     public ObjectPool pool;
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
+    public float disableTime = 5f;
 
     [SerializeField] private float knockBackPower = 80f;
     [SerializeField] private float attackDamage = 2f;
     public float AttackDamage => attackDamage;
 
+    public void SetDisableTime(float time)
+    {
+        disableTime = time;
+    }
+    
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         
-        Invoke("DestroyEvent", 3f);
+        Invoke("DestroyEvent", disableTime);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

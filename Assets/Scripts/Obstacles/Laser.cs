@@ -41,7 +41,7 @@ public class Laser : MonoBehaviour
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
         
-        lineRenderer.material = defaultMaterial;
+        lineRenderer.material = lineRenderer.materials[0];
         
         // 레이저의 Z축 위치를 고정
         lineRenderer.sortingOrder = 3;
@@ -117,7 +117,7 @@ public class Laser : MonoBehaviour
             if (currentState == State.disabled)        // 레이저 X
             {
                 lineRenderer.enabled = false;
-                lineRenderer.material = defaultMaterial;
+                lineRenderer.material = lineRenderer.materials[0];
                 
                 chargeAnimator.SetBool("isCharge", false);
                 
@@ -129,11 +129,11 @@ public class Laser : MonoBehaviour
                 lineRenderer.startWidth = 0.1f;
                 lineRenderer.endWidth = 0.1f;
                 
-                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.3f);
-                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.3f);
+                lineRenderer.material = lineRenderer.materials[0];
 
-                lineRenderer.material = defaultMaterial;
-                
+                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.1f);
+                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.1f);
+
                 lineRenderer.enabled = true;
                 
                 chargeAnimator.SetBool("isCharge", true);
@@ -143,15 +143,15 @@ public class Laser : MonoBehaviour
             }
             else if (currentState == State.active)      // 레이저 활성화 (파란색)
             {
-                lineRenderer.startWidth = 0.5f;
-                lineRenderer.endWidth = 0.5f;
+                lineRenderer.startWidth = 0.1f;
+                lineRenderer.endWidth = 0.1f;
 
                 lineRenderer.material = lineRenderer.materials[1];  // 고치기
 
                 lineRenderer.startColor = new Color(1f, 1f, 1f, 0.7f);
                 lineRenderer.endColor = new Color(1f, 1f, 1f, 0.7f);
 
-                lineRenderer.material = activeMaterial;
+                // lineRenderer.material = activeMaterial;
                 lineRenderer.enabled = true;
                 
                 chargeAnimator.SetBool("isCharge", false);

@@ -17,11 +17,15 @@ public class Golem : MonoBehaviour, IDamageable
     protected FSMState P1_AttackB;
     
     protected FSMState attackState;
-    protected FSMState deathState;
+    
     
     protected FSMState currentState;
     protected FSMState nextState;
 
+    protected FSMState P2_PhaseUp;
+    protected FSMState P2_Run;
+    protected FSMState deathState;
+    
     protected bool FindTarget = false;
     
     [Header("Ref")]
@@ -42,6 +46,14 @@ public class Golem : MonoBehaviour, IDamageable
 
     public int phase = 1;
     
+    [Header("P2_Run")]
+    // 이동할 목표 위치
+    public Vector3 targetPosition = new Vector3(-4, 10, 0);
+    // 이동 속도
+    public float moveSpeed = 1.0f;
+    // 현재 위치와 목표 위치 사이의 비율
+    private float lerpTime = 0f;
+    
     [Header("Bullet")]
     public ObjectPool bulletPool; // 오브젝트 풀
     public Transform firePoint; // 발사 위치
@@ -50,6 +62,9 @@ public class Golem : MonoBehaviour, IDamageable
     public int bulletsPerBurst = 10; // 한 번의 탄막에 발사할 총 탄환 수
     public float bulletSpeed = 15f; // 탄환의 속도
     public float rotationSpeed = 5f; // 회전 속도 (도 단위)
+    public GameObject bigBulletPrefab;
+    public GameObject crossLazor;
+    public BossLastPattern bossLastPattern;
     
     float rotationAmount = 0;
     
@@ -107,6 +122,9 @@ public class Golem : MonoBehaviour, IDamageable
         P1_AtoB = new FSMState(P1_AtoBEnter, P1_AtoBUpdate, P1_AtoBExit);
         P1_RunB = new FSMState(P1_RunBEnter, P1_RunBUpdate, P1_RunBExit);
         P1_AttackB = new FSMState(P1_AttackBEnter, P1_AttackBUpdate, P1_AttackBExit);
+
+        P2_PhaseUp = new FSMState(P2_PhaseUpEnter, P2_PhaseUpUpdate, P2_PhaseUpExit);
+        P2_Run = new FSMState(P2_RunEnter, P2_RunUpdate, P2_RunExit);
         deathState = new FSMState(deathEnter, deathUpdate, deathExit);
         
         currentState = P1_Idle;
@@ -118,18 +136,18 @@ public class Golem : MonoBehaviour, IDamageable
         //AnyState -> ?
         if (currentState != nextState)
         {
-            if (nextState == deathState)
+            if (nextState == P2_PhaseUp)
             {
-                transform.position = new Vector3(-4, 10, 0);
+                //transform.position = new Vector3(-4, 10, 0);
                 return true;
-                //
+                
             }
         }
         
-        //P1_Idle -> P1_AttackA1, AttackA2, AtoB
+        //P1_Idle -> P1_AttackA1, AttackA2, AtoB, P2_PhaseUp
         if (currentState == P1_Idle)
         {
-            if (FindTarget && (nextState == P1_AttackA1 || nextState == P1_AttackA2 || nextState == P1_AtoB))
+            if (FindTarget && (nextState == P1_AttackA1 || nextState == P1_AttackA2 || nextState == P1_AtoB || nextState == P2_PhaseUp))
             {
                 FindTarget = false;
                 return true;
@@ -149,6 +167,22 @@ public class Golem : MonoBehaviour, IDamageable
         if (currentState == P1_RunB)
         {
             if (nextState == P1_AttackB)
+            {
+                return true;
+            }
+        }
+
+        if (currentState == P2_PhaseUp)
+        {
+            if (nextState == P2_Run)
+            {
+                return true;
+            }
+        }
+        
+        if (currentState == P2_Run)
+        {
+            if (nextState == deathState)
             {
                 return true;
             }
@@ -200,8 +234,14 @@ public class Golem : MonoBehaviour, IDamageable
     protected virtual void deathEnter()
     {
         Debug.Log("deathEnter");
-        animator.SetBool("P2_Armor", true);
         rb.velocity = Vector2.zero;
+        animator.SetBool("P2_Armor", true);
+        
+        bossLastPattern.isBossLastPattern = true;
+        bossLastPattern.SetActiveBossMapLazor();
+        bossLastPattern.SetActiveArrowManager();
+        //crossLazor.SetActive(true);
+        //Invoke("ShootBigBullet", 10f);
     }
     
     protected virtual void deathUpdate()
@@ -243,6 +283,8 @@ public class Golem : MonoBehaviour, IDamageable
         float angleStep = 360f / bulletsPerBurst; // 원형으로 퍼지는 각도
         float currentAngle = 0f;
 
+        SoundManager.instance.PlaySound("Boss_Phase2Bullet", transform.position);
+        
         for (int i = 0; i < bulletsPerBurst; i++)
         {
             Vector2 direction = new Vector2(Mathf.Cos((currentAngle + rotationAmount) * Mathf.Deg2Rad), Mathf.Sin((currentAngle + rotationAmount) * Mathf.Deg2Rad)).normalized;
@@ -263,7 +305,22 @@ public class Golem : MonoBehaviour, IDamageable
         rb.velocity = direction * bulletSpeed; // 탄환의 속도 설정
 
         // 탄환의 수명을 관리하는 추가 로직이 필요할 수 있음
-        StartCoroutine(DeactivateBulletAfterTime(bullet, 5f)); // 예를 들어 5초 후 비활성화
+        //StartCoroutine(DeactivateBulletAfterTime(bullet, 7f)); // 예를 들어 5초 후 비활성화
+    }
+    
+    public void ShootBigBullet()
+    {
+        GameObject bullet = Instantiate(bigBulletPrefab);
+        bullet.SetActive(true);
+        bullet.transform.position = firePoint.position;
+        bullet.transform.rotation = Quaternion.identity;
+        bullet.transform.localScale = 15 * Vector3.one;
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = (generalMonsterData.targetTransform.position-transform.position).normalized * bulletSpeed * 0.2f; // 탄환의 속도 설정
+
+        // 탄환의 수명을 관리하는 추가 로직이 필요할 수 있음
+        Invoke("ShootBigBullet", 20f);
     }
 
     IEnumerator DeactivateBulletAfterTime(GameObject bullet, float time)
@@ -271,6 +328,19 @@ public class Golem : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(time);
         bulletPool.ReturnToPool(bullet);
     }
+
+    public void SetActiveCrossLazor()
+    {
+        crossLazor.SetActive(true);
+    }
+
+    public void Die()
+    {
+        crossLazor.SetActive(false);
+        
+        Destroy(this.gameObject);
+    }
+    
     #endregion
     
     #region P1_AttackA1
@@ -473,6 +543,55 @@ public class Golem : MonoBehaviour, IDamageable
     }
     #endregion
     
+    #region P2_PhaseUpEnter
+    
+    protected virtual void P2_PhaseUpEnter()
+    {
+        Debug.Log("PhaseUp");
+        animator.SetTrigger("PhaseUp");
+        startTime = Time.time;
+    }
+    
+    protected virtual void P2_PhaseUpUpdate()
+    {
+        if (Time.time - startTime >= 2f)
+        {
+            nextState = P2_Run;
+        }
+    }
+
+    protected virtual void P2_PhaseUpExit()
+    {
+    }
+    #endregion
+    
+    #region P2_Run
+    
+    protected virtual void P2_RunEnter()
+    {
+        Debug.Log("P2_Run");
+        animator.SetTrigger("P2_Run");
+    }
+    
+    protected virtual void P2_RunUpdate()
+    {
+        // 이동 비율을 계산
+        lerpTime += Time.deltaTime * moveSpeed;
+
+        // 위치를 선형 보간하여 목표 위치로 이동
+        transform.position = Vector3.Lerp(transform.position, targetPosition, lerpTime);
+
+        // 목표 위치에 도달했는지 확인
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            nextState = deathState;
+        }
+    }
+
+    protected virtual void P2_RunExit()
+    {
+    }
+    #endregion
     
     protected void TurnBack()
     {
@@ -611,7 +730,7 @@ public class Golem : MonoBehaviour, IDamageable
     public void GetDamaged(float damage)
     {
         if(damage <= 0) return;
-        if( currentState == deathState) return;
+        if( currentState == P2_PhaseUp || currentState == P2_Run || currentState == deathState) return;
 
         generalMonsterData.hp -= damage;
         UIManager.instance.hitDamageInfo.PrintHitDamage(transform, damage);
@@ -620,8 +739,9 @@ public class Golem : MonoBehaviour, IDamageable
         
         if ( generalMonsterData.hp < 0)
         {
-            nextState = deathState;
+            //nextState = deathState;
             //Destroy(this.gameObject);
+            nextState = P2_PhaseUp;
         }
 
         //반피 이하로 내려가면 2페이지(각 공격 패턴 강화)

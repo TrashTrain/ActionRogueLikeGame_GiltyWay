@@ -17,6 +17,7 @@ public class ArrowManager : MonoBehaviour
         for (int i = 0; i < targetMonsters.Length; i++)
         {
             GameObject arrowObject = Instantiate(arrowPrefab, transform); // 화살표 생성 후, ArrowManager의 자식으로 설정
+            arrowObject.SetActive(true);
             SimpleArrow arrow = arrowObject.GetComponent<SimpleArrow>();
 
             arrow.player = player; // 플레이어의 Transform 할당

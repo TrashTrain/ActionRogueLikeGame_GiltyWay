@@ -16,6 +16,9 @@ public class SpeedItem : Item
     
     public BuffItemController buffItemController;
     public Sprite icon;
+
+    public bool isEternal = false;
+    public float term = 5f;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
@@ -81,6 +84,19 @@ public class SpeedItem : Item
         // 플레이어 프로필 스피드 업데이트
         UIManager.instance.playerInfo.UpdateProfileUI(player);
 
-        Destroy(gameObject);
+        if (!isEternal)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
+            yield return new WaitForSeconds(term);
+            
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 }
