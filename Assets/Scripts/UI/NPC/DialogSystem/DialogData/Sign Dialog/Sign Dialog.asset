@@ -31,3 +31,6 @@ MonoBehaviour:
       \uB3CC\uB2E4\uB9AC\uB3C4 \uB450\uB4E4\uACA8 \uBCF4\uACE0 \uAC74\uB110 \uAC83."
     selectYes: -1
     selectNo: 0
+  - dialog: "\uB05D\uAE4C\uC9C0 \uC624\uB9CC\uD558\uC9C0 \uB9D0 \uAC83."
+    selectYes: -1
+    selectNo: 0
