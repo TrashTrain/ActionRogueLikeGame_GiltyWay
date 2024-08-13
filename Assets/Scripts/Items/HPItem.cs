@@ -8,18 +8,31 @@ using UnityEngine;
 public class HPItem : Item
 {
     public int hp = 2;
-
+    
+    public bool isEternal = false;
+    public float term = 5f;
+    
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
 
             if (player.hp == 50f)
             {
-                Destroy(gameObject);
-                return;
+                if (!isEternal)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+                else
+                {
+                    StartCoroutine(RecreateItem());
+                    return;
+                }
             }
             else
             {
@@ -40,8 +53,26 @@ public class HPItem : Item
                 
                 UIManager.instance.playerInfo.SetHp(player.hp);
             }
-            
-            Destroy(gameObject);
+
+            if (!isEternal)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                StartCoroutine(RecreateItem());
+            }
         }
+    }
+
+    IEnumerator RecreateItem()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        
+        yield return new WaitForSeconds(term);
+        
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
     }
 }

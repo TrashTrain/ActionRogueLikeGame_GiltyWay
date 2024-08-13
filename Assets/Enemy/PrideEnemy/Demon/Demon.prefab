@@ -83,7 +83,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!114 &6988815632341952625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +275,10 @@ PrefabInstance:
       propertyPath: demon
       value: 
       objectReference: {fileID: 6988815632341952625}
+    - target: {fileID: 736443104735844882, guid: 4a146b7a16569488f95bdc5a60b97ba5, type: 3}
+      propertyPath: attackDmg
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3531269464928440686, guid: 4a146b7a16569488f95bdc5a60b97ba5, type: 3}
       propertyPath: ShapeModule.type
       value: 0
@@ -293,11 +297,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3531269464928440686, guid: 4a146b7a16569488f95bdc5a60b97ba5, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3531269464928440686, guid: 4a146b7a16569488f95bdc5a60b97ba5, type: 3}
       propertyPath: CollisionModule.radiusScale
-      value: 0.5
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531269464928440686, guid: 4a146b7a16569488f95bdc5a60b97ba5, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3531269464928440686, guid: 4a146b7a16569488f95bdc5a60b97ba5, type: 3}
       propertyPath: CollisionModule.collisionMode

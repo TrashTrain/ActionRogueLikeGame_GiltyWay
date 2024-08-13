@@ -88,6 +88,8 @@ public class HookAction : MonoBehaviour
             wireAction.isWireMax = true;
             joint2D.enabled = true;
             
+            SoundManager.instance.PlaySound("Hook_Attach", transform);
+            
             //joint2D.distance = Mathf.Min(Vector2.Distance(transform.position, wireAction.playerPos.position), maxHoldLength);
             float currentDistance = Vector2.Distance(transform.position, wireAction.playerPos.position);
             float newDistance = Mathf.Min(currentDistance, maxHoldLength);

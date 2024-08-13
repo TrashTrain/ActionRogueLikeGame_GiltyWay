@@ -16,15 +16,19 @@ public class SpeedItem : Item
     
     public BuffItemController buffItemController;
     public Sprite icon;
+
+    public bool isEternal = false;
+    public float term = 5f;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
-            // BGM.instance.OnSpeedItemCollected(plusSpeedTime);   // 배경음악 속도 빠르게
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            //itemGetText.DisplayText("Speed UP!");
+
             UIManager.instance.itemGetText.DisplayText("Speed UP!");
 
             if (isActive)
@@ -56,7 +60,6 @@ public class SpeedItem : Item
         // float currentSpeed = player.speed;
         player.speed += speed;
         
-
         // 플레이어 프로필 스피드 업데이트
         UIManager.instance.playerInfo.UpdateProfileUI(player);
         
@@ -81,6 +84,19 @@ public class SpeedItem : Item
         // 플레이어 프로필 스피드 업데이트
         UIManager.instance.playerInfo.UpdateProfileUI(player);
 
-        Destroy(gameObject);
+        if (!isEternal)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
+            yield return new WaitForSeconds(term);
+            
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 }

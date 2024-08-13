@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogSystem : MonoBehaviour
 {
@@ -22,11 +23,15 @@ public class DialogSystem : MonoBehaviour
 
     [Header("NpcName")]
     public TextMeshProUGUI npcName;
+    public Image npcImage;
 
     public Dictionary<string, int> npcObj = new ();
 
     private bool isActive = false;
 
+    public Animator altarDoor;
+    public BoxCollider2D doorCol;
+    
     //타이핑 기능
     private bool isTyping = false;
     private bool skip = false;
@@ -58,13 +63,19 @@ public class DialogSystem : MonoBehaviour
             case 1:
                 UIManager.instance.slotController.ShowSlotPanel();
                 break;
+            case 2:
+                altarDoor = GameObject.Find("Dungeon Door").GetComponent<Animator>();
+                doorCol = GameObject.Find("Dungeon Door").GetComponent<BoxCollider2D>();
+                altarDoor.enabled = true;
+                doorCol.enabled = true;
+                break;
             default:
                 break;
         }
 
         selectPanel.SetActive(false);
     }
-    public void ActiveDialog(int dialogSetIndex, string npcName)
+    public void ActiveDialog(int dialogSetIndex, string npcName, Sprite npcImage = null)
     {
         if (isActive) return;
         if (dialogSetIndex < 0)
@@ -86,7 +97,18 @@ public class DialogSystem : MonoBehaviour
                 idxCheck = true;
             }
         }
+        if (npcImage == null)
+        {
+            transform.GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.GetChild(1).gameObject.SetActive(idxCheck);
+            transform.GetChild(1).gameObject.GetComponent<Image>().sprite = npcImage;
+        }
+
         gameObject.SetActive(idxCheck);
+
         if (gameObject.activeSelf)
             PlayerController.IsControllable = false;
         nextDialogNum = curDialogSet.nextIdx;
@@ -97,6 +119,8 @@ public class DialogSystem : MonoBehaviour
             return;
         }
         NextSentence();
+
+        transform.GetChild(0).gameObject.SetActive(false);
 
         if (npcObj.ContainsKey(npcName))
             npcObj[npcName] = nextDialogNum;

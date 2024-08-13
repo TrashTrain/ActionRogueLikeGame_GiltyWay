@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,18 @@ public class ShootingRateItem : Item
 
     public BuffItemController buffItemController;
     public Sprite icon;
+
+    public bool isEternal = false;
+    public float term = 5f;
     
+
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
             //itemGetText.DisplayText("Shooting Rate Up!");
             UIManager.instance.itemGetText.DisplayText("Shooting Rate Up!");
             
@@ -38,6 +45,20 @@ public class ShootingRateItem : Item
         yield return new WaitForSeconds(plusShootingRateTime);
 
         gun.SetBulletMaxRateT(playerShootingRate);
-        Destroy(gameObject);
+        
+        if (!isEternal)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
+            yield return new WaitForSeconds(term);
+            
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 }

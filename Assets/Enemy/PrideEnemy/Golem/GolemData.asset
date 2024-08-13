@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     knockBackPower: 20
-    hp: 40
+    hp: 1
     moveSpeed: 10
     patrolDistance: 30
     patrolPos: {x: 0, y: 0}
@@ -26,9 +26,9 @@ MonoBehaviour:
     targetTransform: {fileID: 0}
     recognizeRadius: 10
     attackSpeed: 4
-    attackDamage: 4
+    attackDamage: 5
   knockBackPower: 20
-  hp: 40
+  hp: 1
   moveSpeed: 10
   patrolDistance: 30
   moveDirection: {x: 1, y: 0}
@@ -38,4 +38,4 @@ MonoBehaviour:
     m_Bits: 64
   recognizeRadius: 10
   attackSpeed: 4
-  attackDamage: 4
+  attackDamage: 5

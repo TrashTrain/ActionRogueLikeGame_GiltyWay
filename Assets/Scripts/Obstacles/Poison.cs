@@ -26,6 +26,10 @@ public class Poison : MonoBehaviour
             spriteRenderer = player.GetComponent<SpriteRenderer>();
             originalColor = spriteRenderer.color;
             
+            // sound
+            SoundManager.instance.PlaySound("Obstacle_Attack", player.GetComponent<Transform>().position);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            
             if (isActive)
             {
                 // 아이템 중복으로 획득하면 타이머만 갱신

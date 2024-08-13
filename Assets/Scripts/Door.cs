@@ -11,6 +11,8 @@ public class Door : MonoBehaviour
         {
             if (isPlayerInPortal)
             {
+                if(nextSceneName == "Altar")
+                    MonsterCountDB.Instance.DataClear();
                 SceneLoader.LoadScene(nextSceneName);
             }
         }

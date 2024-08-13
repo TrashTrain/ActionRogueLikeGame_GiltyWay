@@ -41,18 +41,15 @@ public class Laser : MonoBehaviour
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
         
-        lineRenderer.material = defaultMaterial;
-        // lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        // lineRenderer.material = new Material(Shader.Find("Unlit/Texture"));
-        // lineRenderer.textureMode = LineTextureMode.Tile;
+        lineRenderer.material = lineRenderer.materials[0];
         
         // 레이저의 Z축 위치를 고정
         lineRenderer.sortingOrder = 3;
-
-        currentState = State.inactive;
+        
+        currentState = State.disabled;
         StartCoroutine(LaserInit());
     }
-
+    
     void Update()
     {
         if (lineRenderer != null && currentState != State.disabled)
@@ -69,13 +66,17 @@ public class Laser : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Player"));
 
             // RaycastHit2D hitGround = Physics2D.Raycast(startPoint, Vector2.down, laserLength, LayerMask.GetMask("Ground"));
-            RaycastHit2D hitGround = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Ground"));
+            RaycastHit2D hitGround = Physics2D.Raycast(startPoint, direction, laserLength, LayerMask.GetMask("Ground", "Wall", "HookNParkour"));
 
             if (currentState == State.active)      // 레이저가 active 상태
             {
                 lineRenderer.material = lineRenderer.materials[1];
                 if (hit.collider != null)       // 레이저에 플레이어가 부딪혔을 때
                 {
+                    // sound
+                    SoundManager.instance.PlaySound("Laser_Attack", transform);
+                    // SFXManager.Instance.PlaySound(SFXManager.Instance.laserAttack);
+                    
                     lineRenderer.SetPosition(1, hit.point);
                     hit.collider.GetComponent<PlayerController>().GetDamaged(dmg, gameObject, new Vector2(0f,0f));
                 }
@@ -93,8 +94,18 @@ public class Laser : MonoBehaviour
             {
                 lineRenderer.material = lineRenderer.materials[0];
                 
-                if(hitGround.collider != null) lineRenderer.SetPosition(1, hitGround.point);
-                // lineRenderer.SetPosition(1, startPoint + Vector2.down * laserLength);
+                if (hit.collider != null)       // 레이저에 플레이어가 부딪혔을 때
+                {
+                    lineRenderer.SetPosition(1, hit.point);
+                }
+                else if (hitGround.collider != null)    // 레이저가 바닥에 부딪혔을 때 
+                {
+                    lineRenderer.SetPosition(1, hitGround.point);
+                }
+                else
+                {
+                    lineRenderer.SetPosition(1, startPoint + direction * laserLength);
+                }
             }
         }
     }
@@ -106,7 +117,7 @@ public class Laser : MonoBehaviour
             if (currentState == State.disabled)        // 레이저 X
             {
                 lineRenderer.enabled = false;
-                lineRenderer.material = defaultMaterial;
+                lineRenderer.material = lineRenderer.materials[0];
                 
                 chargeAnimator.SetBool("isCharge", false);
                 
@@ -118,11 +129,11 @@ public class Laser : MonoBehaviour
                 lineRenderer.startWidth = 0.1f;
                 lineRenderer.endWidth = 0.1f;
                 
-                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.3f);
-                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.3f);
+                lineRenderer.material = lineRenderer.materials[0];
 
-                lineRenderer.material = defaultMaterial;
-                
+                lineRenderer.startColor = new Color(255f, 0f, 0f, 0.1f);
+                lineRenderer.endColor = new Color(255f, 0f, 0f, 0.1f);
+
                 lineRenderer.enabled = true;
                 
                 chargeAnimator.SetBool("isCharge", true);
@@ -132,15 +143,15 @@ public class Laser : MonoBehaviour
             }
             else if (currentState == State.active)      // 레이저 활성화 (파란색)
             {
-                lineRenderer.startWidth = 0.5f;
-                lineRenderer.endWidth = 0.5f;
+                lineRenderer.startWidth = 0.1f;
+                lineRenderer.endWidth = 0.1f;
 
                 lineRenderer.material = lineRenderer.materials[1];  // 고치기
 
                 lineRenderer.startColor = new Color(1f, 1f, 1f, 0.7f);
                 lineRenderer.endColor = new Color(1f, 1f, 1f, 0.7f);
 
-                lineRenderer.material = activeMaterial;
+                // lineRenderer.material = activeMaterial;
                 lineRenderer.enabled = true;
                 
                 chargeAnimator.SetBool("isCharge", false);

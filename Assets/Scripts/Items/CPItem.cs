@@ -15,6 +15,9 @@ public class CPItem : Item
     public Sprite icon;
 
     private PlayerController playerController;
+
+    public bool isEternal = false;
+    public float term = 5f;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,7 +30,8 @@ public class CPItem : Item
                 return;
             }
             
-            SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
 
             //itemGetText.DisplayText("Attack Power Up!");
             UIManager.instance.itemGetText.DisplayText("Attack Power Up!");
@@ -70,7 +74,21 @@ public class CPItem : Item
         
         // 플레이어 프로필 공격력 업데이트
         UIManager.instance.playerInfo.UpdateProfileUI(player);
+
+        if (!isEternal)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
+            yield return new WaitForSeconds(term);
+            
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+        }
         
-        Destroy(gameObject);
     }
 }

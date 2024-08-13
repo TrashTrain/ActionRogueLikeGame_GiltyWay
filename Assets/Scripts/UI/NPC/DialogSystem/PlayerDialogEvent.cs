@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDialogEvent : MonoBehaviour
 {
-    private string playerName = "주인공";
+    private string playerName = "레오닉스";
     private int playerIndex = 100;
     public int checkIndex;
     private string sceneName;
@@ -18,7 +18,6 @@ public class PlayerDialogEvent : MonoBehaviour
         if (scene.name == "Tutorial Map")
             playerIndex = 100;
 
-        // ���� �Ҵ��ϴ� �޼����� ������ ���
         switch (sceneName)
         {
             default:
@@ -33,10 +32,13 @@ public class PlayerDialogEvent : MonoBehaviour
             InitPlayerInfo();
             SetIndex();
             if(checkIndex == playerIndex)
+            {
                 UIManager.instance.dialogSystem.ActiveDialog(playerIndex, playerName);
+                UIManager.instance.dialogSystem.transform.GetChild(0).gameObject.SetActive(true);
+            }
+                
             //UIManager.instance.dialogSystem.charCurIndex = UIManager.instance.dialogSystem.nextDialogNum;
         }
-
         Destroy(gameObject);
 
     }

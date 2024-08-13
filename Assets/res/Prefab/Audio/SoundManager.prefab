@@ -55,5 +55,19 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: edd00dfd9179cfa4f909037d2034ae79, type: 3}
   - key: Charge
     Clip: {fileID: 8300000, guid: 97b1e7296c93f6b4b804b376b9277c0e, type: 3}
+  - key: Get_Item
+    Clip: {fileID: 8300000, guid: 5efa41faebe12634db9ffad659cb294c, type: 3}
+  - key: FlyingEye_Attack
+    Clip: {fileID: 8300000, guid: 622cdecfcf58444d7be5352e4209020a, type: 3}
+  - key: Demon_Attack
+    Clip: {fileID: 8300000, guid: effe6d71cfa2d4689a4262969473dd08, type: 3}
+  - key: Laser_Attack
+    Clip: {fileID: 8300000, guid: 854fa7e18326a472db0df6c83381c7b1, type: 3}
+  - key: Obstacle_Attack
+    Clip: {fileID: 8300000, guid: f3aebff15a2971c49bac005a7bc5bc9b, type: 3}
+  - key: Boss_Phase2Bullet
+    Clip: {fileID: 8300000, guid: 6b8529cfb65779d4994a6768e2b3ff64, type: 3}
+  - key: Hook_Attach
+    Clip: {fileID: 8300000, guid: ef7506809e3539d44a20483e1af5ac99, type: 3}
   poolSize: 10
   soundNodePrefab: {fileID: 5065385888036347568, guid: 6d4163a6c96864ca18e8d6c5f55b9e6e, type: 3}

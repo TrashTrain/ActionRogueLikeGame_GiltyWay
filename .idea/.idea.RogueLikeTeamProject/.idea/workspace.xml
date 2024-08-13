@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/SecondSuperbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Skill/S_WireAction_KJH/HookAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Skill/S_WireAction_KJH/HookAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial Map.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog Start.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog Start.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog again.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog again.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Priest Dialog/Priest Dialog again.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Priest Dialog/Priest Dialog again.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/PlayerDialogEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/PlayerDialogEvent.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Portal.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -35,7 +43,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SuperbiaMap&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;OpeningScene&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -132,6 +140,9 @@
       <workItem from="1722476760594" duration="4191000" />
       <workItem from="1722485106091" duration="1434000" />
       <workItem from="1722906852965" duration="31000" />
+      <workItem from="1723429110117" duration="9183000" />
+      <workItem from="1723452210221" duration="32000" />
+      <workItem from="1723510965410" duration="43000" />
     </task>
     <servers />
   </component>

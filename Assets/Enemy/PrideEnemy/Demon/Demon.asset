@@ -25,8 +25,8 @@ MonoBehaviour:
       m_Bits: 64
     targetTransform: {fileID: 0}
     recognizeRadius: 4
-    attackSpeed: 0
-    attackDamage: 0
+    attackSpeed: 1
+    attackDamage: 5
   knockBackPower: 40
   hp: 10
   moveSpeed: 4
@@ -37,5 +37,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   recognizeRadius: 4
-  attackSpeed: 0
-  attackDamage: 0
+  attackSpeed: 1
+  attackDamage: 5

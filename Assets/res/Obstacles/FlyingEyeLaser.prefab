@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 6689736047341588320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.111, y: -0.125, z: 0}
+  m_LocalPosition: {x: 0.111, y: 0.0294, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,7 @@ LineRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 3c8eca690e543447488de3c73f4f7399, type: 2}
+  - {fileID: 2100000, guid: cc640e02700c343faae1531c0acbb3d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -257,9 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4f711ed5aef4de89f89cffb826c9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserLength: 4
+  laserLength: 10
   defaultMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  activeMaterial: {fileID: 2100000, guid: 3c8eca690e543447488de3c73f4f7399, type: 2}
+  activeMaterial: {fileID: 2100000, guid: cc640e02700c343faae1531c0acbb3d7, type: 2}
   dmg: 2
   direction: {x: 0, y: 0}
   flyingEye: {fileID: 0}
