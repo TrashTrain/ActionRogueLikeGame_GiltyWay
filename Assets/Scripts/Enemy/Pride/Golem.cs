@@ -64,8 +64,7 @@ public class Golem : MonoBehaviour, IDamageable
     public float rotationSpeed = 5f; // 회전 속도 (도 단위)
     public GameObject bigBulletPrefab;
     public GameObject crossLazor;
-    
-    public int countDestroy = 0;
+    public BossLastPattern bossLastPattern;
     
     float rotationAmount = 0;
     
@@ -235,10 +234,14 @@ public class Golem : MonoBehaviour, IDamageable
     protected virtual void deathEnter()
     {
         Debug.Log("deathEnter");
-        animator.SetBool("P2_Armor", true);
         rb.velocity = Vector2.zero;
-        crossLazor.SetActive(true);
-        Invoke("ShootBigBullet", 10f);
+        animator.SetBool("P2_Armor", true);
+        
+        bossLastPattern.isBossLastPattern = true;
+        bossLastPattern.SetActiveBossMapLazor();
+        bossLastPattern.SetActiveArrowManager();
+        //crossLazor.SetActive(true);
+        //Invoke("ShootBigBullet", 10f);
     }
     
     protected virtual void deathUpdate()
@@ -303,7 +306,7 @@ public class Golem : MonoBehaviour, IDamageable
         //StartCoroutine(DeactivateBulletAfterTime(bullet, 7f)); // 예를 들어 5초 후 비활성화
     }
     
-    void ShootBigBullet()
+    public void ShootBigBullet()
     {
         GameObject bullet = Instantiate(bigBulletPrefab);
         bullet.SetActive(true);
@@ -323,6 +326,19 @@ public class Golem : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(time);
         bulletPool.ReturnToPool(bullet);
     }
+
+    public void SetActiveCrossLazor()
+    {
+        crossLazor.SetActive(true);
+    }
+
+    public void Die()
+    {
+        crossLazor.SetActive(false);
+        
+        Destroy(this.gameObject);
+    }
+    
     #endregion
     
     #region P1_AttackA1
