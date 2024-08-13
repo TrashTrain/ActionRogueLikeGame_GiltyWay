@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class DropHpObstacle : MonoBehaviour
 {
-    public PlayerController player;
+    private PlayerController player;
 
-    public float dropDistance = 2f;
+    // public float dropDistance = 2f;
 
     private Rigidbody2D rb;
-
-    public float gravityScale;
+    
+    public float range; // 플레이어 감지용
+    public float gravityScale = 4f;
     public float dmg;
     void Start()
     {
@@ -20,20 +21,36 @@ public class DropHpObstacle : MonoBehaviour
     
     void Update()
     {
+        DetectPlayer();
         if (player != null)
         {
             float distance = Vector2.Distance(transform.position, player.transform.position);
 
-            if (distance <= dropDistance)
+            if (distance <= range)
             {
                 rb.gravityScale = gravityScale;
             }
         }
     }
 
+      void DetectPlayer()
+      {
+           RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, range, LayerMask.GetMask("Player"));
+        
+           if (hit.collider != null)
+           {
+               player = hit.collider.GetComponent<PlayerController>();
+           }
+           else
+           {
+               player = null;
+           }
+      }
+    
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7 || other.gameObject.layer == 3|| other.gameObject.layer == 12)
         {
             Destroy(gameObject);
         }
