@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
   m_Name: NPCDialogStart
   m_EditorClassIdentifier: 
+  IdxNum: 0
   nextIdx: 1
   dialogElements:
-  - dialog: "\uC548\uB155! \uCC98\uC74C \uBCF4\uB124."
+  - dialog: "\uC548\uB155! \uB9C8\uC744\uC5D0\uC11C \uCC98\uC74C \uBCF4\uB294 \uC0AC\uB78C\uC774\uB124."
     selectYes: -1
     selectNo: 0
   - dialog: "\uB09C \uCE74\uB3C4\uC57C."
     selectYes: -1
     selectNo: 0
-  - dialog: "\uB098\uD55C\uD14C 3\uD3EC\uC778\uD2B8\uB97C \uC9C0\uBD88\uD558\uBA74
+  - dialog: "\uB098\uD55C\uD14C 3\uD3EC\uC778\uD2B8\uB97C \uC8FC\uBA74 \uB0B4 \uB9C8\uBC95\uC73C\uB85C
       \uC88B\uC740 \uD6A8\uACFC\uB97C \uC904\uAC8C!"
     selectYes: 1
     selectNo: 0
