@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDialogEvent : MonoBehaviour
 {
-    private string playerName = "레오 닉스";
+    private string playerName = "레오닉스";
     private int playerIndex = 100;
     public int checkIndex;
     private string sceneName;

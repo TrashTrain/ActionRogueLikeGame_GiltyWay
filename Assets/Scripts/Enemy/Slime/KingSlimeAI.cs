@@ -280,7 +280,7 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
         
         this.hp -= damage;
         
-        ReduceStunGauge(0.1f);
+        
 
         //Phase 1 & half Hp (condition)
         if (phase == 1 && hp / maxHp <= 0.5)
@@ -310,7 +310,10 @@ public class KingSlimeAI : MonoBehaviour, IDamageable
         if (hp <= 0)
         {
             Die();
+            return;
         }
+        
+        ReduceStunGauge(0.1f);
     }
 
     public void ReturnColor()
