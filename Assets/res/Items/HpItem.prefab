@@ -146,6 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGetText: {fileID: 0}
   hp: 2
+  isEternal: 0
+  term: 5
 --- !u!114 &-2458368833867438999
 MonoBehaviour:
   m_ObjectHideFlags: 0

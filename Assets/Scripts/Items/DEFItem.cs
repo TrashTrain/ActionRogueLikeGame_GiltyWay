@@ -13,6 +13,9 @@ public class DEFItem : Item
     
     public BuffItemController buffItemController;
     public Sprite icon;
+
+    public bool isEternal = false;
+    public float term = 5f;
     
     protected override void OnTriggerEnter2D(Collider2D other)
     {
@@ -66,6 +69,19 @@ public class DEFItem : Item
         // 플레이어 프로필 방어력 업데이트
         UIManager.instance.playerInfo.UpdateProfileUI(player);
         
-        Destroy(gameObject);
+        if (!isEternal)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
+            yield return new WaitForSeconds(term);
+            
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 }
