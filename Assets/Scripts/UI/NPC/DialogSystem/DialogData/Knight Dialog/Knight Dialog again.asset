@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
   m_Name: Knight Dialog again
   m_EditorClassIdentifier: 
-  IdxNum: 0
-  nextIdx: 0
+  IdxNum: 21
+  nextIdx: 21
   dialogElements: []
