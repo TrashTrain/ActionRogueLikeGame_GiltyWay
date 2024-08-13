@@ -283,6 +283,8 @@ public class Golem : MonoBehaviour, IDamageable
         float angleStep = 360f / bulletsPerBurst; // 원형으로 퍼지는 각도
         float currentAngle = 0f;
 
+        SoundManager.instance.PlaySound("Boss_Phase2Bullet", transform.position);
+        
         for (int i = 0; i < bulletsPerBurst; i++)
         {
             Vector2 direction = new Vector2(Mathf.Cos((currentAngle + rotationAmount) * Mathf.Deg2Rad), Mathf.Sin((currentAngle + rotationAmount) * Mathf.Deg2Rad)).normalized;
