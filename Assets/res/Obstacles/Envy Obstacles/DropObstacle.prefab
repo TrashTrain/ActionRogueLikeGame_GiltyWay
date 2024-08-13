@@ -126,9 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc90da8377e9443dc884f592b04b3ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  dropDistance: 6
-  gravityScale: 0
+  range: 5
+  gravityScale: 4
   dmg: 1
 --- !u!60 &517020131345657126
 PolygonCollider2D:
