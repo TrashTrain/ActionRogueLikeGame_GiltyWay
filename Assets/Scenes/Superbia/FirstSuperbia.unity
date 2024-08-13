@@ -15701,6 +15701,10 @@ PrefabInstance:
       propertyPath: hitAnimator
       value: 
       objectReference: {fileID: 2044366343}
+    - target: {fileID: 8855994439326467859, guid: 8a508a9264fd58348b56b90a60345ac8, type: 3}
+      propertyPath: wallCheckDistance
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33293,6 +33297,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getItem: {fileID: 8300000, guid: 5efa41faebe12634db9ffad659cb294c, type: 3}
   hpAtk: {fileID: 0}
+  flyingEyeAttack: {fileID: 0}
+  demonAttack: {fileID: 0}
+  laserAttack: {fileID: 0}
 --- !u!82 &1671871579
 AudioSource:
   m_ObjectHideFlags: 0

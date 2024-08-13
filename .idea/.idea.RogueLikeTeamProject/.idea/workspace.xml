@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Town Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Town Map.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/NPCDialogIdle.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/NPCDialogIdle.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/NPCDialogStart.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/NPCDialogStart.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial Map.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial Map.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/CharacterDialog/PlayerDialog2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog Start.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog Start.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog again.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Knight Dialog/Knight Dialog again.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Priest Dialog/Priest Dialog again.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/DialogData/Priest Dialog/Priest Dialog again.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/PlayerDialogEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NPC/DialogSystem/PlayerDialogEvent.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +141,8 @@
       <workItem from="1722485106091" duration="1434000" />
       <workItem from="1722906852965" duration="31000" />
       <workItem from="1723429110117" duration="9183000" />
+      <workItem from="1723452210221" duration="32000" />
+      <workItem from="1723510965410" duration="43000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ using UnityEngine;
 public class DemonAttack : MonoBehaviour
 {
     public GeneralMonsterTest demon;
-    public float attackDmg;
+    private float attackDmg = 5.0f;
     
     private void Awake()
     {

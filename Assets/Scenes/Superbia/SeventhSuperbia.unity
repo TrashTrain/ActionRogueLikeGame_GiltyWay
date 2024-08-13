@@ -641,33 +641,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 491069819732887337, guid: e64a8d403407c44d8b76269a2c60a501, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1489263531121823754, guid: e64a8d403407c44d8b76269a2c60a501, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 1489263531121823754, guid: e64a8d403407c44d8b76269a2c60a501, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 2860395042771085488, guid: e64a8d403407c44d8b76269a2c60a501, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.02
-      objectReference: {fileID: 0}
     - target: {fileID: 3408074514614698089, guid: e64a8d403407c44d8b76269a2c60a501, type: 3}
       propertyPath: m_Name
       value: SeventhItems
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823341743832188090, guid: e64a8d403407c44d8b76269a2c60a501, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823341743832188090, guid: e64a8d403407c44d8b76269a2c60a501, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57939,7 +57915,7 @@ Tilemap:
   - m_RefCount: 1868
     m_Data: {fileID: 21300006, guid: b00b9ff8e2a7f494c9679b0b59c599bb, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2962
+  - m_RefCount: 2978
     m_Data:
       e00: 1
       e01: 0
@@ -57958,7 +57934,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 2962
+  - m_RefCount: 2978
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
