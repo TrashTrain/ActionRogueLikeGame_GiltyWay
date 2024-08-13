@@ -1508,7 +1508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: dialogSets.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: dialogSets.Array.data[7]
@@ -1526,6 +1526,10 @@ PrefabInstance:
       propertyPath: dialogSets.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: a72280f8731f2403ab5a72ce985ae30e, type: 2}
+    - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: dialogSets.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 54bb816bdc7184d5c8c44d81fc1f63c6, type: 2}
     - target: {fileID: 1936711398488967173, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_IsActive
       value: 0
