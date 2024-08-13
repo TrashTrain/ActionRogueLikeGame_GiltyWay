@@ -1482,7 +1482,63 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 598253899631320885, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.82321405
+      objectReference: {fileID: 0}
+    - target: {fileID: 598253899631320885, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.14554216
+      objectReference: {fileID: 0}
+    - target: {fileID: 598253899631320885, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 334.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 598253899631320885, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 216.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 598253899631320885, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -524.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 598253899631320885, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 177.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: dialogSets.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: dialogSets.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60d54ae4695e943a79a6b8c4095e1958, type: 2}
+    - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: dialogSets.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: f8912d799f3fe4c88a84680ebadf1555, type: 2}
+    - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: dialogSets.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f483e526949f432aad98dd7888e910d, type: 2}
+    - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: dialogSets.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: a72280f8731f2403ab5a72ce985ae30e, type: 2}
+    - target: {fileID: 1693301317571730936, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: dialogSets.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 54bb816bdc7184d5c8c44d81fc1f63c6, type: 2}
     - target: {fileID: 1936711398488967173, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550524708642619799, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466168222903058358, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1525,6 +1581,18 @@ PrefabInstance:
     - target: {fileID: 3516105896935585889, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206675892486313238, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 334.2724
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206675892486313238, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 214.0627
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206675892486313238, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 146.22704
       objectReference: {fileID: 0}
     - target: {fileID: 8070756037392658254, guid: 3c2edc24fb6c645d6b854eea1c48b3a8, type: 3}
       propertyPath: m_Name
