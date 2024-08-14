@@ -14,7 +14,7 @@ public class DataManager : MonoBehaviour
     public int currentSlot;
 
     //public static GameData gameData {  get; private set; }
-
+    public bool isClear = false;
 
 
     //플레이어 일시 데이터 저장(임시)
@@ -28,6 +28,7 @@ public class DataManager : MonoBehaviour
         UIManager.instance.dialogSystem.npcObj.Clear();
         currentSlot = 0;
         playTime = 0;
+        isClear = false;
         playStartTime = Time.time;
     }
     

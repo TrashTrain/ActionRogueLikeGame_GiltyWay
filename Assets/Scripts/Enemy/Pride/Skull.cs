@@ -14,7 +14,6 @@ public class Skull : GeneralMonsterTest
     
     protected override void Attack()
     {
-        Debug.Log("AttackSkull");
         base.Attack();
     }
 }

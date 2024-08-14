@@ -338,9 +338,10 @@ public class Golem : MonoBehaviour, IDamageable
     public void Die()
     {
         crossLazor.SetActive(false);
-
+        DataManager.instance.isClear = true;
+        
         // boss 죽으면 ending scene으로 넘어감
-        SceneManager.LoadScene("Ending Superbia");
+        SceneLoader.LoadSceneFast("Ending Superbia");
         Destroy(this.gameObject);
     }
     
