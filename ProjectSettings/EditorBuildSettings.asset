@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Superbia/BossSuperbia.unity
     guid: 52ad5a12270c44b5b9c49a3dcec75db4
+  - enabled: 1
+    path: Assets/Scenes/Superbia/Ending Superbia.unity
+    guid: 7ab32cd2f3e5f4ad2a1b98b390e4cbcb
   m_configObjects: {}
