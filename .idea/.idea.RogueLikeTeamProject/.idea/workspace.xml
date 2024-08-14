@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Opening Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Opening Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Superbia/Ending Superbia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Superbia/Ending Superbia.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ending Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ending Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Video Control.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Video Control.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +138,7 @@
       <workItem from="1723529737032" duration="744000" />
       <workItem from="1723612361469" duration="440000" />
       <workItem from="1723612808522" duration="1270000" />
-      <workItem from="1723616676333" duration="197000" />
+      <workItem from="1723616676333" duration="594000" />
     </task>
     <servers />
   </component>
