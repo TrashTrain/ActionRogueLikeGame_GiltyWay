@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="" />
+    <list default="true" id="e4a1eb6e-6a9d-4cdd-aeed-35b3b39b7f15" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RogueLikeTeamProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Pride/Golem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Pride/Golem.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,6 +138,8 @@
       <workItem from="1723452210221" duration="32000" />
       <workItem from="1723510965410" duration="43000" />
       <workItem from="1723529737032" duration="744000" />
+      <workItem from="1723612361469" duration="440000" />
+      <workItem from="1723612808522" duration="1270000" />
     </task>
     <servers />
   </component>
