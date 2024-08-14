@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   video: {fileID: 1309129701}
+  nextSceneName: Tutorial Map
 --- !u!4 &443310071
 Transform:
   m_ObjectHideFlags: 0

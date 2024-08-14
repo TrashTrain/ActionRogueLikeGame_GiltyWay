@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class EndingController : MonoBehaviour
 {
     public VideoPlayer video;
-
+    public string nextSceneName;
+    
     void Start()
     {
         video.loopPointReached += CheckOver;
@@ -14,13 +15,13 @@ public class EndingController : MonoBehaviour
     
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneLoader.LoadScene("Town Map");
+        SceneLoader.LoadScene(nextSceneName);
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneLoader.LoadScene("Town Map");
+            SceneLoader.LoadScene(nextSceneName);
         }
     }
 }
