@@ -83,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1000
   m_Sprite: {fileID: 21300000, guid: af9f3564dd005904397341a9eb713771, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2878312945385852198, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 1010
       objectReference: {fileID: 0}
     - target: {fileID: 6211832421720998823, guid: 8b8bcd8ec4992674390f7729760d6cb7, type: 3}
       propertyPath: refData
@@ -389,6 +389,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 957715092232003453}
     m_Modifications:
+    - target: {fileID: 483710099303688506, guid: 47268df2e3c2a43df9e0ce9f21be6e1d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1010
+      objectReference: {fileID: 0}
     - target: {fileID: 4774018628307948878, guid: 47268df2e3c2a43df9e0ce9f21be6e1d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -474,7 +478,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1416872354006981887, guid: 444872770c12b42f5a45398aa5666560, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 1010
       objectReference: {fileID: 0}
     - target: {fileID: 2013677657512573321, guid: 444872770c12b42f5a45398aa5666560, type: 3}
       propertyPath: m_Name
@@ -609,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 73d1ef34279f9784fbd5c5d65fabfe1a, type: 3}
     - target: {fileID: 8305577073417622107, guid: e33a40ea7c26c489dbd9aebd16e00ec8, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 1010
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -704,7 +708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077935940547044944, guid: 69c386deb479c4a6eb54b163d3d1424d, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 1010
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
