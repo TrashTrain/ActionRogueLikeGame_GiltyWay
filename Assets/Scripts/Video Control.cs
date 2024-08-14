@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class VideoControl : MonoBehaviour
 {
     public VideoPlayer video;
-
+    public string nextSceneName;
+    
     void Start()
     {
         video.loopPointReached += CheckOver;
@@ -15,13 +16,14 @@ public class VideoControl : MonoBehaviour
     
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneLoader.LoadScene("Tutorial Map");
+        SceneLoader.LoadScene(nextSceneName);
     }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneLoader.LoadScene("Tutorial Map");
+            SceneLoader.LoadScene(nextSceneName);
         }
     }
 }
