@@ -1,10 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using Unity.VisualScripting;
 using Image = UnityEngine.UI.Image;
 
 // 플레이어 프로필 스킬 정보

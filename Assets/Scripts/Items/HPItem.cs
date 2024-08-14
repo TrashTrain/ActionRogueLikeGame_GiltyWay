@@ -21,7 +21,7 @@ public class HPItem : Item
             SoundManager.instance.PlaySound("Get_Item", transform);
             // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
 
-            if (player.hp == 50f)
+            if (player.hp >= player.maxhp)
             {
                 if (!isEternal)
                 {
@@ -40,9 +40,9 @@ public class HPItem : Item
                 
                 player.hp += hp;
                 
-                if (player.hp > 50)
+                if (player.hp > player.maxhp)
                 {
-                    player.hp = 50;
+                    player.hp = player.maxhp;
                     float increase = player.hp - originalHp;
                     UIManager.instance.hpInfo.PrintHpUp(player.transform, increase); 
                 }

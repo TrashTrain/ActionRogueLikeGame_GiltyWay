@@ -187,8 +187,8 @@ MonoBehaviour:
   blueSlimeBullet: {fileID: 8832720468303632871, guid: 85ceafa9d78a5430e92d609df11ebd99, type: 3}
   isReady: 0
   phase: 1
-  hp: 20
-  maxHp: 20
+  hp: 66
+  maxHp: 66
   moveSpeed: 10
   stunGauge: 1
   stunTime: 5
