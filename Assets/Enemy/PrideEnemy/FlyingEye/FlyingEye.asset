@@ -28,7 +28,7 @@ MonoBehaviour:
     attackSpeed: 0
     attackDamage: 0
   knockBackPower: 40
-  hp: 20
+  hp: 10
   moveSpeed: 4
   patrolDistance: 4
   moveDirection: {x: 1, y: 0}
@@ -38,4 +38,4 @@ MonoBehaviour:
     m_Bits: 64
   recognizeRadius: 4
   attackSpeed: 0
-  attackDamage: 0
+  attackDamage: 4

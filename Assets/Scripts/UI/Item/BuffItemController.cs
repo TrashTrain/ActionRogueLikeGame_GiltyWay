@@ -41,7 +41,7 @@ public class BuffItemController : MonoBehaviour
         if (currentBuff != null)
         {
             tooltipImg.sprite = currentBuff.image;
-            tooltipText.text = $"{currentBuff.name} \n current status/damage : {currentBuff.current} \n duration : {currentBuff.duration:F1}s";
+            tooltipText.text = $"{currentBuff.name} \n\n\n current status/damage : {currentBuff.current} \n duration : {currentBuff.duration:F1}s \n";
         }
     }
     public void RemoveBuff()
