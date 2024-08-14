@@ -78,4 +78,13 @@ public class ButtonControl : MonoBehaviour
         //로드 시 메뉴 패널을 끄기 및 초기화 / 시간 재실행
         menu.SetMenuPanel(false);
     }
+
+    public void OnClickExit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+
+    }
 }

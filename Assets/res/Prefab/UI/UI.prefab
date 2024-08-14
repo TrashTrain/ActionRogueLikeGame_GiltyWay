@@ -5208,7 +5208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save&Exit
+  m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6357,18 +6357,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3466168222903058358}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3665702351146639618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 287.3595, y: 192.3734}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -226.08, y: 29.1588}
+  m_SizeDelta: {x: 347.83, y: 214.4944}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4227108663635882882
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8391,7 +8391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2481300616725516942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3602497586147418978}
+        m_TargetAssemblyTypeName: ButtonControl, Assembly-CSharp
+        m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4570027897004193629
 GameObject:
   m_ObjectHideFlags: 0
@@ -16266,9 +16278,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 70, y: 67.642}
-  m_SizeDelta: {x: 400.1601, y: 274.731}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -452.17, y: 144.9884}
+  m_SizeDelta: {x: 347.83, y: 215.4814}
+  m_Pivot: {x: 1, y: -0.0043331115}
 --- !u!222 &3554525545089598641
 CanvasRenderer:
   m_ObjectHideFlags: 0
