@@ -10,6 +10,7 @@ public static class SceneLoader
         DataManager.instance.AutoSaveGame();
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(sceneName);
+        BGM.instance?.PlayBGM(sceneName);
     }
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)

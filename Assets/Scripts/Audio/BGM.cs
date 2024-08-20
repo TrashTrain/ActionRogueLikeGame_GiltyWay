@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BGM : MonoBehaviour
 {
@@ -30,8 +31,9 @@ public class BGM : MonoBehaviour
             {
                 BGMDB.Add(soundResource.key, soundResource.Clip);
             }
-            
-            PlayBGM("MainScene");
+
+            //PlayBGM("MainScene");
+            PlayBGM(SceneManager.GetActiveScene().name);
         }
 
         else

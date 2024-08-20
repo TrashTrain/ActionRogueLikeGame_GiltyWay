@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: NPCDialogIdle
   m_EditorClassIdentifier: 
   IdxNum: 1
-  nextIdx: 1
+  nextIdx: 2
   dialogElements:
-  - dialog: "\uB098\uD55C\uD14C 3\uD3EC\uC778\uD2B8\uB97C \uC8FC\uBA74 \uB0B4 \uB9C8\uBC95\uC73C\uB85C
+  - dialog: "\uB610 \uC654\uB124?"
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uC790 \uCE74\uB4DC \uD55C\uC7A5 \uACE8\uB77C\uBD10! \uB0B4 \uB9C8\uBC95\uC73C\uB85C
       \uC88B\uC740 \uD6A8\uACFC\uB97C \uC904\uAC8C!"
     selectYes: 1
     selectNo: 0

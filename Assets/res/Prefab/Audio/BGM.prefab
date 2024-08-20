@@ -159,6 +159,28 @@ MonoBehaviour:
   - key: b8
     Clip: {fileID: 8300000, guid: bef0cef2ded0f0645ad90c6e5bdd4965, type: 3}
   - key: BossSuperbia
-    Clip: {fileID: 8300000, guid: e5ca653d071394eed9167728e6b051f0, type: 3}
+    Clip: {fileID: 8300000, guid: 288c5290e755b0040b70db800fc53743, type: 3}
   - key: MainScene
     Clip: {fileID: 8300000, guid: e5c578428239b49ccb582ef6f08dd598, type: 3}
+  - key: Altar
+    Clip: {fileID: 8300000, guid: 4038c14d879e346ebad56946666a3a2a, type: 3}
+  - key: FirstSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: SecondSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: ThirdSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: FourthSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: FifthSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: SixthSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: EighthSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: NinethSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: TenthSuperbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}
+  - key: Ending Superbia
+    Clip: {fileID: 8300000, guid: 903ded00fae284f3591b2a99ff983f75, type: 3}

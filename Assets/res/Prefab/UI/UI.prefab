@@ -5001,6 +5001,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a72280f8731f2403ab5a72ce985ae30e, type: 2}
   - {fileID: 11400000, guid: 6f483e526949f432aad98dd7888e910d, type: 2}
   - {fileID: 11400000, guid: c5f00901f863375469084699e7e76a83, type: 2}
+  - {fileID: 11400000, guid: a70c42b1c8a21c04b91c6f1fa8ab3623, type: 2}
   talkText: {fileID: 3497447522291853514}
   selectCursor: {fileID: 1128767011591828313}
   selectPanel: {fileID: 4804347259905950380}

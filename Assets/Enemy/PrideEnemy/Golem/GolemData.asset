@@ -28,7 +28,7 @@ MonoBehaviour:
     attackSpeed: 4
     attackDamage: 5
   knockBackPower: 20
-  hp: 1
+  hp: 100
   moveSpeed: 10
   patrolDistance: 30
   moveDirection: {x: 1, y: 0}
