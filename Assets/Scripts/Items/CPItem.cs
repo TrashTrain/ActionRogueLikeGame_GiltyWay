@@ -5,16 +5,49 @@ using UnityEngine;
 public class CPItem : Item
 {
     public int CP = 2;
+    public float originalCP = 5f;
     public float plusCPTime = 5f;
 
+    private static bool isActive = false;
+    private static float remainingTime = 0f;
+    
+    public BuffItemController buffItemController;
+    public Sprite icon;
+
+    private PlayerController playerController;
+
+    public bool isEternal = false;
+    public float term = 5f;
+    
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            itemGetText.DisplayText("Striking Power Up!");
-            StartCoroutine(IncreaseCP(player));
+            playerController = other.gameObject.GetComponent<PlayerController>();
+            if (playerController == null)
+            {
+                Debug.LogError($"{this.gameObject.name} : playerController is null");
+                return;
+            }
+            
+            SoundManager.instance.PlaySound("Get_Item", transform);
+            // SFXManager.Instance.PlaySound(SFXManager.Instance.getItem);
 
+            //itemGetText.DisplayText("Attack Power Up!");
+            UIManager.instance.itemGetText.DisplayText("Attack Power Up!");
+            
+            if (isActive)
+            {
+                remainingTime = plusCPTime;
+            }
+            else
+            {
+                StartCoroutine(IncreaseCP(playerController));
+            }
+
+            UIManager.instance.buffItemController.AddBuff("ATK Up Item", playerController.atk, plusCPTime, icon);
+            //buffItemController.AddBuff("ATK Up Item", player.atk, plusCPTime, icon);
+            
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
         }
@@ -22,12 +55,40 @@ public class CPItem : Item
 
     IEnumerator IncreaseCP(PlayerController player)
     {
-        float playerAtk = player.atk;
-        player.atk += CP;
+        isActive = true;
+        remainingTime = plusCPTime;
+        
+        playerController.atk += CP;
 
-        yield return new WaitForSeconds(plusCPTime);
+        // 플레이어 프로필 공격력 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
+        
+        while (remainingTime > 0)
+        {
+            yield return null;
+            remainingTime -= Time.deltaTime;
+        }
+        
+        playerController.atk = originalCP;
+        isActive = false;
+        
+        // 플레이어 프로필 공격력 업데이트
+        UIManager.instance.playerInfo.UpdateProfileUI(player);
 
-        player.atk = playerAtk;
-        Destroy(gameObject);
+        if (!isEternal)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
+            yield return new WaitForSeconds(term);
+            
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+        }
+        
     }
 }

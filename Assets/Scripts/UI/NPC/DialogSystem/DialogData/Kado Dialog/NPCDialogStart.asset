@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c997a4305ab7bea479011b7b96529035, type: 3}
+  m_Name: NPCDialogStart
+  m_EditorClassIdentifier: 
+  IdxNum: 0
+  nextIdx: 1
+  dialogElements:
+  - dialog: "\uC548\uB155! \uB9C8\uC744\uC5D0\uC11C \uCC98\uC74C \uBCF4\uB294 \uC0AC\uB78C\uC774\uB124."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uB09C \uCE74\uB3C4\uC57C."
+    selectYes: -1
+    selectNo: 0
+  - dialog: "\uCE74\uB4DC \uD55C\uC7A5 \uACE8\uB77C\uBCFC\uB798? \uB0B4 \uB9C8\uBC95\uC73C\uB85C
+      \uC88B\uC740 \uD6A8\uACFC\uB97C \uC904\uAC8C!"
+    selectYes: 1
+    selectNo: 0
+  - dialog: "\uADF8\uB7FC \uB2E4\uC74C\uC5D0 \uBD10!"
+    selectYes: -1
+    selectNo: 0
